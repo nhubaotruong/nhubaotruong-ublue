@@ -11,7 +11,7 @@ base-image: ghcr.io/ublue-os/silverblue-main
 # builds with the tag (all uBlue images do this).
 fedora-version: 38
 # This description will be visible in the container metadata.
-description: A starting point for further customization of uBlue images. Make your own! https://ublue.it/making-your-own/
+description: nhubaotruong uBlue image.
 # These scripts will be executed during the container build.
 # Place scripts in the "scripts/" dir and put the corresponding filenames here.
 # Any files that aren't listed here won't be executed automatically, which
@@ -42,24 +42,23 @@ rpm:
   repos:
   # Example (which also demonstrates version number expansion):
   # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%FEDORA_VERSION%/atim-starship-fedora-%FEDORA_VERSION%.repo
-
+  - https://copr.fedorainfracloud.org/coprs/lukenukem/asus-linux/repo/fedora-%FEDORA_VERSION%/lukenukem-asus-linux-fedora-%FEDORA_VERSION%.repo
+  - https://download.docker.com/linux/fedora/docker-ce.repo
   # These RPMs will be installed from your enabled repositories (Fedora's own
   # repos, extra "repos" you've added, etc). The installation is automatically
   # performed via rpm-ostree during the image build, and will be pre-installed
   # at the "system level" in the final image.
   install:
-    # Needed for yafti (the first boot installer). Remove if you're not using yafti.
     - python3-pip
-    # GNOME's GTK4 theme, Libadwaita. Already included in Silverblue, but not
-    # other spins. You can remove if you aren't using yafti, but many native
-    # apps and binaries require it, so it's a good idea to always include it
-    # if you ever download or compile any custom software on your machine.
     - libadwaita
-    # Add your own below:
-    # Example:
-    # - tilix
-  # These RPMs will be removed from the system image. This step happens during
-  # image build, BEFORE installing custom RPMs (from the "rpm.install" category).
+    - tilix
+    - supergfxctl
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+    - docker-buildx-plugin
+    - docker-compose-plugin
+    - gnome-tweaks
   remove:
     # Remove the native firefox (from Fedora) in favor of the Flatpak.
     - firefox
