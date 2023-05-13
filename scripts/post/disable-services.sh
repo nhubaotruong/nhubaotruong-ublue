@@ -3,4 +3,4 @@
 set -oeux pipefail
 
 systemctl disable \
-    systemd-resolved
+    systemd-timesyncd
