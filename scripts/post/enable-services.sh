@@ -3,4 +3,3 @@
 set -oeux pipefail
 
 systemctl enable docker.socket
-
