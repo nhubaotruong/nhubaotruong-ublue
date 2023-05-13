@@ -75,6 +75,7 @@ rpm:
     - power-profiles-daemon
     - yelp
     - gnome-tour
+    - toolbox
 
 # Configuration for the "first boot" experience, which is available after login.
 firstboot:
