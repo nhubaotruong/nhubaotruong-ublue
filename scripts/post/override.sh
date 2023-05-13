@@ -2,4 +2,4 @@
 
 set -oeux pipefail
 
-rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:calcastor:gnome-patched mutter
+rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:calcastor:gnome-patched gnome-shell mutter
