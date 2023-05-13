@@ -62,10 +62,17 @@ rpm:
     - docker-compose-plugin
     - gnome-tweaks
     - file-roller
+    - tlp
+    - chrony
+    - lz4
+    - papirus-icon-theme
   remove:
     # Remove the native firefox (from Fedora) in favor of the Flatpak.
     - firefox
     - firefox-langpacks
+    - power-profiles-daemon
+    - yelp
+    - gnome-tour
 
 # Configuration for the "first boot" experience, which is available after login.
 firstboot:
