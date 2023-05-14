@@ -49,3 +49,5 @@ cp /tmp/FiraCode/*.ttf /usr/share/fonts/FiraCode/
 chown -R root: /usr/share/fonts/FiraCode
 chmod 644 /usr/share/fonts/FiraCode/*
 restorecon -vFr /usr/share/fonts/FiraCode
+
+fc-cache -f
