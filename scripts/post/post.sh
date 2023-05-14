@@ -4,15 +4,6 @@ set -oeux pipefail
 
 rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:calcastor:gnome-patched mutter
 
-# Install packages
-# Teamviewer
-curl -L https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm -o /tmp/teamviewer.x86_64.rpm
-rpm-ostree install /tmp/teamviewer.x86_64.rpm
-
-# Expressvpn
-curl -L "$(curl -L "https://www.expressvpn.com/latest#linux" | grep "Fedora 64-bit" | grep -m 1 -oP '(?<=value=")(.+)(?=")')" -o /tmp/expressvpn.rpm
-rpm-ostree install /tmp/expressvpn.rpm
-
 systemctl disable \
     systemd-timesyncd
 
