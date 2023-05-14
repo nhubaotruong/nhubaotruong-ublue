@@ -11,7 +11,8 @@ systemctl enable \
     docker.socket \
     tlp \
     supergfxd \
-    chronyd
+    chronyd \
+    tailscaled
 
 systemctl mask nvidia-powerd
 
