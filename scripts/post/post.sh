@@ -53,7 +53,9 @@ fc-cache -f
 
 # Install packages
 # Teamviewer
-rpm-ostree install https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
+curl -L https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm -o /tmp/teamviewer.x86_64.rpm
+rpm-ostree install /tmp/teamviewer.x86_64.rpm
 
 # Expressvpn
-rpm-ostree install "$(curl -L "https://www.expressvpn.com/latest#linux" | grep "Fedora 64-bit" | grep -m 1 -oP '(?<=value=")(.+)(?=")')"
+curl -L "$(curl -L "https://www.expressvpn.com/latest#linux" | grep "Fedora 64-bit" | grep -m 1 -oP '(?<=value=")(.+)(?=")')" -o /tmp/expressvpn.rpm
+rpm-ostree install /tmp/expressvpn.rpm
