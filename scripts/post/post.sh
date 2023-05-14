@@ -50,3 +50,10 @@ chmod 644 /usr/share/fonts/FiraCode/*
 restorecon -vFr /usr/share/fonts/FiraCode
 
 fc-cache -f
+
+# Install packages
+# Teamviewer
+rpm-ostree install https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
+
+# Expressvpn
+rpm-ostree install "$(curl -L "https://www.expressvpn.com/latest#linux" | grep "Fedora 64-bit" | grep -m 1 -oP '(?<=value=")(.+)(?=")')"
