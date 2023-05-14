@@ -72,7 +72,6 @@ rpm:
     - ibus-bamboo
     - tailscale
     - JamesDSP
-    - teamviewer
     - /tmp/expressvpn.rpm
   remove:
     # Remove the native firefox (from Fedora) in favor of the Flatpak.
