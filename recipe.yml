@@ -75,6 +75,7 @@ rpm:
     - /tmp/expressvpn.rpm
     - dconf-editor
     - gnome-screenshot
+    - breeze-cursor-theme
   remove:
     # Remove the native firefox (from Fedora) in favor of the Flatpak.
     - firefox
