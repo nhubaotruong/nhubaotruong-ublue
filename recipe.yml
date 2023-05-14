@@ -76,6 +76,8 @@ rpm:
     - yelp
     - gnome-tour
     - toolbox
+    - gnome-software
+    - gnome-software-rpm-ostree
 
 # Configuration for the "first boot" experience, which is available after login.
 firstboot:
