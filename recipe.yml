@@ -46,6 +46,7 @@ rpm:
     - https://copr.fedorainfracloud.org/coprs/calcastor/gnome-patched/repo/fedora-%FEDORA_VERSION%/calcastor-gnome-patched-fedora-%FEDORA_VERSION%.repo
     - https://copr.fedorainfracloud.org/coprs/nickavem/adw-gtk3/repo/fedora-%FEDORA_VERSION%/nickavem-adw-gtk3-fedora-%FEDORA_VERSION%.repo
     - https://download.opensuse.org/repositories/home:lamlng/Fedora_%FEDORA_VERSION%/home:lamlng.repo
+    - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
   # These RPMs will be installed from your enabled repositories (Fedora's own
   # repos, extra "repos" you've added, etc). The installation is automatically
   # performed via rpm-ostree during the image build, and will be pre-installed
@@ -68,6 +69,7 @@ rpm:
     - lz4
     - papirus-icon-theme
     - ibus-bamboo
+    - tailscale
   remove:
     # Remove the native firefox (from Fedora) in favor of the Flatpak.
     - firefox
