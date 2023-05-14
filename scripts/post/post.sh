@@ -44,7 +44,7 @@ nerd_fonts_version="$(curl -Ls https://github.com/ryanoasis/nerd-fonts/releases/
 
 for font in "${nerd_fonts[@]}"; do
     curl -Ls "https://github.com/ryanoasis/nerd-fonts/releases/download/$nerd_fonts_version/$font.tar.xz" -o "/tmp/$font.tar.xz"
-    tar -xf "/tmp/$font.tar.xz" -C /usr/share/fonts/ --one-top-level
+    tar -xvf "/tmp/$font.tar.xz" -C /usr/share/fonts/ --one-top-level
     chown -R root: "/usr/share/fonts/$font"
     chmod 644 "/usr/share/fonts/$font"/*
     restorecon -vFr "/usr/share/fonts/$font"
