@@ -34,18 +34,16 @@ chmod 644 /usr/share/fonts/joypixels/*
 restorecon -vFr /usr/share/fonts/joypixels
 
 # Nerd Fonts
-curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Meslo.zip -o /tmp/Meslo.zip
-unzip /tmp/Meslo.zip -d /tmp/Meslo
+curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/Meslo.zip -o /tmp/Meslo.zip
 mkdir -p /usr/share/fonts/Meslo
-cp /tmp/Meslo/*.ttf /usr/share/fonts/Meslo/
+unzip /tmp/Meslo.zip -d /usr/share/fonts/Meslo
 chown -R root: /usr/share/fonts/Meslo
 chmod 644 /usr/share/fonts/Meslo/*
 restorecon -vFr /usr/share/fonts/Meslo
 
-curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/FiraCode.zip -o /tmp/FiraCode.zip
-unzip /tmp/FiraCode.zip -d /tmp/FiraCode
+curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/FiraCode.zip -o /tmp/FiraCode.zip
 mkdir -p /usr/share/fonts/FiraCode
-cp /tmp/FiraCode/*.ttf /usr/share/fonts/FiraCode/
+unzip /tmp/FiraCode.zip -d /usr/share/fonts/FiraCode
 chown -R root: /usr/share/fonts/FiraCode
 chmod 644 /usr/share/fonts/FiraCode/*
 restorecon -vFr /usr/share/fonts/FiraCode
