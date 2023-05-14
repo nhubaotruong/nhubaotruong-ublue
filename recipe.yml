@@ -121,3 +121,4 @@ firstboot:
     - org.jdownloader.JDownloader
     - org.qbittorrent.qBittorrent
     - org.telegram.desktop
+    - com.visualstudio.code
