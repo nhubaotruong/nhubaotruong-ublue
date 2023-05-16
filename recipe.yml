@@ -44,7 +44,6 @@ rpm:
     # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%FEDORA_VERSION%/atim-starship-fedora-%FEDORA_VERSION%.repo
     - https://download.docker.com/linux/fedora/docker-ce.repo
     - https://copr.fedorainfracloud.org/coprs/calcastor/gnome-patched/repo/fedora-%FEDORA_VERSION%/calcastor-gnome-patched-fedora-%FEDORA_VERSION%.repo
-    - https://copr.fedorainfracloud.org/coprs/nickavem/adw-gtk3/repo/fedora-%FEDORA_VERSION%/nickavem-adw-gtk3-fedora-%FEDORA_VERSION%.repo
     - https://download.opensuse.org/repositories/home:lamlng/Fedora_%FEDORA_VERSION%/home:lamlng.repo
     - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     - https://copr.fedorainfracloud.org/coprs/arrobbins/JDSP4Linux/repo/fedora-%FEDORA_VERSION%/arrobbins-JDSP4Linux-fedora-%FEDORA_VERSION%.repo
@@ -55,7 +54,6 @@ rpm:
   install:
     - python3-pip
     - libadwaita
-    - adw-gtk3
     - tilix
     - tilix-nautilus
     - docker-ce
