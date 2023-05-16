@@ -47,6 +47,7 @@ rpm:
     - https://download.opensuse.org/repositories/home:lamlng/Fedora_%FEDORA_VERSION%/home:lamlng.repo
     - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     - https://copr.fedorainfracloud.org/coprs/arrobbins/JDSP4Linux/repo/fedora-%FEDORA_VERSION%/arrobbins-JDSP4Linux-fedora-%FEDORA_VERSION%.repo
+    - https://copr.fedorainfracloud.org/coprs/atim/nohang/repo/fedora-%FEDORA_VERSION%/atim-nohang-fedora-%FEDORA_VERSION%.repo
   # These RPMs will be installed from your enabled repositories (Fedora's own
   # repos, extra "repos" you've added, etc). The installation is automatically
   # performed via rpm-ostree during the image build, and will be pre-installed
