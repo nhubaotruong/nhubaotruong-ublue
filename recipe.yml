@@ -54,7 +54,6 @@ rpm:
   install:
     - python3-pip
     - libadwaita
-    - adw-gtk3
     - tilix
     - tilix-nautilus
     - docker-ce
