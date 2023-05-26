@@ -71,6 +71,7 @@ rpm:
     - tailscale
     - JamesDSP
     - /tmp/expressvpn.rpm
+    - /tmp/teamviewer.rpm
     - dconf-editor
     - gnome-screenshot
     - breeze-cursor-theme
