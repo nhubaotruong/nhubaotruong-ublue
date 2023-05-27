@@ -86,7 +86,6 @@ rpm:
     - p7zip
     - p7zip-plugins
     - unrar
-    - teamviewer
   remove:
     # Remove the native firefox (from Fedora) in favor of the Flatpak.
     - firefox
