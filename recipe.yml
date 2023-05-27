@@ -87,6 +87,10 @@ rpm:
     - p7zip-plugins
     - unrar
     - ffmpegthumbnailer
+    - kernel-devel
+    - dkms
+    - make
+    - qt5-qtbase-gui
   remove:
     # Remove the native firefox (from Fedora) in favor of the Flatpak.
     - firefox

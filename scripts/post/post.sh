@@ -57,3 +57,13 @@ curl -L "$(curl -L https://www.genymotion.com/download/ | grep 'dl.genymotion.co
 chmod +x /tmp/genymotion.bin
 /tmp/genymotion.bin -d /usr/share -y
 ln -sf /usr/share/genymotion/genymotion /usr/bin/genymotion
+
+# acpi_ec
+git clone https://github.com/musikid/acpi_ec.git /tmp/acpi_ec
+sh -c 'cd /tmp/acpi_ec && ./install.sh'
+
+# MControlCenter
+mcontrol_version="$(curl -L https://github.com/dmitry-s93/MControlCenter/releases/latest | grep '<h1' | grep -m 1 -oP '(?<=>)(.+)(?=</h1>)' | grep -m 1 -oP '[\d.]+')"
+curl -L "https://github.com/dmitry-s93/MControlCenter/releases/download/$mcontrol_version/MControlCenter-$mcontrol_version-bin.tar.gz" -o /tmp/mcontrolcenter.tar.gz
+tar -xvf /tmp/mcontrolcenter.tar.gz -C /tmp
+sh -c "cd /tmp/MControlCenter-$mcontrol_version-bin && ./install.sh"
