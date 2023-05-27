@@ -76,6 +76,18 @@ rpm:
     - breeze-cursor-theme
     - i2c-tools
     - ddcutil
+    - code
+    - qemu
+    - qemu-user-static
+    - qemu-user-binfmt
+    - virt-manager
+    - libvirt
+    - edk2-ovmf
+    - powertop
+    - p7zip
+    - p7zip-plugins
+    - unrar
+    - kubectl
   remove:
     # Remove the native firefox (from Fedora) in favor of the Flatpak.
     - firefox
@@ -131,4 +143,3 @@ firstboot:
     - org.jdownloader.JDownloader
     - org.qbittorrent.qBittorrent
     - org.telegram.desktop
-    - com.visualstudio.code
