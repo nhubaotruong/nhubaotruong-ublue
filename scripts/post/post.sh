@@ -59,8 +59,8 @@ chmod +x /tmp/genymotion.bin
 ln -sf /usr/share/genymotion/genymotion /usr/bin/genymotion
 
 # acpi_ec
-git clone https://github.com/musikid/acpi_ec.git /tmp/acpi_ec
-sh -c 'cd /tmp/acpi_ec && ./install.sh'
+# git clone https://github.com/musikid/acpi_ec.git /tmp/acpi_ec
+# sh -c 'cd /tmp/acpi_ec && ./install.sh'
 
 # MControlCenter
 mcontrol_version="$(curl -L https://github.com/dmitry-s93/MControlCenter/releases/latest | grep '<h1' | grep -m 1 -oP '(?<=>)(.+)(?=</h1>)' | grep -m 1 -oP '[\d.]+')"
