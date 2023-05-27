@@ -12,8 +12,7 @@ systemctl enable \
     tlp \
     supergfxd \
     chronyd \
-    tailscaled \
-    dconf-update
+    tailscaled
 
 systemctl mask nvidia-powerd
 
