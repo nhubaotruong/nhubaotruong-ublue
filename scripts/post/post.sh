@@ -12,7 +12,8 @@ systemctl enable \
     tlp \
     supergfxd \
     chronyd \
-    tailscaled
+    tailscaled \
+    dconf-update
 
 systemctl mask nvidia-powerd
 
@@ -51,3 +52,7 @@ for font in "${nerd_fonts[@]}"; do
 done
 
 fc-cache -f
+
+curl -L "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip"
+unzip /tmp/awscliv2.zip
+/tmp/aws/install -i /usr/share/aws-cli -b /usr/bin
