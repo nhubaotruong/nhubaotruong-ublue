@@ -55,4 +55,5 @@ fc-cache -f
 # Genymotion
 curl -L "$(curl -L https://www.genymotion.com/download/ | grep 'dl.genymotion.com' | grep linux | grep -oP -m 1 'https.+\.bin')" -o /tmp/genymotion.bin
 chmod +x /tmp/genymotion.bin
-/tmp/genymotion.bin -d /usr/share/genymotion -y
+/tmp/genymotion.bin -d /usr/share -y
+ln -sf /usr/share/genymotion/genymotion /usr/bin/genymotion
