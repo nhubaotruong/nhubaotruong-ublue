@@ -56,5 +56,3 @@ fc-cache -f
 curl -L "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip"
 unzip /tmp/awscliv2.zip
 /tmp/aws/install -i /usr/share/aws-cli -b /usr/bin
-
-rm -rf /usr/etc/yum.repos.d/
