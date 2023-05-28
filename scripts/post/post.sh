@@ -63,7 +63,7 @@ git clone https://github.com/musikid/acpi_ec.git /tmp/acpi_ec
 cd /tmp/acpi_ec
 MODULE_NAME=acpi_ec
 VERSION=$(git describe --tags --abbrev=0)
-MOD_SRC_DIR="/tmp/acpi_ec/src/"
+MOD_SRC_DIR="/tmp/acpi_ec"
 kernels_version=$(ls /usr/src/kernels/)
 sed -i "s/PACKAGE_VERSION=.*/PACKAGE_VERSION=\"$VERSION\"/" "$MOD_SRC_DIR/dkms.conf"
 for kernel_version in $kernels_version; do
@@ -72,6 +72,7 @@ for kernel_version in $kernels_version; do
     dkms install -m "$MODULE_NAME" -v "$VERSION" -k "$kernel_version"
 done
 
+cd /
 
 # MControlCenter
 mcontrol_version="$(curl -L https://github.com/dmitry-s93/MControlCenter/releases/latest | grep '<h1' | grep -m 1 -oP '(?<=>)(.+)(?=</h1>)' | grep -m 1 -oP '[\d.]+')"
