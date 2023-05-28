@@ -63,8 +63,13 @@ git clone https://github.com/musikid/acpi_ec.git /tmp/acpi_ec
 cd /tmp/acpi_ec
 MODULE_NAME=acpi_ec
 VERSION=$(git describe --tags --abbrev=0)
-MOD_SRC_DIR="/tmp/acpi_ec"
+MOD_SRC_DIR="/usr/src/$MODULE_NAME-$VERSION"
 kernels_version=$(ls /usr/src/kernels/)
+if [[ ! -d "$MOD_SRC_DIR" ]]; then
+    mkdir -p "$MOD_SRC_DIR"
+    cp -R "$PWD/src/" "$MOD_SRC_DIR/src"
+  fi
+cp dkms.conf "$MOD_SRC_DIR/dkms.conf"
 sed -i "s/PACKAGE_VERSION=.*/PACKAGE_VERSION=\"$VERSION\"/" "$MOD_SRC_DIR/dkms.conf"
 for kernel_version in $kernels_version; do
     dkms add -m "$MODULE_NAME" -v "$VERSION" -k "$kernel_version"
