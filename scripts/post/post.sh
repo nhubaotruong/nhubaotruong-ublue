@@ -40,7 +40,7 @@ nerd_fonts=(
     "Meslo"
     "FiraCode"
 )
-nerd_fonts_version="$(curl -L https://github.com/ryanoasis/nerd-fonts/releases/latest | grep '<h1' | grep -m 1 -oP '(?<=>)(.+)(?=</h1>)')"
+nerd_fonts_version="$(curl -Ls https://github.com/ryanoasis/nerd-fonts/releases/latest | grep -m 1 -oP '(?<=<h1 data-view-component="true" class="d-inline mr-3">)(.+)(?=</h1>)')"
 
 for font in "${nerd_fonts[@]}"; do
     curl -L "https://github.com/ryanoasis/nerd-fonts/releases/download/$nerd_fonts_version/$font.tar.xz" -o "/tmp/$font.tar.xz"
