@@ -12,7 +12,7 @@ font_names=(
 RELEASE=$(curl -Ls "https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest")
 
 for font in "${font_names[@]}"; do
-    url=$(echo "$RELEASE" | yq -r --unbuffered ".assets[] | select(.name == \"$font.tar.xz\") | .browser_download_url")
+    url=$(echo "$RELEASE" | yq ".assets[] | select(.name == \"$font.tar.xz\") | .url")
     curl -L "$url" -o "/tmp/$font.tar.xz"
     tar -xvf "/tmp/$font.tar.xz" -C /usr/share/fonts/ --one-top-level
     chown -R root: "/usr/share/fonts/$font"
