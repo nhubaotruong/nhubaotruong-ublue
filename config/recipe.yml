@@ -43,8 +43,6 @@ modules:
       - i2c-tools
       - ddcutil
       - qemu
-      - qemu-user-static
-      - qemu-user-binfmt
       - virt-manager
       - libvirt
       - edk2-ovmf
