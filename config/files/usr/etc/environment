@@ -1,0 +1,16 @@
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+EDITOR=nvim
+MOZ_ENABLE_WAYLAND=1
+MOZ_DBUS_REMOTE=1
+MOZ_USE_XINPUT2=1
+DOCKER_BUILDKIT=1
+GTK_IM_MODULE=ibus
+QT_IM_MODULE=ibus
+XMODIFIERS=@im=ibus
+GAMEMODERUNEXEC="env __NV_PRIME_RENDER_OFFLOAD=1 env __GLX_VENDOR_LIBRARY_NAME=nvidia env __VK_LAYER_NV_optimus=NVIDIA_only"
+SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
+#FREETYPE_PROPERTIES="cff:no-stem-darkening=0 autofitter:no-stem-darkening=0"
