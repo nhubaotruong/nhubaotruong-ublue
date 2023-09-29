@@ -42,7 +42,6 @@ modules:
       - breeze-cursor-theme
       - i2c-tools
       - ddcutil
-      - qemu
       - virt-manager
       - libvirt
       - edk2-ovmf
