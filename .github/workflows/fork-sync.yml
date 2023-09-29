@@ -1,0 +1,27 @@
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # every day at 3am
+  workflow_dispatch: # on button click
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Sync template branch
+        uses: tgymnich/fork-sync@v1
+        with:
+          base: template
+          head: template
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Merge upstream changes"
+          title: "Merge upstream changes"
+          body: "This PR merges the latest changes from the upstream repository."
+          branch: "template"
+          base: "live"
