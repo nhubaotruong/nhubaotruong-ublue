@@ -6,6 +6,7 @@ set -oue pipefail
 font_names=(
     "Meslo"
     "FiraCode"
+    "CascadiaCode"
 )
 
 font_version="$(curl -Ls https://github.com/ryanoasis/nerd-fonts/releases/latest | grep -m 1 -oP '(?<=<h1 data-view-component="true" class="d-inline mr-3">)(.+)(?=</h1>)')"
