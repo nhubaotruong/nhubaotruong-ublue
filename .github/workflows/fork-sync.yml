@@ -13,6 +13,8 @@ jobs:
       - name: Sync template branch
         uses: tgymnich/fork-sync@v1
         with:
+          owner: ublue-os
+          repo: startingpoint
           base: template
           head: template
 
