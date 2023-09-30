@@ -56,6 +56,9 @@ modules:
       - zram-generator
       - google-noto-sans-*-vf-fonts
       - google-noto-serif-*-vf-fonts
+      - libadwaita-devel
+      - glib2-devel
+      - pygobject3-devel
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
