@@ -1,0 +1,21 @@
+# This is the yaml configuration file for dnsproxy with minimal working
+# configuration, all the options available can be seen with ./dnsproxy --help.
+# To use it within dnsproxy specify the --config-path=/<path-to-config.yaml>
+# option.  Any other command-line options specified will override the values
+# from the config file.
+---
+bootstrap:
+  - "9.9.9.9:53"
+  - "149.112.112.112:53"
+listen-addrs:
+  - "127.0.0.1"
+listen-ports:
+  - 53
+max-go-routines: 0
+ratelimit: 0
+udp-buf-size: 0
+upstream:
+  - "https://qs8u7xrxcr.cloudflare-gateway.com/dns-query"
+timeout: "10s"
+cache: true
+cache-optimistic: true
