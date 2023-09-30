@@ -91,4 +91,5 @@ modules:
       - replace-packages.sh
       - nerd-fonts.sh
       - microsoft-fonts.sh
+      - dnsproxy.sh
       - start-services.sh
