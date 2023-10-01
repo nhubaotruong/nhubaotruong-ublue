@@ -4,3 +4,5 @@
 set -oue pipefail
 
 rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:trixieua:mutter-patched mutter mutter-common xorg-x11-server-Xwayland
+
+rpm-ostree install /tmp/rpms/*v4l2loopback*.rpm
