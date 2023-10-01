@@ -60,6 +60,7 @@ modules:
       - libadwaita-devel
       - glib2-devel
       - pygobject3-devel
+      - /tmp/rpms/kmods/*.rpm
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
