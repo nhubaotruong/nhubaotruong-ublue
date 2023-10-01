@@ -12,7 +12,7 @@
 ARG IMAGE_MAJOR_VERSION=38
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
 
-FROM ghcr.io/ublue-os/akmods:${IMAGE_MAJOR_VERSION} as akmods
+FROM ghcr.io/ublue-os/akmods:main-${IMAGE_MAJOR_VERSION} as akmods
 
 FROM ${BASE_IMAGE_URL}:${IMAGE_MAJOR_VERSION}
 
