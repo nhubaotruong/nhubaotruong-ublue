@@ -46,7 +46,7 @@ COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
 # singed akmods from ublue repo
 COPY --from=akmods /rpms/ /tmp/rpms
-RUN rpm-ostree install /tmp/rpms/ublue-os/*.rpm
+# RUN rpm-ostree install /tmp/rpms/ublue-os/*.rpm
 RUN rpm-ostree install /tmp/rpms/kmods/*.rpm
 
 # Run the build script, then clean up temp files and finalize container build.
