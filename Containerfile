@@ -42,6 +42,11 @@ COPY modules /tmp/modules/
 # It is copied from the official container image since it's not available as an RPM.
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
+# singed akmods from ublue repo
+COPY --from=ghcr.io/ublue-os/akmods:${IMAGE_MAJOR_VERSION} /rpms/ /tmp/rpms
+RUN rpm-ostree install /tmp/rpms/ublue-os/*.rpm
+RUN rpm-ostree install /tmp/rpms/kmods/*.rpm
+
 # Run the build script, then clean up temp files and finalize container build.
 RUN chmod +x /tmp/build.sh && /tmp/build.sh && \
     rm -rf /tmp/* /var/* && ostree container commit
