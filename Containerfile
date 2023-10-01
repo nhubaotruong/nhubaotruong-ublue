@@ -8,6 +8,8 @@
 # in the cloud. The ARGs have default values, but changing those
 # does nothing if the image is built in the cloud.
 
+FROM ghcr.io/ublue-os/akmods:${IMAGE_MAJOR_VERSION} as akmods
+
 # !! Warning: changing these might not do anything for you. Read comment above.
 ARG IMAGE_MAJOR_VERSION=38
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
@@ -43,7 +45,6 @@ COPY modules /tmp/modules/
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
 # singed akmods from ublue repo
-FROM ghcr.io/ublue-os/akmods:${IMAGE_MAJOR_VERSION} as akmods
 COPY --from=akmods /rpms/ /tmp/rpms
 RUN rpm-ostree install /tmp/rpms/ublue-os/*.rpm
 RUN rpm-ostree install /tmp/rpms/kmods/*.rpm
