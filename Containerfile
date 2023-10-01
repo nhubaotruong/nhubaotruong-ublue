@@ -43,7 +43,8 @@ COPY modules /tmp/modules/
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
 # singed akmods from ublue repo
-COPY --from=ghcr.io/ublue-os/akmods:${IMAGE_MAJOR_VERSION} /rpms/ /tmp/rpms
+FROM ghcr.io/ublue-os/akmods:${IMAGE_MAJOR_VERSION} as akmods
+COPY --from=akmods /rpms/ /tmp/rpms
 RUN rpm-ostree install /tmp/rpms/ublue-os/*.rpm
 RUN rpm-ostree install /tmp/rpms/kmods/*.rpm
 
