@@ -12,8 +12,6 @@
 ARG IMAGE_MAJOR_VERSION=38
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
 
-FROM ghcr.io/ublue-os/akmods:main-${IMAGE_MAJOR_VERSION} as akmods
-
 FROM ${BASE_IMAGE_URL}:${IMAGE_MAJOR_VERSION}
 
 # The default recipe is set to the recipe's default filename
@@ -43,11 +41,6 @@ COPY modules /tmp/modules/
 # `yq` is used for parsing the yaml configuration
 # It is copied from the official container image since it's not available as an RPM.
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
-
-# singed akmods from ublue repo
-COPY --from=akmods /rpms/ /tmp/rpms
-# RUN rpm-ostree install /tmp/rpms/ublue-os/*.rpm
-RUN rpm-ostree install /tmp/rpms/kmods/*v4l2loopback*.rpm
 
 # Run the build script, then clean up temp files and finalize container build.
 RUN chmod +x /tmp/build.sh && /tmp/build.sh && \
