@@ -116,12 +116,8 @@ modules:
       # this sets up the proper policy & signing files for signed images to work
       - signing.sh
       - rpm-ostree.sh
-      # - nerd-fonts.sh
       - microsoft-fonts.sh
       - dnsproxy.sh
-      # - expressvpn.sh
-      - teamviewer.sh
-      # - start-services.sh
 
   - type: systemd
     system:
