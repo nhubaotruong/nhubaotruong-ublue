@@ -5,4 +5,4 @@ download_url=$(curl -L https://www.expressvpn.com/vn/latest\#linux | grep 'Fedor
 
 curl -L -o /tmp/expressvpn.rpm "$download_url"
 
-sudo rpm-ostree install /tmp/expressvpn.rpm
+rpm-ostree install /tmp/expressvpn.rpm
