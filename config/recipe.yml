@@ -104,6 +104,6 @@ modules:
       - nerd-fonts.sh
       - microsoft-fonts.sh
       - dnsproxy.sh
-      - expressvpn.sh
+      # - expressvpn.sh
       - teamviewer.sh
       - start-services.sh
