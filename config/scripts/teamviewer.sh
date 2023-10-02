@@ -5,4 +5,4 @@ curl -L https://download.teamviewer.com/download/linux/teamviewer_amd64.tar.xz -
 
 tar -xvf /tmp/teamviewer.rpm -C /tmp
 
-sh /tmp/teamviewer/tv-setup install force
+/tmp/teamviewer/tv-setup install force
