@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -oue pipefail
 
+<<<<<<< HEAD
 # On libostree systems, /opt is a symlink to /var/opt,
 # which actually only exists on the live system. /var is
 # a separate mutable, stateful FS that's overlaid onto
@@ -33,3 +34,10 @@ install -D -m0644 /usr/lib/teamviewer/tv_bin/script/teamviewerd.service /usr/lib
 cat <<EOF >/usr/lib/tmpfiles.d/teamviewer.conf
 L  /opt/teamviewer  -  -  -  -  /usr/lib/teamviewer
 EOF
+=======
+curl -L https://download.teamviewer.com/download/linux/teamviewer_amd64.tar.xz -o /tmp/teamviewer.rpm
+
+tar -xvf /tmp/teamviewer.rpm -C /tmp
+
+sh /tmp/teamviewer/tv-setup install force
+>>>>>>> 5450a68 (Install teamviewer post)
