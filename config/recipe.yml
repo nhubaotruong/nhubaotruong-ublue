@@ -70,6 +70,8 @@ modules:
       - dejavu-serif-fonts
       - lsd
       - expressvpn
+      - minizip
+      - qt5-qtquickcontrols
       - teamviewer
     remove:
       - firefox # default firefox removed in favor of flatpak
