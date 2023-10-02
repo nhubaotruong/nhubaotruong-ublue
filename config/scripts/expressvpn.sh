@@ -11,8 +11,12 @@ curl -L "$download_url" -o /tmp/expressvpn.rpm
 
 curl -L "$gpg_url" -o /tmp/expressvpn.rpm.asc
 
-gpg --homedir /tmp/.gngpg --keyserver hkp://keyserver.ubuntu.com --recv-keys AFF2A1415F6A3A38
+export GNUPGHOME=/tmp/
 
-gpg --homedir /tmp/.gngpg --verify /tmp/expressvpn.rpm.asc
+(gpg --quick-generate-key "User Name" rsa2048)
+
+gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys AFF2A1415F6A3A38
+
+gpg --verify /tmp/expressvpn.rpm.asc
 
 rpm-ostree install /tmp/expressvpn.rpm
