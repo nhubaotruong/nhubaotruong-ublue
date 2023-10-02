@@ -67,7 +67,6 @@ modules:
       - firewall-applet
       - dejavu-serif-fonts
       - lsd
-      - https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -78,6 +77,7 @@ modules:
       - gnome-software
       - gnome-software-rpm-ostree
       - zram-generator-defaults
+      - gnome-classic-session
 
   - type: bling # configure what to pull in from ublue-os/bling
     install:
@@ -105,4 +105,5 @@ modules:
       - microsoft-fonts.sh
       - dnsproxy.sh
       - expressvpn.sh
+      - teamviewer.sh
       - start-services.sh
