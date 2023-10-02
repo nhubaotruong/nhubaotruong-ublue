@@ -66,6 +66,7 @@ modules:
       - libgda-sqlite
       - firewall-applet
       - dejavu-serif-fonts
+      - lsd
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
