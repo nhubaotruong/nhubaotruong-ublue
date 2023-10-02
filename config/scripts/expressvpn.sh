@@ -13,7 +13,7 @@ curl -L "$gpg_url" -o /tmp/expressvpn.rpm.asc
 
 export GNUPGHOME=/tmp/.gnupg
 
-(gpg --no-tty --quick-generate-key "User Name" rsa2048)
+gpg --no-tty &
 
 gpg --no-tty --keyserver hkp://keyserver.ubuntu.com --recv-keys AFF2A1415F6A3A38
 
