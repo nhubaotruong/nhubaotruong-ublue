@@ -83,6 +83,7 @@ modules:
       - zram-generator-defaults
       - gnome-classic-session
       - gnome-terminal
+      - gnome-terminal-nautilus
 
   - type: bling # configure what to pull in from ublue-os/bling
     install:
