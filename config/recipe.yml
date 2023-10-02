@@ -67,6 +67,7 @@ modules:
       - firewall-applet
       - dejavu-serif-fonts
       - lsd
+      - teamviewer
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -105,5 +106,5 @@ modules:
       - microsoft-fonts.sh
       - dnsproxy.sh
       # - expressvpn.sh
-      - teamviewer.sh
+      # - teamviewer.sh
       - start-services.sh
