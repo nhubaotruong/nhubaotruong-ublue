@@ -1,6 +1,6 @@
 [teamviewer]
 name=TeamViewer - x86_64
-baseurl=https://linux.teamviewer.com/yum/stable/main/binary-x86_64/
+baseurl=https://linux.teamviewer.com/yum/stable/main/binary-$basearch/
 gpgkey=https://linux.teamviewer.com/pubkey/currentkey.asc
 gpgcheck=1
 repo_gpgcheck=1
