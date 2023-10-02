@@ -11,7 +11,7 @@ curl -L "$download_url" -o /tmp/expressvpn.rpm
 
 curl -L "$gpg_url" -o /tmp/expressvpn.rpm.asc
 
-mkdir /root/.gnupg
+(gpg --quick-generate-key "User Name" rsa2048)
 
 gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 0xAFF2A1415F6A3A38
 
