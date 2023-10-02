@@ -99,6 +99,7 @@ modules:
         - FiraCode
         - Meslo
         - CascadiaCode
+      google-fonts:
 
   # - type: yafti # if included, yafti and it's dependencies (pip & libadwaita) will be installed and set up
   #   custom-flatpaks:
@@ -126,3 +127,7 @@ modules:
         - tailscaled.service
         - dnsproxy.service
         - fstrim.timer
+      disabled:
+    user:
+      enabled:
+      disabled:
