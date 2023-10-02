@@ -67,6 +67,7 @@ modules:
       - firewall-applet
       - dejavu-serif-fonts
       - lsd
+      - https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -103,4 +104,5 @@ modules:
       - nerd-fonts.sh
       - microsoft-fonts.sh
       - dnsproxy.sh
+      - expressvpn.sh
       - start-services.sh
