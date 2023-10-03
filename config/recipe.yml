@@ -119,7 +119,7 @@ modules:
       - rpm-ostree.sh
       - microsoft-fonts.sh
       - dnsproxy.sh
-      - clear-font-cache.sh
+      - teamviewer.sh
 
   - type: systemd
     system:
