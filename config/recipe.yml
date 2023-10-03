@@ -66,6 +66,7 @@ modules:
       - libgda
       - libgda-sqlite
       - firewall-applet
+      - dejavu-sans-fonts
       - dejavu-serif-fonts
       - lsd
       - expressvpn
