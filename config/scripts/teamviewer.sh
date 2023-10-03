@@ -23,3 +23,7 @@ find "$dir" -type l | while read -r symlink; do
 done
 
 cp -r /tmp/teamviewer/usr/* /usr/
+
+install -D -m0644 /usr/lib/teamviewer/tv_bin/script/teamviewerd.service /usr/lib/systemd/system/teamviewerd.service
+
+sed -i 's/\/opt/\/usr\/lib/g' /usr/lib/systemd/system/teamviewerd.service
