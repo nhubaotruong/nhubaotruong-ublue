@@ -7,9 +7,7 @@ mkdir -p /tmp/teamviewer
 
 rpm2cpio /tmp/teamviewer.rpm | cpio -idmv -D /tmp/teamviewer
 
-mv /tmp/teamviewer/opt/teamviewer /usr/lib
-
-dir="/tmp/teamviewer/usr"
+dir="/tmp/teamviewer"
 old_path="/opt/teamviewer"
 new_path="/usr/lib/teamviewer"
 
@@ -26,6 +24,8 @@ done
 find "$dir" -type f -name "*.desktop" -o -name "*.service" | while read -r file; do
     sed -i 's/\/opt/\/usr\/lib/g' "$file"
 done
+
+mv /tmp/teamviewer/opt/teamviewer /usr/lib
 
 cp -r /tmp/teamviewer/usr/* /usr/
 
