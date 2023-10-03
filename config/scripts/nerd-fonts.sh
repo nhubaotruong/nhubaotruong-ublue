@@ -19,9 +19,6 @@ for font in "${font_names[@]}"; do
     url=$(echo "$RELEASE" | yq ".assets[] | select(.name == \"$font.tar.xz\") | .url")
     curl -L "$url" -H 'Accept: application/octet-stream' -o "/tmp/$font.tar.xz"
     tar -xvf "/tmp/$font.tar.xz" -C $BASE_DIR --one-top-level
-    # chown -R root: "/usr/share/fonts/$font"
-    # chmod 644 "/usr/share/fonts/$font"/*
-    # restorecon -vFr "/usr/share/fonts/$font"
 done
 
-fc-cache -f $BASE_DIR
+fc-cache -f
