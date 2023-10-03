@@ -9,7 +9,7 @@ rpm2cpio /tmp/teamviewer.rpm | cpio -idmv -D /tmp/teamviewer
 
 mv /tmp/teamviewer/opt/teamviewer /usr/lib
 
-dir="/tmp/teamviewer/usr" # replace with your directory path
+dir="/tmp/teamviewer/usr"
 old_path="/opt/teamviewer"
 new_path="/usr/lib/teamviewer"
 
@@ -22,8 +22,11 @@ find "$dir" -type l | while read -r symlink; do
     fi
 done
 
+# find .desktop and .service files and fix them
+find "$dir" -type f -name "*.desktop" -o -name "*.service" | while read -r file; do
+    sed -i 's/\/opt/\/usr\/lib/g' "$file"
+done
+
 cp -r /tmp/teamviewer/usr/* /usr/
 
 install -D -m0644 /usr/lib/teamviewer/tv_bin/script/teamviewerd.service /usr/lib/systemd/system/teamviewerd.service
-
-sed -i 's/\/opt/\/usr\/lib/g' /usr/lib/systemd/system/teamviewerd.service
