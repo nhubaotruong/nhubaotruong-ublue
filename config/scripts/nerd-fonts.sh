@@ -3,25 +3,27 @@
 # Tell build process to exit if there are any errors.
 set -oue pipefail
 
-font_names=(
-    "Meslo"
-    "FiraCode"
-    "CascadiaCode"
-)
+find /usr/share/fonts/nerd-fonts -mindepth 1 -maxdepth 1 -type d -exec ln -s {} /usr/share/fonts \;
 
-RELEASE=$(curl -Ls "https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest")
+# font_names=(
+#     "Meslo"
+#     "FiraCode"
+#     "CascadiaCode"
+# )
 
-BASE_DIR="/usr/share/fonts/nerd-fonts"
+# RELEASE=$(curl -Ls "https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest")
 
-mkdir -p $BASE_DIR
+# BASE_DIR="/usr/share/fonts/nerd-fonts"
 
-for font in "${font_names[@]}"; do
-    url=$(echo "$RELEASE" | yq ".assets[] | select(.name == \"$font.tar.xz\") | .url")
-    curl -L "$url" -H 'Accept: application/octet-stream' -o "/tmp/$font.tar.xz"
-    tar -xvf "/tmp/$font.tar.xz" -C $BASE_DIR --one-top-level
-    # chown -R root: "/usr/share/fonts/$font"
-    # chmod 644 "/usr/share/fonts/$font"/*
-    # restorecon -vFr "/usr/share/fonts/$font"
-done
+# mkdir -p $BASE_DIR
 
-fc-cache -f $BASE_DIR
+# for font in "${font_names[@]}"; do
+#     url=$(echo "$RELEASE" | yq ".assets[] | select(.name == \"$font.tar.xz\") | .url")
+#     curl -L "$url" -H 'Accept: application/octet-stream' -o "/tmp/$font.tar.xz"
+#     tar -xvf "/tmp/$font.tar.xz" -C $BASE_DIR --one-top-level
+#     # chown -R root: "/usr/share/fonts/$font"
+#     # chmod 644 "/usr/share/fonts/$font"/*
+#     # restorecon -vFr "/usr/share/fonts/$font"
+# done
+
+# fc-cache -f $BASE_DIR

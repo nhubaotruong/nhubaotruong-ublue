@@ -98,14 +98,14 @@ modules:
       # - dconf-update-service # a service unit that updates the dconf db on boot
       # - devpod # https://devpod.sh/ as an rpm
 
-  # - type: fonts
-  #   fonts:
-  #     nerd-fonts:
-  #       - FiraCode
-  #       - Meslo
-  #       - CascadiaCode
-  #     google-fonts:
-  #       - Roboto
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - FiraCode
+        - Meslo
+        - CascadiaCode
+      google-fonts:
+        - Roboto
 
   # - type: yafti # if included, yafti and it's dependencies (pip & libadwaita) will be installed and set up
   #   custom-flatpaks:
