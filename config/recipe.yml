@@ -65,7 +65,7 @@ modules:
       - igt-gpu-tools
       - libgda
       - libgda-sqlite
-      - firewall-applet
+      - firewall-config
       - dejavu-sans-fonts
       - dejavu-serif-fonts
       - lsd
