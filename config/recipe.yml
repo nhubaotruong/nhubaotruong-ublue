@@ -69,7 +69,8 @@ modules:
       - dejavu-serif-fonts
       - lsd
       - expressvpn
-      - minizip
+      - minizip-compat
+      - minizip-ng
       - qt5-qtquickcontrols
     remove:
       - firefox # default firefox removed in favor of flatpak
@@ -118,6 +119,7 @@ modules:
       - rpm-ostree.sh
       - microsoft-fonts.sh
       - dnsproxy.sh
+      - clear-font-cache.sh
 
   - type: systemd
     system:
