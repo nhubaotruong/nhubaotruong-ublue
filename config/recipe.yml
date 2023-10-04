@@ -73,6 +73,14 @@ modules:
       - minizip-compat
       - minizip-ng
       - qt5-qtquickcontrols
+      - gnome-shell-extension-appindicator
+      - gnome-shell-extension-gsconnect
+      - gnome-shell-extension-user-theme
+      - gnome-shell-extension-dash-to-dock
+      - gnome-shell-extension-drive-menu
+      - gnome-shell-extension-no-overview
+      - gnome-shell-extension-just-perfection
+      - gnome-shell-extension-caffeine
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
