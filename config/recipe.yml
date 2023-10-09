@@ -26,8 +26,8 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ublue-os/distrobox-git/repo/fedora-%OS_VERSION%/ublue-os-distrobox-git-fedora-%OS_VERSION%.repo
-      # - https://copr.fedorainfracloud.org/coprs/kylegospo/hl2linux-selinux/repo/fedora-%OS_VERSION%/kylegospo-hl2linux-selinux-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/kylegospo/hl2linux-selinux/repo/fedora-%OS_VERSION%/kylegospo-hl2linux-selinux-fedora-%OS_VERSION%.repo
+      # - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_Rawhide/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://raw.githubusercontent.com/nhubaotruong/nhubaotruong-ublue/live/config/repos/expressvpn.repo
@@ -77,8 +77,8 @@ modules:
       - minizip-ng
       - qt5-qtquickcontrols
       - distrobox-git
-      - system76-scheduler
-      # - hl2linux-selinux
+      # - system76-scheduler
+      - hl2linux-selinux
       - gnome-shell-extension-appindicator
       - gnome-shell-extension-gsconnect
       - gnome-shell-extension-user-theme
@@ -148,7 +148,7 @@ modules:
         - tailscaled.service
         - dnsproxy.service
         - fstrim.timer
-        - com.system76.Scheduler.service
+        # - com.system76.Scheduler.service
       disabled:
         - raid-check.timer
     user:
