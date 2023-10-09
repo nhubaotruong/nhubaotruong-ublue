@@ -81,6 +81,7 @@ modules:
       - gnome-shell-extension-no-overview
       - gnome-shell-extension-just-perfection
       - gnome-shell-extension-caffeine
+      - gnome-shell-extension-supergfxctl-gex
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
