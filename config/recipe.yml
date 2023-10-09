@@ -91,6 +91,7 @@ modules:
       - yelp
       - gnome-tour
       - toolbox
+      - distrobox
       - gnome-software
       - gnome-software-rpm-ostree
       - zram-generator-defaults
