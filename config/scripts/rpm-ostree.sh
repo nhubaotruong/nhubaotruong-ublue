@@ -4,4 +4,4 @@
 set -oue pipefail
 
 rm /etc/yum.repos.d/expressvpn.repo
-rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:trixieua:mutter-patched gnome-shell mutter mutter-common
+rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:trixieua:mutter-patched mutter mutter-common
