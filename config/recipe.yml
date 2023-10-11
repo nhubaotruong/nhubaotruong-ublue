@@ -126,6 +126,7 @@ modules:
       - microsoft-fonts.sh
       # - dnsproxy.sh
       - teamviewer.sh
+      - nanorc.sh
 
   - type: bling # configure what to pull in from ublue-os/bling
     install:
