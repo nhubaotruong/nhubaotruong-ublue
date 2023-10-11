@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: actions-template-sync
-        uses: AndreasAugustin/actions-template-sync@v1.1.3
+        uses: AndreasAugustin/actions-template-sync@v1.1.8
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           source_repo_path: ublue-os/startingpoint
