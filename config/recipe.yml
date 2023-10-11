@@ -124,7 +124,7 @@ modules:
       # - nerd-fonts.sh
       - rpm-ostree.sh
       - microsoft-fonts.sh
-      - dnsproxy.sh
+      # - dnsproxy.sh
       - teamviewer.sh
 
   - type: bling # configure what to pull in from ublue-os/bling
@@ -144,7 +144,7 @@ modules:
         - tlp.service
         - supergfxd.service
         - tailscaled.service
-        - dnsproxy.service
+        # - dnsproxy.service
         - fstrim.timer
         - com.system76.Scheduler.service
       disabled:
