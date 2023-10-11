@@ -78,9 +78,8 @@ modules:
       - python3-psutil
       - libnotify
       - libadwaita-devel
-      - glib2-devel
+      # - glib2-devel
       - pygobject3-devel
-      - gettext
       - gnome-shell-extension-appindicator
       - gnome-shell-extension-gsconnect
       - gnome-shell-extension-user-theme
