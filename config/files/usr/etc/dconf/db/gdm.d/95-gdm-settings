@@ -75,3 +75,6 @@ banner-message-enable=false
 banner-message-text=''
 disable-restart-buttons=false
 disable-user-list=false
+
+[org/gnome/mutter]
+experimental-features=[]
