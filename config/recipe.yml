@@ -58,8 +58,6 @@ modules:
       - unrar
       - ffmpegthumbnailer
       - zram-generator
-      - google-noto-sans-*-vf-fonts
-      - google-noto-serif-*-vf-fonts
       - zsh
       - igt-gpu-tools
       - libgda
