@@ -150,6 +150,7 @@ modules:
       # - gnome-vrr.sh
       - microsoft-fonts.sh
       # - dnsproxy.sh
+      - thorium-browser.sh
       - teamviewer.sh
       - expressvpn.sh
       - mdatp.sh
