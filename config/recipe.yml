@@ -125,6 +125,7 @@ modules:
       - rpm-ostree.sh
       - microsoft-fonts.sh
       # - dnsproxy.sh
+      - thorium-browser.sh
       - teamviewer.sh
       - nanorc.sh
 
