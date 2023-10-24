@@ -128,7 +128,6 @@ modules:
       # - dnsproxy.sh
       - teamviewer.sh
       - nanorc.sh
-      - systemd.sh
 
   - type: bling # configure what to pull in from ublue-os/bling
     install:
