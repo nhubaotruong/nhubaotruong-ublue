@@ -78,7 +78,11 @@ modules:
       - libadwaita-devel
       - pygobject3-devel
       - liberation-fonts
+      - ufraw
       - gnome-network-displays
+      - gnome-directory-thumbnailer
+      - gnome-epub-thumbnailer
+      - gnome-kra-ora-thumbnailer
       - gnome-shell-extension-appindicator
       - gnome-shell-extension-gsconnect
       - gnome-shell-extension-user-theme
