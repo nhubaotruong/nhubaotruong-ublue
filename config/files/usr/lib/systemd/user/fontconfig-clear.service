@@ -6,4 +6,4 @@ Type=oneshot
 ExecStart=/bin/bash -c 'rm -rf ~/.cache/fontconfig && fc-cache -r'
 
 [Install]
-WantedBy=graphical-session.target
+WantedBy=default.target
