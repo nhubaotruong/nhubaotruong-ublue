@@ -1,5 +1,6 @@
 [Unit]
 Description=Clear Fontconfig Cache
+After=start-distrobox.service
 
 [Service]
 Type=oneshot
