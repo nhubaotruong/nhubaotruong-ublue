@@ -1,10 +1,9 @@
 [Unit]
 Description=Start all distrobox when user logs in
-After=fontconfig-clear.service
 
 [Service]
 Type=oneshot
-ExecStart=/bin/bash -c "container_list=\$(podman ps -a --no-trunc --format \"{{.Names}}|{{.Mounts}}\"); IFS=$'\n'; for container in \${container_list}; do if [ -z \"\${container##*distrobox*}\" ]; then container_name=\"\$(printf \"%s\" \"\${container}\" | cut -d'|' -f1)\"; distrobox enter -n \"\$container_name\" -- echo; fi; done"
+ExecStart=/usr/share/custom-scripts/start-distrobox.sh
 
 [Install]
 WantedBy=default.target
