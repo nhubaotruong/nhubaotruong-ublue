@@ -76,7 +76,6 @@ modules:
       - pygobject3-devel
       - liberation-fonts
       - ufraw
-      - gnome-network-displays
       - gnome-directory-thumbnailer
       - gnome-epub-thumbnailer
       - gnome-kra-ora-thumbnailer
