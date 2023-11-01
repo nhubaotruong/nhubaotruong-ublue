@@ -155,5 +155,4 @@ modules:
         - raid-check.timer
     user:
       enabled:
-        - fontconfig-clear.service
       disabled:
