@@ -29,9 +29,6 @@ COPY cosign.pub /usr/share/ublue-os/cosign.pub
 COPY --from=ghcr.io/ublue-os/bling:latest /rpms /tmp/bling/rpms
 COPY --from=ghcr.io/ublue-os/bling:latest /files /tmp/bling/files
 
-# Akmods
-COPY --from=akmods-rpms /rpms /tmp/akmods-rpms    
-
 # Copy build scripts & configuration
 COPY build.sh /tmp/build.sh
 COPY config /tmp/config/
@@ -45,6 +42,17 @@ COPY modules /tmp/modules/
 # `yq` is used for parsing the yaml configuration
 # It is copied from the official container image since it's not available as an RPM.
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
+
+
+# Akmods
+COPY --from=akmods-rpms /rpms /tmp/akmods-rpms
+RUN rpm-ostree install \
+    /tmp/akmods-rpms/kmods/kmod-v4l2loopback*.rpm \
+    /tmp/akmods-rpms/kmods/kmod-winesync*.rpm \
+    /tmp/akmods-rpms/kmods/kmod-xone*.rpm \
+    /tmp/akmods-rpms/kmods/kmod-xpad-noone*.rpm \
+    /tmp/akmods-rpms/kmods/kmod-xpadneo*.rpm \
+    /tmp/akmods-rpms/kmods/kmod-openrazer*.rpm
 
 # Gnome mutter triple buffer patch
 RUN curl -L https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-${IMAGE_MAJOR_VERSION}/trixieua-mutter-patched-fedora-${IMAGE_MAJOR_VERSION}.repo -o /etc/yum.repos.d/trixieua-mutter-patched-fedora-${IMAGE_MAJOR_VERSION}.repo && \
