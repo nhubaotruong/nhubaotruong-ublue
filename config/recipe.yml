@@ -90,6 +90,12 @@ modules:
       - gnome-shell-extension-caffeine
       - gnome-shell-extension-supergfxctl-gex
       - gnome-shell-extension-system76-scheduler
+      - /tmp/akmods-rpms/kmods/kmod-v4l2loopback*.rpm \
+      - /tmp/akmods-rpms/kmods/kmod-winesync*.rpm \
+      - /tmp/akmods-rpms/kmods/kmod-xone*.rpm \
+      - /tmp/akmods-rpms/kmods/kmod-xpad-noone*.rpm \
+      - /tmp/akmods-rpms/kmods/kmod-xpadneo*.rpm \
+      - /tmp/akmods-rpms/kmods/kmod-openrazer*.rpm
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems

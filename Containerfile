@@ -12,6 +12,8 @@
 ARG IMAGE_MAJOR_VERSION=38
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
 
+FROM ghcr.io/ublue-os/akmods:main-${IMAGE_MAJOR_VERSION} as akmods-rpms
+
 FROM ${BASE_IMAGE_URL}:${IMAGE_MAJOR_VERSION}
 
 # The default recipe is set to the recipe's default filename
@@ -28,13 +30,7 @@ COPY --from=ghcr.io/ublue-os/bling:latest /rpms /tmp/bling/rpms
 COPY --from=ghcr.io/ublue-os/bling:latest /files /tmp/bling/files
 
 # Akmods
-COPY --from=ghcr.io/ublue-os/akmods:main-${IMAGE_MAJOR_VERSION} /rpms /tmp/akmods-rpms
-RUN rpm-ostree install /tmp/akmods-rpms/kmods/kmod-v4l2loopback*.rpm \
-    /tmp/akmods-rpms/kmods/kmod-winesync*.rpm \
-    /tmp/akmods-rpms/kmods/kmod-xone*.rpm \
-    /tmp/akmods-rpms/kmods/kmod-xpad-noone*.rpm \
-    /tmp/akmods-rpms/kmods/kmod-xpadneo*.rpm \
-    /tmp/akmods-rpms/kmods/kmod-openrazer*.rpm
+COPY --from=akmods-rpms /rpms /tmp/akmods-rpms    
 
 # Copy build scripts & configuration
 COPY build.sh /tmp/build.sh
