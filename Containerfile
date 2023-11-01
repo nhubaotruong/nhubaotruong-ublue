@@ -42,12 +42,8 @@ COPY modules /tmp/modules/
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
 # Gnome mutter triple buffer patch
-RUN curl -L https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-$(rpm -E %fedora)/trixieua-mutter-patched-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d && \
+RUN curl -L https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-${IMAGE_MAJOR_VERSION}/trixieua-mutter-patched-fedora-${IMAGE_MAJOR_VERSION}.repo -o /etc/yum.repos.d/trixieua-mutter-patched-fedora-${IMAGE_MAJOR_VERSION}.repo && \
     rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:trixieua:mutter-patched mutter mutter-common
-
-# Cachyos kernel
-RUN curl -L https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/repo/fedora-$(rpm -E %fedora)/bieszczaders-kernel-cachyos-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d && \
-    rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-cachyos-bore-eevdf
 
 # Expressvpn
 RUN RELEASE=$(curl -L https://www.expressvpn.com/vn/latest\#linux | grep 'Fedora 64') && \
