@@ -27,6 +27,16 @@ COPY cosign.pub /usr/share/ublue-os/cosign.pub
 COPY --from=ghcr.io/ublue-os/bling:latest /rpms /tmp/bling/rpms
 COPY --from=ghcr.io/ublue-os/bling:latest /files /tmp/bling/files
 
+# Akmods
+COPY --from=ghcr.io/ublue-os/akmods:main-${IMAGE_MAJOR_VERSION} /rpms/ /tmp/rpms
+RUN rpm-ostree install /tmp/rpms/ublue-os/ublue-os-akmods*.rpm
+RUN rpm-ostree install /tmp/rpms/kmods/kmod-v4l2loopback*.rpm \
+    /tmp/rpms/kmods/kmod-winesync*.rpm \
+    /tmp/rpms/kmods/kmod-xone*.rpm \
+    /tmp/rpms/kmods/kmod-xpad-noone*.rpm \
+    /tmp/rpms/kmods/kmod-xpadneo*.rpm \
+    /tmp/rpms/kmods/kmod-openrazer*.rpm
+
 # Copy build scripts & configuration
 COPY build.sh /tmp/build.sh
 COPY config /tmp/config/
