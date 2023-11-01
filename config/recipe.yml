@@ -208,6 +208,6 @@ modules:
         - raid-check.timer
     user:
       enabled:
-        - fontconfig-clear.service
-        - start-distrobox.service
+        # - fontconfig-clear.service
+        # - start-distrobox.service
       disabled:
