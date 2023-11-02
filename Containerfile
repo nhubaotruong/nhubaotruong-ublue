@@ -59,7 +59,7 @@ RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 
 # Gnome mutter triple buffer patch
 RUN curl -L https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-${IMAGE_MAJOR_VERSION}/trixieua-mutter-patched-fedora-${IMAGE_MAJOR_VERSION}.repo -o /etc/yum.repos.d/trixieua-mutter-patched-fedora-${IMAGE_MAJOR_VERSION}.repo && \
-    rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:trixieua:mutter-patched mutter mutter-common
+    rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:trixieua:mutter-patched mutter mutter-common gnome-shell
 
 # Expressvpn
 RUN RELEASE=$(curl -L https://www.expressvpn.com/vn/latest\#linux | grep 'Fedora 64') && \
