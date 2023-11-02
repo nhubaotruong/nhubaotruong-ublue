@@ -70,5 +70,5 @@ RUN RELEASE=$(curl -L https://www.expressvpn.com/vn/latest\#linux | grep 'Fedora
 
 # Run the build script, then clean up temp files and finalize container build.
 RUN chmod +x /tmp/build.sh && /tmp/build.sh && \
-    rm -rf /usr/lib/fontconfig/cache && fc-cache -r && \
+    rm -rf /usr/lib/fontconfig/cache && fc-cache -Ers && \
     rm -rf /tmp/* /var/* && ostree container commit
