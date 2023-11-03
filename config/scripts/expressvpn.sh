@@ -1,22 +1,18 @@
 #!/usr/bin/env bash
 set -oue pipefail
 
-RELEASE=$(curl -L https://www.expressvpn.com/vn/latest\#linux | grep 'Fedora 64')
+# Setup repo
+cat <<EOF >/etc/yum.repos.d/expressvpn.repo
+[expressvpn]
+name=Expressvpn
+baseurl=https://repo.expressvpn.com/public/rpm/any-distro/any-version/\$basearch
+gpgkey=https://www.expressvpn.com/expressvpn_release_public_key_0xAFF2A1415F6A3A38.asc
+gpgcheck=1
+repo_gpgcheck=1
+enabled=1
+type=rpm-md
+EOF
 
-download_url=$(echo "$RELEASE" | grep -m 1 -oP '(?<=value=")(.+)(?=")')
+rpm --import https://www.expressvpn.com/expressvpn_release_public_key_0xAFF2A1415F6A3A38.asc
 
-gpg_url=$(echo "$RELEASE" | grep -m 1 -oP '(?<=data-signature-uri=")(.+.asc)(?=")')
-
-curl -L "$download_url" -o /tmp/expressvpn.rpm
-
-curl -L "$gpg_url" -o /tmp/expressvpn.rpm.asc
-
-export GNUPGHOME=/tmp/.gnupg
-
-gpg --no-tty &
-
-gpg --no-tty --keyserver hkp://keyserver.ubuntu.com --recv-keys AFF2A1415F6A3A38
-
-gpg --no-tty --verify /tmp/expressvpn.rpm.asc
-
-rpm-ostree install /tmp/expressvpn.rpm
+rpm-ostree install expressvpn
