@@ -128,7 +128,7 @@ modules:
       # this sets up the proper policy & signing files for signed images to work
       - signing.sh
       # - nerd-fonts.sh
-      # - rpm-ostree.sh
+      - mutter-triple-patch.sh
       - microsoft-fonts.sh
       # - dnsproxy.sh
       - teamviewer.sh

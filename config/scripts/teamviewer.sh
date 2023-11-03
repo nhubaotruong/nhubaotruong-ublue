@@ -9,6 +9,7 @@ set -oue pipefail
 # symbolic link /opt/1Password => /usr/lib/1Password upon
 # boot.
 mkdir -p /var/opt
+mkdir -p /var/lock
 
 cat <<EOF >/etc/yum.repos.d/teamviewer.repo
 [teamviewer]

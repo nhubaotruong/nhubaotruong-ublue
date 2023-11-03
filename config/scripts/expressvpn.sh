@@ -7,8 +7,8 @@ cat <<EOF >/etc/yum.repos.d/expressvpn.repo
 name=Expressvpn
 baseurl=https://repo.expressvpn.com/public/rpm/any-distro/any-version/\$basearch
 gpgkey=https://www.expressvpn.com/expressvpn_release_public_key_0xAFF2A1415F6A3A38.asc
-gpgcheck=1
-repo_gpgcheck=1
+gpgcheck=0
+repo_gpgcheck=0
 enabled=1
 type=rpm-md
 EOF
@@ -16,3 +16,5 @@ EOF
 rpm --import https://www.expressvpn.com/expressvpn_release_public_key_0xAFF2A1415F6A3A38.asc
 
 rpm-ostree install expressvpn
+
+rm -f /etc/yum.repos.d/expressvpn.repo
