@@ -54,6 +54,10 @@ modules:
       - p7zip
       - p7zip-plugins
       - unrar
+      - bsdcat
+      - bsdcpio
+      - bsdtar
+      - bsdunzip
       - ffmpegthumbnailer
       - zram-generator
       - zsh
