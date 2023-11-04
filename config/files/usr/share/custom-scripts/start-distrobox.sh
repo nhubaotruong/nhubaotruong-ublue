@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 container_list=$(podman ps -a --no-trunc --format "{{.Names}}|{{.Mounts}}")
 IFS='
 '
