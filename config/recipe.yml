@@ -35,7 +35,7 @@ modules:
       - tilix-nautilus
       - gnome-tweaks
       - file-roller
-      # - tlp
+      - tlp
       - lz4
       - xz
       - zstd
@@ -96,7 +96,7 @@ modules:
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
-      # - power-profiles-daemon
+      - power-profiles-daemon
       - yelp
       - gnome-tour
       - toolbox
@@ -149,7 +149,7 @@ modules:
   - type: systemd
     system:
       enabled:
-        # - tlp.service
+        - tlp.service
         - supergfxd.service
         - tailscaled.service
         # - dnsproxy.service
