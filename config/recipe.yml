@@ -76,8 +76,8 @@ modules:
       - hl2linux-selinux
       - python3-psutil
       - libnotify
-      - libadwaita-devel
-      - pygobject3-devel
+      # - libadwaita-devel
+      # - pygobject3-devel
       - liberation-fonts
       - ufraw
       - gnome-directory-thumbnailer
