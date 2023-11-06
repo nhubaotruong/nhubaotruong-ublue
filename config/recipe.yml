@@ -88,7 +88,7 @@ modules:
       - gnome-shell-extension-user-theme
       - gnome-shell-extension-dash-to-dock
       - gnome-shell-extension-drive-menu
-      - gnome-shell-extension-no-overview
+      # - gnome-shell-extension-no-overview
       - gnome-shell-extension-just-perfection
       - gnome-shell-extension-caffeine
       - gnome-shell-extension-supergfxctl-gex
