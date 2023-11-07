@@ -10,3 +10,20 @@ curl -sSLf "$url" -H 'Accept: application/octet-stream' -o | tar -x -C /tmp/ --o
 install -Dm755 /tmp/dnsproxy/linux-amd64/dnsproxy /usr/bin/dnsproxy
 install -Dm644 /tmp/dnsproxy/linux-amd64/LICENSE /usr/share/license/dnsproxy/LICENSE
 install -Dm644 /tmp/dnsproxy/linux-amd64/README.md /usr/share/doc/dnsproxy/README.md
+
+cat <<EOF >/usr/lib/systemd/system/dnsproxy.service
+[Unit]
+Description=Simple DNS proxy with DoH, DoT, and DNSCrypt support
+Documentation=https://github.com/AdguardTeam/dnsproxy#readme
+After=network.target
+Before=network-online.target
+
+[Service]
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+DynamicUser=yes
+ExecStart=/usr/bin/dnsproxy --config-path=/etc/dnsproxy/dnsproxy.yaml
+
+[Install]
+WantedBy=multi-user.target
+EOF
