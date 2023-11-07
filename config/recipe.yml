@@ -76,6 +76,7 @@ modules:
       - hl2linux-selinux
       - python3-psutil
       - libnotify
+      - binutils
       # - libadwaita-devel
       # - pygobject3-devel
       - liberation-fonts
