@@ -134,6 +134,7 @@ modules:
       # - dnsproxy.sh
       - teamviewer.sh
       - expressvpn.sh
+      - mdatp.sh
       - nanorc.sh
 
   - type: bling # configure what to pull in from ublue-os/bling
