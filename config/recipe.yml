@@ -131,7 +131,7 @@ modules:
       # - nerd-fonts.sh
       - mutter-triple-patch.sh
       - microsoft-fonts.sh
-      # - dnsproxy.sh
+      - dnsproxy.sh
       - teamviewer.sh
       - expressvpn.sh
       - mdatp.sh
@@ -155,7 +155,7 @@ modules:
         - tlp.service
         - supergfxd.service
         - tailscaled.service
-        # - dnsproxy.service
+        - dnsproxy.service
         - fstrim.timer
         - com.system76.Scheduler.service
       disabled:
