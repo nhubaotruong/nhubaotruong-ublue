@@ -40,5 +40,4 @@ ExecStart=
 ExecStart=/usr/lib/microsoft/mdatp/sbin/wdavdaemon
 EOF
 
-systemctl daemon-reload
 systemctl enable mdatp.service
