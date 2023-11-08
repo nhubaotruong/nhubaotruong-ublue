@@ -46,4 +46,4 @@ Options=lowerdir=/usr/lib/microsoft,upperdir=/var/opt/microsoft,workdir=/var/mic
 WantedBy=multi-user.target
 EOF
 
-systemctl enable mdatp.service
+systemctl enable mdatp.service var-opt-microsoft.mount
