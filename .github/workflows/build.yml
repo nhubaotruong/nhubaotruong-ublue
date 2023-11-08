@@ -6,7 +6,7 @@
 name: build-ublue
 on: # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
   schedule:
-    - cron: "0 16 * * *" # 16:00 UTC everyday (30 min delay after 'nvidia' builds)
+    - cron: "0 4,16 * * *" # 4:00 and 16:00 UTC everyday (30 min delay after 'nvidia' builds)
   push:
     branches:
       - live
