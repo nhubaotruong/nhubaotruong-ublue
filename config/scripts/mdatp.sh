@@ -32,7 +32,7 @@ cat <<EOF >/usr/lib/sysusers.d/mdatp-user.conf
 u mdatp - "Mdatp user" /opt/microsoft/mdatp /usr/sbin/nologin
 EOF
 
-cat <<EOF >/usr/lib/systemd/system/microsoft.mount
+cat <<EOF >/usr/lib/systemd/system/var-opt-microsoft.mount
 [Unit]
 Description=Overlay Mount combining /usr/lib/microsoft and /var/opt/microsoft
 
