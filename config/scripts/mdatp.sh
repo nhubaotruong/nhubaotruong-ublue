@@ -19,11 +19,12 @@ rpm-ostree install mdatp
 
 mv /var/opt/microsoft /usr/lib/microsoft
 
+ln -sf /usr/lib/microsoft/mdatp/sbin/wdavdaemonclient /usr/bin/mdatp
+
 cat <<EOF >/usr/lib/tmpfiles.d/microsoft.conf
 d /var/opt/microsoft 0755 root root -
 d /var/log/microsoft 0755 root root -
 d /etc/opt/microsoft/mdatp 0755 root root -
-L+ /usr/lib/microsoft/mdatp/sbin/wdavdaemonclient -  -  -  -  /usr/bin/mdatp
 EOF
 
 cat <<EOF >/usr/lib/sysusers.d/mdatp-user.conf
@@ -35,7 +36,9 @@ cat <<EOF >/usr/lib/systemd/system/mdatp.service.d/override.conf
 [Service]
 WorkingDirectory=/usr/lib/microsoft/mdatp/sbin
 Environment=LD_LIBRARY_PATH=/usr/lib/microsoft/mdatp/lib/
+ExecStart=
 ExecStart=/usr/lib/microsoft/mdatp/sbin/wdavdaemon
 EOF
 
+systemctl daemon-reload
 systemctl enable mdatp.service
