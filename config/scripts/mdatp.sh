@@ -19,7 +19,7 @@ rpm-ostree install mdatp
 
 mv /var/opt/microsoft /usr/lib/microsoft
 
-ln -sf /usr/lib/microsoft/mdatp/sbin/wdavdaemonclient /usr/bin/mdatp
+# ln -sf /usr/lib/microsoft/mdatp/sbin/wdavdaemonclient /usr/bin/mdatp
 
 cat <<EOF >/usr/lib/tmpfiles.d/microsoft.conf
 d /var/opt/microsoft 0755 root root -
@@ -31,13 +31,21 @@ cat <<EOF >/usr/lib/sysusers.d/mdatp-user.conf
 u mdatp - "Mdatp user" /opt/microsoft/mdatp /usr/sbin/nologin
 EOF
 
-mkdir -p /usr/lib/systemd/system/mdatp.service.d
-cat <<EOF >/usr/lib/systemd/system/mdatp.service.d/override.conf
-[Service]
-WorkingDirectory=/usr/lib/microsoft/mdatp/sbin
-Environment=LD_LIBRARY_PATH=/usr/lib/microsoft/mdatp/lib/
-ExecStart=
-ExecStart=/usr/lib/microsoft/mdatp/sbin/wdavdaemon
+cat <<EOF >/usr/lib/systemd/system/opt-microsoft.mount
+[Mount]
+What=/usr/lib/microsoft
+Where=/opt/microsoft
+Type=none
+Options=bind
 EOF
 
-systemctl enable mdatp.service
+# mkdir -p /usr/lib/systemd/system/mdatp.service.d
+# cat <<EOF >/usr/lib/systemd/system/mdatp.service.d/override.conf
+# [Service]
+# WorkingDirectory=/usr/lib/microsoft/mdatp/sbin
+# Environment=LD_LIBRARY_PATH=/usr/lib/microsoft/mdatp/lib/
+# ExecStart=
+# ExecStart=/usr/lib/microsoft/mdatp/sbin/wdavdaemon
+# EOF
+
+systemctl enable mdatp.service opt-microsoft.mount
