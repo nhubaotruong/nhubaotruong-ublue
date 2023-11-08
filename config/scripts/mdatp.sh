@@ -26,3 +26,5 @@ EOF
 cat <<EOF >/usr/lib/sysusers.d/mdatp-user.conf
 u mdatp - "Mdatp user" /usr/lib/microsoft/mdatp /usr/sbin/nologin
 EOF
+
+systemctl enable mdatp.service

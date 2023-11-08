@@ -27,3 +27,5 @@ ExecStart=/usr/bin/dnsproxy --config-path=/etc/dnsproxy/dnsproxy.yaml
 [Install]
 WantedBy=multi-user.target
 EOF
+
+systemctl enable dnsproxy.service
