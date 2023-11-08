@@ -157,6 +157,7 @@ modules:
         - tailscaled.service
         - dnsproxy.service
         - fstrim.timer
+        - mdatp.service
         - com.system76.Scheduler.service
       disabled:
         - raid-check.timer

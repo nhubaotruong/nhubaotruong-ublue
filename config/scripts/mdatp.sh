@@ -22,3 +22,7 @@ mv /var/opt/microsoft /usr/lib/microsoft
 cat <<EOF >/usr/lib/tmpfiles.d/microsoft.conf
 L  /opt/microsoft  -  -  -  -  /usr/lib/microsoft
 EOF
+
+cat <<EOF >/usr/lib/sysusers.d/mdatp-user.conf
+u mdatp - "Mdatp user" /opt/microsoft/mdatp /usr/sbin/nologin
+EOF
