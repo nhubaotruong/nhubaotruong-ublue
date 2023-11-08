@@ -23,6 +23,7 @@ mv /var/opt/microsoft /usr/lib/microsoft
 
 cat <<EOF >/usr/lib/tmpfiles.d/microsoft.conf
 d /var/opt/microsoft 0755 root root -
+d /var/microsoft-workdir 0755 root root -
 d /var/log/microsoft 0755 root root -
 d /etc/opt/microsoft/mdatp 0755 root root -
 EOF
@@ -31,21 +32,18 @@ cat <<EOF >/usr/lib/sysusers.d/mdatp-user.conf
 u mdatp - "Mdatp user" /opt/microsoft/mdatp /usr/sbin/nologin
 EOF
 
-cat <<EOF >/usr/lib/systemd/system/opt-microsoft.mount
+cat <<EOF >/usr/lib/systemd/system/microsoft.mount
+[Unit]
+Description=Overlay Mount combining /usr/lib/microsoft and /var/opt/microsoft
+
 [Mount]
-What=/usr/lib/microsoft
-Where=/opt/microsoft
-Type=none
-Options=bind
+What=overlay
+Where=/var/opt/microsoft
+Type=overlay
+Options=lowerdir=/usr/lib/microsoft,upperdir=/var/opt/microsoft,workdir=/var/microsoft-workdir
+
+[Install]
+WantedBy=multi-user.target
 EOF
 
-# mkdir -p /usr/lib/systemd/system/mdatp.service.d
-# cat <<EOF >/usr/lib/systemd/system/mdatp.service.d/override.conf
-# [Service]
-# WorkingDirectory=/usr/lib/microsoft/mdatp/sbin
-# Environment=LD_LIBRARY_PATH=/usr/lib/microsoft/mdatp/lib/
-# ExecStart=
-# ExecStart=/usr/lib/microsoft/mdatp/sbin/wdavdaemon
-# EOF
-
-systemctl enable mdatp.service opt-microsoft.mount
+systemctl enable mdatp.service
