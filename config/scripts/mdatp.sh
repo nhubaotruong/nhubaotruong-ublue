@@ -29,7 +29,7 @@ d /etc/opt/microsoft/mdatp 0755 root root -
 EOF
 
 cat <<EOF >/usr/lib/sysusers.d/mdatp-user.conf
-u mdatp - "Mdatp user" /opt/microsoft/mdatp /usr/sbin/nologin
+u mdatp - "Mdatp user" /usr/lib/microsoft/mdatp /usr/sbin/nologin
 EOF
 
 mkdir -p /usr/lib/systemd/system/mdatp.service.d
