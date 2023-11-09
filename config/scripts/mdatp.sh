@@ -15,6 +15,7 @@ curl -sSLf "https://packages.microsoft.com/config/fedora/$(rpm -E %fedora)/prod.
 
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
+rpm-ostree cliwrap install-to-root /
 rpm-ostree install mdatp
 
 mv /var/opt/microsoft /usr/lib/microsoft
