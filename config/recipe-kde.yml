@@ -4,7 +4,7 @@ name: nhubaotruong-ublue
 description: nhubaotruong uBlue image
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-nvidia
+base-image: ghcr.io/ublue-os/kinoite-nvidia
 image-version: 39 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -31,10 +31,10 @@ modules:
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     install:
       - starship
-      - tilix
-      - tilix-nautilus
-      - gnome-tweaks
-      - file-roller
+      # - tilix
+      # - tilix-nautilus
+      # - gnome-tweaks
+      # - file-roller
       - tlp
       - lz4
       - xz
@@ -42,9 +42,9 @@ modules:
       - papirus-icon-theme
       - ibus-bamboo
       - tailscale
-      - dconf-editor
-      - gnome-screenshot
-      - breeze-cursor-theme
+      # - dconf-editor
+      # - gnome-screenshot
+      # - breeze-cursor-theme
       - i2c-tools
       - ddcutil
       - virt-manager
@@ -58,7 +58,7 @@ modules:
       - bsdcpio
       - bsdtar
       - bsdunzip
-      - ffmpegthumbnailer
+      # - ffmpegthumbnailer
       - zram-generator
       - zsh
       - igt-gpu-tools
@@ -77,37 +77,39 @@ modules:
       - python3-psutil
       - libnotify
       - binutils
-      - libadwaita-devel
-      - pygobject3-devel
+      # - libadwaita-devel
+      # - pygobject3-devel
       - liberation-fonts
       - ufraw
-      - gnome-directory-thumbnailer
-      - gnome-epub-thumbnailer
-      - gnome-kra-ora-thumbnailer
-      - gnome-shell-extension-appindicator
-      - gnome-shell-extension-gsconnect
-      - gnome-shell-extension-user-theme
-      - gnome-shell-extension-dash-to-dock
-      - gnome-shell-extension-drive-menu
+      # - gnome-directory-thumbnailer
+      # - gnome-epub-thumbnailer
+      # - gnome-kra-ora-thumbnailer
+      # - gnome-shell-extension-appindicator
+      # - gnome-shell-extension-gsconnect
+      # - gnome-shell-extension-user-theme
+      # - gnome-shell-extension-dash-to-dock
+      # - gnome-shell-extension-drive-menu
       # - gnome-shell-extension-no-overview
-      - gnome-shell-extension-just-perfection
-      - gnome-shell-extension-caffeine
-      - gnome-shell-extension-supergfxctl-gex
-      - gnome-shell-extension-system76-scheduler
+      # - gnome-shell-extension-just-perfection
+      # - gnome-shell-extension-caffeine
+      # - gnome-shell-extension-supergfxctl-gex
+      # - gnome-shell-extension-system76-scheduler
+      # KDE
+      - sddm-wayland-plasma
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
       - power-profiles-daemon
-      - yelp
-      - gnome-tour
+      # - yelp
+      # - gnome-tour
       - toolbox
       - distrobox
-      - gnome-software
-      - gnome-software-rpm-ostree
+      # - gnome-software
+      # - gnome-software-rpm-ostree
       - zram-generator-defaults
-      - gnome-classic-session
-      - gnome-terminal
-      - gnome-terminal-nautilus
+      # - gnome-classic-session
+      # - gnome-terminal
+      # - gnome-terminal-nautilus
 
   - type: fonts
     fonts:
