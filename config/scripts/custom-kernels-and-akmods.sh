@@ -12,7 +12,7 @@ curl -sSLf "https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/
 #     -o /etc/yum.repos.d/bieszczaders-kernel-cachyos-addons.repo
 
 rpm-ostree cliwrap install-to-root /
-rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-cachyos
+rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-cachyos || true
 
 # rpm-ostree install libcap-ng-devel procps-ng-devel uksmd
 
