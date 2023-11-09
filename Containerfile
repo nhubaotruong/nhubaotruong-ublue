@@ -12,7 +12,7 @@
 ARG IMAGE_MAJOR_VERSION=38
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
 
-FROM ghcr.io/ublue-os/akmods:main-${IMAGE_MAJOR_VERSION} as akmods-rpms
+# FROM ghcr.io/ublue-os/akmods:main-${IMAGE_MAJOR_VERSION} as akmods-rpms
 
 FROM ${BASE_IMAGE_URL}:${IMAGE_MAJOR_VERSION}
 
@@ -45,8 +45,7 @@ COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
 
 # Akmods
-COPY --from=akmods-rpms /rpms /tmp/akmods-rpms
-RUN rpm-ostree install /tmp/akmods-rpms/ublue-os/ublue-os-akmods*.rpm
+# COPY --from=akmods-rpms /rpms /tmp/akmods-rpms
 # RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo && \
 #     wget https://negativo17.org/repos/fedora-multimedia.repo -O /etc/yum.repos.d/negativo17-fedora-multimedia.repo && \
 #     rpm-ostree install \
