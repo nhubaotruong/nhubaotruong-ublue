@@ -8,12 +8,12 @@ fedora_version="$(rpm -E %fedora)"
 curl -sSLf "https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/repo/fedora-$fedora_version/bieszczaders-kernel-cachyos-fedora-$fedora_version.repo" \
     -o /etc/yum.repos.d/bieszczaders-kernel-cachyos.repo
 
-curl -sSLf "https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-$fedora_version/bieszczaders-kernel-cachyos-addons-fedora-$$fedora_version.repo" \
-    -o /etc/yum.repos.d/bieszczaders-kernel-cachyos-addons.repo
+# curl -sSLf "https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-$((fedora_version - 1))/bieszczaders-kernel-cachyos-addons-fedora-$((fedora_version - 1)).repo" \
+#     -o /etc/yum.repos.d/bieszczaders-kernel-cachyos-addons.repo
 
 rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-cachyos
 
-rpm-ostree install libcap-ng-devel procps-ng-devel uksmd
+# rpm-ostree install libcap-ng-devel procps-ng-devel uksmd
 
 KERNEL="$(rpm -q kernel --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}')"
 
