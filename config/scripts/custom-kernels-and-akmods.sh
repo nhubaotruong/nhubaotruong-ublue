@@ -11,10 +11,20 @@ curl -sSLf "https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/
 # curl -sSLf "https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-$((fedora_version - 1))/bieszczaders-kernel-cachyos-addons-fedora-$((fedora_version - 1)).repo" \
 #     -o /etc/yum.repos.d/bieszczaders-kernel-cachyos-addons.repo
 
-# wget https://github.com/linux-surface/linux-surface/releases/download/silverblue-20201215-1/kernel-20201215-1.x86_64.rpm -O \
-#     /tmp/surface-kernel.rpm
+wget https://github.com/linux-surface/linux-surface/releases/download/silverblue-20201215-1/kernel-20201215-1.x86_64.rpm -O \
+    /tmp/surface-kernel.rpm
 rpm-ostree cliwrap install-to-root /
-rpm-ostree override remove kernel-modules-core kernel-core kernel-modules kernel kernel-modules-extra kernel-devel --install kernel-cachyos kernel-cachyos-core kernel-cachyos-devel kernel-cachyos-devel-matched kernel-cachyos-headers kernel-cachyos-modules
+rpm-ostree override replace /tmp/surface-kernel.rpm \
+    --remove kernel-core \
+    --remove kernel-modules \
+    --remove kernel-modules-core \
+    --remove kernel-modules-extra \
+    --install kernel-cachyos \
+    --install kernel-cachyos-core \
+    --install kernel-cachyos-devel \
+    --install kernel-cachyos-devel-matched \
+    --install kernel-cachyos-headers \
+    --install kernel-cachyos-modules
 
 # rpm-ostree install libcap-ng-devel procps-ng-devel uksmd
 
