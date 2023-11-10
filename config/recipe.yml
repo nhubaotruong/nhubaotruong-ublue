@@ -114,7 +114,7 @@ modules:
       - gnome-terminal-nautilus
       - google-noto-sans-vf-fonts
       - google-noto-serif-vf-fonts
-      - google-noto-sans-cjk-vf-fonts
+      # - google-noto-sans-cjk-vf-fonts
       - google-noto-serif-cjk-vf-fonts
 
   - type: fonts

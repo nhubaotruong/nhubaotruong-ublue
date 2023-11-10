@@ -27,13 +27,13 @@ for f in /usr/share/fonts/google-noto-color-emoji-fonts/*; do
     ln -sf "$f" /usr/share/fonts/noto
 done
 
-mkdir -p /usr/share/fonts/noto-cjk
-for f in /usr/share/fonts/google-noto-sans-cjk-fonts/*; do
-    ln -sf "$f" /usr/share/fonts/noto-cjk
-done
+# mkdir -p /usr/share/fonts/noto-cjk
+# for f in /usr/share/fonts/google-noto-sans-cjk-fonts/*; do
+#     ln -sf "$f" /usr/share/fonts/noto-cjk
+# done
 
-for f in /usr/share/fonts/google-noto-serif-cjk-fonts/*; do
-    ln -sf "$f" /usr/share/fonts/noto-cjk
-done
+# for f in /usr/share/fonts/google-noto-serif-cjk-fonts/*; do
+#     ln -sf "$f" /usr/share/fonts/noto-cjk
+# done
 
 fc-cache -rf
