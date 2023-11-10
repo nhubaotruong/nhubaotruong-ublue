@@ -83,6 +83,8 @@ modules:
       - ufraw
       - google-noto-sans-cjk-fonts
       - google-noto-serif-cjk-fonts
+      - google-noto-sans-fonts
+      - google-noto-serif-fonts
       - gnome-directory-thumbnailer
       - gnome-epub-thumbnailer
       - gnome-kra-ora-thumbnailer
@@ -110,7 +112,6 @@ modules:
       - gnome-classic-session
       - gnome-terminal
       - gnome-terminal-nautilus
-      - google-noto-cjk-fonts-common
 
   - type: fonts
     fonts:
