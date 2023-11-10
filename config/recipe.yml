@@ -81,7 +81,6 @@ modules:
       - pygobject3-devel
       - liberation-fonts
       - ufraw
-      - google-noto-sans-cjk-fonts
       - gnome-directory-thumbnailer
       - gnome-epub-thumbnailer
       - gnome-kra-ora-thumbnailer
@@ -109,7 +108,6 @@ modules:
       - gnome-classic-session
       - gnome-terminal
       - gnome-terminal-nautilus
-      - google-noto-sans-cjk-vf-fonts
 
   - type: fonts
     fonts:
@@ -128,7 +126,7 @@ modules:
 
   - type: script
     scripts:
-      - replace-vf-fonts.sh
+      # - replace-vf-fonts.sh
       - mutter-triple-patch.sh
       - microsoft-fonts.sh
       - dnsproxy.sh
