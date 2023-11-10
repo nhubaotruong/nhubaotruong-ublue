@@ -7,15 +7,19 @@ fonts = os.popen("rpm -qa | grep -oP '(.+)(?=-vf-fonts)'").read().splitlines()
 vf_fonts_names = [f"{font}-vf-fonts" for font in fonts]
 non_vf_fonts_names = [f"{font}-fonts" for font in fonts]
 
-delete_fonts = ("google-noto-sans-mono-cjk",)
+delete_fonts = ("google-noto-sans-mono-cjk", "google-noto-naskh-arabic")
 
 for font in delete_fonts:
-    non_vf_fonts_names.remove(f"{font}-fonts")
-    vf_fonts_names.remove(f"{font}-vf-fonts")
+    if f"{font}-fonts" in non_vf_fonts_names:
+        non_vf_fonts_names.remove(f"{font}-fonts")
+    if f"{font}-vf-fonts" in vf_fonts_names:
+        vf_fonts_names.remove(f"{font}-vf-fonts")
 
-os.system(
+status_code = os.system(
     f"rpm-ostree override remove {' '.join(vf_fonts_names)} --install {' '.join(non_vf_fonts_names)}"
 )
+
+exit(status_code)
 
 # # Tell build process to exit if there are any errors.
 # set -oue pipefail
