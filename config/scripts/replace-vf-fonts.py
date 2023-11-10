@@ -7,7 +7,7 @@ fonts = os.popen("rpm -qa | grep -oP '(.+)(?=-vf-fonts)'").read().splitlines()
 vf_fonts_names = [f"{font}-vf-fonts" for font in fonts]
 non_vf_fonts_names = [f"{font}-fonts" for font in fonts]
 
-delete_fonts = ("google-noto-sans-mono-cjk", "google-noto-naskh-arabic")
+delete_fonts = ("google-noto-sans-mono-cjk",)
 
 for font in delete_fonts:
     if f"{font}-fonts" in non_vf_fonts_names:

@@ -126,10 +126,6 @@ modules:
 
   - type: script
     scripts:
-      # this sets up the proper policy & signing files for signed images to work
-      - signing.sh
-      # - nerd-fonts.sh
-      # - thorium.sh
       - replace-vf-fonts.py
       - mutter-triple-patch.sh
       - microsoft-fonts.sh
@@ -138,6 +134,8 @@ modules:
       - expressvpn.sh
       - mdatp.sh
       - nanorc.sh
+      # this sets up the proper policy & signing files for signed images to work
+      - signing.sh
 
   - type: bling # configure what to pull in from ublue-os/bling
     install:
