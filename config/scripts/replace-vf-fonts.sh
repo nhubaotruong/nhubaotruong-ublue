@@ -3,8 +3,16 @@
 # Tell build process to exit if there are any errors.
 set -oue pipefail
 
-font_names=$(rpm -qa | grep -oP "(.+)(?=-vf-fonts)")
-vf_fonts_names="$(echo "${font_names[*]}" | awk '{printf "%s-vf-fonts ", $0}' | sed 's/$//')"
-non_vf_fonts_names=$(echo "${font_names[*]}" | awk '{printf "%s-fonts ", $0}' | sed 's/$//')
+# Array font names
+mapfile -t font_names < <(rpm -qa | grep -oP "(.+)(?=-vf-fonts)")
+mapfile -t vf_fonts_names < <(printf '%s-vf-fonts\n' "${font_names[@]}")
+mapfile -t non_vf_fonts_names < <(printf '%s-fonts\n' "${font_names[@]}")
 
-rpm-ostree override remove $vf_fonts_names $(printf -- "--install=%s " $non_vf_fonts_names)
+# Remove not existing fonts
+delete=(google-noto-sans-mono-cjk)
+for del in "${delete[@]}"; do
+    non_vf_fonts_names=("${non_vf_fonts_names[@]/$del-fonts/}")
+    vf_fonts_names=("${vf_fonts_names[@]/$del-vf-fonts/}")
+done
+
+rpm-ostree override remove "${vf_fonts_names[@]}" "$(printf -- "--install=%s " "${non_vf_fonts_names[@]}")"
