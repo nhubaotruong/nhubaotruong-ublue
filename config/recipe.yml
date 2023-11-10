@@ -129,7 +129,7 @@ modules:
       # this sets up the proper policy & signing files for signed images to work
       - signing.sh
       # - nerd-fonts.sh
-      - thorium.sh
+      # - thorium.sh
       - mutter-triple-patch.sh
       - microsoft-fonts.sh
       - dnsproxy.sh
