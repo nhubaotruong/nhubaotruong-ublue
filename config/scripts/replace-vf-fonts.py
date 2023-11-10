@@ -4,7 +4,7 @@ import os
 
 # Get all installed fonts
 fonts = os.popen("rpm -qa | grep -oP '(.+)(?=-vf-fonts)'").read().splitlines()
-vf_fonts_names = [f"{font}-vf-fonts" for font in fonts]
+# vf_fonts_names = [f"{font}-vf-fonts" for font in fonts]
 non_vf_fonts_names = [f"{font}-fonts" for font in fonts]
 
 delete_fonts = ("google-noto-sans-mono-cjk",)
@@ -12,14 +12,14 @@ delete_fonts = ("google-noto-sans-mono-cjk",)
 for font in delete_fonts:
     if f"{font}-fonts" in non_vf_fonts_names:
         non_vf_fonts_names.remove(f"{font}-fonts")
-    if f"{font}-vf-fonts" in vf_fonts_names:
-        vf_fonts_names.remove(f"{font}-vf-fonts")
+    # if f"{font}-vf-fonts" in vf_fonts_names:
+    #     vf_fonts_names.remove(f"{font}-vf-fonts")
 
-default_fonts = os.popen("rpm -qa | grep default-fonts").read().splitlines()
+# default_fonts = os.popen("rpm -qa | grep default-fonts").read().splitlines()
 
-status_code = os.system(
-    f"rpm-ostree override remove {' '.join(vf_fonts_names + default_fonts)} {' '.join([f'--install={x}' for x in non_vf_fonts_names])}"
-)
+status_code = os.system(f"rpm-ostree install {' '.join(non_vf_fonts_names)}")
+
+os.system("fc-cache -rv")
 
 exit(status_code)
 
