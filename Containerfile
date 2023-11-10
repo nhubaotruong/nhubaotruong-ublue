@@ -61,5 +61,5 @@ RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 RUN rpm-ostree cliwrap install-to-root / && \
     chmod +x /tmp/build.sh && /tmp/build.sh && \
     restorecon -vFr / && \
-    fc-cache -sr && \
+    fc-cache -sf && \
     rm -rf /tmp/* /var/* && ostree container commit
