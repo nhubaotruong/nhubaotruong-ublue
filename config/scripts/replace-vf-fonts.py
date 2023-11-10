@@ -16,7 +16,7 @@ for font in delete_fonts:
         vf_fonts_names.remove(f"{font}-vf-fonts")
 
 status_code = os.system(
-    f"rpm-ostree override remove {' '.join(vf_fonts_names)} --install {' '.join(non_vf_fonts_names)}"
+    f"rpm-ostree override remove {' '.join(vf_fonts_names)} {' '.join([f'--install={x}' for x in non_vf_fonts_names])}"
 )
 
 exit(status_code)
