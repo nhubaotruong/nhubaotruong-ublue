@@ -81,10 +81,7 @@ modules:
       - pygobject3-devel
       - liberation-fonts
       - ufraw
-      - google-noto-sans-fonts
-      - google-noto-serif-fonts
       - google-noto-sans-cjk-fonts
-      - google-noto-serif-cjk-fonts
       - gnome-directory-thumbnailer
       - gnome-epub-thumbnailer
       - gnome-kra-ora-thumbnailer
@@ -112,10 +109,7 @@ modules:
       - gnome-classic-session
       - gnome-terminal
       - gnome-terminal-nautilus
-      - google-noto-sans-vf-fonts
-      - google-noto-serif-vf-fonts
-      # - google-noto-sans-cjk-vf-fonts
-      - google-noto-serif-cjk-vf-fonts
+      - google-noto-sans-cjk-vf-fonts
 
   - type: fonts
     fonts:
