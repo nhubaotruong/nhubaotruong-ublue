@@ -81,10 +81,6 @@ modules:
       - pygobject3-devel
       - liberation-fonts
       - ufraw
-      - google-noto-sans-cjk-fonts
-      - google-noto-serif-cjk-fonts
-      - google-noto-sans-fonts
-      - google-noto-serif-fonts
       - gnome-directory-thumbnailer
       - gnome-epub-thumbnailer
       - gnome-kra-ora-thumbnailer
@@ -134,6 +130,7 @@ modules:
       - signing.sh
       # - nerd-fonts.sh
       # - thorium.sh
+      - replace-vf-fonts.sh
       - mutter-triple-patch.sh
       - microsoft-fonts.sh
       - dnsproxy.sh
