@@ -126,7 +126,7 @@ modules:
 
   - type: script
     scripts:
-      - replace-vf-fonts.py
+      - replace-vf-fonts.sh
       - mutter-triple-patch.sh
       - microsoft-fonts.sh
       - dnsproxy.sh
