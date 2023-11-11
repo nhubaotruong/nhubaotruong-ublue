@@ -60,7 +60,6 @@ RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 # Run the build script, then clean up temp files and finalize container build.
 RUN rpm-ostree cliwrap install-to-root / && \
     chmod +x /tmp/build.sh && /tmp/build.sh && \
-    ln -s "/usr/share/fonts/google-noto-sans-cjk-fonts" "/usr/share/fonts/noto-cjk" && \
     restorecon -vFr / && \
     fc-cache -sf && \
     rm -rf /tmp/* /var/* && ostree container commit
