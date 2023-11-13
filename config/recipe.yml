@@ -81,8 +81,6 @@ modules:
       - pygobject3-devel
       - liberation-fonts
       - ufraw
-      - google-noto-sans-cjk-fonts
-      - google-noto-serif-cjk-fonts
       - gnome-directory-thumbnailer
       - gnome-epub-thumbnailer
       - gnome-kra-ora-thumbnailer
