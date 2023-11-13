@@ -107,7 +107,6 @@ modules:
       - gnome-classic-session
       - gnome-terminal
       - gnome-terminal-nautilus
-      - zfs-fuse
 
   - type: fonts
     fonts:
