@@ -160,6 +160,7 @@ modules:
         - tailscaled.service
         - fstrim.timer
         - com.system76.Scheduler.service
+        - btrfs-dedup@var-home.timer
       disabled:
         - raid-check.timer
     user:
