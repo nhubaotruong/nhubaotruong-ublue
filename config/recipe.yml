@@ -80,6 +80,9 @@ modules:
       - pygobject3-devel
       - liberation-fonts
       - ufraw
+      - duperemove
+      - rmlint
+      - python3-icoextract
       - gnome-directory-thumbnailer
       - gnome-epub-thumbnailer
       - gnome-kra-ora-thumbnailer
