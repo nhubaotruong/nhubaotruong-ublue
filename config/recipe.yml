@@ -131,7 +131,7 @@ modules:
       # - replace-vf-fonts.sh
       - mutter-triple-patch.sh
       - microsoft-fonts.sh
-      - dnsproxy.sh
+      # - dnsproxy.sh
       - teamviewer.sh
       - expressvpn.sh
       - mdatp.sh
