@@ -137,6 +137,7 @@ modules:
       - mdatp.sh
       - nanorc.sh
       - papirus-icon-theme.sh
+      - bazzite.sh
       # this sets up the proper policy & signing files for signed images to work
       - signing.sh
 
