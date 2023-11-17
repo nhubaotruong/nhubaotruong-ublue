@@ -27,6 +27,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/ublue-os/distrobox-git/repo/fedora-%OS_VERSION%/ublue-os-distrobox-git-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/hl2linux-selinux/repo/fedora-%OS_VERSION%/kylegospo-hl2linux-selinux-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
+      - https://download.opensuse.org/repositories/home:/dmitry-s/openSUSE_Tumbleweed/home:dmitry-s.repo
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     install:
@@ -82,6 +83,8 @@ modules:
       - ufraw
       - duperemove
       - rmlint
+      - mcontrolcenter
+      - qt5-qtbase-gui
       - python3-icoextract
       - gnome-directory-thumbnailer
       - gnome-epub-thumbnailer
@@ -138,6 +141,7 @@ modules:
       - nanorc.sh
       - papirus-icon-theme.sh
       - bazzite.sh
+      - acpi-ec.sh
       # this sets up the proper policy & signing files for signed images to work
       - signing.sh
 
