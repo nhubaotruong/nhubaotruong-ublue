@@ -7,7 +7,7 @@ MODULE_NAME=acpi_ec
 
 SIGN_DIR=/usr/share/dkms-keys
 
-rpm-ostree install kernel-devel dkms make
+rpm-ostree install kernel-devel kernel-devel-matched kernel-headers dkms make
 
 git clone https://github.com/musikid/acpi_ec.git /tmp/acpi_ec
 
