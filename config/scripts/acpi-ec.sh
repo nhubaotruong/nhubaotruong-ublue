@@ -21,9 +21,9 @@ cp -R "$PWD/src/" "$MOD_SRC_DIR/src"
 
 cp dkms.conf "$MOD_SRC_DIR/dkms.conf"
 sed -i "s/PACKAGE_VERSION=.*/PACKAGE_VERSION=\"$VERSION\"/" "$MOD_SRC_DIR/dkms.conf"
-dkms add -m "$MODULE_NAME" -v "$VERSION" --kernelsourcedir /usr/src/kernels/"$(uname -r)"
-dkms build -m "$MODULE_NAME" -v "$VERSION" --kernelsourcedir /usr/src/kernels/"$(uname -r)"
-dkms install -m "$MODULE_NAME" -v "$VERSION" --kernelsourcedir /usr/src/kernels/"$(uname -r)"
+dkms add -m "$MODULE_NAME" -v "$VERSION" -k "$(uname -r)" --kernelsourcedir /usr/src/kernels/"$(uname -r)"
+dkms build -m "$MODULE_NAME" -v "$VERSION" -k "$(uname -r)" --kernelsourcedir /usr/src/kernels/"$(uname -r)"
+dkms install -m "$MODULE_NAME" -v "$VERSION" -k "$(uname -r)" --kernelsourcedir /usr/src/kernels/"$(uname -r)"
 
 /usr/src/kernels/"$(uname -r)"/scripts/sign-file sha256 $SIGN_DIR/dkms.priv $SIGN_DIR/dkms.der "$(modinfo -n $MODULE_NAME)"
 
