@@ -162,6 +162,7 @@ modules:
         - fstrim.timer
         - com.system76.Scheduler.service
         - btrfs-dedup@var-home.timer
+        - var-home-nhubao-.cache-fontconfig.mount
       disabled:
         - raid-check.timer
     user:
