@@ -19,7 +19,7 @@ COPY config/files/ /
 # Akmods
 COPY --from=akmods-rpms /rpms /tmp/akmods-rpms
 RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo && \
-    wget https://negativo17.org/repos/fedora-multimedia.repo -P /etc/yum.repos.d && \
+    wget https://negativo17.org/repos/fedora-multimedia.repo -O /etc/yum.repos.d/negativo17-fedora-multimedia.repo && \
     rpm-ostree install \
     /tmp/akmods-rpms/kmods/kmod-v4l2loopback*.rpm \
     /tmp/akmods-rpms/kmods/kmod-winesync*.rpm \
