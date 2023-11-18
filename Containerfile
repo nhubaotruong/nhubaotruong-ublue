@@ -7,6 +7,7 @@ FROM ${BASE_IMAGE_URL}:${IMAGE_MAJOR_VERSION}
 
 ARG RECIPE=recipe.yml
 ARG IMAGE_REGISTRY=ghcr.io/ublue-os
+ARG IMAGE_NAME
 
 COPY --from=ghcr.io/ublue-os/bling:latest /rpms /tmp/bling/rpms
 COPY --from=ghcr.io/ublue-os/bling:latest /files /tmp/bling/files
@@ -131,25 +132,25 @@ RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfra
 
 RUN chmod -R +x /tmp/config/scripts
 # Microsoft Fonts
-RUN eval /tmp/config/scripts/microsoft-fonts.sh
+RUN /tmp/config/scripts/microsoft-fonts.sh
 
 # Teamviewer
-RUN eval /tmp/config/scripts/teamviewer.sh
+RUN /tmp/config/scripts/teamviewer.sh
 
 # Expressvpn
-RUN eval /tmp/config/scripts/expressvpn.sh
+RUN /tmp/config/scripts/expressvpn.sh
 
 # Mdatp
-RUN eval /tmp/config/scripts/mdatp.sh
+RUN /tmp/config/scripts/mdatp.sh
 
 # Nanorc
-RUN eval /tmp/config/scripts/nanorc.sh
+RUN /tmp/config/scripts/nanorc.sh
 
 # Papirus icon theme
-RUN eval /tmp/config/scripts/papirus-icon-theme.sh
+RUN /tmp/config/scripts/papirus-icon-theme.sh
 
 # Nerd fonts
-RUN eval /tmp/config/scripts/nerd-fonts.sh
+RUN /tmp/config/scripts/nerd-fonts.sh
 
 # Bazzite
 RUN wget https://raw.githubusercontent.com/scaronni/steam-proton-mf-wmv/master/installcab.py -O /usr/bin/installcab && \
@@ -174,7 +175,7 @@ RUN systemctl disable raid-check.timer
 
 RUN IMAGE_INFO="/usr/share/ublue-os/image-info.json" && \
     if [ -f "$IMAGE_INFO" ]; then rm -v "$IMAGE_INFO"; fi && \
-    eval /tmp/config/scripts/signing.sh && \
+    /tmp/config/scripts/signing.sh && \
     restorecon -vFr / && \
     fc-cache -sf && \
     rm -rf /tmp/* /var/* && ostree container commit
