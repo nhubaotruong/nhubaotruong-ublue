@@ -82,7 +82,6 @@ modules:
       - ufraw
       - duperemove
       - rmlint
-      - qt5-qtbase-gui
       - python3-icoextract
       - gnome-directory-thumbnailer
       - gnome-epub-thumbnailer
@@ -139,8 +138,6 @@ modules:
       - nanorc.sh
       - papirus-icon-theme.sh
       - bazzite.sh
-      - acpi-ec.sh
-      - mcontrolcenter.sh
       # this sets up the proper policy & signing files for signed images to work
       - signing.sh
 
