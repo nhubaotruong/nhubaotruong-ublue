@@ -168,7 +168,8 @@ RUN systemctl enable tlp.service \
     tailscaled.service \
     fstrim.timer \
     com.system76.Scheduler.service \
-    btrfs-dedup@var-home.timer
+    btrfs-dedup@var-home.timer \
+    var-home-nhubao-.cache-fontconfig.mount
 
 # Disable services
 RUN systemctl disable raid-check.timer
