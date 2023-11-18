@@ -131,25 +131,25 @@ RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfra
 
 RUN chmod -R +x /tmp/config/scripts
 # Microsoft Fonts
-RUN /tmp/config/scripts/microsoft-fonts.sh
+RUN eval /tmp/config/scripts/microsoft-fonts.sh
 
 # Teamviewer
-RUN /tmp/config/scripts/teamviewer.sh
+RUN eval /tmp/config/scripts/teamviewer.sh
 
 # Expressvpn
-RUN /tmp/config/scripts/expressvpn.sh
+RUN eval /tmp/config/scripts/expressvpn.sh
 
 # Mdatp
-RUN /tmp/config/scripts/mdatp.sh
+RUN eval /tmp/config/scripts/mdatp.sh
 
 # Nanorc
-RUN /tmp/config/scripts/nanorc.sh
+RUN eval /tmp/config/scripts/nanorc.sh
 
 # Papirus icon theme
-RUN /tmp/config/scripts/papirus-icon-theme.sh
+RUN eval /tmp/config/scripts/papirus-icon-theme.sh
 
 # Nerd fonts
-RUN /tmp/config/scripts/nerd-fonts.sh
+RUN eval /tmp/config/scripts/nerd-fonts.sh
 
 # Bazzite
 RUN wget https://raw.githubusercontent.com/scaronni/steam-proton-mf-wmv/master/installcab.py -O /usr/bin/installcab && \
@@ -174,7 +174,7 @@ RUN systemctl disable raid-check.timer
 
 RUN IMAGE_INFO="/usr/share/ublue-os/image-info.json" && \
     if [ -f "$IMAGE_INFO" ]; then rm -v "$IMAGE_INFO"; fi && \
-    /tmp/config/scripts/signing.sh && \
+    eval /tmp/config/scripts/signing.sh && \
     restorecon -vFr / && \
     fc-cache -sf && \
     rm -rf /tmp/* /var/* && ostree container commit
