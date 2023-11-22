@@ -130,7 +130,6 @@ modules:
 
   - type: script
     scripts:
-      # - replace-vf-fonts.sh
       - mutter-triple-patch.sh
       - microsoft-fonts.sh
       # - dnsproxy.sh
@@ -140,6 +139,7 @@ modules:
       - nanorc.sh
       - papirus-icon-theme.sh
       - bazzite.sh
+      - waydroid.sh
       # this sets up the proper policy & signing files for signed images to work
       - signing.sh
 
