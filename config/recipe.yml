@@ -157,7 +157,6 @@ modules:
       - papirus-icon-theme.sh
       - bazzite.sh
       - waydroid.sh
-      - remove-i686.sh
       # this sets up the proper policy & signing files for signed images to work
       - signing.sh
 <<<<<<< HEAD
