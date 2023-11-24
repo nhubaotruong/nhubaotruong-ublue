@@ -143,7 +143,6 @@ jobs:
             BASE_IMAGE_URL=${{ env.BASE_IMAGE_URL }}
             RECIPE=${{ matrix.recipe }}
             IMAGE_REGISTRY=${{ steps.registry_case.outputs.lowercase }}
-            IMAGE_NAME=${{ env.IMAGE_NAME }}
           labels: ${{ steps.meta.outputs.labels }}
           oci: false
 
