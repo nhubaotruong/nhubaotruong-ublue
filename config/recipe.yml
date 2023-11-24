@@ -128,6 +128,7 @@ modules:
       - gnome-classic-session
       - gnome-terminal
       - gnome-terminal-nautilus
+      - "*.i686"
 
   - type: fonts
     fonts:
