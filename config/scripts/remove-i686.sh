@@ -5,4 +5,4 @@ set -oue pipefail
 
 i686_packages=$(rpm -qa | grep 'i686$' | tr '\n' ' ')
 
-rpm-ostree override remove "$i686_packages"
+rpm-ostree override remove $i686_packages
