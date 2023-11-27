@@ -28,6 +28,8 @@ rpm-ostree install teamviewer
 
 mv /var/opt/teamviewer /usr/lib/teamviewer
 
+rm -rf /usr/lib/teamviewer/tv_bin/RTlib
+
 install -D -m0644 /usr/lib/teamviewer/tv_bin/script/teamviewerd.service /usr/lib/systemd/system/teamviewerd.service
 
 cat <<EOF >/usr/lib/tmpfiles.d/teamviewer.conf
