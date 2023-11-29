@@ -140,6 +140,7 @@ jobs:
             ${{ steps.generate-tags.outputs.alias_tags }}
           build-args: |
             IMAGE_MAJOR_VERSION=${{ env.IMAGE_MAJOR_VERSION }}
+            FEDORA_MAJOR_VERSION=${{ env.IMAGE_MAJOR_VERSION }}
             BASE_IMAGE_URL=${{ env.BASE_IMAGE_URL }}
             RECIPE=${{ matrix.recipe }}
             IMAGE_REGISTRY=${{ steps.registry_case.outputs.lowercase }}
