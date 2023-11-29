@@ -132,7 +132,7 @@ modules:
 
   - type: script
     scripts:
-      - mutter-triple-patch.sh
+      # - mutter-triple-patch.sh
       - microsoft-fonts.sh
       # - dnsproxy.sh
       - teamviewer.sh
@@ -155,6 +155,7 @@ modules:
       - ublue-update # https://github.com/ublue-os/ublue-update
       - dconf-update-service # a service unit that updates the dconf db on boot
       - laptop
+      - gnome-vrr
       # - devpod # https://devpod.sh/ as an rpm
 
   - type: systemd
