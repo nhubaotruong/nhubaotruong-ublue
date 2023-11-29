@@ -82,6 +82,7 @@ modules:
       - ufraw
       - duperemove
       - rmlint
+      - podman-compose
       - python3-icoextract
       - gnome-directory-thumbnailer
       - gnome-epub-thumbnailer
