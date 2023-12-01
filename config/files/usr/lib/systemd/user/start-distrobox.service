@@ -1,9 +1,0 @@
-[Unit]
-Description=Start all distrobox when user logs in
-
-[Service]
-Type=oneshot
-ExecStart=/usr/share/custom-scripts/start-distrobox.sh
-
-[Install]
-WantedBy=default.target
