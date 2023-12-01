@@ -98,7 +98,7 @@ modules:
       - gnome-shell-extension-supergfxctl-gex
       # - gnome-shell-extension-system76-scheduler
       - waydroid
-      - weston
+      - gamescope
       - python3-pip
       - podman-docker
     remove:
