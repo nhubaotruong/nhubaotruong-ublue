@@ -11,3 +11,20 @@ sed -i 's@python3 installcab.py@/usr/bin/installcab@g' /usr/bin/install-mf-wmv
 wget https://raw.githubusercontent.com/jlu5/icoextract/master/exe-thumbnailer.thumbnailer -O /usr/share/thumbnailers/exe-thumbnailer.thumbnailer
 wget https://gitlab.com/popsulfr/steamos-btrfs/-/raw/main/files/usr/lib/systemd/system/btrfs-dedup@.service -O /usr/lib/systemd/system/btrfs-dedup@.service
 wget https://gitlab.com/popsulfr/steamos-btrfs/-/raw/main/files/usr/lib/systemd/system/btrfs-dedup@.timer -O /usr/lib/systemd/system/btrfs-dedup@.timer
+
+rpm-ostree override replace \
+    --experimental \
+    --from repo=copr:copr.fedorainfracloud.org:kylegospo:bazzite-multilib \
+    mesa-filesystem \
+    mesa-dri-drivers \
+    mesa-libEGL \
+    mesa-libEGL-devel \
+    mesa-libgbm \
+    mesa-libGL \
+    mesa-libglapi \
+    mesa-vulkan-drivers \
+    mesa-libOSMesa \
+    bluez \
+    bluez-cups \
+    bluez-libs \
+    bluez-obexd
