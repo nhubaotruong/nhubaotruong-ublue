@@ -1,0 +1,11 @@
+[Unit]
+Description=Mount /usr/lib/fontconfig/cache to /var/home/nhubao/.fontconfig
+
+[Mount]
+What=/usr/lib/fontconfig/cache
+Where=/var/home/nhubao/.fontconfig
+Type=none
+Options=bind,ro
+
+[Install]
+WantedBy=multi-user.target
