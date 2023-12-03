@@ -18,7 +18,8 @@ rpm-ostree override replace \
     bluez \
     bluez-cups \
     bluez-libs \
-    bluez-obexd # mesa-filesystem \
+    bluez-obexd
+# mesa-filesystem \
 # mesa-dri-drivers \
 # mesa-libEGL \
 # mesa-libEGL-devel \
@@ -26,4 +27,4 @@ rpm-ostree override replace \
 # mesa-libGL \
 # mesa-libglapi \
 # mesa-vulkan-drivers \
-# mesa-libOSMesa \
+# mesa-libOSMesa
