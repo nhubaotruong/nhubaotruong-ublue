@@ -81,7 +81,6 @@ modules:
       - qt5-qtquickcontrols
 <<<<<<< HEAD
       - distrobox-git
-      - mesa-libGLU
       # - system76-scheduler
       - hl2linux-selinux
       - python3-psutil
@@ -129,7 +128,6 @@ modules:
       - gnome-classic-session
       - gnome-terminal
       - gnome-terminal-nautilus
-      - glibc32
 
   - type: fonts
     fonts:
