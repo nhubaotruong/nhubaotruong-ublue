@@ -27,6 +27,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/ublue-os/distrobox-git/repo/fedora-%OS_VERSION%/ublue-os-distrobox-git-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/hl2linux-selinux/repo/fedora-%OS_VERSION%/kylegospo-hl2linux-selinux-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-%OS_VERSION%/kylegospo-bazzite-multilib-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
       # - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
@@ -97,6 +98,7 @@ modules:
       - gnome-shell-extension-just-perfection
       - gnome-shell-extension-caffeine
       - gnome-shell-extension-supergfxctl-gex
+      - gnome-shell-extension-tailscale-gnome-qs
       # - gnome-shell-extension-system76-scheduler
       - waydroid
       - gamescope
