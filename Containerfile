@@ -29,17 +29,6 @@ COPY cosign.pub /usr/share/ublue-os/cosign.pub
 COPY --from=ghcr.io/ublue-os/bling:latest /rpms /tmp/bling/rpms
 COPY --from=ghcr.io/ublue-os/bling:latest /files /tmp/bling/files
 
-# Gnome mutter triple buffer patch
-RUN curl -L https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-${IMAGE_MAJOR_VERSION}/trixieua-mutter-patched-fedora-${IMAGE_MAJOR_VERSION}.repo -o /etc/yum.repos.d/trixieua-mutter-patched-fedora-${IMAGE_MAJOR_VERSION}.repo && \
-    rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:trixieua:mutter-patched mutter mutter-common
-
-# Expressvpn
-RUN RELEASE=$(curl -L https://www.expressvpn.com/vn/latest\#linux | grep 'Fedora 64') && \
-    download_url=$(echo "$RELEASE" | grep -m 1 -oP '(?<=value=")(.+)(?=")') && \
-    curl -L "$download_url" -o /tmp/expressvpn.rpm && \
-    rpm-ostree install /tmp/expressvpn.rpm && \
-    rm /tmp/expressvpn.rpm /etc/yum.repos.d/expressvpn.repo
-
 # Copy build scripts & configuration
 COPY build.sh /tmp/build.sh
 COPY config /tmp/config/
@@ -53,7 +42,6 @@ COPY modules /tmp/modules/
 # `yq` is used for parsing the yaml configuration
 # It is copied from the official container image since it's not available as an RPM.
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
-
 
 # Akmods
 COPY --from=akmods-rpms /rpms /tmp/akmods-rpms
