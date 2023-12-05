@@ -34,10 +34,6 @@ modules:
       # - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-<<<<<<< HEAD
-=======
-      - https://raw.githubusercontent.com/nhubaotruong/nhubaotruong-ublue/live/config/repos/expressvpn.repo
->>>>>>> 5450a68 (Install teamviewer post)
     install:
       - starship
       - tilix
@@ -79,7 +75,6 @@ modules:
       - minizip-compat
       - minizip-ng
       - qt5-qtquickcontrols
-<<<<<<< HEAD
       - distrobox-git
       # - system76-scheduler
       - hl2linux-selinux
@@ -112,8 +107,6 @@ modules:
       - gamescope
       - python3-pip
       - podman-docker
-=======
->>>>>>> 5450a68 (Install teamviewer post)
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -159,7 +152,6 @@ modules:
       - waydroid.sh
       # this sets up the proper policy & signing files for signed images to work
       - signing.sh
-<<<<<<< HEAD
 
   - type: bling # configure what to pull in from ublue-os/bling
     install:
@@ -172,15 +164,6 @@ modules:
       - dconf-update-service # a service unit that updates the dconf db on boot
       - laptop
       # - devpod # https://devpod.sh/ as an rpm
-=======
-      - rpm-ostree.sh
-      # - nerd-fonts.sh
-      - microsoft-fonts.sh
-      - dnsproxy.sh
-      # - expressvpn.sh
-      - teamviewer.sh
-      # - start-services.sh
->>>>>>> 5450a68 (Install teamviewer post)
 
   - type: bling # configure what to pull in from ublue-os/bling
     install:
