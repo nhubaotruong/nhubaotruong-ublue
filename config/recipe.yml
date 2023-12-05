@@ -139,8 +139,8 @@ modules:
 
   - type: script
     scripts:
-      - mutter-triple-patch.sh
-      # - gnome-vrr.sh
+      # - mutter-triple-patch.sh
+      - gnome-vrr.sh
       - microsoft-fonts.sh
       # - dnsproxy.sh
       - teamviewer.sh
