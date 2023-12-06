@@ -56,7 +56,7 @@ RUN rpm-ostree override replace \
     pipewire-utils \
     || true
 
-RUN wget https://copr.fedorainfracloud.org/coprs/trixieua/mesa-clang/repo/fedora-$(rpm -E %fedora)/trixieua-mesa-clang-fedora-$(rpm -E %fedora).repo?arch=x86_64 -P /etc/yum.repos.d && \
+RUN wget https://copr.fedorainfracloud.org/coprs/trixieua/mesa-clang/repo/fedora-$(rpm -E %fedora)/trixieua-mesa-clang-fedora-$(rpm -E %fedora).repo?arch=x86_64 -O /etc/yum.repos.d/trixieua-mesa-clang-fedora-39.repo && \
     rpm-ostree override remove mesa-va-drivers-freeworld --install mesa-va-drivers && \
     rpm-ostree override replace \
     --experimental \
