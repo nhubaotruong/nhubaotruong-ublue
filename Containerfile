@@ -43,6 +43,34 @@ COPY modules /tmp/modules/
 # It is copied from the official container image since it's not available as an RPM.
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
+RUN rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+    pipewire \
+    pipewire-alsa \
+    pipewire-gstreamer \
+    pipewire-jack-audio-connection-kit \
+    pipewire-jack-audio-connection-kit-libs \
+    pipewire-libs \
+    pipewire-pulseaudio \
+    pipewire-utils \
+    || true
+
+RUN wget https://copr.fedorainfracloud.org/coprs/trixieua/mesa-clang/repo/fedora-$(rpm -E %fedora)/trixieua-mesa-clang-fedora-$(rpm -E %fedora).repo -P /etc/yum.repos.d && \
+    rpm-ostree override remove mesa-va-drivers-freeworld --install mesa-va-drivers && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=copr:copr.fedorainfracloud.org:trixieua:mesa-clang \
+    mesa-filesystem \
+    mesa-libxatracker \
+    mesa-vulkan-drivers \
+    mesa-libglapi \
+    mesa-dri-drivers \
+    mesa-libgbm \
+    mesa-libEGL \
+    mesa-libGL \
+    mesa-va-drivers
+
 # Akmods
 COPY --from=akmods-rpms /rpms /tmp/akmods-rpms
 RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo && \
