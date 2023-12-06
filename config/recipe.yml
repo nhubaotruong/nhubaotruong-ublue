@@ -189,6 +189,8 @@ modules:
         - var-home-nhubao-.fontconfig.mount
       disabled:
         - raid-check.timer
+        - systemd-homed.service
+        - systemd-homed-activate.service
     user:
       enabled:
         # - fontconfig-clear.service
