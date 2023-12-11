@@ -34,6 +34,7 @@ modules:
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     install:
+      - sqlite
       - starship
       - tilix
       - tilix-nautilus
