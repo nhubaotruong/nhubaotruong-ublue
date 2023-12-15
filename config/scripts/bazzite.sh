@@ -15,16 +15,16 @@ wget https://gitlab.com/popsulfr/steamos-btrfs/-/raw/main/files/usr/lib/systemd/
 rpm-ostree override replace \
     --experimental \
     --from repo=copr:copr.fedorainfracloud.org:kylegospo:bazzite-multilib \
-    mesa-filesystem \
-    mesa-dri-drivers \
-    mesa-libEGL \
-    mesa-libEGL-devel \
-    mesa-libgbm \
-    mesa-libGL \
-    mesa-libglapi \
-    mesa-vulkan-drivers \
-    mesa-libOSMesa \
     bluez \
     bluez-cups \
     bluez-libs \
     bluez-obexd
+# mesa-filesystem \
+# mesa-dri-drivers \
+# mesa-libEGL \
+# mesa-libEGL-devel \
+# mesa-libgbm \
+# mesa-libGL \
+# mesa-libglapi \
+# mesa-vulkan-drivers \
+# mesa-libOSMesa
