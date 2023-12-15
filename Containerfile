@@ -56,20 +56,28 @@ RUN rpm-ostree override replace \
     pipewire-utils \
     || true
 
-# RUN wget https://copr.fedorainfracloud.org/coprs/trixieua/mesa-clang/repo/fedora-$(rpm -E %fedora)/trixieua-mesa-clang-fedora-$(rpm -E %fedora).repo?arch=x86_64 -O /etc/yum.repos.d/trixieua-mesa-clang-fedora-39.repo && \
-#     rpm-ostree override remove mesa-va-drivers-freeworld --install mesa-va-drivers && \
-#     rpm-ostree override replace \
-#     --experimental \
-#     --from repo=copr:copr.fedorainfracloud.org:trixieua:mesa-clang \
-#     mesa-filesystem \
-#     mesa-libxatracker \
-#     mesa-vulkan-drivers \
-#     mesa-libglapi \
-#     mesa-dri-drivers \
-#     mesa-libgbm \
-#     mesa-libEGL \
-#     mesa-libGL \
-#     mesa-va-drivers
+# Update packages that commonly cause build issues.
+RUN rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+    vulkan-loader \
+    || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+    gnutls \
+    || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+    glib2 \
+    || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+    atk \
+    at-spi2-atk \
+    || true
 
 # Akmods
 COPY --from=akmods-rpms /rpms /tmp/akmods-rpms
