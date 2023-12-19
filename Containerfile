@@ -97,6 +97,10 @@ RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 RUN mkdir -p /usr/etc/flatpak/remotes.d && \
     wget -q https://dl.flathub.org/repo/flathub.flatpakrepo -P /usr/etc/flatpak/remotes.d
 
+# Swap gstreamer free for nonfree
+RUN rpm-ostree override remove gstreamer1-plugins-bad-free gstreamer1-plugins-ugly-free \ 
+    --install gstreamer1-plugins-bad-freeworld --install gstreamer1-plugins-ugly
+
 # Run the build script, then clean up temp files and finalize container build.
 RUN chmod +x /tmp/build.sh && /tmp/build.sh && \
     fc-cache -sf && \
