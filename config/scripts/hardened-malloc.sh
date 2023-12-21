@@ -12,7 +12,7 @@ rpm-ostree install hardened_malloc
 echo "libhardened_malloc.so" >>/usr/etc/ld.so.preload
 
 mkdir -p /usr/lib/systemd/user/wireplumber.service.d
-cat <<EOF >>/usr/lib/user/wireplumber.service.d/preload.conf
+cat <<EOF >>/usr/lib/systemd/user/wireplumber.service.d/preload.conf
 [Service]
 Environment=LD_PRELOAD=/usr/lib64/libhardened_malloc-light.so
 EOF
