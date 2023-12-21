@@ -34,10 +34,8 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/mikelo2/gnome-network-displays/repo/fedora-%OS_VERSION%/mikelo2-gnome-network-displays-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-      - https://copr.fedorainfracloud.org/coprs/secureblue/hardened_malloc/repo/fedora-%OS_VERSION%/secureblue-hardened_malloc-fedora-%OS_VERSION%.repo
     install:
       - sqlite
-      - hardened_malloc
       - starship
       - tilix
       - tilix-nautilus
@@ -144,6 +142,7 @@ modules:
 
   - type: script
     scripts:
+      - hardened-malloc.sh
       - mutter-triple-patch.sh
       # - gnome-vrr.sh
       - microsoft-fonts.sh
