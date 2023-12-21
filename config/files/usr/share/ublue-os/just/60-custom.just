@@ -21,3 +21,6 @@ configure-waydroid:
     sudo /tmp/waydroid_script/main.py
     deactivate
     sudo rm -rf /tmp/waydroid_script
+
+harden-flatpak:
+    flatpak override --user --filesystem=host-os:ro --env=LD_PRELOAD=/var/run/host/usr/lib64/libhardened_malloc.so
