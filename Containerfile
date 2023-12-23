@@ -54,6 +54,10 @@ RUN rpm-ostree override replace \
     pipewire-libs \
     pipewire-pulseaudio \
     pipewire-utils \
+    kernel \
+    kernel-modules-extra \
+    kernel-tools \
+    kernel-headers \
     || true
 
 # Update packages that commonly cause build issues.
