@@ -55,8 +55,12 @@ RUN rpm-ostree override replace \
     pipewire-pulseaudio \
     pipewire-utils \
     kernel \
+    kernel-core \
+    kernel-modules \
+    kernel-modules-core \
     kernel-modules-extra \
     kernel-tools \
+    kernel-tools-libs \
     kernel-headers \
     || true
 
