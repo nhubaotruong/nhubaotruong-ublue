@@ -11,10 +11,8 @@
 # !! Warning: changing these might not do anything for you. Read comment above.
 ARG IMAGE_MAJOR_VERSION=38
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
-ARG NVIDIA_MAJOR_VERSION=545
 
 FROM ghcr.io/ublue-os/akmods:main-${IMAGE_MAJOR_VERSION} AS akmods-rpms
-FROM ghcr.io/ublue-os/akmods-nvidia:main-${IMAGE_MAJOR_VERSION}-${NVIDIA_MAJOR_VERSION} AS akmods-nvidia-rpms
 
 FROM ${BASE_IMAGE_URL}:${IMAGE_MAJOR_VERSION}
 
@@ -44,6 +42,10 @@ COPY modules /tmp/modules/
 # `yq` is used for parsing the yaml configuration
 # It is copied from the official container image since it's not available as an RPM.
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
+
+RUN wget https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-$(rpm -E %fedora)/ublue-os-staging-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/ublue-os-staging-fedora.repo && \
+    rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:ublue-os:staging power-profiles-daemon && \
+    rm -v /etc/yum.repos.d/ublue-os-staging-fedora.repo
 
 RUN rpm-ostree override replace \
     --experimental \
@@ -87,18 +89,25 @@ RUN rpm-ostree override replace \
     --from repo=updates \
     atk \
     at-spi2-atk \
+    || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+    gstreamer1 \
+    gstreamer1-plugins-base \
+    gstreamer1-plugins-bad-free-libs \
+    gstreamer1-plugins-good-qt \
+    gstreamer1-plugins-good \
+    gstreamer1-plugins-bad-free \
+    gstreamer1-plugin-libav \
+    gstreamer1-plugins-ugly-free \
+    || true && \
+    rpm-ostree override remove \
+    glibc32 \
     || true
 
 # Akmods
 COPY --from=akmods-rpms /rpms /tmp/akmods-rpms
-COPY --from=akmods-nvidia-rpms /rpms /tmp/akmods-rpms
-RUN rpm-ostree install \
-    /tmp/akmods-rpms/ublue-os/ublue-os-nvidia-addons-*.rpm && \
-    source /tmp/akmods-rpms/kmods/nvidia-vars* && \
-    rpm-ostree install \
-    xorg-x11-drv-${NVIDIA_PACKAGE_NAME}-{,cuda-,devel-,kmodsrc-,power-}${NVIDIA_FULL_VERSION} \
-    nvidia-container-toolkit nvidia-vaapi-driver supergfxctl \
-    /tmp/akmods-rpms/kmods/kmod-${NVIDIA_PACKAGE_NAME}-${KERNEL_VERSION}-${NVIDIA_AKMOD_VERSION}.fc${RELEASE}.rpm
 RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo && \
     wget https://negativo17.org/repos/fedora-multimedia.repo -O /etc/yum.repos.d/negativo17-fedora-multimedia.repo && \
     rpm-ostree install \
@@ -116,8 +125,8 @@ RUN mkdir -p /usr/etc/flatpak/remotes.d && \
     wget -q https://dl.flathub.org/repo/flathub.flatpakrepo -P /usr/etc/flatpak/remotes.d
 
 # Swap gstreamer free for nonfree
-RUN rpm-ostree override remove gstreamer1-plugins-bad-free \ 
-    --install gstreamer1-plugins-bad-freeworld --install gstreamer1-plugins-ugly
+# RUN rpm-ostree override remove gstreamer1-plugins-bad-free \ 
+#     --install gstreamer1-plugins-bad-freeworld --install gstreamer1-plugins-ugly
 
 # Run the build script, then clean up temp files and finalize container build.
 RUN chmod +x /tmp/build.sh && /tmp/build.sh && \

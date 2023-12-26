@@ -4,7 +4,7 @@ name: nhubaotruong-ublue
 description: nhubaotruong uBlue image
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
+base-image: ghcr.io/ublue-os/silverblue-nvidia
 image-version: 39 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -32,7 +32,6 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
       # - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/mikelo2/gnome-network-displays/repo/fedora-%OS_VERSION%/mikelo2-gnome-network-displays-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/eyecantcu/supergfxctl/repo/fedora-%OS_VERSION%/eyecantcu-supergfxctl-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     install:
@@ -42,7 +41,7 @@ modules:
       - tilix-nautilus
       - gnome-tweaks
       - file-roller
-      - tlp
+      # - tlp
       - lz4
       - xz
       - zstd
@@ -169,25 +168,13 @@ modules:
       # - ublue-os-wallpapers
       - ublue-update # https://github.com/ublue-os/ublue-update
       - dconf-update-service # a service unit that updates the dconf db on boot
-      - laptop
-      # - devpod # https://devpod.sh/ as an rpm
-
-  - type: bling # configure what to pull in from ublue-os/bling
-    install:
-      # - fonts # selection of common good free fonts
-      - justfiles # add "!include /usr/share/ublue-os/just/bling.just"
-        # in your custom.just (added by default) or local justfile
-      # - nix-installer # shell shortcuts for determinate system's nix installers
-      # - ublue-os-wallpapers
-      - ublue-update # https://github.com/ublue-os/ublue-update
-      - dconf-update-service # a service unit that updates the dconf db on boot
-      - laptop
+      # - laptop
       # - devpod # https://devpod.sh/ as an rpm
 
   - type: systemd
     system:
       enabled:
-        - tlp.service
+        # - tlp.service
         - supergfxd.service
         - tailscaled.service
         - fstrim.timer
