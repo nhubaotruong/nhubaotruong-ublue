@@ -11,8 +11,10 @@
 # !! Warning: changing these might not do anything for you. Read comment above.
 ARG IMAGE_MAJOR_VERSION=38
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
+ARG NVIDIA_MAJOR_VERSION=545
 
 FROM ghcr.io/ublue-os/akmods:main-${IMAGE_MAJOR_VERSION} AS akmods-rpms
+FROM ghcr.io/ublue-os/akmods-nvidia:main-${IMAGE_MAJOR_VERSION}-${NVIDIA_MAJOR_VERSION} AS akmods-nvidia-rpms
 
 FROM ${BASE_IMAGE_URL}:${IMAGE_MAJOR_VERSION}
 
@@ -108,6 +110,14 @@ RUN rpm-ostree override replace \
 
 # Akmods
 COPY --from=akmods-rpms /rpms /tmp/akmods-rpms
+COPY --from=akmods-nvidia-rpms /rpms /tmp/akmods-rpms
+RUN rpm-ostree install \
+    /tmp/akmods-rpms/ublue-os/ublue-os-nvidia-addons-*.rpm && \
+    source /tmp/akmods-rpms/kmods/nvidia-vars* && \
+    rpm-ostree install \
+    xorg-x11-drv-${NVIDIA_PACKAGE_NAME}-{,cuda-,devel-,kmodsrc-,power-}${NVIDIA_FULL_VERSION} \
+    nvidia-container-toolkit supergfxctl \
+    /tmp/akmods-rpms/kmods/kmod-${NVIDIA_PACKAGE_NAME}-${KERNEL_VERSION}-${NVIDIA_AKMOD_VERSION}.fc${RELEASE}.rpm
 RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo && \
     wget https://negativo17.org/repos/fedora-multimedia.repo -O /etc/yum.repos.d/negativo17-fedora-multimedia.repo && \
     rpm-ostree install \
