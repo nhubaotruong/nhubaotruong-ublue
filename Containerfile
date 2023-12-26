@@ -43,10 +43,6 @@ COPY modules /tmp/modules/
 # It is copied from the official container image since it's not available as an RPM.
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
-RUN wget https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-$(rpm -E %fedora)/ublue-os-staging-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/ublue-os-staging-fedora.repo && \
-    rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:ublue-os:staging power-profiles-daemon && \
-    rm -v /etc/yum.repos.d/ublue-os-staging-fedora.repo
-
 # Update packages that commonly cause build issues.
 RUN rpm-ostree override replace \
     --experimental \

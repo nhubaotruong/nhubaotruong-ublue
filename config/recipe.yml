@@ -41,7 +41,7 @@ modules:
       - tilix-nautilus
       - gnome-tweaks
       - file-roller
-      # - tlp
+      - tlp
       - lz4
       - xz
       - zstd
@@ -114,7 +114,7 @@ modules:
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
-      # - power-profiles-daemon
+      - power-profiles-daemon
       - yelp
       - gnome-tour
       - toolbox
@@ -168,13 +168,13 @@ modules:
       # - ublue-os-wallpapers
       - ublue-update # https://github.com/ublue-os/ublue-update
       - dconf-update-service # a service unit that updates the dconf db on boot
-      # - laptop
+      - laptop
       # - devpod # https://devpod.sh/ as an rpm
 
   - type: systemd
     system:
       enabled:
-        # - tlp.service
+        - tlp.service
         - supergfxd.service
         - tailscaled.service
         - fstrim.timer
