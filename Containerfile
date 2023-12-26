@@ -47,6 +47,7 @@ RUN wget https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-$(
     rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:ublue-os:staging power-profiles-daemon && \
     rm -v /etc/yum.repos.d/ublue-os-staging-fedora.repo
 
+# Update packages that commonly cause build issues.
 RUN rpm-ostree override replace \
     --experimental \
     --from repo=updates \
@@ -58,18 +59,8 @@ RUN rpm-ostree override replace \
     pipewire-libs \
     pipewire-pulseaudio \
     pipewire-utils \
-    kernel \
-    kernel-core \
-    kernel-modules \
-    kernel-modules-core \
-    kernel-modules-extra \
-    kernel-tools \
-    kernel-tools-libs \
-    kernel-headers \
-    || true
-
-# Update packages that commonly cause build issues.
-RUN rpm-ostree override replace \
+    || true && \
+    rpm-ostree override replace \
     --experimental \
     --from repo=updates \
     vulkan-loader \
