@@ -18,14 +18,15 @@ rpm-ostree override replace \
     --experimental \
     --from repo=copr:copr.fedorainfracloud.org:kylegospo:bazzite-multilib \
     mesa-filesystem \
-    mesa-dri-drivers \
-    mesa-libEGL \
-    mesa-libEGL-devel \
-    mesa-libgbm \
-    mesa-libGL \
-    mesa-libglapi \
+    mesa-libxatracker \
     mesa-vulkan-drivers \
-    mesa-libOSMesa \
+    mesa-libglapi \
+    mesa-dri-drivers \
+    mesa-libgbm \
+    mesa-libEGL \
+    mesa-libGL \
+    mesa-va-drivers \
+    mesa-libGLU \
     bluez \
     bluez-cups \
     bluez-libs \
