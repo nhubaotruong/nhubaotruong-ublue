@@ -26,6 +26,13 @@ rpm-ostree override replace \
     mesa-libEGL \
     mesa-libGL \
     mesa-va-drivers \
+    mesa-filesystem.i686 \
+    mesa-vulkan-drivers.i686 \
+    mesa-libglapi.i686 \
+    mesa-dri-drivers.i686 \
+    mesa-libGL.i686 \
+    mesa-libgbm.i686 \
+    mesa-libEGL.i686 \
     bluez \
     bluez-cups \
     bluez-libs \
