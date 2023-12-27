@@ -39,13 +39,6 @@ cat <<EOF >/usr/lib/systemd/system/mdatp.service.d/override.conf
 After=var-opt-microsoft.mount
 EOF
 
-mkdir -p /usr/lib/systemd/system/mdatp.service.d
-
-cat <<EOF >/usr/lib/systemd/system/mdatp.service.d/override.conf
-[Unit]
-After=var-opt-microsoft.mount
-EOF
-
 cat <<EOF >/usr/lib/systemd/system/var-opt-microsoft.mount
 [Unit]
 Description=Overlay Mount combining /usr/lib/microsoft and /var/opt/microsoft

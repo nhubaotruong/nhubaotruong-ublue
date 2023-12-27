@@ -26,7 +26,6 @@ rpm-ostree override replace \
     mesa-libEGL \
     mesa-libGL \
     mesa-va-drivers \
-    mesa-libGLU \
     bluez \
     bluez-cups \
     bluez-libs \
