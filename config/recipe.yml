@@ -30,8 +30,9 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/kylegospo/hl2linux-selinux/repo/fedora-%OS_VERSION%/kylegospo-hl2linux-selinux-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-%OS_VERSION%/kylegospo-bazzite-multilib-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
-      # - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/mikelo2/gnome-network-displays/repo/fedora-%OS_VERSION%/mikelo2-gnome-network-displays-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/ycollet/audinux/repo/fedora-%OS_VERSION%/ycollet-audinux-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     install:
@@ -77,7 +78,7 @@ modules:
       - minizip-ng
       - qt5-qtquickcontrols
       - distrobox-git
-      # - system76-scheduler
+      - system76-scheduler
       - hl2linux-selinux
       - python3-psutil
       - libnotify
@@ -104,7 +105,7 @@ modules:
       - supergfxctl
       - gnome-shell-extension-supergfxctl-gex
       - gnome-shell-extension-tailscale-status
-      # - gnome-shell-extension-system76-scheduler
+      - gnome-shell-extension-system76-scheduler
       - waydroid
       - gamescope
       - python3-pip
@@ -112,6 +113,11 @@ modules:
       - gnome-network-displays
       - gstreamer1-vaapi
       - nautilus-open-any-terminal
+      - redhat-lsb-core
+      - libxcrypt-compat
+      - lzip
+      - ladspa-caps-plugins
+      - ladspa-noise-suppression-for-voice
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -179,7 +185,7 @@ modules:
         - supergfxd.service
         - tailscaled.service
         - fstrim.timer
-        # - com.system76.Scheduler.service
+        - com.system76.Scheduler.service
         - btrfs-dedup@var-home.timer
         - var-home-nhubao-.cache-fontconfig.mount
         - var-home-nhubao-.fontconfig.mount
