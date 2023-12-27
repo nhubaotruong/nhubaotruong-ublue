@@ -103,7 +103,7 @@ modules:
       - gnome-shell-extension-caffeine
       - supergfxctl
       - gnome-shell-extension-supergfxctl-gex
-      - gnome-shell-extension-tailscale-gnome-qs
+      - gnome-shell-extension-tailscale-status
       # - gnome-shell-extension-system76-scheduler
       - waydroid
       - gamescope
@@ -111,6 +111,7 @@ modules:
       - podman-docker
       - gnome-network-displays
       - gstreamer1-vaapi
+      - nautilus-open-any-terminal
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
