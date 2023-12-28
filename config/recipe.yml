@@ -31,7 +31,6 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/mikelo2/gnome-network-displays/repo/fedora-%OS_VERSION%/mikelo2-gnome-network-displays-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/ycollet/audinux/repo/fedora-%OS_VERSION%/ycollet-audinux-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     install:
@@ -103,7 +102,6 @@ modules:
       - gnome-shell-extension-caffeine
       - supergfxctl
       - gnome-shell-extension-supergfxctl-gex
-      - gnome-shell-extension-tailscale-status
       - gnome-shell-extension-system76-scheduler
       - waydroid
       - gamescope
@@ -115,8 +113,6 @@ modules:
       - redhat-lsb-core
       - libxcrypt-compat
       - lzip
-      - ladspa-caps-plugins
-      - ladspa-noise-suppression-for-voice
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
