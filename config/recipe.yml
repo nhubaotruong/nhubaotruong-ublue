@@ -105,6 +105,7 @@ modules:
       - gnome-shell-extension-system76-scheduler
       - waydroid
       - gamescope
+      - weston
       - python3-pip
       - podman-docker
       - gnome-network-displays
