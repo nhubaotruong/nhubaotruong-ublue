@@ -3,19 +3,18 @@
 # Tell build process to exit if there are any errors.
 set -oue pipefail
 
-fedora_version=$(rpm -E %fedora)
-wget -O "/etc/yum.repos.d/_copr_secureblue-hardened_malloc.repo" "https://copr.fedorainfracloud.org/coprs/secureblue/hardened_malloc/repo/fedora-$fedora_version/secureblue-hardened_malloc-fedora-$fedora_version.repo"
+# fedora_version=$(rpm -E %fedora)
+# wget -O "/etc/yum.repos.d/_copr_secureblue-hardened_malloc.repo" "https://copr.fedorainfracloud.org/coprs/secureblue/hardened_malloc/repo/fedora-$fedora_version/secureblue-hardened_malloc-fedora-$fedora_version.repo"
 
-rpm-ostree install hardened_malloc
+# rpm-ostree install hardened_malloc
+
+gitlab_link="$(curl -L "https://gitlab.com/divested/rpm-hardened_malloc/-/jobs/artifacts/master/browse/x86_64?job=build_rpm" | grep "\.rpm" | grep -m 1 -oP '(?<=href=")(.+)(?=")' | sed 's/file/raw/g')"
+rpm-ostree install "https://gitlab.com$gitlab_link?inline=false"
 
 # Configure
-echo "libhardened_malloc.so" >>/usr/etc/ld.so.preload
+echo "libhardened_malloc-memefficient.so" >>/usr/etc/ld.so.preload
 
-mkdir -p /usr/lib/systemd/user/wireplumber.service.d
-cat <<EOF >>/usr/lib/systemd/user/wireplumber.service.d/preload.conf
-[Service]
-Environment=LD_PRELOAD=/usr/lib64/libhardened_malloc-light.so
-EOF
+cp -r /etc/profile.d /usr/etc/
 
 mkdir -p /usr/lib/systemd/system/upower.service.d
 cat <<EOF >>/usr/lib/systemd/system/upower.service.d/namespaces.conf
@@ -27,6 +26,5 @@ EOF
 
 cat <<EOF >>/usr/share/ublue-os/just/60-custom.just
 harden-flatpak:
-    flatpak override --user --filesystem=host-os:ro --env=LD_PRELOAD=/var/run/host/usr/lib64/libhardened_malloc.so
+    flatpak override --user --filesystem=host-os:ro --env=LD_PRELOAD=/var/run/host/usr/lib64/libhardened_malloc-memefficient.so
 EOF
-
