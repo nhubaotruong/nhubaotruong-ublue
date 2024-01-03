@@ -186,6 +186,7 @@ modules:
         - btrfs-dedup@var-home.timer
         - var-home-nhubao-.cache-fontconfig.mount
         - var-home-nhubao-.fontconfig.mount
+        - usbguard.service
       disabled:
         - raid-check.timer
         - systemd-homed.service
