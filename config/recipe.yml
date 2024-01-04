@@ -114,9 +114,9 @@ modules:
       - redhat-lsb-core
       - libxcrypt-compat
       - lzip
-      - usbguard
-      - usbguard-dbus
-      - usbguard-tools
+      #- usbguard
+      #- usbguard-dbus
+      #- usbguard-tools
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -188,8 +188,8 @@ modules:
         - btrfs-dedup@var-home.timer
         - var-home-nhubao-.cache-fontconfig.mount
         - var-home-nhubao-.fontconfig.mount
-        - usbguard.service
-        - usbguard-dbus.service
+        #- usbguard.service
+        #- usbguard-dbus.service
       disabled:
         - raid-check.timer
         - systemd-homed.service
