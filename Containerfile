@@ -45,8 +45,6 @@ COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
 RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-$(rpm -E %fedora)/kylegospo-bazzite-multilib-fedora-$(rpm -E %fedora).repo?arch=x86_64 -O /etc/yum.repos.d/_copr_kylegospo-bazzite-multilib.repo
 
-RUN sysctl -w net.ipv4.ip_forward=1
-
 # Update packages that commonly cause build issues.
 RUN rpm-ostree override replace \
     --experimental \
