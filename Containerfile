@@ -9,7 +9,7 @@
 # does nothing if the image is built in the cloud.
 
 # !! Warning: changing these might not do anything for you. Read comment above.
-ARG IMAGE_MAJOR_VERSION=38
+ARG IMAGE_MAJOR_VERSION=39
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
 
 FROM ghcr.io/ublue-os/akmods:main-${IMAGE_MAJOR_VERSION} AS akmods-rpms
@@ -44,6 +44,8 @@ COPY modules /tmp/modules/
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
 RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-$(rpm -E %fedora)/kylegospo-bazzite-multilib-fedora-$(rpm -E %fedora).repo?arch=x86_64 -O /etc/yum.repos.d/_copr_kylegospo-bazzite-multilib.repo
+
+RUN sysctl -p
 
 # Update packages that commonly cause build issues.
 RUN rpm-ostree override replace \
