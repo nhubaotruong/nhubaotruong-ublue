@@ -190,6 +190,7 @@ modules:
         - var-home-nhubao-.fontconfig.mount
         - usbguard.service
         - usbguard-dbus.service
+        - swtpm-workaround.service
       disabled:
         - raid-check.timer
         - systemd-homed.service
