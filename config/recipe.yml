@@ -106,6 +106,8 @@ modules:
       - gnome-shell-extension-supergfxctl-gex
       - gnome-shell-extension-system76-scheduler
       - waydroid
+      - lxc
+      - lxc-libs
       - gamescope
       - weston
       - python3-pip
