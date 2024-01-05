@@ -117,6 +117,8 @@ modules:
       - usbguard
       - usbguard-dbus
       - usbguard-tools
+      - setroubleshoot
+      - setools
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -191,6 +193,7 @@ modules:
         - usbguard.service
         - usbguard-dbus.service
         - swtpm-workaround.service
+        - waydroid-workaround.service
       disabled:
         - raid-check.timer
         - systemd-homed.service
