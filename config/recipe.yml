@@ -29,7 +29,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/ycollet/audinux/repo/fedora-%OS_VERSION%/ycollet-audinux-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/hl2linux-selinux/repo/fedora-%OS_VERSION%/kylegospo-hl2linux-selinux-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
+      # - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/mikelo2/gnome-network-displays/repo/fedora-%OS_VERSION%/mikelo2-gnome-network-displays-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-39/ganto-lxc4-fedora-39.repo
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
@@ -78,7 +78,7 @@ modules:
       - minizip-ng
       - qt5-qtquickcontrols
       - distrobox-git
-      - system76-scheduler
+      # - system76-scheduler
       - hl2linux-selinux
       - python3-psutil
       - libnotify
@@ -104,7 +104,7 @@ modules:
       - gnome-shell-extension-caffeine
       - supergfxctl
       - gnome-shell-extension-supergfxctl-gex
-      - gnome-shell-extension-system76-scheduler
+      # - gnome-shell-extension-system76-scheduler
       - waydroid
       - lxc
       - lxc-libs
@@ -196,7 +196,7 @@ modules:
         - supergfxd.service
         - tailscaled.service
         - fstrim.timer
-        - com.system76.Scheduler.service
+        # - com.system76.Scheduler.service
         - btrfs-dedup@var-home.timer
         - var-home-nhubao-.cache-fontconfig.mount
         - var-home-nhubao-.fontconfig.mount
