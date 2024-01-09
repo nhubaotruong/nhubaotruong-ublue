@@ -123,6 +123,8 @@ RUN mkdir -p /usr/etc/flatpak/remotes.d && \
 # RUN rpm-ostree override remove gstreamer1-plugins-bad-free \ 
 #     --install gstreamer1-plugins-bad-freeworld --install gstreamer1-plugins-ugly
 
+COPY config/files/etc/yum.repos.d/ /etc/yum.repos.d/
+
 # Run the build script, then clean up temp files and finalize container build.
 RUN chmod +x /tmp/build.sh && /tmp/build.sh && \
     fc-cache -sf && \
