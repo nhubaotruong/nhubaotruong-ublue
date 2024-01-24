@@ -64,7 +64,7 @@ After=local-fs.target
 Type=oneshot
 # Copy if it doens't exist
 ExecStartPre=/usr/bin/bash -c "[ -d /usr/local/lib/.mdatp ] || /usr/bin/cp -r /usr/lib/microsoft/mdatp /usr/local/lib/.mdatp"
-ExecStartPre=/usr/sbin/semodule -i "/usr/lib/microsoft/mdatp/conf/selinux_policies/out/audisp_mdatp.pp
+ExecStartPre=/usr/sbin/semodule -i "/usr/lib/microsoft/mdatp/conf/selinux_policies/out/audisp_mdatp.pp"
 ExecStartPre=/usr/sbin/setsebool -P audisp_mdatp_from_audisp_t off
 ExecStartPre=/usr/sbin/setsebool -P audisp_mdatp_from_auditd_t on
 # This is faster than using .mount unit. Also allows for the previous line/cleanup
