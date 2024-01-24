@@ -61,4 +61,11 @@ RemainAfterExit=yes
 WantedBy=multi-user.target
 EOF
 
+mkdir -p /usr/lib/systemd/system/mdatp.service.d
+
+cat <<EOF >/usr/lib/systemd/system/mdatp.service.d/override.conf
+[Unit]
+After=mdatp-workaround.service
+EOF
+
 systemctl enable mdatp.service mdatp-workaround.service
