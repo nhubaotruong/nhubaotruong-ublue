@@ -1,0 +1,11 @@
+[Unit]
+Description=Mount /var/opt-root to /opt
+
+[Mount]
+What=/var/opt-root
+Where=/opt
+Type=none
+Options=bind
+
+[Install]
+WantedBy=multi-user.target
