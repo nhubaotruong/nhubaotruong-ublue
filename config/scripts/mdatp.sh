@@ -22,7 +22,6 @@ mv /var/opt/microsoft /usr/lib/microsoft
 # ln -sf /usr/lib/microsoft/mdatp/sbin/wdavdaemonclient /usr/bin/mdatp
 
 cat <<EOF >/usr/lib/tmpfiles.d/microsoft.conf
-d /opt/microsoft 0755 root root - -
 d /var/opt/microsoft 0755 root root - -
 d /var/microsoft-workdir 0755 root root - -
 d /var/log/microsoft 0755 root root - -
@@ -30,42 +29,28 @@ d /etc/opt/microsoft/mdatp 0755 root root - -
 EOF
 
 cat <<EOF >/usr/lib/sysusers.d/mdatp-user.conf
-u mdatp - "Mdatp user" /opt/microsoft/mdatp /usr/sbin/nologin
-EOF
-
-cat <<EOF >/usr/lib/systemd/system/mdatp-workaround.service
-[Unit]
-Description=Workaround mdatp not having the correct label
-ConditionPathExists=/usr/lib/microsoft/mdatp
-After=local-fs.target
-After=opt.mount
-
-[Service]
-Type=oneshot
-# Copy if it doens't exist
-# ExecStartPre=/usr/bin/bash -c "[ -d /usr/local/lib/.microsoft ] || /usr/bin/cp -r /usr/lib/microsoft /usr/local/lib/.microsoft"
-ExecStartPre=/usr/bin/bash -c "/usr/bin/cp -r /usr/lib/microsoft /opt/microsoft"
-ExecStartPre=/usr/sbin/semodule -i "/opt/microsoft/mdatp/conf/selinux_policies/out/audisp_mdatp.pp"
-# This is faster than using .mount unit. Also allows for the previous line/cleanup
-# ExecStartPre=/usr/bin/mount -t overlay overlay -o lowerdir=/usr/local/lib/.microsoft,upperdir=/var/opt/microsoft,workdir=/var/microsoft-workdir /var/opt/microsoft
-# Fix SELinux label
-ExecStart=/usr/sbin/restorecon -rvF /opt/microsoft/mdatp
-ExecStartPost=/usr/sbin/setsebool -P audisp_mdatp_from_audisp_t off
-ExecStartPost=/usr/sbin/setsebool -P audisp_mdatp_from_auditd_t on
-# Clean-up after ourselves
-ExecStop=/usr/bin/umount /usr/lib/microsoft/mdatp
-ExecStop=/usr/bin/rm -r /usr/local/lib/.microsoft
-RemainAfterExit=yes
-
-[Install]
-WantedBy=multi-user.target
+u mdatp - "Mdatp user" /usr/lib/microsoft/mdatp /usr/sbin/nologin
 EOF
 
 mkdir -p /usr/lib/systemd/system/mdatp.service.d
 
 cat <<EOF >/usr/lib/systemd/system/mdatp.service.d/override.conf
 [Unit]
-After=mdatp-workaround.service
+After=var-opt-microsoft.mount
 EOF
 
-systemctl enable mdatp.service mdatp-workaround.service
+cat <<EOF >/usr/lib/systemd/system/var-opt-microsoft.mount
+[Unit]
+Description=Overlay Mount combining /usr/lib/microsoft and /var/opt/microsoft
+
+[Mount]
+What=overlay
+Where=/var/opt/microsoft
+Type=overlay
+Options=lowerdir=/usr/lib/microsoft,upperdir=/var/opt/microsoft,workdir=/var/microsoft-workdir
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+systemctl enable mdatp.service var-opt-microsoft.mount

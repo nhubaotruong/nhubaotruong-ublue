@@ -206,7 +206,6 @@ modules:
         - swtpm-workaround.service
         - waydroid-workaround.service
         - docker.socket
-        - opt-mount.service
       disabled:
         - raid-check.timer
         - systemd-homed.service
