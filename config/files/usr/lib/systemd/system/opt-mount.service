@@ -1,0 +1,15 @@
+[Unit]
+Description=Replace /opt symlink with a real directory
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStartPre=/usr/bin/rm -r /opt
+ExecStartPre=/usr/bin/mkdir -p /opt /var/opt-root
+ExecStart=/usr/bin/mount --bind /var/opt-root /opt
+# Clean-up after ourselves
+ExecStop=/usr/bin/umount /opt
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
