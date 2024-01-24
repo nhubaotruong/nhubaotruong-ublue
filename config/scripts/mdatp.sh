@@ -53,4 +53,28 @@ Options=lowerdir=/usr/lib/microsoft,upperdir=/var/opt/microsoft,workdir=/var/mic
 WantedBy=multi-user.target
 EOF
 
-systemctl enable mdatp.service var-opt-microsoft.mount
+cat <<EOF >/usr/lib/systemd/system/mdatp-workaround.service
+[Unit]
+Description=Workaround mdatp not having the correct label
+ConditionPathExists=/usr/lib/microsoft/mdatp
+Before=var-opt-microsoft.mount
+After=local-fs.target
+
+[Service]
+Type=oneshot
+# Copy if it doens't exist
+ExecStartPre=/usr/bin/bash -c "[ -d /usr/local/lib/.mdatp ] || /usr/bin/cp -r /usr/lib/microsoft/mdatp /usr/local/lib/.mdatp"
+# This is faster than using .mount unit. Also allows for the previous line/cleanup
+ExecStartPre=/usr/bin/mount --bind /usr/local/lib/.mdatp /usr/lib/microsoft/mdatp
+# Fix SELinux label
+ExecStart=/usr/sbin/restorecon -rF /usr/lib/microsoft/mdatp
+# Clean-up after ourselves
+ExecStop=/usr/bin/umount /usr/lib/microsoft/mdatp
+ExecStop=/usr/bin/rm -r /usr/local/lib/.mdatp
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+systemctl enable mdatp.service var-opt-microsoft.mount mdatp-workaround.service
