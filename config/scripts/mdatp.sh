@@ -22,7 +22,7 @@ mv /var/opt/microsoft /usr/lib/microsoft
 # ln -sf /usr/lib/microsoft/mdatp/sbin/wdavdaemonclient /usr/bin/mdatp
 
 cat <<EOF >/usr/lib/tmpfiles.d/microsoft.conf
-d /var/opt/microsoft 0755 root root - -
+d /var/opt/microsoft/mdatp/sbin 0755 root root - -
 d /var/microsoft-workdir 0755 root root - -
 d /var/log/microsoft 0755 root root - -
 d /etc/opt/microsoft/mdatp 0755 root root - -
