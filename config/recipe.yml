@@ -168,7 +168,7 @@ modules:
       # - dnsproxy.sh
       - teamviewer.sh
       - expressvpn.sh
-      # - mdatp.sh
+      - mdatp.sh
       - nanorc.sh
       - papirus-icon-theme.sh
       - bazzite.sh

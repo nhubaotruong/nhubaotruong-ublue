@@ -35,22 +35,9 @@ EOF
 mkdir -p /usr/lib/systemd/system/mdatp.service.d
 
 cat <<EOF >/usr/lib/systemd/system/mdatp.service.d/override.conf
-[Unit]
-After=var-opt-microsoft.mount
+[Service]
+ExecStartPre=/usr/bin/mount -t overlay overlay -o lowerdir=/usr/lib/microsoft,upperdir=/var/opt/microsoft,workdir=/var/microsoft-workdir /var/opt/microsoft
+ExecStop=/usr/bin/umount /var/opt/microsoft
 EOF
 
-cat <<EOF >/usr/lib/systemd/system/var-opt-microsoft.mount
-[Unit]
-Description=Overlay Mount combining /usr/lib/microsoft and /var/opt/microsoft
-
-[Mount]
-What=overlay
-Where=/var/opt/microsoft
-Type=overlay
-Options=lowerdir=/usr/lib/microsoft,upperdir=/var/opt/microsoft,workdir=/var/microsoft-workdir
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-systemctl enable mdatp.service var-opt-microsoft.mount
+systemctl enable mdatp.service
