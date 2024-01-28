@@ -12,7 +12,7 @@ gitlab_link="$(curl -L "https://gitlab.com/divested/rpm-hardened_malloc/-/jobs/a
 rpm-ostree install "https://gitlab.com$gitlab_link?inline=false"
 
 # Configure
-echo "libhardened_malloc-memefficient.so" >>/usr/etc/ld.so.preload
+echo "libhardened_malloc-light.so" >>/usr/etc/ld.so.preload
 
 cp -r /etc/profile.d /usr/etc/
 
