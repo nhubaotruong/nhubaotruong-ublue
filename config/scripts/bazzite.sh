@@ -18,13 +18,21 @@ rpm-ostree override replace \
     mesa-filesystem \
     mesa-dri-drivers \
     mesa-libEGL \
-    mesa-libEGL-devel \
     mesa-libgbm \
     mesa-libGL \
     mesa-libglapi \
     mesa-vulkan-drivers \
     mesa-libOSMesa \
+    pipewire \
+    pipewire-alsa \
+    pipewire-gstreamer \
+    pipewire-jack-audio-connection-kit \
+    pipewire-jack-audio-connection-kit-libs \
+    pipewire-libs \
+    pipewire-pulseaudio \
+    pipewire-utils \
     bluez \
     bluez-cups \
     bluez-libs \
-    bluez-obexd
+    bluez-obexd \
+    xorg-x11-server-Xwayland

@@ -49,18 +49,6 @@ RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo
 RUN rpm-ostree override replace \
     --experimental \
     --from repo=updates \
-    pipewire \
-    pipewire-alsa \
-    pipewire-gstreamer \
-    pipewire-jack-audio-connection-kit \
-    pipewire-jack-audio-connection-kit-libs \
-    pipewire-libs \
-    pipewire-pulseaudio \
-    pipewire-utils \
-    || true && \
-    rpm-ostree override replace \
-    --experimental \
-    --from repo=updates \
     vulkan-loader \
     || true && \
     rpm-ostree override replace \
@@ -76,8 +64,18 @@ RUN rpm-ostree override replace \
     rpm-ostree override replace \
     --experimental \
     --from repo=updates \
+    gtk3 \
+    || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
     atk \
     at-spi2-atk \
+    || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+    libaom \
     || true && \
     rpm-ostree override replace \
     --experimental \
@@ -96,6 +94,31 @@ RUN rpm-ostree override replace \
     --from repo=updates \
     python3 \
     python3-libs \
+    || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+    libdecor \
+    || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+    libtirpc \
+    || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+    libuuid \
+    || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+    libblkid \
+    || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+    libmount \
     || true && \
     rpm-ostree override remove \
     glibc32 \

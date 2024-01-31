@@ -34,7 +34,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-39/ganto-lxc4-fedora-39.repo
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-      - https://download.docker.com/linux/fedora/docker-ce.repo
+      # - https://download.docker.com/linux/fedora/docker-ce.repo
     install:
       - sqlite
       - starship
@@ -42,7 +42,7 @@ modules:
       - tilix-nautilus
       - gnome-tweaks
       - file-roller
-      - tlp
+      # - tlp
       - lz4
       - xz
       - zstd
@@ -111,7 +111,7 @@ modules:
       - gamescope
       - weston
       - python3-pip
-      # - podman-docker
+      - podman-docker
       - gnome-network-displays
       - gstreamer1-vaapi
       - nautilus-open-any-terminal
@@ -123,13 +123,19 @@ modules:
       - usbguard-tools
       - setroubleshoot
       - setools
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
-      - docker-buildx-plugin
-      - docker-compose-plugin
+      # - docker-ce
+      # - docker-ce-cli
+      # - containerd.io
+      # - docker-buildx-plugin
+      # - docker-compose-plugin
       - gum
       - fuse-sshfs
+      - tuned
+      - tuned-ppd
+      - tuned-utils
+      - tuned-utils-systemtap
+      - tuned-profiles-atomic
+      - tuned-profiles-cpu-partitioning
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -187,7 +193,8 @@ modules:
   - type: systemd
     system:
       enabled:
-        - tlp.service
+        # - tlp.service
+        - tuned.service
         - supergfxd.service
         - tailscaled.service
         - fstrim.timer
@@ -199,7 +206,7 @@ modules:
         - usbguard-dbus.service
         - swtpm-workaround.service
         - waydroid-workaround.service
-        - docker.socket
+        # - docker.socket
       disabled:
         - raid-check.timer
         - systemd-homed.service
