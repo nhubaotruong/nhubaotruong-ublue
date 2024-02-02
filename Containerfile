@@ -10,10 +10,8 @@
 
 # !! Warning: changing these might not do anything for you. Read comment above.
 ARG IMAGE_MAJOR_VERSION=39
-ARG FEDORA_MAJOR_VERSION=${IMAGE_MAJOR_VERSION}
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
 ARG NVIDIA_MAJOR_VERSION=545
-ARG IMAGE_NAME="silverblue"
 
 FROM ghcr.io/ublue-os/akmods:fsync-${IMAGE_MAJOR_VERSION} AS akmods-rpms
 FROM ghcr.io/ublue-os/akmods-nvidia:fsync-${IMAGE_MAJOR_VERSION}-${NVIDIA_MAJOR_VERSION} as akmods-nvidia-rpms
@@ -157,8 +155,8 @@ RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 COPY --from=akmods-nvidia-rpms /rpms /tmp/akmods-rpms
 RUN wget https://raw.githubusercontent.com/ublue-os/nvidia/main/install.sh -O /tmp/nvidia-install.sh && \
     wget https://raw.githubusercontent.com/ublue-os/nvidia/main/post-install.sh -O /tmp/nvidia-post-install.sh && \
-    chmod +x /tmp/nvidia-install.sh && IMAGE_NAME="${BASE_IMAGE_NAME}" /tmp/nvidia-install.sh && \
-    chmod +x /tmp/nvidia-post-install.sh && IMAGE_NAME="${BASE_IMAGE_NAME}" /tmp/nvidia-post-install.sh
+    chmod +x /tmp/nvidia-install.sh && env FEDORA_MAJOR_VERSION=${IMAGE_MAJOR_VERSION} IMAGE_NAME="silverblue" /tmp/nvidia-install.sh && \
+    chmod +x /tmp/nvidia-post-install.sh && env FEDORA_MAJOR_VERSION=${IMAGE_MAJOR_VERSION} IMAGE_NAME="silverblue" /tmp/nvidia-post-install.sh
 
 # Flatpak remote
 RUN mkdir -p /usr/etc/flatpak/remotes.d && \
