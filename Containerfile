@@ -155,8 +155,8 @@ RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 COPY --from=akmods-nvidia-rpms /rpms /tmp/akmods-rpms
 RUN wget https://raw.githubusercontent.com/ublue-os/nvidia/main/install.sh -O /tmp/nvidia-install.sh && \
     wget https://raw.githubusercontent.com/ublue-os/nvidia/main/post-install.sh -O /tmp/nvidia-post-install.sh && \
-    chmod +x /tmp/nvidia-install.sh && env FEDORA_MAJOR_VERSION="$(rpm -E %fedora)" NVIDIA_MAJOR_VERSION="545" /tmp/nvidia-install.sh && \
-    chmod +x /tmp/nvidia-post-install.sh && env FEDORA_MAJOR_VERSION="$(rpm -E %fedora)" NVIDIA_MAJOR_VERSION="545" /tmp/nvidia-post-install.sh
+    chmod +x /tmp/nvidia-install.sh && env FEDORA_MAJOR_VERSION="$(rpm -E %fedora)" IMAGE_NAME="" NVIDIA_MAJOR_VERSION="545" /tmp/nvidia-install.sh && \
+    chmod +x /tmp/nvidia-post-install.sh && env FEDORA_MAJOR_VERSION="$(rpm -E %fedora)" IMAGE_NAME="" NVIDIA_MAJOR_VERSION="545" /tmp/nvidia-post-install.sh
 
 # Flatpak remote
 RUN mkdir -p /usr/etc/flatpak/remotes.d && \
