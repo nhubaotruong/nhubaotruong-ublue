@@ -10,9 +10,13 @@
 
 # !! Warning: changing these might not do anything for you. Read comment above.
 ARG IMAGE_MAJOR_VERSION=39
+ARG FEDORA_MAJOR_VERSION=${IMAGE_MAJOR_VERSION}
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
+ARG NVIDIA_MAJOR_VERSION=545
+ARG IMAGE_NAME="silverblue"
 
-FROM ghcr.io/ublue-os/akmods:main-${IMAGE_MAJOR_VERSION} AS akmods-rpms
+FROM ghcr.io/ublue-os/akmods:fsync-${IMAGE_MAJOR_VERSION} AS akmods-rpms
+FROM ghcr.io/ublue-os/akmods-nvidia:fsync-${IMAGE_MAJOR_VERSION}-${NVIDIA_MAJOR_VERSION} as akmods-nvidia-rpms
 
 FROM ${BASE_IMAGE_URL}:${IMAGE_MAJOR_VERSION}
 
@@ -44,6 +48,19 @@ COPY modules /tmp/modules/
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
 RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-$(rpm -E %fedora)/kylegospo-bazzite-multilib-fedora-$(rpm -E %fedora).repo?arch=x86_64 -O /etc/yum.repos.d/_copr_kylegospo-bazzite-multilib.repo
+
+# Install kernel-fsync
+RUN wget https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-$(rpm -E %fedora)/sentry-kernel-fsync-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_sentry-kernel-fsync.repo && \
+    rpm-ostree cliwrap install-to-root / && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=copr:copr.fedorainfracloud.org:sentry:kernel-fsync \
+    kernel \
+    kernel-core \
+    kernel-modules \
+    kernel-modules-core \
+    kernel-modules-extra \
+    kernel-uki-virt
 
 # Update packages that commonly cause build issues.
 RUN rpm-ostree override replace \
@@ -137,13 +154,16 @@ RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
     /tmp/akmods-rpms/kmods/kmod-openrazer*.rpm && \
     sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/negativo17-fedora-multimedia.repo
 
+# Install NVIDIA driver
+COPY --from=akmods-nvidia-rpms /rpms /tmp/akmods-rpms
+RUN wget https://raw.githubusercontent.com/ublue-os/nvidia/main/install.sh -O /tmp/nvidia-install.sh && \
+    wget https://raw.githubusercontent.com/ublue-os/nvidia/main/post-install.sh -O /tmp/nvidia-post-install.sh && \
+    chmod +x /tmp/nvidia-install.sh && IMAGE_NAME="${BASE_IMAGE_NAME}" /tmp/nvidia-install.sh && \
+    chmod +x /tmp/nvidia-post-install.sh && IMAGE_NAME="${BASE_IMAGE_NAME}" /tmp/nvidia-post-install.sh
+
 # Flatpak remote
 RUN mkdir -p /usr/etc/flatpak/remotes.d && \
     wget -q https://dl.flathub.org/repo/flathub.flatpakrepo -P /usr/etc/flatpak/remotes.d
-
-# Swap gstreamer free for nonfree
-# RUN rpm-ostree override remove gstreamer1-plugins-bad-free \ 
-#     --install gstreamer1-plugins-bad-freeworld --install gstreamer1-plugins-ugly
 
 COPY config/files/etc/yum.repos.d/ /etc/yum.repos.d/
 
