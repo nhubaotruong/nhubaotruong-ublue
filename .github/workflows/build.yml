@@ -180,7 +180,7 @@ jobs:
         with:
           image: ${{ steps.build_image.outputs.image }}
           privkey: ${{ secrets.NHUBAOTRUONG_CUSTOM_KEY }}
-          pubkey: /etc/pki/akmods/certs/akmods-ublue.der
+          pubkey: /usr/share/custom-keys/nhubaotruong-key.der
           tags: ${{ steps.build_image.outputs.tags }}  
 
       # Push the image to GHCR (Image Registry)
