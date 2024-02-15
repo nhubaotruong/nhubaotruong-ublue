@@ -108,8 +108,8 @@ modules:
       - waydroid
       - lxc
       - lxc-libs
-      - gamescope
-      - weston
+      - cage
+      - wlr-randr
       - python3-pip
       - podman-docker
       - gnome-network-displays
