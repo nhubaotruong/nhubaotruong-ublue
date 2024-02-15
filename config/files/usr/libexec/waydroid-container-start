@@ -17,6 +17,8 @@ if [[ ! -z "$WAYDROID_DENSITY" ]]; then
 fi
 sudo sed -i "s/ro.hardware.gralloc=.*/ro.hardware.gralloc=${WAYDROID_GRALLOC:-minigbm_gbm_mesa}/g" /var/lib/waydroid/waydroid_base.prop
 
+sudo sed -i "s/^lxc.apparmor.profile/#lxc.apparmor.profile/g" /var/lib/waydroid/lxc/waydroid/config
+
 # Add controller fixes automatically
 if [[ -f "/usr/share/ublue-os/waydroid/Vendor_28de_Product_11ff.kl" ]]; then
     mkdir -p "/var/lib/waydroid/overlay/system/usr/keylayout"
