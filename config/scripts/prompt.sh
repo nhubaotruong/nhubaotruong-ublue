@@ -10,5 +10,4 @@ rpm-ostree override replace \
     vte291 \
     vte-profile \
     libadwaita
-rpm-ostree install \
-    prompt
+rpm-ostree install ptyxis
