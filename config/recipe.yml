@@ -42,7 +42,7 @@ modules:
       - tilix-nautilus
       - gnome-tweaks
       - file-roller
-      # - tlp
+      - tlp
       - lz4
       - xz
       - zstd
@@ -130,13 +130,13 @@ modules:
       # - docker-compose-plugin
       - gum
       - fuse-sshfs
-      - tuned
-      - tuned-gtk
-      - tuned-ppd
-      - tuned-utils
-      - tuned-utils-systemtap
-      - tuned-profiles-atomic
-      - tuned-profiles-cpu-partitioning
+      # - tuned
+      # - tuned-gtk
+      # - tuned-ppd
+      # - tuned-utils
+      # - tuned-utils-systemtap
+      # - tuned-profiles-atomic
+      # - tuned-profiles-cpu-partitioning
       - openssh-askpass
     remove:
       - firefox # default firefox removed in favor of flatpak
@@ -191,12 +191,13 @@ modules:
     install:
       - ublue-update # https://github.com/ublue-os/ublue-update
       - dconf-update-service # a service unit that updates the dconf db on boot
+      - laptop
 
   - type: systemd
     system:
       enabled:
-        # - tlp.service
-        - tuned.service
+        - tlp.service
+        # - tuned.service
         - supergfxd.service
         - tailscaled.service
         - fstrim.timer
