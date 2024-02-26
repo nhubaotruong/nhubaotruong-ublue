@@ -36,3 +36,11 @@ rpm-ostree override replace \
     bluez-libs \
     bluez-obexd \
     xorg-x11-server-Xwayland
+
+rpm-ostree override replace \
+    --experimental \
+    --from repo=copr:copr.fedorainfracloud.org:kylegospo:bazzite \
+    wireplumber \
+    wireplumber-libs \
+    upower \
+    upower-libs
