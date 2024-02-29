@@ -12,6 +12,9 @@ wget https://raw.githubusercontent.com/jlu5/icoextract/master/exe-thumbnailer.th
 wget https://gitlab.com/popsulfr/steamos-btrfs/-/raw/11114e4ff791eb2c385814c2fcbac6a83f144f35/files/usr/lib/systemd/system/btrfs-dedup@.service -O /usr/lib/systemd/system/btrfs-dedup@.service
 wget https://gitlab.com/popsulfr/steamos-btrfs/-/raw/11114e4ff791eb2c385814c2fcbac6a83f144f35/files/usr/lib/systemd/system/btrfs-dedup@.timer -O /usr/lib/systemd/system/btrfs-dedup@.timer
 
+fedora_version=$(rpm -E %fedora)
+
+wget "https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-$fedora_version/kylegospo-bazzite-multilib-fedora-$fedora_version.repo?arch=x86_64" -O /etc/yum.repos.d/_copr_kylegospo-bazzite-multilib.repo
 rpm-ostree override replace \
     --experimental \
     --from repo=copr:copr.fedorainfracloud.org:kylegospo:bazzite-multilib \
@@ -34,5 +37,16 @@ rpm-ostree override replace \
     bluez \
     bluez-cups \
     bluez-libs \
-    bluez-obexd \
+    bluez-obexd
+
+# Install Explicit Sync Patches
+wget "https://copr.fedorainfracloud.org/coprs/gloriouseggroll/nvidia-explicit-sync/repo/fedora-$fedora_version/gloriouseggroll-nvidia-explicit-sync-fedora-$fedora_version.repo?arch=x86_64" -O /etc/yum.repos.d/_copr_gloriouseggroll-nvidia-explicit-sync.repo
+rpm-ostree override replace \
+    --experimental \
+    --from repo=copr:copr.fedorainfracloud.org:gloriouseggroll:nvidia-explicit-sync \
     xorg-x11-server-Xwayland
+rpm-ostree override replace \
+    --experimental \
+    --from repo=copr:copr.fedorainfracloud.org:gloriouseggroll:nvidia-explicit-sync \
+    egl-wayland ||
+    true
