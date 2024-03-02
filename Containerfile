@@ -9,7 +9,8 @@
 # does nothing if the image is built in the cloud.
 
 # !! Warning: changing these might not do anything for you. Read comment above.
-ARG IMAGE_MAJOR_VERSION=39
+ARG IMAGE_MAJOR_VERSION="${IMAGE_MAJOR_VERSION:-39}"
+ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-39}"
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
 ARG NVIDIA_MAJOR_VERSION=550
 
