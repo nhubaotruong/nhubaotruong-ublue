@@ -9,15 +9,15 @@
 # does nothing if the image is built in the cloud.
 
 # !! Warning: changing these might not do anything for you. Read comment above.
+ARG IMAGE_MAJOR_VERSION="${IMAGE_MAJOR_VERSION:-39}"
+ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
+ARG NVIDIA_MAJOR_VERSION=550
 
 FROM ghcr.io/ublue-os/akmods:fsync-${IMAGE_MAJOR_VERSION} AS akmods-rpms
 FROM ghcr.io/ublue-os/akmods-nvidia:fsync-${IMAGE_MAJOR_VERSION}-${NVIDIA_MAJOR_VERSION} as akmods-nvidia-rpms
 
 FROM ${BASE_IMAGE_URL}:${IMAGE_MAJOR_VERSION}
 ARG IMAGE_MAJOR_VERSION="${IMAGE_MAJOR_VERSION:-39}"
-ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-39}"
-ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
-ARG NVIDIA_MAJOR_VERSION=550
 
 # The default recipe is set to the recipe's default filename
 # so that `podman build` should just work for most people.
