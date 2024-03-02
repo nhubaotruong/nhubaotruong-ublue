@@ -150,15 +150,23 @@ RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
     sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/negativo17-fedora-multimedia.repo
 
 # Install NVIDIA driver
+# COPY --from=akmods-nvidia-rpms /rpms /tmp/akmods-rpms
+# RUN rpm-ostree install /tmp/akmods-rpms/ublue-os/ublue-os-nvidia-addons-*.rpm && \
+#     source /tmp/akmods-rpms/kmods/nvidia-vars.* && \
+#     rpm-ostree install \
+#     xorg-x11-drv-${NVIDIA_PACKAGE_NAME}-{,cuda-,devel-,kmodsrc-,power-}${NVIDIA_FULL_VERSION} \
+#     nvidia-container-toolkit nvidia-vaapi-driver \
+#     /tmp/akmods-rpms/kmods/kmod-${NVIDIA_PACKAGE_NAME}-${KERNEL_VERSION}-${NVIDIA_AKMOD_VERSION}.fc${RELEASE}.rpm && \
+#     systemctl enable ublue-nvctk-cdi.service && \
+#     semodule --verbose --install /usr/share/selinux/packages/nvidia-container.pp
+
+# Fetch NVIDIA driver
 COPY --from=akmods-nvidia-rpms /rpms /tmp/akmods-rpms
-RUN rpm-ostree install /tmp/akmods-rpms/ublue-os/ublue-os-nvidia-addons-*.rpm && \
-    source /tmp/akmods-rpms/kmods/nvidia-vars.* && \
-    rpm-ostree install \
-    xorg-x11-drv-${NVIDIA_PACKAGE_NAME}-{,cuda-,devel-,kmodsrc-,power-}${NVIDIA_FULL_VERSION} \
-    nvidia-container-toolkit nvidia-vaapi-driver \
-    /tmp/akmods-rpms/kmods/kmod-${NVIDIA_PACKAGE_NAME}-${KERNEL_VERSION}-${NVIDIA_AKMOD_VERSION}.fc${RELEASE}.rpm && \
-    systemctl enable ublue-nvctk-cdi.service && \
-    semodule --verbose --install /usr/share/selinux/packages/nvidia-container.pp
+# Install NVIDIA driver
+RUN wget https://raw.githubusercontent.com/ublue-os/nvidia/main/install.sh -O /tmp/nvidia-install.sh && \
+    wget https://raw.githubusercontent.com/ublue-os/nvidia/main/post-install.sh -O /tmp/nvidia-post-install.sh && \
+    chmod +x /tmp/nvidia-install.sh && FEDORA_MAJOR_VERSION="${IMAGE_MAJOR_VERSION}" IMAGE_NAME="silverblue" RPMFUSION_MIRROR="" /tmp/nvidia-install.sh && \
+    chmod +x /tmp/nvidia-post-install.sh && FEDORA_MAJOR_VERSION="${IMAGE_MAJOR_VERSION}" IMAGE_NAME="silverblue" RPMFUSION_MIRROR="" /tmp/nvidia-post-install.sh
 
 # Flatpak remote
 RUN mkdir -p /usr/etc/flatpak/remotes.d && \
