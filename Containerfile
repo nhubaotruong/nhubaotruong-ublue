@@ -11,13 +11,10 @@
 # !! Warning: changing these might not do anything for you. Read comment above.
 ARG IMAGE_MAJOR_VERSION="${IMAGE_MAJOR_VERSION:-39}"
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
-ARG NVIDIA_MAJOR_VERSION=550
-
-FROM ghcr.io/ublue-os/akmods:fsync-${IMAGE_MAJOR_VERSION} AS akmods-rpms
-FROM ghcr.io/ublue-os/akmods-nvidia:fsync-${IMAGE_MAJOR_VERSION}-${NVIDIA_MAJOR_VERSION} as akmods-nvidia-rpms
 
 FROM ${BASE_IMAGE_URL}:${IMAGE_MAJOR_VERSION}
 ARG IMAGE_MAJOR_VERSION="${IMAGE_MAJOR_VERSION:-39}"
+ARG NVIDIA_MAJOR_VERSION=550
 
 # The default recipe is set to the recipe's default filename
 # so that `podman build` should just work for most people.
@@ -139,7 +136,7 @@ RUN rpm-ostree override replace \
     || true
 
 # Akmods
-COPY --from=akmods-rpms /rpms /tmp/akmods-rpms
+COPY --from=ghcr.io/ublue-os/akmods:fsync-${IMAGE_MAJOR_VERSION} /rpms /tmp/akmods-rpms
 RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo && \
     wget https://negativo17.org/repos/fedora-multimedia.repo -O /etc/yum.repos.d/negativo17-fedora-multimedia.repo && \
     rpm-ostree install \
@@ -162,7 +159,7 @@ RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 #     semodule --verbose --install /usr/share/selinux/packages/nvidia-container.pp
 
 # Fetch NVIDIA driver
-COPY --from=akmods-nvidia-rpms /rpms /tmp/akmods-rpms
+COPY --from=ghcr.io/ublue-os/akmods-nvidia:fsync-${IMAGE_MAJOR_VERSION}-${NVIDIA_MAJOR_VERSION} /rpms /tmp/akmods-rpms
 # Install NVIDIA driver
 RUN wget https://raw.githubusercontent.com/ublue-os/nvidia/main/install.sh -O /tmp/nvidia-install.sh && \
     wget https://raw.githubusercontent.com/ublue-os/nvidia/main/post-install.sh -O /tmp/nvidia-post-install.sh && \
