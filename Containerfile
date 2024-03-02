@@ -165,8 +165,8 @@ COPY --from=akmods-nvidia-rpms /rpms /tmp/akmods-rpms
 # Install NVIDIA driver
 RUN wget https://raw.githubusercontent.com/ublue-os/nvidia/main/install.sh -O /tmp/nvidia-install.sh && \
     wget https://raw.githubusercontent.com/ublue-os/nvidia/main/post-install.sh -O /tmp/nvidia-post-install.sh && \
-    chmod +x /tmp/nvidia-install.sh && FEDORA_MAJOR_VERSION="${IMAGE_MAJOR_VERSION}" IMAGE_NAME="silverblue" RPMFUSION_MIRROR="" /tmp/nvidia-install.sh && \
-    chmod +x /tmp/nvidia-post-install.sh && FEDORA_MAJOR_VERSION="${IMAGE_MAJOR_VERSION}" IMAGE_NAME="silverblue" RPMFUSION_MIRROR="" /tmp/nvidia-post-install.sh
+    chmod +x /tmp/nvidia-install.sh && IMAGE_NAME="silverblue" RPMFUSION_MIRROR="" /tmp/nvidia-install.sh && \
+    chmod +x /tmp/nvidia-post-install.sh && IMAGE_NAME="silverblue" RPMFUSION_MIRROR="" /tmp/nvidia-post-install.sh
 
 # Flatpak remote
 RUN mkdir -p /usr/etc/flatpak/remotes.d && \
