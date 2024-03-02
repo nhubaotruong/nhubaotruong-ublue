@@ -11,7 +11,7 @@
 # !! Warning: changing these might not do anything for you. Read comment above.
 ARG IMAGE_MAJOR_VERSION=39
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
-ARG NVIDIA_MAJOR_VERSION=545
+ARG NVIDIA_MAJOR_VERSION=550
 
 FROM ghcr.io/ublue-os/akmods:fsync-${IMAGE_MAJOR_VERSION} AS akmods-rpms
 FROM ghcr.io/ublue-os/akmods-nvidia:fsync-${IMAGE_MAJOR_VERSION}-${NVIDIA_MAJOR_VERSION} as akmods-nvidia-rpms
