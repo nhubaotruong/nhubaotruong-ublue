@@ -1,3 +1,5 @@
 .idea
 cosign.key
+cosign.private
 nhubaotruong-key.priv
+Containerfile

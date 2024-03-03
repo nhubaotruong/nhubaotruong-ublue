@@ -4,7 +4,7 @@ name: nhubaotruong-ublue
 description: nhubaotruong uBlue image
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
+base-image: ghcr.io/ublue-os/silverblue-nvidia
 image-version: 39 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -154,6 +154,16 @@ modules:
   # - Celluloid: io.github.celluloid_player.Celluloid
   # - Krita: org.kde.krita
 
+  - type: akmods
+    base: main
+    install:
+      - v4l2loopback
+      - xone
+      - xpadneo
+      - evdi
+      - openrazer
+      - winesync
+
   - type: script
     scripts:
       - hardened-malloc.sh
@@ -170,8 +180,6 @@ modules:
       - waydroid.sh
       - prompt.sh
       - workarounds.sh
-      # this sets up the proper policy & signing files for signed images to work
-      - signing.sh
 
   - type: bling # configure what to pull in from ublue-os/bling
     install:
@@ -205,3 +213,5 @@ modules:
         # - fontconfig-clear.service
         # - start-distrobox.service
       disabled:
+
+  - type: signing
