@@ -34,6 +34,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-39/ganto-lxc4-fedora-39.repo
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+      - https://raw.githubusercontent.com/ublue-os/bluefin/main/etc/yum.repos.d/charm.repo
       # - https://download.docker.com/linux/fedora/docker-ce.repo
     install:
       - sqlite
