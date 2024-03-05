@@ -200,8 +200,6 @@ modules:
         - fstrim.timer
         # - com.system76.Scheduler.service
         - btrfs-dedup@var-home.timer
-        - var-home-nhubao-.cache-fontconfig.mount
-        - var-home-nhubao-.fontconfig.mount
         - usbguard.service
         - usbguard-dbus.service
         - swtpm-workaround.service
