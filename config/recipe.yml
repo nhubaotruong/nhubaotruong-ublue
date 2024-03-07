@@ -141,7 +141,7 @@ modules:
       - gnome-terminal
       - gnome-terminal-nautilus
 
-  - from-file: config/flatpak.yml
+  - from-file: flatpak.yml
 
   - type: fonts
     fonts:
