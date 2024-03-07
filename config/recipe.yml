@@ -141,6 +141,8 @@ modules:
       - gnome-terminal
       - gnome-terminal-nautilus
 
+  - from-file: config/flatpak.yml
+
   - type: fonts
     fonts:
       nerd-fonts:
