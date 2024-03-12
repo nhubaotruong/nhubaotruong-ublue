@@ -81,8 +81,6 @@ runs:
         docker cp blue-build-installer:/out/bluebuild /usr/local/bin/bluebuild
         docker stop -t 0 blue-build-installer
 
-    # clones user's repo
-    - uses: actions/checkout@v4
     - uses: sigstore/cosign-installer@v3.4.0
 
 

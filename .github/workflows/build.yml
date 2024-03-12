@@ -23,6 +23,7 @@ jobs:
           # !! Add your recipes here 
           - recipe.yml
     steps:
+      - uses: actions/checkout@v4
        # the build is fully handled by the reusable github action
       - name: Build Custom Image
         id: build_image
