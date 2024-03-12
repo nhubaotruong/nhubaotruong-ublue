@@ -126,6 +126,7 @@ modules:
       - fuse-sshfs
       - openssh-askpass
       - bindfs
+      - papirus-icon-theme
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -176,7 +177,7 @@ modules:
 
   - type: script
     scripts:
-      - hardened-malloc.sh
+      # - hardened-malloc.sh
       - mutter-triple-patch.sh
       # - gnome-vrr.sh
       - microsoft-fonts.sh
@@ -185,7 +186,7 @@ modules:
       - expressvpn.sh
       - mdatp.sh
       - nanorc.sh
-      - papirus-icon-theme.sh
+      # - papirus-icon-theme.sh
       - bazzite.sh
       - waydroid.sh
       - prompt.sh
