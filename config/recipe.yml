@@ -65,7 +65,6 @@ modules:
       - bsdcpio
       - bsdtar
       - bsdunzip
-      - ffmpegthumbnailer
       - zram-generator
       - zsh
       - igt-gpu-tools
@@ -126,6 +125,12 @@ modules:
       - fuse-sshfs
       - openssh-askpass
       - bindfs
+      - nautilus-gsconnect
+      - ifuse
+      - libimobiledevice
+      - usbmuxd
+      - wl-clipboard
+      - xclip
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
