@@ -194,6 +194,7 @@ modules:
       - bazzite.sh
       - waydroid.sh
       - prompt.sh
+      - docker-compose.sh
       - workarounds.sh
       - selinux.sh
 
