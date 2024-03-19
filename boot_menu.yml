@@ -1,5 +1,0 @@
-ublue_variants:
-  - label: nhubaotruong/nhubaotruong-ublue
-    ks: /kickstart/ublue-os.ks
-    flavors:
-      - label: nhubaotruong-ublue
