@@ -153,8 +153,7 @@ modules:
       - gnome-terminal-nautilus
     optfix:
       - teamviewer
-      - microsoft/mdatp
-      - microsoft/mde_netfilter
+      - microsoft
 
   - from-file: flatpak.yml
 
