@@ -3,11 +3,13 @@ Description=Mount Fontconfig Cache
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/bash -c "/usr/bin/mkdir -p $HOME/.cache/fontconfig; /usr/bin/bindfs -o ro,nonempty -n /usr/lib/fontconfig/cache $HOME/.cache/fontconfig"
-ExecStart=/usr/bin/bash -c "/usr/bin/mkdir -p $HOME/.fontconfig; /usr/bin/bindfs -o ro,nonempty -n /usr/lib/fontconfig/cache $HOME/.fontconfig"
+ExecStartPre=/usr/bin/bash -c "mkdir -p $HOME/.cache/fontconfig"
+ExecStartPre=/usr/bin/bash -c "mkdir -p $HOME/.fontconfig"
+ExecStart=/usr/bin/bash -c "bindfs -o ro,nonempty -n /usr/lib/fontconfig/cache $HOME/.cache/fontconfig"
+ExecStart=/usr/bin/bash -c "bindfs -o ro,nonempty -n /usr/lib/fontconfig/cache $HOME/.fontconfig"
 # Clean-up after ourselves
-ExecStop=/usr/bin/bash -c "/usr/bin/fusermount3 -u $HOME/.cache/fontconfig"
-ExecStop=/usr/bin/bash -c "/usr/bin/fusermount3 -u $HOME/.fontconfig"
+ExecStop=/usr/bin/bash -c "fusermount3 -u $HOME/.cache/fontconfig"
+ExecStop=/usr/bin/bash -c "fusermount3 -u $HOME/.fontconfig"
 RemainAfterExit=yes
 
 [Install]
