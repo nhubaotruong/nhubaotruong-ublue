@@ -35,6 +35,9 @@ modules:
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://raw.githubusercontent.com/ublue-os/bluefin/main/etc/yum.repos.d/charm.repo
+      - https://raw.githubusercontent.com/nhubaotruong/nhubaotruong-ublue/main/config/repos/teamviewer.repo
+      - https://raw.githubusercontent.com/nhubaotruong/nhubaotruong-ublue/main/config/repos/expressvpn.repo
+      - https://packages.microsoft.com/config/fedora/%OS_VERSION%/prod.repo
       # - https://download.docker.com/linux/fedora/docker-ce.repo
     install:
       - sqlite
@@ -131,6 +134,9 @@ modules:
       - usbmuxd
       - wl-clipboard
       - xclip
+      - teamviewer
+      - expressvpn
+      - mdatp
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -145,6 +151,10 @@ modules:
       - gnome-classic-session
       - gnome-terminal
       - gnome-terminal-nautilus
+    optfix:
+      - teamviewer
+      - microsoft/mdatp
+      - microsoft/mde_netfilter
 
   - from-file: flatpak.yml
 
@@ -186,9 +196,9 @@ modules:
       # - gnome-vrr.sh
       - microsoft-fonts.sh
       # - dnsproxy.sh
-      - teamviewer.sh
-      - expressvpn.sh
-      - mdatp.sh
+      # - teamviewer.sh
+      # - expressvpn.sh
+      # - mdatp.sh
       - nanorc.sh
       - papirus-icon-theme.sh
       - bazzite.sh
