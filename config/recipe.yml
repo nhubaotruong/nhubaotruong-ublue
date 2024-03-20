@@ -36,7 +36,6 @@ modules:
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://raw.githubusercontent.com/ublue-os/bluefin/main/etc/yum.repos.d/charm.repo
       - https://raw.githubusercontent.com/nhubaotruong/nhubaotruong-ublue/main/config/repos/teamviewer.repo
-      - https://raw.githubusercontent.com/nhubaotruong/nhubaotruong-ublue/main/config/repos/expressvpn.repo
       - https://packages.microsoft.com/config/fedora/%OS_VERSION%/prod.repo
       # - https://download.docker.com/linux/fedora/docker-ce.repo
     install:
@@ -135,7 +134,6 @@ modules:
       - wl-clipboard
       - xclip
       - teamviewer
-      - expressvpn
       - mdatp
     remove:
       - firefox # default firefox removed in favor of flatpak
@@ -196,7 +194,7 @@ modules:
       - microsoft-fonts.sh
       # - dnsproxy.sh
       # - teamviewer.sh
-      # - expressvpn.sh
+      - expressvpn.sh
       # - mdatp.sh
       - nanorc.sh
       - papirus-icon-theme.sh
