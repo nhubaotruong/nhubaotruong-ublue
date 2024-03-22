@@ -44,7 +44,7 @@ modules:
       - tilix-nautilus
       - gnome-tweaks
       - file-roller
-      - tlp
+      # - tlp
       - lz4
       - xz
       - zstd
@@ -131,6 +131,10 @@ modules:
       - usbmuxd
       - wl-clipboard
       - xclip
+      - tuned
+      - tuned-ppd
+      - tuned-utils
+      - tuned-profiles-atomic
       # - teamviewer
       # - mdatp
     remove:
@@ -181,7 +185,7 @@ modules:
     install:
       - ublue-update # https://github.com/ublue-os/ublue-update
       - dconf-update-service # a service unit that updates the dconf db on boot
-      - laptop
+      # - laptop
 
   - type: script
     scripts:
@@ -205,8 +209,9 @@ modules:
   - type: systemd
     system:
       enabled:
-        - tlp.service
-        # - tuned.service
+        # - tlp.service
+        - powertop.service
+        - tuned.service
         - supergfxd.service
         - tailscaled.service
         - fstrim.timer
