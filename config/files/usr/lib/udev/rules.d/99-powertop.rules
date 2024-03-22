@@ -1,3 +1,3 @@
 # Run powertop on power state changes
-SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="/bin/bash -c '/usr/sbin/powertop --auto-tune'"
-SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="/bin/bash -c '/usr/sbin/powertop --auto-tune'"
+#SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="/bin/bash -c '/usr/sbin/powertop --auto-tune'"
+#SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="/bin/bash -c '/usr/sbin/powertop --auto-tune'"

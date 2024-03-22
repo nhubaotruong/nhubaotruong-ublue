@@ -210,7 +210,7 @@ modules:
     system:
       enabled:
         # - tlp.service
-        - powertop.service
+        # - powertop.service
         - tuned.service
         - supergfxd.service
         - tailscaled.service
