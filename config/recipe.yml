@@ -133,6 +133,7 @@ modules:
       - tuned-ppd
       - tuned-utils
       - tuned-profiles-atomic
+      - bindfs
       # - teamviewer
       # - mdatp
     remove:

@@ -6,11 +6,11 @@ ConditionPathExists=/usr/lib/fontconfig/cache
 Type=oneshot
 ExecStartPre=/usr/bin/mkdir -p %C/fontconfig
 ExecStartPre=/usr/bin/mkdir -p %h/.fontconfig
-ExecStart=/usr/bin/mount --bind -o ro /usr/lib/fontconfig/cache %C/fontconfig
-ExecStart=/usr/bin/mount --bind -o ro /usr/lib/fontconfig/cache %h/.fontconfig
+ExecStart=/usr/bin/bindfs -o ro,nonempty -n /usr/lib/fontconfig/cache %C/fontconfig
+ExecStart=/usr/bin/bindfs -o ro,nonempty -n /usr/lib/fontconfig/cache %h/.fontconfig
 # Clean-up after ourselves
-ExecStop=/usr/bin/umount %C/fontconfig
-ExecStop=/usr/bin/umount %h/.fontconfig
+ExecStop=/usr/bin/fusermount3 -u %C/fontconfig
+ExecStop=/usr/bin/fusermount3 -u %h/.fontconfig
 RemainAfterExit=yes
 
 [Install]
