@@ -150,6 +150,7 @@ modules:
       - gnome-classic-session
       - gnome-terminal
       - gnome-terminal-nautilus
+      - distrobox
 
   - from-file: flatpak.yml
 
@@ -188,6 +189,7 @@ modules:
     scripts:
       # - hardened-malloc.sh
       - mutter-triple-patch.sh
+      - distrobox.sh
       # - gnome-vrr.sh
       - microsoft-fonts.sh
       # - dnsproxy.sh
