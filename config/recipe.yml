@@ -58,7 +58,6 @@ modules:
       - virt-manager
       - libvirt
       - edk2-ovmf
-      - powertop
       - p7zip
       - p7zip-plugins
       - unrar
@@ -124,7 +123,6 @@ modules:
       - gum
       - fuse-sshfs
       - openssh-askpass
-      - bindfs
       - nautilus-gsconnect
       - ifuse
       - libimobiledevice
@@ -206,8 +204,6 @@ modules:
   - type: systemd
     system:
       enabled:
-        # - tlp.service
-        # - powertop.service
         - tuned.service
         - supergfxd.service
         - tailscaled.service

@@ -1,15 +1,16 @@
 [Unit]
 Description=Mount Fontconfig Cache
+ConditionPathExists=/usr/lib/fontconfig/cache
 
 [Service]
 Type=oneshot
-ExecStartPre=/usr/bin/bash -c "mkdir -p $HOME/.cache/fontconfig"
-ExecStartPre=/usr/bin/bash -c "mkdir -p $HOME/.fontconfig"
-ExecStart=/usr/bin/bash -c "bindfs -o ro,nonempty -n /usr/lib/fontconfig/cache $HOME/.cache/fontconfig"
-ExecStart=/usr/bin/bash -c "bindfs -o ro,nonempty -n /usr/lib/fontconfig/cache $HOME/.fontconfig"
+ExecStartPre=/usr/bin/mkdir -p %C/fontconfig
+ExecStartPre=/usr/bin/mkdir -p %h/.fontconfig
+ExecStart=/usr/bin/mount --bind -o ro /usr/lib/fontconfig/cache %C/fontconfig
+ExecStart=/usr/bin/mount --bind -o ro /usr/lib/fontconfig/cache %h/.fontconfig
 # Clean-up after ourselves
-ExecStop=/usr/bin/bash -c "fusermount3 -u $HOME/.cache/fontconfig"
-ExecStop=/usr/bin/bash -c "fusermount3 -u $HOME/.fontconfig"
+ExecStop=/usr/bin/umount %C/fontconfig
+ExecStop=/usr/bin/umount %h/.fontconfig
 RemainAfterExit=yes
 
 [Install]
