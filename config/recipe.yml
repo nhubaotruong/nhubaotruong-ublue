@@ -142,6 +142,7 @@ modules:
       - power-profiles-daemon
       - yelp
       - gnome-tour
+      - distrobox
       - toolbox
       - gnome-software
       - gnome-software-rpm-ostree
@@ -186,6 +187,7 @@ modules:
   - type: script
     scripts:
       # - hardened-malloc.sh
+      - distrobox.sh
       - mutter-triple-patch.sh
       # - gnome-vrr.sh
       - microsoft-fonts.sh
