@@ -160,7 +160,7 @@ modules:
         - Meslo
         - CascadiaCode
       google-fonts:
-        - Roboto
+        # - Roboto
 
   # - type: yafti # if included, yafti and it's dependencies (pip & libadwaita) will be installed and set up
   #   custom-flatpaks:
