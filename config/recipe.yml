@@ -30,8 +30,8 @@ modules:
       # - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
       # - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/mikelo2/gnome-network-displays/repo/fedora-%OS_VERSION%/mikelo2-gnome-network-displays-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-39/ganto-lxc4-fedora-39.repo
-      - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
+      - https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-%OS_VERSION%/ganto-lxc4-fedora-%OS_VERSION%.repo
+      - https://download.opensuse.org/repositories/home:lamlng/Fedora_Rawhide/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://raw.githubusercontent.com/ublue-os/bluefin/main/etc/yum.repos.d/charm.repo
       # - https://raw.githubusercontent.com/nhubaotruong/nhubaotruong-ublue/main/config/repos/teamviewer.repo
