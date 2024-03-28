@@ -74,7 +74,7 @@ modules:
       - dejavu-sans-fonts
       - dejavu-serif-fonts
       - lsd
-      - minizip-compat
+      - minizip-ng-compat
       - minizip-ng
       - qt5-qtquickcontrols
       # - system76-scheduler
