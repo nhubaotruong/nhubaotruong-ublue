@@ -154,6 +154,11 @@ modules:
 
   - from-file: flatpak.yml
 
+  - type: gschema-overrides
+    include:
+      - zz1-desktop.gschema.override
+      - zz1-lockscreen.gschema.override
+
   - type: fonts
     fonts:
       nerd-fonts:
