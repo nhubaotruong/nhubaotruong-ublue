@@ -157,7 +157,6 @@ modules:
   - type: gschema-overrides
     include:
       - zz1-desktop.gschema.override
-      - zz1-lockscreen.gschema.override
 
   - type: fonts
     fonts:
@@ -187,7 +186,7 @@ modules:
   - type: bling # configure what to pull in from ublue-os/bling
     install:
       - ublue-update # https://github.com/ublue-os/ublue-update
-      - dconf-update-service # a service unit that updates the dconf db on boot
+      # - dconf-update-service # a service unit that updates the dconf db on boot
       # - laptop
 
   - type: script
