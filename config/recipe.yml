@@ -34,6 +34,7 @@ modules:
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_Rawhide/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://raw.githubusercontent.com/ublue-os/bluefin/main/etc/yum.repos.d/charm.repo
+      - https://copr.fedorainfracloud.org/coprs/eyecantcu/supergfxctl/repo/fedora-%OS_VERSION%/eyecantcu-supergfxctl-fedora-%OS_VERSION%.repo
       # - https://raw.githubusercontent.com/nhubaotruong/nhubaotruong-ublue/main/config/repos/teamviewer.repo
       # - https://packages.microsoft.com/config/fedora/%OS_VERSION%/prod.repo
       # - https://download.docker.com/linux/fedora/docker-ce.repo
