@@ -204,7 +204,7 @@ modules:
       - papirus-icon-theme.sh
       - bazzite.sh
       - waydroid.sh
-      # - prompt.sh
+      - prompt.sh
       - docker-compose.sh
       - workarounds.sh
       - selinux.sh
@@ -230,6 +230,7 @@ modules:
     user:
       enabled:
         - fontconfig-cache.service
+        - podman.socket
       disabled:
 
   - type: signing
