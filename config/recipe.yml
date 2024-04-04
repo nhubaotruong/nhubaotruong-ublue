@@ -34,7 +34,7 @@ modules:
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_Rawhide/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://raw.githubusercontent.com/ublue-os/bluefin/main/etc/yum.repos.d/charm.repo
-      - https://copr.fedorainfracloud.org/coprs/eyecantcu/supergfxctl/repo/fedora-%OS_VERSION%/eyecantcu-supergfxctl-fedora-%OS_VERSION%.repo
+      # - https://copr.fedorainfracloud.org/coprs/eyecantcu/supergfxctl/repo/fedora-%OS_VERSION%/eyecantcu-supergfxctl-fedora-%OS_VERSION%.repo
       # - https://raw.githubusercontent.com/nhubaotruong/nhubaotruong-ublue/main/config/repos/teamviewer.repo
       # - https://packages.microsoft.com/config/fedora/%OS_VERSION%/prod.repo
       # - https://download.docker.com/linux/fedora/docker-ce.repo
@@ -102,8 +102,8 @@ modules:
       # - gnome-shell-extension-no-overview
       - gnome-shell-extension-just-perfection
       - gnome-shell-extension-caffeine
-      - supergfxctl
-      - gnome-shell-extension-supergfxctl-gex
+      # - supergfxctl
+      # - gnome-shell-extension-supergfxctl-gex
       # - gnome-shell-extension-system76-scheduler
       - waydroid
       - lxc
@@ -214,7 +214,7 @@ modules:
     system:
       enabled:
         - tuned.service
-        - supergfxd.service
+        # - supergfxd.service
         - tailscaled.service
         - fstrim.timer
         # - com.system76.Scheduler.service
