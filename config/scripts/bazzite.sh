@@ -14,49 +14,49 @@ wget https://gitlab.com/popsulfr/steamos-btrfs/-/raw/11114e4ff791eb2c385814c2fcb
 
 fedora_version=$(rpm -E %fedora)
 
-# wget "https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-$fedora_version/kylegospo-bazzite-multilib-fedora-$fedora_version.repo?arch=x86_64" -O /etc/yum.repos.d/_copr_kylegospo-bazzite-multilib.repo
+wget "https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-$fedora_version/kylegospo-bazzite-multilib-fedora-$fedora_version.repo?arch=x86_64" -O /etc/yum.repos.d/_copr_kylegospo-bazzite-multilib.repo
 wget "https://copr.fedorainfracloud.org/coprs/sentry/switcheroo-control_discrete/repo/fedora-$fedora_version/sentry-switcheroo-control_discrete-fedora-$fedora_version.repo" -O /etc/yum.repos.d/_copr_sentry-switcheroo-control_discrete.repo
-# rpm-ostree override remove \
-#     mesa-va-drivers-freeworld
-# rpm-ostree override replace \
-#     --experimental \
-#     --from repo=copr:copr.fedorainfracloud.org:kylegospo:bazzite-multilib \
-#     mesa-filesystem \
-#     mesa-dri-drivers \
-#     mesa-libEGL \
-#     mesa-libgbm \
-#     mesa-libGL \
-#     mesa-libglapi \
-#     mesa-vulkan-drivers \
-#     mesa-libOSMesa \
-#     pipewire \
-#     pipewire-alsa \
-#     pipewire-gstreamer \
-#     pipewire-jack-audio-connection-kit \
-#     pipewire-jack-audio-connection-kit-libs \
-#     pipewire-libs \
-#     pipewire-pulseaudio \
-#     pipewire-utils \
-#     bluez \
-#     bluez-cups \
-#     bluez-libs \
-#     bluez-obexd
-# rpm-ostree install \
-#     mesa-va-drivers-freeworld \
-#     mesa-vdpau-drivers-freeworld.x86_64
+rpm-ostree override remove \
+    mesa-va-drivers-freeworld
+rpm-ostree override replace \
+    --experimental \
+    --from repo=copr:copr.fedorainfracloud.org:kylegospo:bazzite-multilib \
+    mesa-filesystem \
+    mesa-dri-drivers \
+    mesa-libEGL \
+    mesa-libgbm \
+    mesa-libGL \
+    mesa-libglapi \
+    mesa-vulkan-drivers \
+    mesa-libOSMesa \
+    pipewire \
+    pipewire-alsa \
+    pipewire-gstreamer \
+    pipewire-jack-audio-connection-kit \
+    pipewire-jack-audio-connection-kit-libs \
+    pipewire-libs \
+    pipewire-pulseaudio \
+    pipewire-utils \
+    bluez \
+    bluez-cups \
+    bluez-libs \
+    bluez-obexd
+rpm-ostree install \
+    mesa-va-drivers-freeworld \
+    mesa-vdpau-drivers-freeworld.x86_64
 rpm-ostree override replace \
     --experimental \
     --from repo=copr:copr.fedorainfracloud.org:sentry:switcheroo-control_discrete \
     switcheroo-control
 
 # Install Explicit Sync Patches
-# wget "https://copr.fedorainfracloud.org/coprs/gloriouseggroll/nvidia-explicit-sync/repo/fedora-$fedora_version/gloriouseggroll-nvidia-explicit-sync-fedora-$fedora_version.repo?arch=x86_64" -O /etc/yum.repos.d/_copr_gloriouseggroll-nvidia-explicit-sync.repo
-# rpm-ostree override replace \
-#     --experimental \
-#     --from repo=copr:copr.fedorainfracloud.org:gloriouseggroll:nvidia-explicit-sync \
-#     xorg-x11-server-Xwayland
-# rpm-ostree override replace \
-#     --experimental \
-#     --from repo=copr:copr.fedorainfracloud.org:gloriouseggroll:nvidia-explicit-sync \
-#     egl-wayland ||
-#     true
+wget "https://copr.fedorainfracloud.org/coprs/gloriouseggroll/nvidia-explicit-sync/repo/fedora-$fedora_version/gloriouseggroll-nvidia-explicit-sync-fedora-$fedora_version.repo?arch=x86_64" -O /etc/yum.repos.d/_copr_gloriouseggroll-nvidia-explicit-sync.repo
+rpm-ostree override replace \
+    --experimental \
+    --from repo=copr:copr.fedorainfracloud.org:gloriouseggroll:nvidia-explicit-sync \
+    xorg-x11-server-Xwayland
+rpm-ostree override replace \
+    --experimental \
+    --from repo=copr:copr.fedorainfracloud.org:gloriouseggroll:nvidia-explicit-sync \
+    egl-wayland ||
+    true
