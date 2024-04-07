@@ -75,7 +75,8 @@ modules:
       - dejavu-sans-fonts
       - dejavu-serif-fonts
       - lsd
-      - minizip-ng-compat
+      # - minizip-ng-compat # fedora 40
+      - minizip-compat # fedora 39
       - minizip-ng
       - qt5-qtquickcontrols
       # - system76-scheduler
