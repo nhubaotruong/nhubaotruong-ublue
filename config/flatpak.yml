@@ -43,5 +43,5 @@ system:
     - org.qbittorrent.qBittorrent
     - org.videolan.VLC
     - xyz.armcord.ArmCord
-    - one.ablaze.floorp
+    - org.mozilla.firefox
     - com.github.eneshecan.WhatsAppForLinux
