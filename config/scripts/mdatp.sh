@@ -22,10 +22,9 @@ mv /var/opt/microsoft /usr/lib/microsoft
 # ln -sf /usr/lib/microsoft/mdatp/sbin/wdavdaemonclient /usr/bin/mdatp
 
 cat <<EOF >/usr/lib/tmpfiles.d/microsoft.conf
-d /var/opt/microsoft/mdatp/sbin 0755 root root - -
-d /tmp/microsoft-workdir 0755 root root - -
-d /var/log/microsoft/mdatp 0755 root root - -
-d /etc/opt/microsoft/mdatp 0755 root root - -
+d /var/opt/microsoft/mdatp/sbin 0755 mdatp mdatp - -
+d /var/log/microsoft/mdatp 0755 mdatp mdatp - -
+d /etc/opt/microsoft/mdatp 0755 mdatp mdatp - -
 EOF
 
 cat <<EOF >/usr/lib/sysusers.d/mdatp-user.conf
@@ -37,6 +36,7 @@ mkdir -p /usr/lib/systemd/system/mdatp.service.d
 cat <<EOF >/usr/lib/systemd/system/mdatp.service.d/override.conf
 [Service]
 ExecStartPre=/usr/bin/setfacl -m group:mdatp:rwx /var/log/microsoft/mdatp
+ExecStartPre=/usr/bin/mkdir -p /tmp/microsoft-workdir
 ExecStartPre=/usr/bin/mount -t overlay overlay -o lowerdir=/usr/lib/microsoft,upperdir=/var/opt/microsoft,workdir=/tmp/microsoft-workdir /var/opt/microsoft
 ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/semodule -i /var/opt/microsoft/mdatp/conf/selinux_policies/out/audisp_mdatp.pp || true"
 ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/semanage fcontext -a -e /opt/microsoft/mdatp /var/opt/microsoft/mdatp || true"
