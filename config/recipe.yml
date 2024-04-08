@@ -5,7 +5,7 @@ description: nhubaotruong uBlue image
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-nvidia
-image-version: 39 # latest is also supported if you want new updates ASAP
+image-version: 40 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -27,11 +27,11 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ycollet/audinux/repo/fedora-%OS_VERSION%/ycollet-audinux-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/hl2linux-selinux/repo/fedora-%OS_VERSION%/kylegospo-hl2linux-selinux-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
+      # - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
       # - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/mikelo2/gnome-network-displays/repo/fedora-%OS_VERSION%/mikelo2-gnome-network-displays-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-%OS_VERSION%/ganto-lxc4-fedora-%OS_VERSION%.repo
-      - https://download.opensuse.org/repositories/home:/lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
+      - https://download.opensuse.org/repositories/home:/lamlng/Fedora_Rawhide/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://raw.githubusercontent.com/ublue-os/bluefin/main/system_files/shared/etc/yum.repos.d/charm.repo
       - https://copr.fedorainfracloud.org/coprs/eyecantcu/supergfxctl/repo/fedora-%OS_VERSION%/eyecantcu-supergfxctl-fedora-%OS_VERSION%.repo
@@ -75,8 +75,8 @@ modules:
       - dejavu-sans-fonts
       - dejavu-serif-fonts
       - lsd
-      # - minizip-ng-compat # fedora 40
-      - minizip-compat # fedora 39
+      - minizip-ng-compat # fedora 40
+      # - minizip-compat # fedora 39
       - minizip-ng
       - qt5-qtquickcontrols
       # - system76-scheduler
@@ -150,7 +150,7 @@ modules:
       - gnome-software-rpm-ostree
       - zram-generator-defaults
       - gnome-classic-session
-      # - gnome-classic-session-xsession
+      - gnome-classic-session-xsession
       - gnome-terminal
       - gnome-terminal-nautilus
 
