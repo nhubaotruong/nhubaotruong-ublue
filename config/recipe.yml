@@ -207,6 +207,7 @@ modules:
       # - prompt.sh
       - docker-compose.sh
       - workarounds.sh
+      - initramfs.sh
       - selinux.sh
 
   - type: systemd
