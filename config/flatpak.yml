@@ -45,3 +45,4 @@ system:
     - xyz.armcord.ArmCord
     - org.mozilla.firefox
     - com.github.eneshecan.WhatsAppForLinux
+    - org.gnome.NetworkDisplays
