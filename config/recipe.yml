@@ -179,8 +179,6 @@ modules:
       - v4l2loopback
       - xone
       - xpadneo
-      - evdi
-      - openrazer
       - winesync
 
   - type: bling # configure what to pull in from ublue-os/bling
