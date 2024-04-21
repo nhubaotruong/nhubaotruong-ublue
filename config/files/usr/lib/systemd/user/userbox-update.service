@@ -1,0 +1,10 @@
+[Unit]
+Description=Restart userbox.service to rebuild container
+
+[Service]
+Type=oneshot
+ExecStart=-/usr/bin/podman pull ghcr.io/nhubaotruong/userbox:latest
+ExecStart=-/usr/bin/systemctl --user restart userbox.service
+
+[Install]
+WantedBy=default.target
