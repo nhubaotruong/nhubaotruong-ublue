@@ -19,6 +19,7 @@ PodmanArgs=--pid host
 PodmanArgs=--privileged
 PodmanArgs=--security-opt label=disable
 PodmanArgs=--security-opt apparmor=unconfined
+PodmanArgs=--sysctl fs.inotify.max_user_watches=524288
 Ulimit=host
 User=root:root
 UserNS=keep-id

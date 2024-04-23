@@ -220,7 +220,6 @@ modules:
         - usbguard-dbus.service
         - swtpm-workaround.service
         - waydroid-workaround.service
-        - max-file-watches-workaround.service
         # - docker.socket
       disabled:
         - raid-check.timer
