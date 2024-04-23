@@ -3,7 +3,7 @@ Description=My personal userbox
 
 [Container]
 Annotation=run.oci.keep_original_groups=1
-AutoUpdate=registry
+#AutoUpdate=registry
 ContainerName=arch
 Environment=SHELL=%s
 Environment=HOME=%h
