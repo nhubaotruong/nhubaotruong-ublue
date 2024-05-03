@@ -1,5 +1,0 @@
-[Unit]
-Description=userbox target for userbox quadlet
-
-[Install]
-WantedBy=default.target

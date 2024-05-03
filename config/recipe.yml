@@ -229,7 +229,6 @@ modules:
       enabled:
         - fontconfig-cache.service
         - podman.socket
-        - userbox.target
       disabled:
 
   - type: signing
