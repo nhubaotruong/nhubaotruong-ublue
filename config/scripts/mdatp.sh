@@ -11,7 +11,7 @@ set -oue pipefail
 mkdir -p /var/opt
 
 # Setup repo
-curl -sSLf "https://packages.microsoft.com/config/fedora/$(($(rpm -E %fedora) - 1))/prod.repo" -o /etc/yum.repos.d/microsoft.repo
+curl -sSLf "https://packages.microsoft.com/config/fedora/$(rpm -E %fedora)/prod.repo" -o /etc/yum.repos.d/microsoft.repo
 
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
