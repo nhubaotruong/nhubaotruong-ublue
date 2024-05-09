@@ -134,6 +134,7 @@ modules:
       - tuned-utils
       - tuned-profiles-atomic
       - bindfs
+      - ptyxis
       # - teamviewer
       # - mdatp
     remove:
