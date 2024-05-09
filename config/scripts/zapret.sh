@@ -11,7 +11,7 @@ ln -fs /opt/zapret/init.d/systemd/zapret.service /usr/lib/systemd/system
 ln -fs /opt/zapret/init.d/systemd/zapret-list-update.timer /usr/lib/systemd/system
 ln -fs /opt/zapret/init.d/systemd/zapret-list-update.service /usr/lib/systemd/system
 
-systemctl enable zapret.serviec zapret-list-update.timer
+systemctl enable zapret.service zapret-list-update.timer
 
 mv /var/opt/zapret /usr/lib/zapret
 
