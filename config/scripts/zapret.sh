@@ -8,6 +8,8 @@ git clone https://github.com/bol-van/zapret.git /tmp/zapret
 
 cd /tmp/zapret
 
+mkdir -p /usr/lib/zapret
+
 make -C /usr/lib/zapret
 
 ln -fs /usr/lib/zapret/zapret/init.d/systemd/zapret.service /usr/lib/zapret/systemd/system
