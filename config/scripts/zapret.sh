@@ -9,9 +9,6 @@ git clone --depth 1 https://github.com/bol-van/zapret
 
 ln -fs /opt/zapret/init.d/systemd/* /usr/lib/systemd/system
 
-/opt/zapret/ipset/clear_lists.sh
-/opt/zapret/ipset/get_config.sh
-
 systemctl enable zapret.serviec zapret-list-update.timer
 
 mv /var/opt/zapret /usr/lib/zapret
