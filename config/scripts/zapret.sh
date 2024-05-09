@@ -7,7 +7,9 @@ git clone --depth 1 https://github.com/bol-van/zapret
 
 /opt/zapret/install_bin.sh
 
-ln -fs /opt/zapret/init.d/systemd/* /usr/lib/systemd/system
+ln -fs /opt/zapret/init.d/systemd/zapret.service /usr/lib/systemd/system
+ln -fs /opt/zapret/init.d/systemd/zapret-list-update.timer /usr/lib/systemd/system
+ln -fs /opt/zapret/init.d/systemd/zapret-list-update.service /usr/lib/systemd/system
 
 systemctl enable zapret.serviec zapret-list-update.timer
 
