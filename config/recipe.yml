@@ -134,7 +134,7 @@ modules:
       - tuned-utils
       - tuned-profiles-atomic
       - bindfs
-      - ptyxis
+      # - ptyxis
       # - teamviewer
       # - mdatp
     remove:
@@ -204,6 +204,7 @@ modules:
       - waydroid.sh
       # - prompt.sh
       - docker-compose.sh
+      - zapret.sh
       - workarounds.sh
       - initramfs.sh
       - selinux.sh
