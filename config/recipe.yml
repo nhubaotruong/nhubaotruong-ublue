@@ -204,7 +204,7 @@ modules:
       - waydroid.sh
       # - prompt.sh
       - docker-compose.sh
-      - zapret.sh
+      # - zapret.sh
       - workarounds.sh
       - initramfs.sh
       - selinux.sh
