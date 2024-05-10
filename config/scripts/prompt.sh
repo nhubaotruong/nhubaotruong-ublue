@@ -5,6 +5,8 @@ set -oue pipefail
 
 rpm-ostree override replace \
     --experimental \
+    --freeze \
     --from repo=copr:copr.fedorainfracloud.org:ublue-os:staging \
+    vte291 \
     vte-profile
-rpm-ostree install ptyxis # vte291 \
+rpm-ostree install ptyxis

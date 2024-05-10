@@ -202,7 +202,7 @@ modules:
       - papirus-icon-theme.sh
       - bazzite.sh
       - waydroid.sh
-      # - prompt.sh
+      - prompt.sh
       - docker-compose.sh
       # - zapret.sh
       - workarounds.sh
