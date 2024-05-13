@@ -7,7 +7,6 @@ system:
     - com.github.johnfactotum.Foliate
     - com.github.tchx84.Flatseal
     - com.heroicgameslauncher.hgl
-    - com.ktechpit.torrhunt
     - com.mattjakeman.ExtensionManager
     - com.obsproject.Studio
     - com.obsproject.Studio.Plugin.Gstreamer
@@ -17,10 +16,7 @@ system:
     - com.usebottles.bottles
     - com.valvesoftware.Steam
     - com.valvesoftware.Steam.Utility.steamtinkerlaunch
-    - com.vysp3r.ProtonPlus
-    - fyi.zoey.Boop-GTK
     - io.github.Foldex.AdwSteamGtk
-    - io.github.tdesktop_x64.TDesktop
     - io.github.vikdevelop.SaveDesktop
     - org.filezillaproject.Filezilla
     - org.gnome.Calculator
@@ -42,6 +38,4 @@ system:
     - org.libreoffice.LibreOffice
     - org.qbittorrent.qBittorrent
     - org.videolan.VLC
-    - xyz.armcord.ArmCord
-    - com.github.eneshecan.WhatsAppForLinux
     - org.gnome.NetworkDisplays
