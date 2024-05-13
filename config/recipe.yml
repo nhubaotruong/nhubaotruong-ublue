@@ -4,7 +4,7 @@ name: nhubaotruong-ublue
 description: nhubaotruong uBlue image
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
+base-image: ghcr.io/ublue-os/silverblue-nvidia
 image-version: 40 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -28,7 +28,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/ycollet/audinux/repo/fedora-%OS_VERSION%/ycollet-audinux-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/hl2linux-selinux/repo/fedora-%OS_VERSION%/kylegospo-hl2linux-selinux-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-39/kylegospo-bazzite-fedora-39.repo
-      # - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-%OS_VERSION%/ganto-lxc4-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:/lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
@@ -75,10 +75,9 @@ modules:
       - dejavu-serif-fonts
       - lsd
       - minizip-ng-compat # fedora 40
-      # - minizip-compat # fedora 39
       - minizip-ng
       - qt5-qtquickcontrols
-      # - system76-scheduler
+      - system76-scheduler
       - hl2linux-selinux
       - python3-psutil
       - libnotify
@@ -104,7 +103,7 @@ modules:
       - gnome-shell-extension-caffeine
       - supergfxctl
       - gnome-shell-extension-supergfxctl-gex
-      # - gnome-shell-extension-system76-scheduler
+      - gnome-shell-extension-system76-scheduler
       - waydroid
       - lxc
       - lxc-libs
@@ -216,7 +215,7 @@ modules:
         - supergfxd.service
         - tailscaled.service
         - fstrim.timer
-        # - com.system76.Scheduler.service
+        - com.system76.Scheduler.service
         - btrfs-dedup@var-home.timer
         - usbguard.service
         - usbguard-dbus.service

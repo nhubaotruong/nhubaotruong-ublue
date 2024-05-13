@@ -1,6 +1,3 @@
-// WARNING: Modifications to this file will not be preserved on upgrade.
-// To configure, make a config.kdl file under /etc/system76-scheduler/.
-
 // Version of the configuration file
 version "2.0"
 
@@ -27,10 +24,11 @@ process-scheduler enable=true {
     // Preset process assignment profiles
     assignments {
         // Prevent crackling and distortion from the sound server
-        sound-server nice=-15 sched=(fifo)49 io=(realtime)0 {
+        sound-server nice=-19 sched=(fifo)89 io=(realtime)0 {
             "/usr/bin/pipewire"
             "/usr/bin/pipewire-pulse"
             "/usr/bin/jackd"
+            "/usr/bin/wireplumber"
         }
 
         // Applications with realtime audio processing needs
@@ -41,9 +39,6 @@ process-scheduler enable=true {
 
         // Video games
         games nice=-5 io=(best-effort)0
-
-        // Video game background tasks
-        games-background nice=0 io="idle"
 
         // Desktop environments
         desktop-environment nice=-3 io=(best-effort)0
@@ -82,13 +77,16 @@ process-scheduler enable=true {
         include descends="taskset"
         include descends="schedtool"
         chrt
+        coolercontrold
+        coolercontrol-liqctld
         dbus
         dbus-broker
-        fig
-        fig_desktop
         gamemoderun
+        gamescope
         input-remapper-service
         ionice
+        joystickwake
+        lact
         nice
         otd-daemon
         oversteer
@@ -97,5 +95,8 @@ process-scheduler enable=true {
         systemd
         taskset
         schedtool
+        sunshine
+        tuned
+        tuned-ppd
     }
 }
