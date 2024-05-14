@@ -38,4 +38,3 @@ system:
     - org.libreoffice.LibreOffice
     - org.qbittorrent.qBittorrent
     - org.videolan.VLC
-    - org.gnome.NetworkDisplays
