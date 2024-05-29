@@ -10,9 +10,8 @@ set -oue pipefail
 # boot.
 mkdir -p /var/opt
 
-fedora_version=$(rpm -E %fedora)
 # Setup repo
-curl -sSLf "https://packages.microsoft.com/config/fedora/$fedora_version/prod.repo" -o /etc/yum.repos.d/microsoft.repo
+curl -sSLf "https://packages.microsoft.com/config/rhel/8/prod.repo" -o /etc/yum.repos.d/microsoft.repo
 
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
