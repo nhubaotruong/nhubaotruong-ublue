@@ -204,7 +204,7 @@ modules:
       # - zapret.sh
       - workarounds.sh
       - initramfs.sh
-      - selinux.sh
+      # - selinux.sh
 
   - type: systemd
     system:

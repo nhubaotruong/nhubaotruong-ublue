@@ -35,7 +35,6 @@ EOF
 cat <<EOF >/usr/lib/systemd/system/var-opt-microsoft.mount
 [Unit]
 Description=Bind /usr/lib/microsoft to /var/opt/microsoft
-After=systemd-tmpfiles-setup.service
 
 [Mount]
 What=/usr/lib/microsoft
@@ -55,7 +54,7 @@ Requires=var-opt-microsoft.mount
 After=var-opt-microsoft.mount
 EOF
 
-systemctl enable mdatp.service
+systemctl enable var-opt-microsoft.mount mdatp.service
 # ExecStartPre=/usr/bin/setfacl -m group:mdatp:rwx /var/log/microsoft/mdatp
 #ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/semodule -i /var/opt/microsoft/mdatp/conf/selinux_policies/out/audisp_mdatp.pp || true"
 #ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/semanage fcontext -a -e /opt/microsoft/mdatp /var/opt/microsoft/mdatp || true"
