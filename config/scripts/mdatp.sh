@@ -20,45 +20,26 @@ rpm-ostree install mdatp
 mv /var/opt/microsoft /usr/lib/microsoft
 
 # ln -sf /usr/lib/microsoft/mdatp/sbin/wdavdaemonclient /usr/bin/mdatp
-
 cat <<EOF >/usr/lib/tmpfiles.d/microsoft.conf
-d /var/microsoft 0755 root mdatp - -
-d /var/microsoft-work 0755 root root - -
 d /var/opt/microsoft 0755 root root - -
-d /var/log/microsoft 0755 root mdatp - -
+d /var/microsoft-workdir 0755 root root - -
+d /var/log/microsoft 0755 root root - -
 d /etc/opt/microsoft 0755 root root - -
-d /etc/opt/microsoft/mdatp 0755 mdatp mdatp - -
 EOF
 
 cat <<EOF >/usr/lib/sysusers.d/mdatp-user.conf
 u mdatp - "Mdatp user" /usr/lib/microsoft/mdatp /usr/sbin/nologin
 EOF
 
-cat <<EOF >/usr/lib/systemd/system/var-opt-microsoft.mount
-[Unit]
-Description=Bind /usr/lib/microsoft to /var/opt/microsoft
-
-[Mount]
-What=/usr/lib/microsoft
-Where=/var/opt/microsoft
-Type=overlay
-Options=lowerdir=/usr/lib/microsoft:/var/opt/microsoft,upperdir=/var/opt/microsoft,workdir=/var/microsoft-work
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
 mkdir -p /usr/lib/systemd/system/mdatp.service.d
 
 cat <<EOF >/usr/lib/systemd/system/mdatp.service.d/override.conf
-[Unit]
-Requires=var-opt-microsoft.mount
-After=var-opt-microsoft.mount
+[Service]
+ExecStartPre=/usr/bin/mount -t overlay overlay -o lowerdir=/usr/lib/microsoft,upperdir=/var/opt/microsoft,workdir=/var/microsoft-workdir /var/opt/microsoft
+ExecStop=/usr/bin/umount /var/opt/microsoft
 EOF
 
-systemctl enable var-opt-microsoft.mount mdatp.service
-# ExecStartPre=/usr/bin/setfacl -m group:mdatp:rwx /var/log/microsoft/mdatp
-#ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/semodule -i /var/opt/microsoft/mdatp/conf/selinux_policies/out/audisp_mdatp.pp || true"
-#ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/semanage fcontext -a -e /opt/microsoft/mdatp /var/opt/microsoft/mdatp || true"
-#ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/restorecon -vR /var/opt/microsoft/mdatp"
-#ExecStop=/usr/bin/rm -rfv /var/microsoft-workdir
+# ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/semodule -i /var/opt/microsoft/mdatp/conf/selinux_policies/out/audisp_mdatp.pp || true"
+# ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/semanage fcontext -a -e /opt/microsoft/mdatp /var/opt/microsoft/mdatp || true"
+# ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/restorecon -vR /var/opt/microsoft/mdatp"
+# ExecStop=/usr/bin/rm -rfv /var/microsoft-workdir
