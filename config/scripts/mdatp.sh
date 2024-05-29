@@ -36,6 +36,7 @@ mkdir -p /usr/lib/systemd/system/mdatp.service.d
 
 cat <<EOF >/usr/lib/systemd/system/mdatp.service.d/override.conf
 [Service]
+ExecStartPre=
 ExecStartPre=/usr/bin/mount --bind /usr/lib/microsoft /var/opt/microsoft
 ExecStop=/usr/bin/umount /var/opt/microsoft
 EOF
