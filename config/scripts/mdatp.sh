@@ -24,6 +24,7 @@ mv /var/opt/microsoft /usr/lib/microsoft
 cat <<EOF >/usr/lib/tmpfiles.d/microsoft.conf
 d /var/microsoft 0755 root mdatp - -
 d /var/microsoft-work 0755 root root - -
+d /var/opt/microsoft 0755 root root - -
 d /var/log/microsoft 0755 root mdatp - -
 d /etc/opt/microsoft 0755 root root - -
 d /etc/opt/microsoft/mdatp 0755 mdatp mdatp - -
@@ -41,7 +42,7 @@ Description=Bind /usr/lib/microsoft to /var/opt/microsoft
 What=/usr/lib/microsoft
 Where=/var/opt/microsoft
 Type=overlay
-Options=lowerdir=/usr/lib/microsoft,upperdir=/opt/microsoft,workdir=/var/microsoft-work
+Options=lowerdir=/usr/lib/microsoft:/var/opt/microsoft,upperdir=/var/opt/microsoft,workdir=/var/microsoft-work
 
 [Install]
 WantedBy=multi-user.target
