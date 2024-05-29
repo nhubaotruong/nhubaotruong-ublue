@@ -43,3 +43,5 @@ EOF
 # ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/semanage fcontext -a -e /opt/microsoft/mdatp /var/opt/microsoft/mdatp || true"
 # ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/restorecon -vR /var/opt/microsoft/mdatp"
 # ExecStop=/usr/bin/rm -rfv /var/microsoft-workdir
+
+systemctl enable mdatp
