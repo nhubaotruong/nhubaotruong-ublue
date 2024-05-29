@@ -21,7 +21,7 @@ mv /var/opt/microsoft /usr/lib/microsoft
 
 # ln -sf /usr/lib/microsoft/mdatp/sbin/wdavdaemonclient /usr/bin/mdatp
 cat <<EOF >/usr/lib/tmpfiles.d/microsoft.conf
-d /var/opt/microsoft 0755 root root - -
+d /var/opt/microsoft/mdatp/sbin 0755 root root - -
 d /var/microsoft-workdir 0755 root root - -
 d /var/log/microsoft 0755 root root - -
 d /etc/opt/microsoft 0755 root root - -
@@ -33,33 +33,15 @@ EOF
 
 mkdir -p /usr/lib/systemd/system/mdatp.service.d
 
-cat <<EOF >/usr/lib/systemd/system/var-opt-microsoft.mount
-[Unit]
-Description=Bind /usr/lib/microsoft to /var/opt/microsoft
-
-[Mount]
-What=/usr/lib/microsoft
-Where=/var/opt/microsoft
-Type=none
-Options=bind
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
 cat <<EOF >/usr/lib/systemd/system/mdatp.service.d/override.conf
-[Unit]
-Requires=var-opt-microsoft.mount
-After=var-opt-microsoft.mount
-
 [Service]
-WorkingDirectory=/usr/lib/microsoft/mdatp/sbin
+ExecStartPre=/usr/bin/mount -t overlay overlay -o lowerdir=/usr/lib/microsoft,upperdir=/var/opt/microsoft,workdir=/var/microsoft-workdir /var/opt/microsoft
+ExecStop=/usr/bin/umount /var/opt/microsoft
 EOF
 
-# ExecStartPre=/usr/bin/mount -t overlay overlay -o lowerdir=/usr/lib/microsoft,upperdir=/var/opt/microsoft,workdir=/var/microsoft-workdir /var/opt/microsoft
 # ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/semodule -i /var/opt/microsoft/mdatp/conf/selinux_policies/out/audisp_mdatp.pp || true"
 # ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/semanage fcontext -a -e /opt/microsoft/mdatp /var/opt/microsoft/mdatp || true"
 # ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/restorecon -vR /var/opt/microsoft/mdatp"
 # ExecStop=/usr/bin/rm -rfv /var/microsoft-workdir
 
-systemctl enable var-opt-microsoft.mount mdatp
+systemctl enable mdatp
