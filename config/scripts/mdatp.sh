@@ -32,13 +32,27 @@ cat <<EOF >/usr/lib/sysusers.d/mdatp-user.conf
 u mdatp - "Mdatp user" /usr/lib/microsoft/mdatp /usr/sbin/nologin
 EOF
 
+cat <<EOF >/usr/lib/systemd/system/var-opt-microsoft.mount
+[Unit]
+Description=Bind /usr/lib/microsoft to /var/opt/microsoft
+After=systemd-tmpfiles-setup.service
+
+[Mount]
+What=/usr/lib/microsoft
+Where=/var/opt/microsoft
+Type=none
+Options=bind
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
 mkdir -p /usr/lib/systemd/system/mdatp.service.d
 
 cat <<EOF >/usr/lib/systemd/system/mdatp.service.d/override.conf
-[Service]
-ExecStartPre=
-ExecStartPre=/usr/bin/mount --bind /usr/lib/microsoft /var/opt/microsoft
-ExecStop=/usr/bin/umount /var/opt/microsoft
+[Unit]
+Requires=var-opt-microsoft.mount
+After=var-opt-microsoft.mount
 EOF
 
 systemctl enable mdatp.service
