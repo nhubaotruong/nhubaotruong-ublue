@@ -27,8 +27,8 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ycollet/audinux/repo/fedora-%OS_VERSION%/ycollet-audinux-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/hl2linux-selinux/repo/fedora-%OS_VERSION%/kylegospo-hl2linux-selinux-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-39/kylegospo-bazzite-fedora-39.repo
-      - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
+      # - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-%OS_VERSION%/ganto-lxc4-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:/lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
@@ -77,7 +77,7 @@ modules:
       - minizip-ng-compat # fedora 40
       - minizip-ng
       - qt5-qtquickcontrols
-      - system76-scheduler
+      # - system76-scheduler
       - hl2linux-selinux
       - python3-psutil
       - libnotify
@@ -103,7 +103,7 @@ modules:
       - gnome-shell-extension-caffeine
       # - supergfxctl
       # - gnome-shell-extension-supergfxctl-gex
-      - gnome-shell-extension-system76-scheduler
+      # - gnome-shell-extension-system76-scheduler
       - waydroid
       - lxc
       - lxc-libs
@@ -128,16 +128,12 @@ modules:
       - usbmuxd
       - wl-clipboard
       - xclip
-      - tuned
-      - tuned-ppd
-      - tuned-utils
-      - tuned-profiles-atomic
       - bindfs
       - gnome-network-displays
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
-      - power-profiles-daemon
+      # - power-profiles-daemon
       - yelp
       - gnome-tour
       - distrobox
@@ -209,11 +205,11 @@ modules:
   - type: systemd
     system:
       enabled:
-        - tuned.service
+        # - tuned.service
         # - supergfxd.service
         - tailscaled.service
         - fstrim.timer
-        - com.system76.Scheduler.service
+        # - com.system76.Scheduler.service
         - btrfs-dedup@var-home.timer
         - usbguard.service
         - usbguard-dbus.service
