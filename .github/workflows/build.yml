@@ -30,6 +30,4 @@ jobs:
           recipe: ${{ matrix.recipe }}
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           pr_event_number: ${{ github.event.number }}
-          registry: docker.io
-          registry_namespace: nhubaotruong
-          registry_token: ${{ secrets.DOCKER_HUB_API_KEY }}   
+          registry_token: ${{ github.token }}  
