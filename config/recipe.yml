@@ -131,9 +131,9 @@ modules:
       - bindfs
       - gnome-network-displays
       - tuned
-		  - tuned-ppd
-			- tuned-utils
-			- tuned-profiles-atomic
+      - tuned-ppd
+      - tuned-utils
+      - tuned-profiles-atomic
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
