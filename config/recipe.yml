@@ -44,7 +44,7 @@ modules:
       - tilix-nautilus
       - gnome-tweaks
       - file-roller
-      - tlp
+      # - tlp
       - lz4
       - xz
       - zstd
@@ -130,6 +130,10 @@ modules:
       - xclip
       - bindfs
       - gnome-network-displays
+      - tuned
+		  - tuned-ppd
+			- tuned-utils
+			- tuned-profiles-atomic
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -205,7 +209,8 @@ modules:
   - type: systemd
     system:
       enabled:
-        - tlp.service
+        # - tlp.service
+        - tuned.service
         - tailscaled.service
         - fstrim.timer
         # - com.system76.Scheduler.service
