@@ -1,4 +1,4 @@
-# image will be published to ghcr.io/<user>/<name>
+l# image will be published to ghcr.io/<user>/<name>
 name: nhubaotruong-ublue
 # description will be included in the image's metadata
 description: nhubaotruong uBlue image
@@ -178,7 +178,7 @@ modules:
     install:
       - ublue-update # https://github.com/ublue-os/ublue-update
       # - dconf-update-service # a service unit that updates the dconf db on boot
-      # - laptop
+      - laptop
 
   - type: script
     scripts:
