@@ -1,4 +1,4 @@
-l# image will be published to ghcr.io/<user>/<name>
+# image will be published to ghcr.io/<user>/<name>
 name: nhubaotruong-ublue
 # description will be included in the image's metadata
 description: nhubaotruong uBlue image
