@@ -189,7 +189,7 @@ modules:
       - 4158 # Gnome 4x UI Improvements
       - 3956 # Gnome fuzzy app search
       - 6940 # Media Progress
-      - 5278 # Pano Clipboard Manager
+      # - 5278 # Pano Clipboard Manager
       - 4691 # Pip on top
       - 5964 # Quick Settings Audio Devices Hider
       - 5660 # Weather Or Not
