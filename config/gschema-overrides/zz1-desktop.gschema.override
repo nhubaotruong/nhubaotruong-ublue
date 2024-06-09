@@ -35,6 +35,12 @@ window-size=(1200, 800)
 
 [org.gnome.mutter]
 check-alive-timeout=uint32 30000
+experimental-features=['scale-monitor-framebuffer', 'kms-modifiers']
+attach-modal-dialogs=true
+auto-maximize=true
+center-new-windows=false
+edge-tiling=true
+workspaces-only-on-primary=true
 
 [org.gnome.desktop.peripherals.touchpad]
 accel-profile='default'
@@ -69,8 +75,24 @@ overlay-scrolling=true
 scaling-factor=uint32 1
 show-battery-percentage=true
 text-scaling-factor=1.2
+enable-hot-corners=false
 
 [org.gnome.desktop.input-sources]
 current=uint32 0
 mru-sources=[('ibus', 'Bamboo'), ('xkb', 'us')]
 sources=[('xkb', 'us'), ('ibus', 'Bamboo')]
+
+[org.gnome.settings-daemon.plugins.color]
+night-light-enabled=true
+night-light-schedule-from=22.5
+night-light-schedule-to=5.75
+night-light-temperature=uint32 4700
+
+[org.gnome.desktop.privacy]
+remove-old-temp-files=true
+remember-recent-files=true
+old-files-age=uint32 3
+
+[org.gnome.system.location]
+enabled=true
+max-accuracy-level='exact'

@@ -28,7 +28,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/ycollet/audinux/repo/fedora-%OS_VERSION%/ycollet-audinux-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/hl2linux-selinux/repo/fedora-%OS_VERSION%/kylegospo-hl2linux-selinux-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
-      # - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-%OS_VERSION%/ganto-lxc4-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:/lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
@@ -77,7 +77,7 @@ modules:
       - minizip-ng-compat # fedora 40
       - minizip-ng
       - qt5-qtquickcontrols
-      # - system76-scheduler
+      - system76-scheduler
       - hl2linux-selinux
       - python3-psutil
       - libnotify
@@ -93,17 +93,6 @@ modules:
       - gnome-directory-thumbnailer
       - gnome-epub-thumbnailer
       - gnome-kra-ora-thumbnailer
-      - gnome-shell-extension-appindicator
-      - gnome-shell-extension-gsconnect
-      - gnome-shell-extension-user-theme
-      - gnome-shell-extension-dash-to-dock
-      - gnome-shell-extension-drive-menu
-      # - gnome-shell-extension-no-overview
-      - gnome-shell-extension-just-perfection
-      - gnome-shell-extension-caffeine
-      # - supergfxctl
-      # - gnome-shell-extension-supergfxctl-gex
-      # - gnome-shell-extension-system76-scheduler
       - waydroid
       - lxc
       - lxc-libs
@@ -130,6 +119,7 @@ modules:
       - xclip
       - bindfs
       - gnome-network-displays
+      - powertop
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -180,6 +170,31 @@ modules:
       # - dconf-update-service # a service unit that updates the dconf db on boot
       - laptop
 
+  - type: gnome-extensions
+    install:
+      - 615 # AppIndicator and KStatusNotifierItem Support
+      - 1319 # GSConnect
+      - 19 # User Themes
+      - 307 # Dash to Dock
+      - 7 # Removable Drive Menu
+      - 3843 # Just Perfection
+      - 517 # Caffeine
+      - 4269 # Alphabetical App Grid
+      - 2594 # Always Indicator
+      - 5425 # Battery Time
+      - 6670 # Bluetooth Battery Meter
+      - 2645 # Brightness Control Using ddcutil
+      - 1873 # Disable Unredirect Fullscreen Windows
+      - 4485 # Favourites In AppGrid
+      - 4158 # Gnome 4x UI Improvements
+      - 3956 # Gnome fuzzy app search
+      - 6940 # Media Progress
+      - 5278 # Pano Clipboard Manager
+      - 4691 # Pip on top
+      - 5964 # Quick Settings Audio Devices Hider
+      - 5660 # Weather Or Not
+      - 4854 # System76 Scheduler
+
   - type: script
     scripts:
       # - hardened-malloc.sh
@@ -208,7 +223,7 @@ modules:
         - tlp.service
         - tailscaled.service
         - fstrim.timer
-        # - com.system76.Scheduler.service
+        - com.system76.Scheduler.service
         - btrfs-dedup@var-home.timer
         - usbguard.service
         - usbguard-dbus.service
