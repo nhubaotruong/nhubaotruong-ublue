@@ -121,6 +121,7 @@ modules:
       - bindfs
       - gnome-network-displays
       - powertop
+      - gnome-shell-extension-gsconnect
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -174,7 +175,7 @@ modules:
   - type: gnome-extensions
     install:
       - 615 # AppIndicator and KStatusNotifierItem Support
-      - 1319 # GSConnect
+      # - 1319 # GSConnect
       - 19 # User Themes
       - 307 # Dash to Dock
       - 7 # Removable Drive Menu
