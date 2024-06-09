@@ -78,6 +78,7 @@ modules:
       - minizip-ng
       - qt5-qtquickcontrols
       - system76-scheduler
+      - gnome-shell-extension-system76-scheduler
       - hl2linux-selinux
       - python3-psutil
       - libnotify
@@ -193,7 +194,6 @@ modules:
       - 4691 # Pip on top
       - 5964 # Quick Settings Audio Devices Hider
       - 5660 # Weather Or Not
-      - 4854 # System76 Scheduler
 
   - type: script
     scripts:
