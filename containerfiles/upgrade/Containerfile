@@ -108,5 +108,6 @@ RUN --mount=type=tmpfs,target=/tmp rpm-ostree override replace \
     rpm-ostree override replace \
     --experimental \
     --from repo=updates \
-    libxml2 && \
+    libxml2 \
+    || true && \
     ostree container commit
