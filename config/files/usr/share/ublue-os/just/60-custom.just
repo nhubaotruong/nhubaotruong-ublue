@@ -22,7 +22,7 @@ configure-waydroid:
 
 set-kernel-arguments:
     #!/usr/bin/env bash
-    args=(rd.luks.options=discard,tpm2-device=auto nowatchdog quiet cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1 cryptomgr.notests intel_iommu=igfx_off kvm-intel.nested=1 no_timer_check noreplace-smp page_alloc_shuffle=1 rcupdate.rcu_expedited=1 tsc=reliable udev.log_level=3 mem_sleep_default=deep init_on_alloc=1 init_on_free=1 slab_nomerge page_alloc.shuffle=1 randomize_kstack_offset=on vsyscall=none lockdown=confidentiality random.trust_cpu=off random.trust_bootloader=off intel_iommu=on amd_iommu=on efi=disable_early_pci_dma iommu.passthrough=0 iommu.strict=1 nvme_core.default_ps_max_latency_us=0 mitigations=auto,nosmt)
+    args=(rd.luks.options=discard,tpm2-device=auto nowatchdog quiet cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1 cryptomgr.notests initcall_debug intel_iommu=igfx_off kvm-intel.nested=1 no_timer_check noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1 rootfstype=ext4,btrfs,xfs,f2fs tsc=reliable init_on_alloc=1 init_on_free=1 random.trust_cpu=on randomize_kstack_offset=1)
     sudo rpm-ostree kargs $(printf -- "--append-if-missing=%s " ${args[*]})
 
 enable-initramfs:
