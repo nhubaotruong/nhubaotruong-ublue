@@ -24,6 +24,7 @@ RestrictNamespaces=no
 EOF
 
 cat <<EOF >>/usr/share/ublue-os/just/60-custom.just
+
 harden-flatpak:
     flatpak override --user --filesystem=host-os:ro --env=LD_PRELOAD=/var/run/host/usr/lib64/libhardened_malloc-light.so
 EOF
