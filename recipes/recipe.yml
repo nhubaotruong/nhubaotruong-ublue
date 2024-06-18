@@ -198,7 +198,7 @@ modules:
 
   - type: script
     scripts:
-      # - hardened-malloc.sh
+      - hardened-malloc.sh
       - distrobox.sh
       - mutter-triple-patch.sh
       # - gnome-vrr.sh
