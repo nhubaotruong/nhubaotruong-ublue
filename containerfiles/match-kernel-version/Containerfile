@@ -1,0 +1,3 @@
+RUN --mount=type=tmpfs,target=/tmp export kernel_version=$(ls /usr/lib/modules | cut -d - -f 1) &&\
+    rpm-ostree install kernel-devel-${kernel_version} kernel-devel-matched-${kernel_version} &&\
+    ostree container commit
