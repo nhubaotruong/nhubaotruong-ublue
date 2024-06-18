@@ -1,4 +1,4 @@
-RUN --mount=type=tmpfs,target=/tmp export curl https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo -L --output-dir /etc/yum.repos.d/ -O &&\
-    kernel_version=$(ls /usr/lib/modules | cut -d - -f 1) &&\
+RUN --mount=type=tmpfs,target=/tmp curl https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo -LO --output-dir /etc/yum.repos.d/ &&\
+    export kernel_version=$(ls /usr/lib/modules | cut -d - -f 1) &&\
     rpm-ostree install kernel-devel-${kernel_version} kernel-devel-matched-${kernel_version} &&\
     ostree container commit
