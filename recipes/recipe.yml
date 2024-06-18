@@ -195,7 +195,6 @@ modules:
       - 4691 # Pip on top
       - 5964 # Quick Settings Audio Devices Hider
       - 5660 # Weather Or Not
-      - 6310 # Window title is back
 
   - type: script
     scripts:
