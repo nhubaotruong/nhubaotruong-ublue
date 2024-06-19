@@ -33,6 +33,7 @@ modules:
       - https://download.opensuse.org/repositories/home:/lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://packages.microsoft.com/config/rhel/8/prod.repo
+      - https://copr.fedorainfracloud.org/coprs/secureblue/hardened_malloc/repo/fedora-%OS_VERSION%/secureblue-hardened_malloc-fedora-%OS_VERSION%.repo
       # - https://copr.fedorainfracloud.org/coprs/eyecantcu/supergfxctl/repo/fedora-%OS_VERSION%/eyecantcu-supergfxctl-fedora-%OS_VERSION%.repo
       # - https://raw.githubusercontent.com/nhubaotruong/nhubaotruong-ublue/main/config/repos/teamviewer.repo
       # - https://packages.microsoft.com/config/fedora/%OS_VERSION%/prod.repo
@@ -126,6 +127,7 @@ modules:
       - papirus-icon-theme
       - teamviewer
       - mdatp
+      - hardened_malloc
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -205,7 +207,7 @@ modules:
 
   - type: script
     scripts:
-      - hardened-malloc.sh
+      # - hardened-malloc.sh
       # - distrobox.sh
       - mutter-triple-patch.sh
       # - gnome-vrr.sh
