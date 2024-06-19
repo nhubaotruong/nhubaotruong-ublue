@@ -125,7 +125,6 @@ modules:
       - foo2zjs
       - papirus-icon-theme
       - teamviewer
-      - expressvpn
       - mdatp
     remove:
       - firefox # default firefox removed in favor of flatpak
@@ -213,7 +212,7 @@ modules:
       - microsoft-fonts.sh
       # - dnsproxy.sh
       # - teamviewer.sh
-      # - expressvpn.sh
+      - expressvpn.sh
       # - mdatp.sh
       - nanorc.sh
       # - papirus-icon-theme.sh
