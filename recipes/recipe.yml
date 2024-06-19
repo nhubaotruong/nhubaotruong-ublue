@@ -32,6 +32,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-%OS_VERSION%/ganto-lxc4-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:/lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+      - https://packages.microsoft.com/config/rhel/8/prod.repo
       # - https://copr.fedorainfracloud.org/coprs/eyecantcu/supergfxctl/repo/fedora-%OS_VERSION%/eyecantcu-supergfxctl-fedora-%OS_VERSION%.repo
       # - https://raw.githubusercontent.com/nhubaotruong/nhubaotruong-ublue/main/config/repos/teamviewer.repo
       # - https://packages.microsoft.com/config/fedora/%OS_VERSION%/prod.repo
@@ -122,13 +123,17 @@ modules:
       - powertop
       - gnome-shell-extension-gsconnect
       - foo2zjs
+      - papirus-icon-theme
+      - teamviewer
+      - expressvpn
+      - mdatp
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
       - power-profiles-daemon
       - yelp
       - gnome-tour
-      - distrobox
+      # - distrobox
       - toolbox
       - gnome-software
       - gnome-software-rpm-ostree
@@ -137,6 +142,9 @@ modules:
       - gnome-classic-session-xsession
       - gnome-terminal
       - gnome-terminal-nautilus
+    optfix:
+      - teamviewer
+      - microsoft
 
   - from-file: flatpak.yml
 
@@ -199,16 +207,16 @@ modules:
   - type: script
     scripts:
       - hardened-malloc.sh
-      - distrobox.sh
+      # - distrobox.sh
       - mutter-triple-patch.sh
       # - gnome-vrr.sh
       - microsoft-fonts.sh
       # - dnsproxy.sh
-      - teamviewer.sh
-      - expressvpn.sh
-      - mdatp.sh
+      # - teamviewer.sh
+      # - expressvpn.sh
+      # - mdatp.sh
       - nanorc.sh
-      - papirus-icon-theme.sh
+      # - papirus-icon-theme.sh
       - bazzite.sh
       - waydroid.sh
       - prompt.sh
@@ -230,6 +238,7 @@ modules:
         - usbguard-dbus.service
         - swtpm-workaround.service
         - waydroid-workaround.service
+        - mdatp.service
         # - docker.socket
       disabled:
         - raid-check.timer
