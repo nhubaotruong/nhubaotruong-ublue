@@ -14,11 +14,93 @@ modules:
     files:
       - usr: /usr
       - etc: /etc
+  
+  - from-file: flatpak.yml
+
+  - type: signing
+
+  - type: gschema-overrides
+    include:
+      - zz1-desktop.gschema.override
+
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - FiraCode
+        - Meslo
+        - CascadiaCode
+      google-fonts:
+        # - Roboto
+
+  # - type: yafti # if included, yafti and it's dependencies (pip & libadwaita) will be installed and set up
+  #   custom-flatpaks:
+  # this section is optional
+  # - Celluloid: io.github.celluloid_player.Celluloid
+  # - Krita: org.kde.krita
+
+  - type: bling # configure what to pull in from ublue-os/bling
+    install:
+      - ublue-update # https://github.com/ublue-os/ublue-update
+      # - dconf-update-service # a service unit that updates the dconf db on boot
+      - laptop
+
+  - type: gnome-extensions
+    install:
+      - 615 # AppIndicator and KStatusNotifierItem Support
+      # - 1319 # GSConnect
+      - 19 # User Themes
+      - 307 # Dash to Dock
+      - 7 # Removable Drive Menu
+      - 3843 # Just Perfection
+      - 517 # Caffeine
+      - 4269 # Alphabetical App Grid
+      - 2594 # Always Indicator
+      # - 5425 # Battery Time
+      - 6670 # Bluetooth Battery Meter
+      - 2645 # Brightness Control Using ddcutil
+      - 1873 # Disable Unredirect Fullscreen Windows
+      # - 4485 # Favourites In AppGrid
+      - 4158 # Gnome 4x UI Improvements
+      - 3956 # Gnome fuzzy app search
+      - 6940 # Media Progress
+      # - 5278 # Pano Clipboard Manager
+      - 4691 # Pip on top
+      - 5964 # Quick Settings Audio Devices Hider
+      - 5660 # Weather Or Not
+
+  - type: script
+    scripts:
+      # - hardened-malloc.sh
+      # - distrobox.sh
+      - mutter-triple-patch.sh
+      # - gnome-vrr.sh
+      - microsoft-fonts.sh
+      # - dnsproxy.sh
+      # - teamviewer.sh
+      - expressvpn.sh
+      # - mdatp.sh
+      - nanorc.sh
+      # - papirus-icon-theme.sh
+      - bazzite.sh
+      - waydroid.sh
+      - prompt.sh
+      - docker-compose.sh
+      # - zapret.sh
+      - workarounds.sh
+      - initramfs.sh
+      # - selinux.sh
 
   - type: containerfile
     containerfiles:
       - upgrade
       - match-kernel-version
+  
+  - type: akmods
+    base: main
+    install:
+      - v4l2loopback
+      - xone
+      - xpadneo
 
   - type: rpm-ostree
     repos:
@@ -148,86 +230,6 @@ modules:
       - teamviewer
       - microsoft
 
-  - from-file: flatpak.yml
-
-  - type: gschema-overrides
-    include:
-      - zz1-desktop.gschema.override
-
-  - type: fonts
-    fonts:
-      nerd-fonts:
-        - FiraCode
-        - Meslo
-        - CascadiaCode
-      google-fonts:
-        # - Roboto
-
-  # - type: yafti # if included, yafti and it's dependencies (pip & libadwaita) will be installed and set up
-  #   custom-flatpaks:
-  # this section is optional
-  # - Celluloid: io.github.celluloid_player.Celluloid
-  # - Krita: org.kde.krita
-
-  - type: akmods
-    base: main
-    install:
-      - v4l2loopback
-      - xone
-      - xpadneo
-
-  - type: bling # configure what to pull in from ublue-os/bling
-    install:
-      - ublue-update # https://github.com/ublue-os/ublue-update
-      # - dconf-update-service # a service unit that updates the dconf db on boot
-      - laptop
-
-  - type: gnome-extensions
-    install:
-      - 615 # AppIndicator and KStatusNotifierItem Support
-      # - 1319 # GSConnect
-      - 19 # User Themes
-      - 307 # Dash to Dock
-      - 7 # Removable Drive Menu
-      - 3843 # Just Perfection
-      - 517 # Caffeine
-      - 4269 # Alphabetical App Grid
-      - 2594 # Always Indicator
-      # - 5425 # Battery Time
-      - 6670 # Bluetooth Battery Meter
-      - 2645 # Brightness Control Using ddcutil
-      - 1873 # Disable Unredirect Fullscreen Windows
-      # - 4485 # Favourites In AppGrid
-      - 4158 # Gnome 4x UI Improvements
-      - 3956 # Gnome fuzzy app search
-      - 6940 # Media Progress
-      # - 5278 # Pano Clipboard Manager
-      - 4691 # Pip on top
-      - 5964 # Quick Settings Audio Devices Hider
-      - 5660 # Weather Or Not
-
-  - type: script
-    scripts:
-      # - hardened-malloc.sh
-      # - distrobox.sh
-      - mutter-triple-patch.sh
-      # - gnome-vrr.sh
-      - microsoft-fonts.sh
-      # - dnsproxy.sh
-      # - teamviewer.sh
-      - expressvpn.sh
-      # - mdatp.sh
-      - nanorc.sh
-      # - papirus-icon-theme.sh
-      - bazzite.sh
-      - waydroid.sh
-      - prompt.sh
-      - docker-compose.sh
-      # - zapret.sh
-      - workarounds.sh
-      - initramfs.sh
-      # - selinux.sh
-
   - type: systemd
     system:
       enabled:
@@ -251,5 +253,3 @@ modules:
         - fontconfig-cache.service
         - podman.socket
       disabled:
-
-  - type: signing
