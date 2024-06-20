@@ -124,7 +124,7 @@ modules:
       - powertop
       - gnome-shell-extension-gsconnect
       - foo2zjs
-      - papirus-icon-theme
+      - papirus-icon-theme-dark
       - teamviewer
       - mdatp
       - hardened_malloc
