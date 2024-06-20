@@ -82,7 +82,7 @@ modules:
       - nanorc.sh
       # - papirus-icon-theme.sh
       - bazzite.sh
-      - waydroid.sh
+      # - waydroid.sh
       - prompt.sh
       - docker-compose.sh
       # - zapret.sh
