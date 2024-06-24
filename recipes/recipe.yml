@@ -125,17 +125,18 @@ modules:
       - powertop
       - gnome-shell-extension-gsconnect
       - foo2zjs
-      - papirus-icon-theme-dark
       - teamviewer
       - mdatp
       - hardened_malloc
+      - ptyxis
+      - bootc
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
-      # - power-profiles-daemon
+      - power-profiles-daemon
       - yelp
       - gnome-tour
-      # - distrobox
+      - distrobox
       - toolbox
       - gnome-software
       - gnome-software-rpm-ostree
@@ -144,8 +145,6 @@ modules:
       - gnome-classic-session-xsession
       - gnome-terminal
       - gnome-terminal-nautilus
-      - ptyxis
-      - bootc
     optfix:
       - teamviewer
       - microsoft
@@ -204,7 +203,7 @@ modules:
   - type: script
     scripts:
       # - hardened-malloc.sh
-      # - distrobox.sh
+      - distrobox.sh
       - mutter-triple-patch.sh
       # - gnome-vrr.sh
       - microsoft-fonts.sh
@@ -213,7 +212,7 @@ modules:
       - expressvpn.sh
       # - mdatp.sh
       - nanorc.sh
-      # - papirus-icon-theme.sh
+      - papirus-icon-theme.sh
       - bazzite.sh
       # - waydroid.sh
       # - prompt.sh
