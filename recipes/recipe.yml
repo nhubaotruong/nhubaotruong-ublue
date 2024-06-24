@@ -149,6 +149,13 @@ modules:
       - teamviewer
       - microsoft
 
+  - type: akmods
+    base: main
+    install:
+      - v4l2loopback
+      - xone
+      - xpadneo
+
   - from-file: flatpak.yml
 
   - type: gschema-overrides
@@ -222,13 +229,6 @@ modules:
       - initramfs.sh
       - bootc.sh
       # - selinux.sh
-
-  - type: akmods
-    base: main
-    install:
-      - v4l2loopback
-      - xone
-      - xpadneo
 
   - type: systemd
     system:
