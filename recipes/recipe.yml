@@ -14,6 +14,11 @@ modules:
     files:
       - usr: /usr
       - etc: /etc
+  
+  - type: copy
+    from: docker.io/library/docker:cli
+    src: /usr/local/libexec/docker/cli-plugins/docker-compose
+    dest: /usr/bin/
 
   - type: containerfile
     containerfiles:
@@ -130,6 +135,11 @@ modules:
       # - hardened_malloc
       - ptyxis
       - bootc
+      - mesa-va-drivers-freeworld
+      - mesa-vdpau-drivers-freeworld.x86_64
+      - libaacs
+      - libbdplus
+      - libbluray
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -148,6 +158,38 @@ modules:
     optfix:
       - teamviewer
       - microsoft
+    replace:
+      - from-repo: https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo
+        packages:
+          - mutter
+          - mutter-common
+          - gnome-shell
+      - from-repo: https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-%OS_VERSION%/kylegospo-bazzite-multilib-fedora-%OS_VERSION%.repo?arch=x86_64
+        packages:
+          - mesa-filesystem
+          - mesa-libxatracker
+          - mesa-libglapi
+          - mesa-dri-drivers
+          - mesa-libgbm
+          - mesa-libEGL
+          - mesa-vulkan-drivers
+          - mesa-libGL
+          - pipewire
+          - pipewire-alsa
+          - pipewire-gstreamer
+          - pipewire-jack-audio-connection-kit
+          - pipewire-jack-audio-connection-kit-libs
+          - pipewire-libs
+          - pipewire-pulseaudio
+          - pipewire-utils
+          - bluez
+          - bluez-obexd
+          - bluez-cups
+          - bluez-libs
+          - xorg-x11-server-Xwayland
+      - from-repo: https://copr.fedorainfracloud.org/coprs/sentry/switcheroo-control_discrete/repo/fedora-%OS_VERSION%/sentry-switcheroo-control_discrete-fedora-%OS_VERSION%.repo
+        packages:
+          - switcheroo-control
 
   - type: akmods
     base: main
@@ -211,21 +253,15 @@ modules:
     scripts:
       # - hardened-malloc.sh
       - distrobox.sh
-      - mutter-triple-patch.sh
-      # - gnome-vrr.sh
       - microsoft-fonts.sh
       # - dnsproxy.sh
-      # - teamviewer.sh
       - expressvpn.sh
-      # - mdatp.sh
       - nanorc.sh
       - papirus-icon-theme.sh
-      - bazzite.sh
+      # - bazzite.sh
       # - waydroid.sh
-      # - prompt.sh
-      - docker-compose.sh
-      # - zapret.sh
-      - workarounds.sh
+      # - docker-compose.sh
+      # - workarounds.sh
       - initramfs.sh
       - bootc.sh
       # - selinux.sh
