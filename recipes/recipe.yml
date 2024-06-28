@@ -273,7 +273,7 @@ modules:
         - tailscaled.service
         - fstrim.timer
         - com.system76.Scheduler.service
-        # - btrfs-dedup@var-home.timer
+        - btrfs-dedup@var-home.timer
         - usbguard.service
         - usbguard-dbus.service
         - swtpm-workaround.service
