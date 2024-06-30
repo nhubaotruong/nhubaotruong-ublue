@@ -14,11 +14,11 @@ modules:
     files:
       - usr: /usr
       - etc: /etc
-  
-  - type: copy
-    from: docker.io/library/docker:cli
-    src: /usr/local/libexec/docker/cli-plugins/docker-compose
-    dest: /usr/bin/
+
+  # - type: copy
+  #   from: docker.io/library/docker:cli
+  #   src: /usr/local/libexec/docker/cli-plugins/docker-compose
+  #   dest: /usr/bin/
 
   - type: containerfile
     containerfiles:
@@ -248,6 +248,9 @@ modules:
       - 4691 # Pip on top
       - 5964 # Quick Settings Audio Devices Hider
       - 5660 # Weather Or Not
+
+  - type: brew
+    brew-analytics: false
 
   - type: script
     scripts:
