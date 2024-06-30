@@ -1,0 +1,9 @@
+[Unit]
+Description=Auto-update Appman binary
+After=local-fs.target
+After=network-online.target
+ConditionPathExists=%h/.local/bin/appman
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/appman -u
