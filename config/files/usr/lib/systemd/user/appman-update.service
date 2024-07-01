@@ -6,4 +6,5 @@ ConditionPathExists=%h/.local/bin/appman
 
 [Service]
 Type=oneshot
+Environment="PATH=%h/.local/bin/:$PATH"
 ExecStart=%h/.local/bin/appman -u
