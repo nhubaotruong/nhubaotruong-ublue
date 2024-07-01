@@ -80,7 +80,6 @@ modules:
       - firewall-config
       - dejavu-sans-fonts
       - dejavu-serif-fonts
-      - lsd
       - minizip-ng-compat # fedora 40
       - minizip-ng
       - qt5-qtquickcontrols
@@ -96,7 +95,6 @@ modules:
       - ufraw
       - duperemove
       - rmlint
-      - podman-compose
       - python3-icoextract
       - gnome-directory-thumbnailer
       - gnome-epub-thumbnailer
@@ -254,17 +252,11 @@ modules:
 
   - type: script
     scripts:
-      # - hardened-malloc.sh
       - distrobox.sh
       - microsoft-fonts.sh
-      # - dnsproxy.sh
       - expressvpn.sh
       - nanorc.sh
       - papirus-icon-theme.sh
-      # - bazzite.sh
-      # - waydroid.sh
-      # - docker-compose.sh
-      # - workarounds.sh
       - initramfs.sh
       - bootc.sh
       # - selinux.sh
