@@ -264,6 +264,7 @@ modules:
         - fontconfig-cache.service
         - podman.socket
         - appman-update.timer
+        - git-gc.timer
       disabled:
 
   - type: signing
