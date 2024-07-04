@@ -5,4 +5,4 @@ After=local-fs.target
 [Service]
 Type=oneshot
 WorkingDirectory=%h
-ExecStart=/usr/bin/zsh --login -c 'source %h/.zshrc; find %h -name "*.git" -execdir sh -c "cd {} && git gc" \;'
+ExecStart=/usr/bin/zsh --interactive -c 'find %h -name "*.git" -execdir sh -c "cd {} && git gc" \;'

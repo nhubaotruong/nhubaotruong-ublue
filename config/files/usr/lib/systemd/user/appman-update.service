@@ -7,4 +7,4 @@ ConditionPathExists=%h/.local/bin/appman
 [Service]
 Type=oneshot
 WorkingDirectory=%h
-ExecStart=/usr/bin/zsh --login -c "source %h/.zshrc; appman -u"
+ExecStart=/usr/bin/zsh --interactive -c "appman -u"
