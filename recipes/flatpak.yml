@@ -34,6 +34,8 @@ system:
     - org.gnome.NautilusPreviewer
     - org.gnome.TextEditor
     - org.gnome.Weather
+    - org.gnome.FileRoller
+    - ca.desrt.dconf-editor
     - org.jdownloader.JDownloader
     - org.libreoffice.LibreOffice
     - org.qbittorrent.qBittorrent

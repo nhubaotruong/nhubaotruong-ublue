@@ -50,24 +50,24 @@ modules:
       - tilix
       - tilix-nautilus
       - gnome-tweaks
-      - file-roller
+      # - file-roller
       - tlp
-      - lz4
-      - xz
+      # - lz4
+      # - xz
       - zstd
       - ibus-bamboo
       - tailscale
-      - dconf-editor
-      - gnome-screenshot
+      # - dconf-editor
+      # - gnome-screenshot
       - breeze-cursor-theme
       - i2c-tools
       - ddcutil
       - virt-manager
       - libvirt
       - edk2-ovmf
-      - p7zip
-      - p7zip-plugins
-      - unrar
+      # - p7zip
+      # - p7zip-plugins
+      # - unrar
       # - bsdcat
       # - bsdcpio
       # - bsdtar
