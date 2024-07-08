@@ -125,7 +125,6 @@ modules:
       - bindfs
       - gnome-network-displays
       - powertop
-      - gnome-shell-extension-gsconnect
       - foo2zjs
       - teamviewer
       - mdatp
@@ -205,7 +204,7 @@ modules:
   - type: gnome-extensions
     install:
       - 615 # AppIndicator and KStatusNotifierItem Support
-      # - 1319 # GSConnect
+      - 1319 # GSConnect
       - 19 # User Themes
       - 307 # Dash to Dock
       - 7 # Removable Drive Menu
