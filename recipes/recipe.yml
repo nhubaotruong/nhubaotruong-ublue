@@ -68,10 +68,10 @@ modules:
       - p7zip
       - p7zip-plugins
       - unrar
-      - bsdcat
-      - bsdcpio
-      - bsdtar
-      - bsdunzip
+      # - bsdcat
+      # - bsdcpio
+      # - bsdtar
+      # - bsdunzip
       - zram-generator
       - zsh
       - igt-gpu-tools
@@ -80,15 +80,14 @@ modules:
       - firewall-config
       - dejavu-sans-fonts
       - dejavu-serif-fonts
-      - minizip-ng-compat # fedora 40
-      - minizip-ng
-      - qt5-qtquickcontrols
+      # - minizip-ng-compat # fedora 40
+      # - minizip-ng
       - system76-scheduler
       - gnome-shell-extension-system76-scheduler
       - hl2linux-selinux
-      - python3-psutil
-      - libnotify
-      - binutils
+      # - python3-psutil
+      # - libnotify
+      # - binutils
       # - libadwaita-devel
       # - pygobject3-devel
       - liberation-fonts
@@ -104,17 +103,17 @@ modules:
       - lxc-libs
       - cage
       - wlr-randr
-      - python3-pip
+      # - python3-pip
       - podman-docker
       - gstreamer1-vaapi
       - nautilus-open-any-terminal
-      - redhat-lsb-core
-      - libxcrypt-compat
-      - lzip
+      # - redhat-lsb-core
+      # - libxcrypt-compat
+      # - lzip
       - usbguard
       - usbguard-dbus
       - usbguard-tools
-      - gum
+      # - gum
       - fuse-sshfs
       - openssh-askpass
       - nautilus-gsconnect
