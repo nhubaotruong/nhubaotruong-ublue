@@ -2,5 +2,5 @@
 
 # Tell build process to exit if there are any errors.
 set -oue pipefail
-
-curl -sSLf https://git.io/papirus-icon-theme-install | sh
+export EXTRA_THEMES="Papirus-Dark"
+wget -qO- https://git.io/papirus-icon-theme-install | sh
