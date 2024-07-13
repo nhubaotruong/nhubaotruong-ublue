@@ -20,10 +20,10 @@ modules:
   #   src: /usr/local/libexec/docker/cli-plugins/docker-compose
   #   dest: /usr/bin/
 
-  - type: containerfile
-    containerfiles:
-      - upgrade
-      - match-kernel-version
+  # - type: containerfile
+  #   containerfiles:
+  #     - upgrade
+  #     - match-kernel-version
 
   - type: rpm-ostree
     repos:
@@ -175,6 +175,7 @@ modules:
       - v4l2loopback
       - xone
       - xpadneo
+      - zfs
 
   - from-file: flatpak.yml
 
