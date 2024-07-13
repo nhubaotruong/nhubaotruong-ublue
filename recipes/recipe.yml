@@ -20,10 +20,11 @@ modules:
   #   src: /usr/local/libexec/docker/cli-plugins/docker-compose
   #   dest: /usr/bin/
 
-  # - type: containerfile
-  #   containerfiles:
-  #     - upgrade
-  #     - match-kernel-version
+  - type: containerfile
+    containerfiles:
+      - fsync-kernel
+      # - upgrade
+      # - match-kernel-version
 
   - type: rpm-ostree
     repos:
@@ -170,12 +171,12 @@ modules:
           - switcheroo-control
 
   - type: akmods
-    base: main
+    base: fsync
     install:
       - v4l2loopback
       - xone
       - xpadneo
-      - zfs
+      # - zfs
 
   - from-file: flatpak.yml
 
