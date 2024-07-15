@@ -178,7 +178,7 @@ modules:
       - v4l2loopback
       - xone
       - xpadneo
-      - zfs
+      - zfs/
 
   - from-file: flatpak.yml
 
