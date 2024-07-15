@@ -22,7 +22,7 @@ modules:
 
   - type: containerfile
     containerfiles:
-      - fsync-kernel
+      - replace-kernel
       # - upgrade
       # - match-kernel-version
 
@@ -172,12 +172,13 @@ modules:
           - switcheroo-control
 
   - type: akmods
-    base: fsync
+    base: coreos-stable
     install:
+      - openrazer
       - v4l2loopback
       - xone
       - xpadneo
-      # - zfs
+      - zfs
 
   - from-file: flatpak.yml
 
