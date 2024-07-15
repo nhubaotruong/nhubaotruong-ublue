@@ -26,6 +26,15 @@ modules:
       # - upgrade
       # - match-kernel-version
 
+  - type: akmods
+    base: coreos-stable
+    install:
+      - openrazer
+      - v4l2loopback
+      - xone
+      - xpadneo
+      - zfs/
+
   - type: rpm-ostree
     repos:
       - https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo
@@ -170,15 +179,6 @@ modules:
       - from-repo: https://copr.fedorainfracloud.org/coprs/sentry/switcheroo-control_discrete/repo/fedora-%OS_VERSION%/sentry-switcheroo-control_discrete-fedora-%OS_VERSION%.repo
         packages:
           - switcheroo-control
-
-  - type: akmods
-    base: coreos-stable
-    install:
-      - openrazer
-      - v4l2loopback
-      - xone
-      - xpadneo
-      - zfs/
 
   - from-file: flatpak.yml
 
