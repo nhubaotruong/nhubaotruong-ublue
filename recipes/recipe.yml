@@ -33,6 +33,7 @@ modules:
       - v4l2loopback
       - xone
       - xpadneo
+      - zfs/
 
   - type: rpm-ostree
     repos:
@@ -240,6 +241,7 @@ modules:
       - expressvpn.sh
       - nanorc.sh
       - papirus-icon-theme.sh
+      - depmod.sh
       - initramfs.sh
       - bootc.sh
       # - selinux.sh
