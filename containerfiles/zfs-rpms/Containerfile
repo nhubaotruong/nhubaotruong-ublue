@@ -1,0 +1,2 @@
+COPY --from=ghcr.io/ublue-os/akmods-zfs:coreos-stable-40 /rpms /tmp/rpms
+RUN rpm-ostree install /tmp/rpms/kmods/*zfs/*.rpm

@@ -23,6 +23,7 @@ modules:
   - type: containerfile
     containerfiles:
       - replace-kernel
+      - zfs-rpms
       # - upgrade
       # - match-kernel-version
 
@@ -33,7 +34,6 @@ modules:
       - v4l2loopback
       - xone
       - xpadneo
-      - zfs/
 
   - type: rpm-ostree
     repos:
@@ -231,8 +231,8 @@ modules:
       - 5964 # Quick Settings Audio Devices Hider
       - 5660 # Weather Or Not
 
-  - type: brew
-    brew-analytics: false
+  # - type: brew
+  #   brew-analytics: false
 
   - type: script
     scripts:
