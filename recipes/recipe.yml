@@ -143,8 +143,8 @@ modules:
       # - hardened_malloc
       - ptyxis
       - bootc
-      - mesa-va-drivers-freeworld
-      - mesa-vdpau-drivers-freeworld.x86_64
+      #- mesa-va-drivers-freeworld
+      #- mesa-vdpau-drivers-freeworld.x86_64
       - libaacs
       - libbdplus
       - libbluray
