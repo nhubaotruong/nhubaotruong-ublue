@@ -173,9 +173,9 @@ modules:
           - mutter
           - mutter-common
           - gnome-shell
-      #- from-repo: https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-%OS_VERSION%/kylegospo-bazzite-multilib-fedora-%OS_VERSION%.repo
-       # packages:
-       #   - xorg-x11-server-Xwayland
+      - from-repo: https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-%OS_VERSION%/kylegospo-bazzite-multilib-fedora-%OS_VERSION%.repo
+        packages:
+          - xorg-x11-server-Xwayland
      # - from-repo: https://copr.fedorainfracloud.org/coprs/sentry/switcheroo-control_discrete/repo/fedora-%OS_VERSION%/sentry-switcheroo-control_discrete-fedora-%OS_VERSION%.repo
      #   packages:
      #     - switcheroo-control
