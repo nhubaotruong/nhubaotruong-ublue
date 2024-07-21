@@ -30,7 +30,6 @@ system:
     - org.gnome.font-viewer
     - org.gnome.gThumb
     - org.gnome.Loupe
-    - org.gnome.Loupe.HEIC
     - org.gnome.NautilusPreviewer
     - org.gnome.TextEditor
     - org.gnome.Weather
