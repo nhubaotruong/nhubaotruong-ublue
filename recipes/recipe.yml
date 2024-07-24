@@ -12,20 +12,27 @@ image-version: 40 # latest is also supported if you want new updates ASAP
 modules:
   - type: files
     files:
-      - usr: /usr
-      - etc: /etc
+      - source: files
+        destination: /
 
   # - type: copy
   #   from: docker.io/library/docker:cli
   #   src: /usr/local/libexec/docker/cli-plugins/docker-compose
   #   dest: /usr/bin/
-
   - type: containerfile
-    containerfiles:
-      - replace-kernel
-      # - zfs-rpms
-      # - upgrade
-      # - match-kernel-version
+    snippets:
+      - COPY --from=ghcr.io/ublue-os/fsync-kernel:40 /tmp/rpms /tmp/kernel-rpms
+      - RUN rpm-ostree cliwrap install-to-root / && \
+        rpm-ostree override replace --experimental \
+        /tmp/kernel-rpms/kernel-[0-9]*.rpm \
+        /tmp/kernel-rpms/kernel-core-*.rpm \
+        /tmp/kernel-rpms/kernel-modules-*.rpm && \
+        ostree container commit
+    # containerfiles:
+    #   - replace-kernel
+    # - zfs-rpms
+    # - upgrade
+    # - match-kernel-version
 
   - type: akmods
     base: fsync
