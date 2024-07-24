@@ -255,6 +255,7 @@ modules:
         - raid-check.timer
         - systemd-homed.service
         - systemd-homed-activate.service
+        - waydroid-container.service
     user:
       enabled:
         - fontconfig-cache.service

@@ -39,3 +39,5 @@ system:
     - org.libreoffice.LibreOffice
     - org.qbittorrent.qBittorrent
     - org.videolan.VLC
+    - com.stremio.Stremio
+    - dev.vencord.Vesktop
