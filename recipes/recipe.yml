@@ -221,8 +221,8 @@ modules:
       - 5964 # Quick Settings Audio Devices Hider
       - 5660 # Weather Or Not
 
-  - type: brew
-    brew-analytics: false
+  # - type: brew
+  #   brew-analytics: false
 
   - type: script
     scripts:
