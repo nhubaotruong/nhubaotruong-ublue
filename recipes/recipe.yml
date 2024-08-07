@@ -161,6 +161,7 @@ modules:
       - from-repo: https://copr.fedorainfracloud.org/coprs/kanru/mutter-im-fixes/repo/fedora-%OS_VERSION%/kanru-mutter-im-fixes-fedora-%OS_VERSION%.repo
         packages:
           - mutter
+          - mutter-common
       # - from-repo: https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo
       #   packages:
       #     - mutter
