@@ -141,13 +141,13 @@ modules:
       - libbdplus
       - libbluray
       - rsms-inter-vf-fonts
+      - papirus-icon-theme-dark
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
       - power-profiles-daemon
       - yelp
       - gnome-tour
-      - distrobox
       - toolbox
       - gnome-software
       - gnome-software-rpm-ostree
@@ -232,11 +232,9 @@ modules:
 
   - type: script
     scripts:
-      - distrobox.sh
       - microsoft-fonts.sh
       - expressvpn.sh
       - nanorc.sh
-      - papirus-icon-theme.sh
       - depmod.sh
       - initramfs.sh
       - bootc.sh
