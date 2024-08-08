@@ -63,6 +63,7 @@ modules:
       - tlp
       # - lz4
       # - xz
+      - neovim
       - zstd
       - ibus-bamboo
       - ibus-unikey
