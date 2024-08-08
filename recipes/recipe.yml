@@ -65,6 +65,7 @@ modules:
       # - xz
       - zstd
       - ibus-bamboo
+      - ibus-unikey
       - tailscale
       # - dconf-editor
       # - gnome-screenshot
