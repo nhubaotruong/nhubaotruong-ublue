@@ -160,7 +160,7 @@ modules:
       - teamviewer
       - microsoft
     replace:
-      - from-repo: https://copr.fedorainfracloud.org/coprs/kanru/mutter-im-fixes/repo/fedora-%OS_VERSION%/kanru-mutter-im-fixes-fedora-%OS_VERSION%.repo
+      - from-repo: https://copr.fedorainfracloud.org/coprs/nhubaotruong/mutter-im-fixes/repo/fedora-%OS_VERSION%/nhubaotruong-mutter-im-fixes-fedora-%OS_VERSION%.repo
         packages:
           - mutter
           - mutter-common
