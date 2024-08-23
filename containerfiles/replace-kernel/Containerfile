@@ -1,4 +1,4 @@
-COPY --from=ghcr.io/ublue-os/fsync-kernel:40 /tmp/rpms /tmp/kernel-rpms
+COPY --from=ghcr.io/ublue-os/fsync-ba-kernel:40 /tmp/rpms /tmp/kernel-rpms
 RUN rpm-ostree cliwrap install-to-root / && \
     rpm-ostree override replace --experimental \
     /tmp/kernel-rpms/kernel-[0-9]*.rpm \
