@@ -27,7 +27,7 @@ modules:
     # - match-kernel-version
 
   - type: akmods
-    base: fsync
+    base: fsync-ba
     install:
       - openrazer
       - v4l2loopback
@@ -75,6 +75,7 @@ modules:
       - ddcutil
       - virt-manager
       - libvirt
+      - libvirt-nss
       - edk2-ovmf
       # - p7zip
       # - p7zip-plugins
@@ -253,6 +254,7 @@ modules:
         - usbguard-dbus.service
         - swtpm-workaround.service
         - waydroid-workaround.service
+        - libvirt-workaround.service
         - mdatp.service
         # - docker.socket
       disabled:
