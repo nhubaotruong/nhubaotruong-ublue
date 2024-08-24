@@ -143,6 +143,7 @@ modules:
       - libbluray
       - rsms-inter-vf-fonts
       - papirus-icon-theme-dark
+      - https://github.com/TheAssassin/AppImageLauncher/releases/download/continuous/appimagelauncher-2.2.0-gha111.d9d4c73.x86_64.rpm
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
