@@ -230,8 +230,8 @@ modules:
       - 5660 # Weather Or Not
       - 4798 # Thinkpad Battery Threshold
 
-  - type: brew
-    brew-analytics: false
+  # - type: brew
+  #   brew-analytics: false
 
   - type: script
     scripts:
