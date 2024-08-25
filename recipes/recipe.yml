@@ -27,7 +27,7 @@ modules:
     # - match-kernel-version
 
   - type: akmods
-    base: fsync-ba
+    base: fsync
     install:
       - openrazer
       - v4l2loopback
