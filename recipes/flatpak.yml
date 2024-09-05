@@ -43,4 +43,4 @@ system:
     - dev.vencord.Vesktop
     - org.gnome.NetworkDisplays
     - it.mijorus.gearlever
-    - org.freedesktop.Platform.GStreamer.gstreamer-vaapi/x86_64/23.08
+    #- org.freedesktop.Platform.GStreamer.gstreamer-vaapi
