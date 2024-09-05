@@ -110,7 +110,6 @@ modules:
       - wlr-randr
       # - python3-pip
       - podman-docker
-      - gstreamer1-vaapi
       - nautilus-open-any-terminal
       # - redhat-lsb-core
       # - libxcrypt-compat
@@ -128,7 +127,6 @@ modules:
       - wl-clipboard
       - xclip
       - bindfs
-      - gnome-network-displays
       - powertop
       - foo2zjs
       - teamviewer

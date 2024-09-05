@@ -41,3 +41,6 @@ system:
     - org.videolan.VLC
     - com.stremio.Stremio
     - dev.vencord.Vesktop
+    - org.gnome.NetworkDisplays
+    - it.mijorus.gearlever
+    - org.freedesktop.Platform.GStreamer.gstreamer-vaapi
