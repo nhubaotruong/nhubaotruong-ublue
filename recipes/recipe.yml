@@ -140,7 +140,6 @@ modules:
       - libbdplus
       - libbluray
       - rsms-inter-vf-fonts
-      - papirus-icon-theme-dark
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -226,6 +225,7 @@ modules:
       - 5964 # Quick Settings Audio Devices Hider
       - 5660 # Weather Or Not
       - 4798 # Thinkpad Battery Threshold
+      - 6807 # System Monitor
 
   # - type: brew
   #   brew-analytics: false
@@ -234,7 +234,9 @@ modules:
     scripts:
       - microsoft-fonts.sh
       - expressvpn.sh
+      - papirus-icon-theme.sh
       - nanorc.sh
+      - nix-installer.sh
       - depmod.sh
       - initramfs.sh
       - bootc.sh
