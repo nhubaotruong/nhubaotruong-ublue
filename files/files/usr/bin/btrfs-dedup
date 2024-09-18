@@ -273,7 +273,7 @@ fi
     fi
     cmd find "$TARGET"/ -mindepth 1 -maxdepth 1 -mtime +"$DB_MAX_AGE" \( -name "$RMLINT_DB" -or -name "$DUPEREMOVE_DB" \) -delete
     powerchange || true
-    cmd compsize "$TARGET"/ &
+    # cmd compsize "$TARGET"/ &
     worker_waiter
     if ! is_true "$RMLINT_SKIP"; then
         if ! is_true "$RMLINT_REPLAY_DISABLE" && [[ -f "$TARGET"/"$RMLINT_DB" ]]; then
@@ -298,7 +298,7 @@ fi
             cmd cp -a 'rmlint.json' "$TARGET"/"$RMLINT_DB"
         fi
         cmd rm -f rmlint*
-        cmd compsize "$TARGET"/ &
+        # cmd compsize "$TARGET"/ &
         worker_waiter
     fi
     if ! is_true "$DUPEREMOVE_SKIP"; then
@@ -309,11 +309,11 @@ fi
             cmd rm -f "$DUPEREMOVE_DB"
         fi
         # shellcheck disable=SC2086
-        cmd duperemove --hashfile="$DUPEREMOVE_DB" --exclude="$TARGET/$RMLINT_DB" --exclude="$TARGET/$DUPEREMOVE_DB" --exclude="$TARGET/@swapfile/swapfile" ${DUPEREMOVE_ARGS} "$TARGET"/ &
+        cmd cpulimit -l 50 nice -19 ionice -c 3 duperemove --cpu-threads=2 --io-threads=2 --hashfile="$DUPEREMOVE_DB" --exclude="$TARGET/$RMLINT_DB" --exclude="$TARGET/$DUPEREMOVE_DB" --exclude="$TARGET/@swapfile/swapfile" ${DUPEREMOVE_ARGS} "$TARGET"/ &
         worker_waiter
         cmd cp -a "$DUPEREMOVE_DB" "$TARGET"/
         cmd rm -f "$DUPEREMOVE_DB"
-        cmd compsize "$TARGET"/ &
+        # cmd compsize "$TARGET"/ &
         worker_waiter
     fi
 ) &
