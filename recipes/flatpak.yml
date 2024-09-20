@@ -13,7 +13,7 @@ system:
     - com.obsproject.Studio.Plugin.GStreamerVaapi
     - org.gtk.Gtk3theme.adw-gtk3
     - org.gtk.Gtk3theme.adw-gtk3-dark
-    - com.usebottles.bottles
+    # - com.usebottles.bottles
     - com.valvesoftware.Steam
     - com.valvesoftware.Steam.Utility.steamtinkerlaunch
     - io.github.Foldex.AdwSteamGtk
