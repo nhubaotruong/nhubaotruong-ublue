@@ -3,7 +3,7 @@ notify: true
 system:
   install:
     - com.brave.Browser
-    - com.getpostman.Postman
+    # - com.getpostman.Postman
     - com.github.johnfactotum.Foliate
     - com.github.tchx84.Flatseal
     - com.heroicgameslauncher.hgl
@@ -43,4 +43,3 @@ system:
     - dev.vencord.Vesktop
     - org.gnome.NetworkDisplays
     - it.mijorus.gearlever
-    #- org.freedesktop.Platform.GStreamer.gstreamer-vaapi
