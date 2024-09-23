@@ -18,4 +18,4 @@ MUTTER_DEBUG_KMS_THREAD_TYPE=user
 #GNOME_SHELL_SLOWDOWN_FACTOR=0.9
 #FREETYPE_PROPERTIES="cff:no-stem-darkening=0 autofitter:no-stem-darkening=0"
 #MUTTER_DEBUG_DISABLE_HW_CURSORS=1
-LD_PRELOAD=/usr/lib64/libjemalloc.so.2
+#LD_PRELOAD=/usr/lib64/libjemalloc.so.2
