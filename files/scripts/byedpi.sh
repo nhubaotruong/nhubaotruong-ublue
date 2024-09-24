@@ -7,8 +7,6 @@ git clone https://github.com/hufrea/byedpi.git /tmp/byedpi
 
 cd /tmp/byedpi
 
-git checkout "$(git describe --tags "$(git rev-list --tags --max-count=1)")"
-
 make
 
 make PREFIX=/usr install
