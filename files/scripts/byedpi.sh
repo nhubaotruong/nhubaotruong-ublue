@@ -14,6 +14,4 @@ make PREFIX=/usr install
 cp -v dist/linux/byedpi.service /usr/lib/systemd/system/
 cp -v dist/linux/byedpi.conf /etc/
 
-systemctl daemon-reload
-
-systemctl enable byedpi
+systemctl enable byedpi.service
