@@ -235,6 +235,7 @@ modules:
 
   - type: script
     scripts:
+      - byedpi.sh
       - microsoft-fonts.sh
       - expressvpn.sh
       - papirus-icon-theme.sh
