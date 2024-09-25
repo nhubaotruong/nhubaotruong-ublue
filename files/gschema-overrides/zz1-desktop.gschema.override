@@ -96,3 +96,11 @@ old-files-age=uint32 3
 [org.gnome.system.location]
 enabled=true
 max-accuracy-level='exact'
+
+[org.gnome.system.proxy]
+mode='manual'
+use-same-proxy=true
+
+[org.gnome.system.proxy.socks]
+host='127.0.0.1'
+port=1080
