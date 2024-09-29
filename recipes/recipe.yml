@@ -19,15 +19,15 @@ modules:
   #   from: docker.io/library/docker:cli
   #   src: /usr/local/libexec/docker/cli-plugins/docker-compose
   #   dest: /usr/bin/
-  - type: containerfile
-    containerfiles:
-      - replace-kernel
-    # - zfs-rpms
-    # - upgrade
-    # - match-kernel-version
+  # - type: containerfile
+  #   containerfiles:
+  #     - replace-kernel
+  # - zfs-rpms
+  # - upgrade
+  # - match-kernel-version
 
   - type: akmods
-    base: fsync
+    base: main
     install:
       - openrazer
       - v4l2loopback
