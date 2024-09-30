@@ -43,3 +43,4 @@ system:
     - dev.vencord.Vesktop
     - org.gnome.NetworkDisplays
     - it.mijorus.gearlever
+    - app.devsuite.Ptyxis

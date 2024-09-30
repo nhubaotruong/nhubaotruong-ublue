@@ -15,14 +15,10 @@ modules:
       - source: files
         destination: /
 
-  # - type: copy
-  #   from: docker.io/library/docker:cli
-  #   src: /usr/local/libexec/docker/cli-plugins/docker-compose
-  #   dest: /usr/bin/
-  # - type: containerfile
-  #   containerfiles:
-  #     - replace-kernel
-  # - zfs-rpms
+  - type: containerfile
+    containerfiles:
+      - replace-kernel
+      - zfs-rpms
   # - upgrade
   # - match-kernel-version
 
@@ -46,12 +42,9 @@ modules:
       - https://download.opensuse.org/repositories/home:/lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://packages.microsoft.com/config/rhel/8/prod.repo
-      # - https://copr.fedorainfracloud.org/coprs/secureblue/hardened_malloc/repo/fedora-%OS_VERSION%/secureblue-hardened_malloc-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-%OS_VERSION%/kylegospo-bazzite-multilib-fedora-%OS_VERSION%.repo?arch=x86_64
       - https://copr.fedorainfracloud.org/coprs/rodoma92/rmlint/repo/fedora-%OS_VERSION%/rodoma92-rmlint-fedora-%OS_VERSION%.repo
       # - https://copr.fedorainfracloud.org/coprs/eyecantcu/supergfxctl/repo/fedora-%OS_VERSION%/eyecantcu-supergfxctl-fedora-%OS_VERSION%.repo
-      # - https://raw.githubusercontent.com/nhubaotruong/nhubaotruong-ublue/main/config/repos/teamviewer.repo
-      # - https://packages.microsoft.com/config/fedora/%OS_VERSION%/prod.repo
       # - https://download.docker.com/linux/fedora/docker-ce.repo
     install:
       - sqlite
@@ -131,7 +124,7 @@ modules:
       - foo2zjs
       - teamviewer
       - mdatp
-      - ptyxis
+      # - ptyxis
       - bootc
       - libaacs
       - libbdplus
