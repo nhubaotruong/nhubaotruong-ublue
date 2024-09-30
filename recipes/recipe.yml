@@ -18,12 +18,12 @@ modules:
   - type: containerfile
     containerfiles:
       - replace-kernel
-      - zfs-rpms
+      # - zfs-rpms
   # - upgrade
   # - match-kernel-version
 
   - type: akmods
-    base: coreos-stable
+    base: fsync
     install:
       - openrazer
       - v4l2loopback
@@ -133,6 +133,7 @@ modules:
       - cpulimit
       - kernel-tools
       - jemalloc
+      - scx-scheds
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems

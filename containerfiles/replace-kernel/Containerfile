@@ -1,4 +1,4 @@
-RUN --mount=type=bind,from=ghcr.io/ublue-os/coreos-stable-kernel:40,source=/tmp/rpms,target=/tmp/kernel-rpms \
+RUN --mount=type=bind,from=ghcr.io/ublue-os/fsync-kernel:40,source=/tmp/rpms,target=/tmp/kernel-rpms \
     rpm-ostree cliwrap install-to-root / && \
     rpm-ostree override replace --experimental \
     /tmp/kernel-rpms/kernel-[0-9]*.rpm \
