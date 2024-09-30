@@ -254,6 +254,7 @@ modules:
         - waydroid-workaround.service
         - libvirt-workaround.service
         - mdatp.service
+        - scx.service
         # - docker.socket
       disabled:
         - raid-check.timer
