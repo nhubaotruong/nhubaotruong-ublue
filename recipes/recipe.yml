@@ -126,9 +126,6 @@ modules:
       - mdatp
       # - ptyxis
       - bootc
-      - libaacs
-      - libbdplus
-      - libbluray
       - rsms-inter-vf-fonts
       - cpulimit
       - kernel-tools
