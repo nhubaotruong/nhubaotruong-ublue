@@ -33,7 +33,8 @@ jobs:
           pr_event_number: ${{ github.event.number }}
 
           # enabled by default, disable if your image is small and you want faster builds      
-          maximize_build_space: true
+          maximize_build_space: false
+
   rpm-ostree-rechunk:
     name: rpm-ostree re-encapsulate
     runs-on: ubuntu-latest
@@ -52,7 +53,7 @@ jobs:
       options: --privileged
     env:
       # TODO: use value from target-manifest to get branch name instead of assuming Fedora 42 (current rawhide)
-      RECHUNK_TARGET_TAG:  ${{ github.ref_name == github.event.repository.default_branch && 'latest' || format('br-{0}-42', github.ref_name) }}
+      RECHUNK_TARGET_TAG:  ${{ github.ref_name == github.event.repository.default_branch && 'latest' || format('br-{0}-40', github.ref_name) }}
     steps:
       - name: Login to registry
         shell: bash
