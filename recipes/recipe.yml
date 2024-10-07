@@ -49,8 +49,8 @@ modules:
     install:
       - sqlite
       - starship
-      - tilix
-      - tilix-nautilus
+      # - tilix
+      # - tilix-nautilus
       - gnome-tweaks
       # - file-roller
       - tlp
@@ -146,6 +146,7 @@ modules:
       - gnome-terminal
       - gnome-terminal-nautilus
       - thermald
+      - systemd-networkd
     optfix:
       - teamviewer
       - microsoft
