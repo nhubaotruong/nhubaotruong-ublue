@@ -104,3 +104,8 @@ use-same-proxy=true
 [org.gnome.system.proxy.socks]
 host='127.0.0.1'
 port=1080
+
+[com.github.stunkymonkey.nautilus-open-any-terminal]
+flatpak='system'
+new-tab=true
+terminal='ptyxis'
