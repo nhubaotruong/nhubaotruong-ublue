@@ -131,6 +131,7 @@ modules:
       - kernel-tools
       - jemalloc
       - scx-scheds
+      - fontawesome-fonts-all
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -273,6 +274,7 @@ modules:
   - type: script
     scripts:
       - byedpi.sh
+      - joypixels.sh
       - microsoft-fonts.sh
       - expressvpn.sh
       - papirus-icon-theme.sh
