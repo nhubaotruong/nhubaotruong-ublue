@@ -37,7 +37,6 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ycollet/audinux/repo/fedora-%OS_VERSION%/ycollet-audinux-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
-      # - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-%OS_VERSION%/ganto-lxc4-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:/lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
@@ -49,20 +48,13 @@ modules:
     install:
       - sqlite
       - starship
-      # - tilix
-      # - tilix-nautilus
       - gnome-tweaks
-      # - file-roller
       - tlp
-      # - lz4
-      # - xz
       - neovim
       - zstd
       - ibus-bamboo
       - ibus-unikey
       - tailscale
-      # - dconf-editor
-      # - gnome-screenshot
       - breeze-cursor-theme
       - i2c-tools
       - ddcutil
@@ -70,13 +62,6 @@ modules:
       - libvirt
       - libvirt-nss
       - edk2-ovmf
-      # - p7zip
-      # - p7zip-plugins
-      # - unrar
-      # - bsdcat
-      # - bsdcpio
-      # - bsdtar
-      # - bsdunzip
       - zram-generator
       - zsh
       - igt-gpu-tools
@@ -85,8 +70,6 @@ modules:
       - firewall-config
       - dejavu-sans-fonts
       - dejavu-serif-fonts
-      # - system76-scheduler
-      # - gnome-shell-extension-system76-scheduler
       - gnome-shell-extension-gsconnect
       - liberation-fonts
       - ufraw
@@ -101,16 +84,11 @@ modules:
       - lxc-libs
       - cage
       - wlr-randr
-      # - python3-pip
       - podman-docker
       - nautilus-open-any-terminal
-      # - redhat-lsb-core
-      # - libxcrypt-compat
-      # - lzip
       - usbguard
       - usbguard-dbus
       - usbguard-tools
-      # - gum
       - fuse-sshfs
       - openssh-askpass
       - nautilus-gsconnect
@@ -124,7 +102,6 @@ modules:
       - foo2zjs
       - teamviewer
       - mdatp
-      # - ptyxis
       - bootc
       - rsms-inter-vf-fonts
       - cpulimit
@@ -291,13 +268,12 @@ modules:
         - tlp.service
         - tailscaled.service
         - fstrim.timer
-        # - com.system76.Scheduler.service
         - btrfs-dedup@var-home.timer
         - usbguard.service
         - usbguard-dbus.service
-        - swtpm-workaround.service
-        - waydroid-workaround.service
-        - libvirt-workaround.service
+        # - swtpm-workaround.service
+        # - waydroid-workaround.service
+        # - libvirt-workaround.service
         - mdatp.service
         - scx.service
         # - docker.socket
