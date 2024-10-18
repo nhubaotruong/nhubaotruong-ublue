@@ -264,7 +264,7 @@ modules:
       - nix-installer.sh
       - depmod.sh
       - initramfs.sh
-      - bootc.sh
+      # - bootc.sh
       # - selinux.sh
 
   - type: systemd
