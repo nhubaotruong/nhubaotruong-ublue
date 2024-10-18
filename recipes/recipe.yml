@@ -22,13 +22,13 @@ modules:
   # - upgrade
   # - match-kernel-version
 
-  - type: akmods
-    base: fsync
-    install:
-      - openrazer
-      - v4l2loopback
-      - xone
-      - xpadneo
+  # - type: akmods
+  #   base: fsync
+  #   install:
+  #     - openrazer
+  #     - v4l2loopback
+  #     - xone
+  #     - xpadneo
 
   - type: rpm-ostree
     repos:
@@ -128,69 +128,69 @@ modules:
     optfix:
       - teamviewer
       - microsoft
-    replace:
-      # - from-repo: https://copr.fedorainfracloud.org/coprs/nhubaotruong/mutter-im-fixes/repo/fedora-%OS_VERSION%/nhubaotruong-mutter-im-fixes-fedora-%OS_VERSION%.repo
-      #   packages:
-      #     - mutter
-      #     - mutter-common
-      #     - gnome-shell
-      #     - gnome-settings-daemon
-      - from-repo: https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo
-        packages:
-          - mutter
-          - mutter-common
-          - gnome-shell
-          # - fwupd
-          # - fwupd-plugin-flashrom
-          # - fwupd-plugin-modem-manager
-          # - fwupd-plugin-uefi-capsule-data
-      - from-repo: https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-%OS_VERSION%/kylegospo-bazzite-multilib-fedora-%OS_VERSION%.repo
-        packages:
-          # - mesa-filesystem
-          # - mesa-libxatracker
-          # - mesa-libglapi
-          # - mesa-dri-drivers
-          # - mesa-libgbm
-          # - mesa-libEGL
-          # - mesa-vulkan-drivers
-          # - mesa-libGL
-          # - pipewire
-          # - pipewire-alsa
-          # - pipewire-gstreamer
-          # - pipewire-jack-audio-connection-kit
-          # - pipewire-jack-audio-connection-kit-libs
-          # - pipewire-libs
-          # - pipewire-pulseaudio
-          # - pipewire-utils
-          # - pipewire-plugin-libcamera
-          # - bluez
-          # - bluez-obexd
-          # - bluez-cups
-          # - bluez-libs
-          - xorg-x11-server-Xwayland
-      - from-repo: https://copr.fedorainfracloud.org/coprs/sentry/switcheroo-control_discrete/repo/fedora-%OS_VERSION%/sentry-switcheroo-control_discrete-fedora-%OS_VERSION%.repo
-        packages:
-          - switcheroo-control
-      # - from-repo: https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
-      #   packages:
-      #     - amd-gpu-firmware
-      #     - amd-ucode-firmware
-      #     - atheros-firmware
-      #     - brcmfmac-firmware
-      #     - cirrus-audio-firmware
-      #     - intel-audio-firmware
-      #     - intel-gpu-firmware
-      #     - iwlegacy-firmware
-      #     - iwlwifi-dvm-firmware
-      #     - iwlwifi-mvm-firmware
-      #     - libertas-firmware
-      #     - linux-firmware
-      #     - linux-firmware-whence
-      #     - mt7xxx-firmware
-      #     - nvidia-gpu-firmware
-      #     - nxpwireless-firmware
-      #     - realtek-firmware
-      #     - tiwilink-firmware
+    # replace:
+    #   # - from-repo: https://copr.fedorainfracloud.org/coprs/nhubaotruong/mutter-im-fixes/repo/fedora-%OS_VERSION%/nhubaotruong-mutter-im-fixes-fedora-%OS_VERSION%.repo
+    #   #   packages:
+    #   #     - mutter
+    #   #     - mutter-common
+    #   #     - gnome-shell
+    #   #     - gnome-settings-daemon
+    #   - from-repo: https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo
+    #     packages:
+    #       - mutter
+    #       - mutter-common
+    #       - gnome-shell
+    #       # - fwupd
+    #       # - fwupd-plugin-flashrom
+    #       # - fwupd-plugin-modem-manager
+    #       # - fwupd-plugin-uefi-capsule-data
+    #   - from-repo: https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-%OS_VERSION%/kylegospo-bazzite-multilib-fedora-%OS_VERSION%.repo
+    #     packages:
+    #       # - mesa-filesystem
+    #       # - mesa-libxatracker
+    #       # - mesa-libglapi
+    #       # - mesa-dri-drivers
+    #       # - mesa-libgbm
+    #       # - mesa-libEGL
+    #       # - mesa-vulkan-drivers
+    #       # - mesa-libGL
+    #       # - pipewire
+    #       # - pipewire-alsa
+    #       # - pipewire-gstreamer
+    #       # - pipewire-jack-audio-connection-kit
+    #       # - pipewire-jack-audio-connection-kit-libs
+    #       # - pipewire-libs
+    #       # - pipewire-pulseaudio
+    #       # - pipewire-utils
+    #       # - pipewire-plugin-libcamera
+    #       # - bluez
+    #       # - bluez-obexd
+    #       # - bluez-cups
+    #       # - bluez-libs
+    #       - xorg-x11-server-Xwayland
+    #   - from-repo: https://copr.fedorainfracloud.org/coprs/sentry/switcheroo-control_discrete/repo/fedora-%OS_VERSION%/sentry-switcheroo-control_discrete-fedora-%OS_VERSION%.repo
+    #     packages:
+    #       - switcheroo-control
+    #   # - from-repo: https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
+    #   #   packages:
+    #   #     - amd-gpu-firmware
+    #   #     - amd-ucode-firmware
+    #   #     - atheros-firmware
+    #   #     - brcmfmac-firmware
+    #   #     - cirrus-audio-firmware
+    #   #     - intel-audio-firmware
+    #   #     - intel-gpu-firmware
+    #   #     - iwlegacy-firmware
+    #   #     - iwlwifi-dvm-firmware
+    #   #     - iwlwifi-mvm-firmware
+    #   #     - libertas-firmware
+    #   #     - linux-firmware
+    #   #     - linux-firmware-whence
+    #   #     - mt7xxx-firmware
+    #   #     - nvidia-gpu-firmware
+    #   #     - nxpwireless-firmware
+    #   #     - realtek-firmware
+    #   #     - tiwilink-firmware
 
   - from-file: flatpak.yml
 
