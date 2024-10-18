@@ -128,7 +128,12 @@ modules:
     optfix:
       - teamviewer
       - microsoft
-    # replace:
+    replace:
+      - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo
+        packages:
+          - mutter
+          - mutter-common
+          - gnome-shell
     #   # - from-repo: https://copr.fedorainfracloud.org/coprs/nhubaotruong/mutter-im-fixes/repo/fedora-%OS_VERSION%/nhubaotruong-mutter-im-fixes-fedora-%OS_VERSION%.repo
     #   #   packages:
     #   #     - mutter
