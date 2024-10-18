@@ -238,7 +238,7 @@ modules:
       # - 5425 # Battery Time
       - 6670 # Bluetooth Battery Meter
       - 2645 # Brightness Control Using ddcutil
-      - 1873 # Disable Unredirect Fullscreen Windows
+      # - 1873 # Disable Unredirect Fullscreen Windows
       # - 4485 # Favourites In AppGrid
       # - 4158 # Gnome 4x UI Improvements
       - 3956 # Gnome fuzzy app search
