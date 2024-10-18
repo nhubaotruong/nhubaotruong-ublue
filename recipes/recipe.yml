@@ -121,8 +121,8 @@ modules:
       - zram-generator-defaults
       - gnome-classic-session
       # - gnome-classic-session-xsession
-      - gnome-terminal
-      - gnome-terminal-nautilus
+      # - gnome-terminal
+      # - gnome-terminal-nautilus
       - thermald
       - systemd-networkd
     optfix:
