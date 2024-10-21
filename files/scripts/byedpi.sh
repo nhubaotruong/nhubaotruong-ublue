@@ -7,6 +7,9 @@ git clone https://github.com/hufrea/byedpi.git /tmp/byedpi
 
 cd /tmp/byedpi
 
+cp -v dist/linux/byedpi.service /usr/lib/systemd/system/
+cp -v dist/linux/byedpi.conf /etc/
+
 # Fetch the latest tags
 git fetch --tags
 
@@ -19,8 +22,5 @@ git checkout "$latest_tag"
 make
 
 make PREFIX=/usr install
-
-cp -v dist/linux/byedpi.service /usr/lib/systemd/system/
-cp -v dist/linux/byedpi.conf /etc/
 
 systemctl enable byedpi.service
