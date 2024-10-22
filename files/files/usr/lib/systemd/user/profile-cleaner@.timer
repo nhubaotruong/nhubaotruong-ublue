@@ -1,0 +1,9 @@
+[Unit]
+Description=Daily Profile Cleaner on %f
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
