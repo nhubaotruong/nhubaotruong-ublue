@@ -267,6 +267,7 @@ modules:
       - joypixels.sh
       - microsoft-fonts.sh
       - expressvpn.sh
+      - teamviewer.sh
       - papirus-icon-theme.sh
       - nanorc.sh
       - nix-installer.sh
