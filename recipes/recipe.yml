@@ -99,7 +99,7 @@ modules:
       - bindfs
       - powertop
       - foo2zjs
-      - https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
+      - teamviewer
       - mdatp
       - bootc
       - rsms-inter-vf-fonts
