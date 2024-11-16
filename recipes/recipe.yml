@@ -268,6 +268,7 @@ modules:
       - microsoft-fonts.sh
       - expressvpn.sh
       - teamviewer.sh
+      - dnsproxy.sh
       - papirus-icon-theme.sh
       - nanorc.sh
       - nix-installer.sh
