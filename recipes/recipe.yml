@@ -99,7 +99,6 @@ modules:
       - bindfs
       - powertop
       - foo2zjs
-      - teamviewer
       - mdatp
       - bootc
       - rsms-inter-vf-fonts
