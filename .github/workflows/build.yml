@@ -36,125 +36,125 @@ jobs:
           # enabled by default, disable if your image is small and you want faster builds      
           maximize_build_space: false
 
-  # rpm-ostree-rechunk:
-  #   name: rpm-ostree re-encapsulate
-  #   runs-on: ubuntu-24.04
-  #   needs: bluebuild
-  #   permissions:
-  #     contents: read
-  #     packages: write
-  #     id-token: write
-  #   strategy:
-  #     fail-fast: false
-  #     matrix:
-  #       image:
-  #         - nhubaotruong-ublue
-  #   container:
-  #     image: ghcr.io/prydom/ostree-buildroot:rawhide
-  #     options: --privileged
-  #   env:
-  #     # TODO: use value from target-manifest to get branch name instead of assuming Fedora 42 (current rawhide)
-  #     RECHUNK_TARGET_TAG:  ${{ github.ref_name == github.event.repository.default_branch && 'latest' || format('br-{0}-42', github.ref_name) }}
-  #   steps:
-  #     - name: Login to registry
-  #       shell: bash
-  #       run: |
-  #         mkdir -p /etc/containers
-  #         echo '{}' > /etc/containers/auth.json
-  #         ln -sr /etc/containers/auth.json /etc/ostree/auth.json
-  #         mkdir -p ~/.config/containers
-  #         ln -sr /etc/containers/auth.json ~/.config/containers/auth.json
-  #         mkdir -p ~/.docker
-  #         ln -sr /etc/containers/auth.json ~/.docker/config.json
-  #         buildah login ghcr.io --authfile /etc/containers/auth.json -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
-  #     - name: Get container manifest
-  #       id: target-manifest
-  #       shell: bash
-  #       run: |
-  #         skopeo inspect docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG > target-manifest.json
-  #         echo "CONTAINER_IMAGE_VERSION=$(jq -r '.Labels."org.opencontainers.image.version"' target-manifest.json)" >> "$GITHUB_OUTPUT"
-  #     - name: Create ostree repo
-  #       shell: bash
-  #       run: |
-  #         mkdir repo
-  #         ostree init --repo=repo --mode=bare
-  #     - name: Pull container image
-  #       shell: bash
-  #       run: |
-  #         ostree container image pull repo ostree-unverified-image:docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG
-  #     - name: Checkout image and recommit to re-label
-  #       shell: bash
-  #       run: |
-  #         set -x
-  #         export REF="$(ostree refs --repo=repo ostree/container/image)"
+  rpm-ostree-rechunk:
+    name: rpm-ostree re-encapsulate
+    runs-on: ubuntu-24.04
+    needs: bluebuild
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    strategy:
+      fail-fast: false
+      matrix:
+        image:
+          - nhubaotruong-ublue
+    container:
+      image: ghcr.io/prydom/ostree-buildroot:rawhide
+      options: --privileged
+    env:
+      # TODO: use value from target-manifest to get branch name instead of assuming Fedora 42 (current rawhide)
+      RECHUNK_TARGET_TAG:  ${{ github.ref_name == github.event.repository.default_branch && 'latest' || format('br-{0}-42', github.ref_name) }}
+    steps:
+      - name: Login to registry
+        shell: bash
+        run: |
+          mkdir -p /etc/containers
+          echo '{}' > /etc/containers/auth.json
+          ln -sr /etc/containers/auth.json /etc/ostree/auth.json
+          mkdir -p ~/.config/containers
+          ln -sr /etc/containers/auth.json ~/.config/containers/auth.json
+          mkdir -p ~/.docker
+          ln -sr /etc/containers/auth.json ~/.docker/config.json
+          buildah login ghcr.io --authfile /etc/containers/auth.json -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Get container manifest
+        id: target-manifest
+        shell: bash
+        run: |
+          skopeo inspect docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG > target-manifest.json
+          echo "CONTAINER_IMAGE_VERSION=$(jq -r '.Labels."org.opencontainers.image.version"' target-manifest.json)" >> "$GITHUB_OUTPUT"
+      - name: Create ostree repo
+        shell: bash
+        run: |
+          mkdir repo
+          ostree init --repo=repo --mode=bare
+      - name: Pull container image
+        shell: bash
+        run: |
+          ostree container image pull repo ostree-unverified-image:docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG
+      - name: Checkout image and recommit to re-label
+        shell: bash
+        run: |
+          set -x
+          export REF="$(ostree refs --repo=repo ostree/container/image)"
 
-  #         ostree checkout --repo=repo \
-  #           --require-hardlinks \
-  #           "ostree/container/image/$REF" checkout
+          ostree checkout --repo=repo \
+            --require-hardlinks \
+            "ostree/container/image/$REF" checkout
 
-  #         mkdir -m 000 -p checkout/nix
+          mkdir -m 000 -p checkout/nix
 
-  #         ostree commit \
-  #           "--branch=relabeled" \
-  #           --repo=repo \
-  #           --bootable \
-  #           --consume \
-  #           "--selinux-policy=$PWD/checkout" \
-  #           checkout
-  #     - name: Re-encapsulate image
-  #       id: re-encapsulate
-  #       shell: bash
-  #       run: |
-  #         skopeo inspect --raw docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG-rechunked > previous-manifest.json || rm -f previous-manifest.json
+          ostree commit \
+            "--branch=relabeled" \
+            --repo=repo \
+            --bootable \
+            --consume \
+            "--selinux-policy=$PWD/checkout" \
+            checkout
+      - name: Re-encapsulate image
+        id: re-encapsulate
+        shell: bash
+        run: |
+          skopeo inspect --raw docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG-rechunked > previous-manifest.json || rm -f previous-manifest.json
 
-  #         PREVIOUS_BUILD_MANIFEST=()
-  #         if [ -f "previous-manifest.json" ]; then
-  #           PREVIOUS_BUILD_MANIFEST+=("--previous-build-manifest=previous-manifest.json")
-  #         fi
+          PREVIOUS_BUILD_MANIFEST=()
+          if [ -f "previous-manifest.json" ]; then
+            PREVIOUS_BUILD_MANIFEST+=("--previous-build-manifest=previous-manifest.json")
+          fi
 
-  #         rpm-ostree compose container-encapsulate --repo=repo \
-  #           --cmd="/usr/bin/bash" \
-  #           --label="containers.bootc=1" \
-  #           --label="ostree.bootable=true" \
-  #           --label="org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
-  #           --label="org.opencontainers.image.title=${{ matrix.image }}" \
-  #           --label="org.opencontainers.image.version=${{ steps.target-manifest.outputs.CONTAINER_IMAGE_VERSION }}" \
-  #           "${PREVIOUS_BUILD_MANIFEST[@]}" \
-  #           relabeled registry:ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG-rechunked | tee compose.out
-  #         export DIGEST=$(tail -n1 compose.out | grep -Eo 'sha256:[A-Fa-f0-9]+$')
-  #         echo "DIGEST=$DIGEST" >> "$GITHUB_OUTPUT"
-  #     - name: Sign image with cosign
-  #       env:
-  #         COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
-  #         DIGEST: ${{ steps.re-encapsulate.outputs.DIGEST }}
-  #       shell: bash
-  #       run: |
-  #         cosign sign --key=env://COSIGN_PRIVATE_KEY --recursive "ghcr.io/${{ github.actor }}/${{ matrix.image }}@$DIGEST"
-  #     - name: Delete ostree repo
-  #       shell: bash
-  #       run: |
-  #         rm -rf repo
-  #     - name: Recompress image with zstd
-  #       id: re-compress
-  #       shell: bash
-  #       run: |
-  #         mkdir ostree-image
-  #         skopeo copy --dest-compress --dest-compress-format zstd --remove-signatures \
-  #           docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG-rechunked dir:ostree-image
-  #         skopeo copy --preserve-digests --digestfile recompress.digest \
-  #           dir:ostree-image docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG-recompressed
-  #         echo "DIGEST=$(cat recompress.digest)" >> "$GITHUB_OUTPUT"
-  #     - name: Sign (recompressed) image with cosign
-  #       env:
-  #         COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
-  #         DIGEST: ${{ steps.re-compress.outputs.DIGEST }}
-  #       shell: bash
-  #       run: |
-  #         cosign sign --key=env://COSIGN_PRIVATE_KEY --recursive "ghcr.io/${{ github.actor }}/${{ matrix.image }}@$DIGEST"
-  #     - name: Replace snapshot tag (if on default branch)
-  #       env:
-  #         DIGEST: ${{ steps.re-compress.outputs.DIGEST }}
-  #       shell: bash
-  #       if: ${{ github.ref_name == github.event.repository.default_branch }}
-  #       run: |
-  #         skopeo copy "docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}@$DIGEST" "docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:snapshot"
+          rpm-ostree compose container-encapsulate --repo=repo \
+            --cmd="/usr/bin/bash" \
+            --label="containers.bootc=1" \
+            --label="ostree.bootable=true" \
+            --label="org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
+            --label="org.opencontainers.image.title=${{ matrix.image }}" \
+            --label="org.opencontainers.image.version=${{ steps.target-manifest.outputs.CONTAINER_IMAGE_VERSION }}" \
+            "${PREVIOUS_BUILD_MANIFEST[@]}" \
+            relabeled registry:ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG-rechunked | tee compose.out
+          export DIGEST=$(tail -n1 compose.out | grep -Eo 'sha256:[A-Fa-f0-9]+$')
+          echo "DIGEST=$DIGEST" >> "$GITHUB_OUTPUT"
+      - name: Sign image with cosign
+        env:
+          COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
+          DIGEST: ${{ steps.re-encapsulate.outputs.DIGEST }}
+        shell: bash
+        run: |
+          cosign sign --key=env://COSIGN_PRIVATE_KEY --recursive "ghcr.io/${{ github.actor }}/${{ matrix.image }}@$DIGEST"
+      - name: Delete ostree repo
+        shell: bash
+        run: |
+          rm -rf repo
+      - name: Recompress image with zstd
+        id: re-compress
+        shell: bash
+        run: |
+          mkdir ostree-image
+          skopeo copy --dest-compress --dest-compress-format zstd --remove-signatures \
+            docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG-rechunked dir:ostree-image
+          skopeo copy --preserve-digests --digestfile recompress.digest \
+            dir:ostree-image docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG-recompressed
+          echo "DIGEST=$(cat recompress.digest)" >> "$GITHUB_OUTPUT"
+      - name: Sign (recompressed) image with cosign
+        env:
+          COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
+          DIGEST: ${{ steps.re-compress.outputs.DIGEST }}
+        shell: bash
+        run: |
+          cosign sign --key=env://COSIGN_PRIVATE_KEY --recursive "ghcr.io/${{ github.actor }}/${{ matrix.image }}@$DIGEST"
+      - name: Replace snapshot tag (if on default branch)
+        env:
+          DIGEST: ${{ steps.re-compress.outputs.DIGEST }}
+        shell: bash
+        if: ${{ github.ref_name == github.event.repository.default_branch }}
+        run: |
+          skopeo copy "docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}@$DIGEST" "docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:snapshot"
