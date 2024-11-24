@@ -59,10 +59,10 @@ jobs:
       - name: SetLocale
         run: |
           dnf install -y glibc-langpack-en langpacks-en
-          localectl set-locale LANG=en_US.UTF-8
           echo "LANG=en_US.UTF-8" > /etc/locale.conf
           echo "LC_ALL=en_US.UTF-8" >> /etc/locale.conf
-          source /etc/locale.conf
+          export LANG=en_US.UTF-8
+          export LC_ALL=en_US.UTF-8
           locale -a
           echo "Actual locale"
           locale
