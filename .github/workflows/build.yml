@@ -56,6 +56,20 @@ jobs:
       # TODO: use value from target-manifest to get branch name instead of assuming Fedora 42 (current rawhide)
       RECHUNK_TARGET_TAG:  ${{ github.ref_name == github.event.repository.default_branch && 'latest' || format('br-{0}-42', github.ref_name) }}
     steps:
+      - name: SetLocale
+        run: |
+          sudo apt-get update && sudo apt-get install tzdata locales -y
+          sudo locale-gen en_US.UTF-8
+          sudo update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+          locale -a
+          echo "Actual locale"
+          locale
+          echo "Actual numeric settings"
+          locale -c -k LC_NUMERIC
+          echo "LANG Variable"
+          echo "$LANG"
+          echo "LocaleCtl"
+          localectl status
       - name: Login to registry
         shell: bash
         run: |
