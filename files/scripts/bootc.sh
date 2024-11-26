@@ -1,6 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
-# Tell build process to exit if there are any errors.
-set -oue pipefail
-
-/usr/bin/bootupctl backend generate-update-metadata
+if [ "$(rpm -E %fedora)" -eq "40" ]; then
+    /usr/bin/bootupctl backend generate-update-metadata
+fi
