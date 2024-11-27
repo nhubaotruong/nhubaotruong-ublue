@@ -104,7 +104,6 @@ modules:
       - rsms-inter-vf-fonts
       - cpulimit
       - kernel-tools
-      - jemalloc
       - scx-scheds
       - fontawesome-fonts-all
       - profile-cleaner
