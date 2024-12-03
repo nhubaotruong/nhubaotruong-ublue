@@ -25,8 +25,11 @@ jobs:
           - recipe.yml
     steps:
        # the build is fully handled by the reusable github action
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Build Custom Image
-        uses: blue-build/github-action@v1.7
+        uses: ./.github/blue-build
         with:
           recipe: ${{ matrix.recipe }}
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
@@ -35,120 +38,5 @@ jobs:
 
           # enabled by default, disable if your image is small and you want faster builds      
           maximize_build_space: false
-
-  # rpm-ostree-rechunk:
-  #   name: rpm-ostree re-encapsulate
-  #   runs-on: ubuntu-24.04
-  #   needs: bluebuild
-  #   permissions:
-  #     contents: read
-  #     packages: write
-  #     id-token: write
-  #   strategy:
-  #     fail-fast: false
-  #     matrix:
-  #       image:
-  #         - nhubaotruong-ublue
-  #   container:
-  #     image: ghcr.io/prydom/ostree-buildroot:rawhide
-  #     options: --privileged
-  #   env:
-  #     RECHUNK_TARGET_TAG: ${{ github.ref_name == github.event.repository.default_branch && 'latest' || format('br-{0}-42', github.ref_name) }}
-  #   steps:
-  #     - name: SetLocale
-  #       run: |
-  #         dnf install -y glibc-langpack-en langpacks-en
-  #         echo "LANG=en_US.UTF-8" > /etc/locale.conf
-  #         echo "LC_ALL=en_US.UTF-8" >> /etc/locale.conf
-  #         echo "LC_CTYPE=en_US.UTF-8" >> /etc/locale.conf
-  #         export LANG=en_US.UTF-8
-  #         export LC_ALL=en_US.UTF-8
-  #         export LC_CTYPE=en_US.UTF-8
-  #         source /etc/locale.conf
-
-  #     - name: Create ostree repo
-  #       run: |
-  #         mkdir -p repo
-  #         ostree init --repo=repo --mode=bare-user
-
-  #     - name: Pull and process container image
-  #       run: |
-  #         # Pull the image into ostree
-  #         ostree container image pull repo ostree-unverified-image:docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG
-
-  #         # Get the ref
-  #         export REF="$(ostree refs --repo=repo ostree/container/image)"
-
-  #         # Checkout and prepare for relabeling
-  #         ostree checkout --repo=repo \
-  #           --require-hardlinks \
-  #           "ostree/container/image/$REF" checkout
-
-  #         # Create nix directory with proper permissions
-  #         mkdir -m 000 -p checkout/nix
-
-  #         # Commit with SELinux relabeling
-  #         ostree commit \
-  #           --branch=relabeled \
-  #           --repo=repo \
-  #           --bootable \
-  #           --consume \
-  #           --selinux-policy=$PWD/checkout \
-  #           checkout
-  #     - name: Re-encapsulate image
-  #       id: re-encapsulate
-  #       shell: bash
-  #       run: |
-  #         skopeo inspect --raw docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG-rechunked > previous-manifest.json || rm -f previous-manifest.json
-
-  #         PREVIOUS_BUILD_MANIFEST=()
-  #         if [ -f "previous-manifest.json" ]; then
-  #           PREVIOUS_BUILD_MANIFEST+=("--previous-build-manifest=previous-manifest.json")
-  #         fi
-
-  #         rpm-ostree compose container-encapsulate --repo=repo \
-  #           --cmd="/usr/bin/bash" \
-  #           --label="containers.bootc=1" \
-  #           --label="ostree.bootable=true" \
-  #           --label="org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
-  #           --label="org.opencontainers.image.title=${{ matrix.image }}" \
-  #           --label="org.opencontainers.image.version=${{ steps.target-manifest.outputs.CONTAINER_IMAGE_VERSION }}" \
-  #           "${PREVIOUS_BUILD_MANIFEST[@]}" \
-  #           relabeled registry:ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG-rechunked | tee compose.out
-  #         export DIGEST=$(tail -n1 compose.out | grep -Eo 'sha256:[A-Fa-f0-9]+$')
-  #         echo "DIGEST=$DIGEST" >> "$GITHUB_OUTPUT"
-  #     - name: Sign image with cosign
-  #       env:
-  #         COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
-  #         DIGEST: ${{ steps.re-encapsulate.outputs.DIGEST }}
-  #       shell: bash
-  #       run: |
-  #         cosign sign --key=env://COSIGN_PRIVATE_KEY --recursive "ghcr.io/${{ github.actor }}/${{ matrix.image }}@$DIGEST"
-  #     - name: Delete ostree repo
-  #       shell: bash
-  #       run: |
-  #         rm -rf repo
-  #     - name: Recompress image with zstd
-  #       id: re-compress
-  #       shell: bash
-  #       run: |
-  #         mkdir ostree-image
-  #         skopeo copy --dest-compress --dest-compress-format zstd --remove-signatures \
-  #           docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG-rechunked dir:ostree-image
-  #         skopeo copy --preserve-digests --digestfile recompress.digest \
-  #           dir:ostree-image docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:$RECHUNK_TARGET_TAG-recompressed
-  #         echo "DIGEST=$(cat recompress.digest)" >> "$GITHUB_OUTPUT"
-  #     - name: Sign (recompressed) image with cosign
-  #       env:
-  #         COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
-  #         DIGEST: ${{ steps.re-compress.outputs.DIGEST }}
-  #       shell: bash
-  #       run: |
-  #         cosign sign --key=env://COSIGN_PRIVATE_KEY --recursive "ghcr.io/${{ github.actor }}/${{ matrix.image }}@$DIGEST"
-  #     - name: Replace snapshot tag (if on default branch)
-  #       env:
-  #         DIGEST: ${{ steps.re-compress.outputs.DIGEST }}
-  #       shell: bash
-  #       if: ${{ github.ref_name == github.event.repository.default_branch }}
-  #       run: |
-  #         skopeo copy "docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}@$DIGEST" "docker://ghcr.io/${{ github.actor }}/${{ matrix.image }}:snapshot"
+          use_unstable_cli: true
+          rechunk: true
