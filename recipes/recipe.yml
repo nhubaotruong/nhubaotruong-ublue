@@ -18,16 +18,17 @@ modules:
   - type: containerfile
     containerfiles:
       - replace-kernel
+      - install-akmods
   #     # - zfs-rpms
   # - upgrade
   # - match-kernel-version
 
-  - type: akmods
-    base: bazzite
-    install:
-      - openrazer
-      - v4l2loopback
-      - xone
+  # - type: akmods
+  #   base: main
+  #   install:
+  #     - openrazer
+  #     - v4l2loopback
+  #     - xone
       # - xpadneo
 
   - type: rpm-ostree
