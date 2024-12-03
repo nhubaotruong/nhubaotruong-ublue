@@ -111,6 +111,7 @@ modules:
       - samba-winbind-clients
       - samba-winbind-modules
       - samba
+      - yq
       - printer-driver-brlaser
       - epson-inkjet-printer-escpr
       - epson-inkjet-printer-escpr2
