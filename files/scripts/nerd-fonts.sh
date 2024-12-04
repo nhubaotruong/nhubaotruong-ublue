@@ -16,7 +16,8 @@ mkdir -p $BASE_DIR
 
 for font in "${font_names[@]}"; do
     url=$(echo "$RELEASE" | yq ".assets[] | select(.name == \"$font.tar.xz\") | .url")
-    curl -L "$url" -H 'Accept: application/octet-stream' | tar -xvf -C $BASE_DIR --one-top-level
+    mkdir -p "$BASE_DIR/$font"
+    curl -L "$url" -H 'Accept: application/octet-stream' | tar -xvJ -C "$BASE_DIR/$font"
     restorecon -vFr "$BASE_DIR/$font"
     chmod 644 "$BASE_DIR/$font"/*
     chown -R root: "$BASE_DIR/$font"
