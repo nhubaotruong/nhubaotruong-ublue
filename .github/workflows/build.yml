@@ -25,6 +25,9 @@ jobs:
           - recipe.yml
     steps:
        # the build is fully handled by the reusable github action
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Build Custom Image
         uses: ./.github/blue-build
         with:
