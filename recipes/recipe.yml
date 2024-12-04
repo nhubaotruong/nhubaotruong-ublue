@@ -212,12 +212,12 @@ modules:
     include:
       - zz1-desktop.gschema.override
 
-  - type: fonts
-    fonts:
-      nerd-fonts:
-        - FiraCode
-        - Meslo
-        - CascadiaCode
+  # - type: fonts
+  #   fonts:
+  #     nerd-fonts:
+  #       - FiraCode
+  #       - Meslo
+  #       - CascadiaCode
 
   # - type: yafti # if included, yafti and it's dependencies (pip & libadwaita) will be installed and set up
   #   custom-flatpaks:
@@ -260,6 +260,7 @@ modules:
 
   - type: script
     scripts:
+      - nerd-fonts.sh
       - byedpi.sh
       - joypixels.sh
       - microsoft-fonts.sh
