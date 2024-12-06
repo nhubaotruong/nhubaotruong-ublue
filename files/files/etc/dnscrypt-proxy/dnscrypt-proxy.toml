@@ -468,7 +468,7 @@ path = '/dns-query'
 ## See the documentation (wiki) for more information.
 
 cert_file = '/etc/dnscrypt-proxy/localhost.pem'
-cert_key_file = '/etc/dnscrypt-proxy/localhost.pem'
+cert_key_file = '/etc/dnscrypt-proxy/localhost-key.pem'
 
 
 ###############################
