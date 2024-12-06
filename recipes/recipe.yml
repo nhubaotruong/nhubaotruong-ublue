@@ -19,6 +19,8 @@ modules:
     containerfiles:
       - replace-kernel
       - install-akmods
+    snippets:
+      - RUN rpm-ostree uninstall systemd-resolved && ostree container commit
   #     # - zfs-rpms
   # - upgrade
   # - match-kernel-version
@@ -136,7 +138,6 @@ modules:
       - gnome-classic-session
       - thermald
       - systemd-networkd
-      - systemd-resolved
     optfix:
       - teamviewer
       - microsoft
