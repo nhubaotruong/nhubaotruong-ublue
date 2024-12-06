@@ -115,6 +115,8 @@ modules:
       - printer-driver-brlaser
       - epson-inkjet-printer-escpr
       - epson-inkjet-printer-escpr2
+      - dnscrypt-proxy
+      - openresolv
       # Gnome extensions
       - gnome-shell-extension-gsconnect
       - gnome-shell-extension-appindicator
@@ -134,6 +136,7 @@ modules:
       - gnome-classic-session
       - thermald
       - systemd-networkd
+      - systemd-resolved
     optfix:
       - teamviewer
       - microsoft
@@ -266,7 +269,7 @@ modules:
       - microsoft-fonts.sh
       - expressvpn.sh
       - teamviewer.sh
-      - dnsproxy.sh
+      # - dnsproxy.sh
       - papirus-icon-theme.sh
       - nanorc.sh
       - nix-installer.sh
@@ -289,6 +292,7 @@ modules:
         # - libvirt-workaround.service
         - mdatp.service
         - scx.service
+        - dnscrypt-proxy.service
         # - docker.socket
       disabled:
         - raid-check.timer
