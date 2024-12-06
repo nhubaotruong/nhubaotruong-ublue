@@ -19,8 +19,6 @@ modules:
     containerfiles:
       - replace-kernel
       - install-akmods
-    snippets:
-      - RUN rpm-ostree uninstall systemd-resolved && ostree container commit
   #     # - zfs-rpms
   # - upgrade
   # - match-kernel-version
@@ -300,6 +298,7 @@ modules:
         - systemd-homed.service
         - systemd-homed-activate.service
         - waydroid-container.service
+        - systemd-resolved.service
     user:
       enabled:
         - fontconfig-cache.service
