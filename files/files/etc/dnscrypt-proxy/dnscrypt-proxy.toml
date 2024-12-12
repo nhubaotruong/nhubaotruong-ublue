@@ -1,5 +1,6 @@
 
 ##############################################
+
 #                                            #
 #        dnscrypt-proxy configuration        #
 #                                            #
@@ -369,7 +370,7 @@ reject_ttl = 10
 
 ## See the `example-forwarding-rules.txt` file for an example
 
-# forwarding_rules = '/etc/dnscrypt-proxy/forwarding-rules.txt'
+forwarding_rules = '/etc/dnscrypt-proxy/forwarding-rules.txt'
 
 
 ###############################
