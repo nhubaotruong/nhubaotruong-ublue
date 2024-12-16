@@ -24,12 +24,8 @@ jobs:
           # !! Add your recipes here 
           - recipe.yml
     steps:
-       # the build is fully handled by the reusable github action
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: Build Custom Image
-        uses: ./.github/blue-build
+        uses: blue-build/github-action@v1
         with:
           recipe: ${{ matrix.recipe }}
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
