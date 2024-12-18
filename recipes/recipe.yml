@@ -22,6 +22,12 @@ modules:
   #     # - zfs-rpms
   # - upgrade
   # - match-kernel-version
+
+  - type: rpm-ostree
+    install:
+      - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
+      - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
+
   - type: akmods
     base: bazzite
     install:
@@ -41,7 +47,6 @@ modules:
       - https://download.opensuse.org/repositories/home:/lamlng/Fedora_Rawhide/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://packages.microsoft.com/config/rhel/8/prod.repo
-      - https://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-%OS_VERSION%/kylegospo-bazzite-multilib-fedora-%OS_VERSION%.repo?arch=x86_64
       # - https://copr.fedorainfracloud.org/coprs/rodoma92/rmlint/repo/fedora-%OS_VERSION%/rodoma92-rmlint-fedora-%OS_VERSION%.repo
       # - https://copr.fedorainfracloud.org/coprs/eyecantcu/supergfxctl/repo/fedora-%OS_VERSION%/eyecantcu-supergfxctl-fedora-%OS_VERSION%.repo
