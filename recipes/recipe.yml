@@ -28,6 +28,7 @@ modules:
       - openrazer
       - v4l2loopback
       - xone
+      - VirtualBox
   # - xpadneo
   - type: rpm-ostree
     repos:
@@ -117,6 +118,8 @@ modules:
       - epson-inkjet-printer-escpr2
       - dnscrypt-proxy
       - openresolv
+      - RemoteBox
+      - VirtualBox
       # Gnome extensions
       - gnome-shell-extension-gsconnect
       - gnome-shell-extension-appindicator
