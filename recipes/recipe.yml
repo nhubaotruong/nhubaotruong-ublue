@@ -34,7 +34,7 @@ modules:
       - openrazer
       - v4l2loopback
       - xone
-      - VirtualBox
+      # - VirtualBox
   # - xpadneo
   - type: rpm-ostree
     repos:
@@ -89,7 +89,7 @@ modules:
       - lxc-libs
       - cage
       - wlr-randr
-      - podman-docker
+      # - podman-docker
       - nautilus-open-any-terminal
       - usbguard
       - usbguard-dbus
@@ -124,8 +124,6 @@ modules:
       - epson-inkjet-printer-escpr2
       - dnscrypt-proxy
       - openresolv
-      - RemoteBox
-      - VirtualBox
       # Gnome extensions
       - gnome-shell-extension-gsconnect
       - gnome-shell-extension-appindicator
