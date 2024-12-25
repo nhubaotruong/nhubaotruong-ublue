@@ -143,6 +143,7 @@ modules:
       - gnome-classic-session
       - thermald
       - systemd-networkd
+      - systemd-resolved
       - ptyxis
     optfix:
       - teamviewer
