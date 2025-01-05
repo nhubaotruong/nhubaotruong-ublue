@@ -65,6 +65,8 @@ modules:
       - i2c-tools
       - ddcutil
       - qemu
+      - qemu-user-binfmt
+      - qemu-user-static
       - libvirt
       - libvirt-nss
       - edk2-ovmf
@@ -288,6 +290,7 @@ modules:
         - btrfs-dedup@var-home.timer
         - usbguard.service
         - usbguard-dbus.service
+        - libvirtd.socket
         # - swtpm-workaround.service
         # - waydroid-workaround.service
         # - libvirt-workaround.service
