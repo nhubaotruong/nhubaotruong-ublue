@@ -126,6 +126,7 @@ modules:
       - epson-inkjet-printer-escpr2
       - dnscrypt-proxy
       - openresolv
+      - python-pysocks
       # Gnome extensions
       - gnome-shell-extension-gsconnect
       - gnome-shell-extension-appindicator
