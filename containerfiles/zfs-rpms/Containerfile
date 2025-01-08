@@ -1,4 +1,4 @@
-RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods-zfs:coreos-stable-40,source=/rpms,target=/tmp/akmods-zfs \
+RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods-zfs:coreos-testing-41,source=/rpms,target=/tmp/akmods-zfs \
     rpm-ostree cliwrap install-to-root / && \
     rpm-ostree install pv /tmp/akmods-zfs/kmods/zfs/*.rpm && \
     ostree container commit
