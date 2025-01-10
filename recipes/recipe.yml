@@ -15,9 +15,9 @@ modules:
       - source: files
         destination: /
 
-  # - type: containerfile
-  #   containerfiles:
-  #     - replace-kernel
+  - type: containerfile
+    containerfiles:
+      - replace-kernel
       # - install-akmods
   #     # - zfs-rpms
   # - upgrade
@@ -29,7 +29,7 @@ modules:
       - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
 
   - type: akmods
-    base: main
+    base: bazzite
     install:
       - openrazer
       - v4l2loopback
