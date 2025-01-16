@@ -45,6 +45,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-%OS_VERSION%/ganto-lxc4-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:/lamlng/Fedora_Rawhide/home:lamlng.repo
+      - https://openrazer.github.io/hardware:razer.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://packages.microsoft.com/config/rhel/8/insiders-slow.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-%OS_VERSION%/kylegospo-bazzite-multilib-fedora-%OS_VERSION%.repo?arch=x86_64
@@ -127,6 +128,8 @@ modules:
       - dnscrypt-proxy
       - openresolv
       - python-pysocks
+      - openrazer-daemon
+      - python3-openrazer
       # Gnome extensions
       - gnome-shell-extension-gsconnect
       - gnome-shell-extension-appindicator
@@ -310,6 +313,7 @@ modules:
         - fontconfig-cache.service
         - podman.socket
         - appman-update.timer
+        - openrazer-daemon.service
 
   - type: initramfs
 
