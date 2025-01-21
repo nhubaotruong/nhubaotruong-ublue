@@ -130,6 +130,7 @@ modules:
       - python-pysocks
       - openrazer-daemon
       - python3-openrazer
+      - fuse-btfs
       # Gnome extensions
       - gnome-shell-extension-gsconnect
       - gnome-shell-extension-appindicator
