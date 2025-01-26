@@ -65,11 +65,11 @@ modules:
       - breeze-cursor-theme
       - i2c-tools
       - ddcutil
-      - qemu
+      # - qemu
       - qemu-user-binfmt
       - qemu-user-static
-      - libvirt
-      - libvirt-nss
+      # - libvirt
+      # - libvirt-nss
       - edk2-ovmf
       - zram-generator
       - zsh
@@ -295,7 +295,7 @@ modules:
         - btrfs-dedup@var-home.timer
         - usbguard.service
         - usbguard-dbus.service
-        - libvirtd.socket
+        # - libvirtd.socket
         # - swtpm-workaround.service
         # - waydroid-workaround.service
         # - libvirt-workaround.service
