@@ -19,7 +19,7 @@ modules:
     containerfiles:
       - replace-kernel
       # - install-akmods
-      - zfs-rpms
+      # - zfs-rpms
   # - upgrade
   # - match-kernel-version
 
@@ -28,14 +28,15 @@ modules:
       - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
       - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
 
-  # - type: akmods
-  #   base: coreos-stable-kernel
-  #   install:
-  #     - openrazer
-  #     - v4l2loopback
-  #     - xone
-  #     # - VirtualBox
-  # - xpadneo
+  - type: akmods
+    base: bazzite-kernel
+    install:
+      - openrazer
+      - v4l2loopback
+      - xone
+      - xpadneo
+      # - VirtualBox
+
   - type: rpm-ostree
     repos:
       - https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo
@@ -49,6 +50,7 @@ modules:
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://packages.microsoft.com/config/rhel/8/insiders-slow.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-%OS_VERSION%/kylegospo-bazzite-multilib-fedora-%OS_VERSION%.repo?arch=x86_64
+      - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-addons-fedora-%OS_VERSION%.repo
       # - https://copr.fedorainfracloud.org/coprs/rodoma92/rmlint/repo/fedora-%OS_VERSION%/rodoma92-rmlint-fedora-%OS_VERSION%.repo
       # - https://copr.fedorainfracloud.org/coprs/eyecantcu/supergfxctl/repo/fedora-%OS_VERSION%/eyecantcu-supergfxctl-fedora-%OS_VERSION%.repo
       # - https://download.docker.com/linux/fedora/docker-ce.repo
