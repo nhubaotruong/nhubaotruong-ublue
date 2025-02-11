@@ -8,8 +8,8 @@ system:
     - com.github.tchx84.Flatseal
     - com.heroicgameslauncher.hgl
     - com.mattjakeman.ExtensionManager
-    - org.gtk.Gtk3theme.adw-gtk3
-    - org.gtk.Gtk3theme.adw-gtk3-dark
+    # - org.gtk.Gtk3theme.adw-gtk3
+    # - org.gtk.Gtk3theme.adw-gtk3-dark
     # - com.usebottles.bottles
     - com.valvesoftware.Steam
     - com.valvesoftware.Steam.Utility.steamtinkerlaunch
