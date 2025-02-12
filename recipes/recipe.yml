@@ -135,11 +135,11 @@ modules:
       - fuse-btfs
       # Gnome extensions
       - gnome-shell-extension-gsconnect
-      - gnome-shell-extension-appindicator
-      - gnome-shell-extension-user-theme
-      - gnome-shell-extension-dash-to-dock
-      - gnome-shell-extension-just-perfection
-      - gnome-shell-extension-caffeine
+      # - gnome-shell-extension-appindicator
+      # - gnome-shell-extension-user-theme
+      # - gnome-shell-extension-dash-to-dock
+      # - gnome-shell-extension-just-perfection
+      # - gnome-shell-extension-caffeine
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -268,6 +268,7 @@ modules:
       - "5660" # Weather Or Not
       - "4798" # Thinkpad Battery Threshold
       - "6807" # System Monitor
+      - "3193" # Blur My Shell
 
   # - type: brew
   #   brew-analytics: false
