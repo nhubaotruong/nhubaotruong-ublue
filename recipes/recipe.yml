@@ -269,6 +269,8 @@ modules:
       - "4798" # Thinkpad Battery Threshold
       - "6807" # System Monitor
       - "3193" # Blur My Shell
+      - "7652" # Pipewire Raop Discover (AirPlay)
+      - "7837" # HDR Auto Enable
 
   # - type: brew
   #   brew-analytics: false
