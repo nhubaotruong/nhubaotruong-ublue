@@ -133,6 +133,7 @@ modules:
       - openrazer-daemon
       - python3-openrazer
       - fuse-btfs
+      - mimalloc
       # Gnome extensions
       - gnome-shell-extension-gsconnect
       # - gnome-shell-extension-appindicator
