@@ -96,9 +96,6 @@ modules:
       - wlr-randr
       # - podman-docker
       - nautilus-open-any-terminal
-      - usbguard
-      - usbguard-dbus
-      - usbguard-tools
       - fuse-sshfs
       - openssh-askpass
       - nautilus-gsconnect
@@ -299,7 +296,6 @@ modules:
         - tailscaled.service
         - fstrim.timer
         - btrfs-dedup@var-home.timer
-        - usbguard-dbus.service
         # - libvirtd.socket
         # - swtpm-workaround.service
         # - waydroid-workaround.service
