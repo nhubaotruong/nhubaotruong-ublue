@@ -1,20 +1,10 @@
 #!/usr/bin/env bash
 set -oue pipefail
 
-# Setup repo
-cat <<EOF >/etc/yum.repos.d/expressvpn.repo
-[expressvpn]
-name=Expressvpn
-baseurl=https://repo.expressvpn.com/public/rpm/any-distro/any-version/\$basearch
-gpgkey=https://www.expressvpn.com/expressvpn_release_public_key_0xAFF2A1415F6A3A38.asc
-gpgcheck=0
-repo_gpgcheck=0
-enabled=1
-type=rpm-md
-EOF
+download_url=$(curl -sSLf https://www.expressvpn.com/latest\#linux | grep -oP '(?<=href=")(https://www.expressvpn.works/clients/linux/expressvpn-linux-universal-.+.run)(?=")')
 
-rpm --import https://www.expressvpn.com/expressvpn_release_public_key_0xAFF2A1415F6A3A38.asc
+curl -sSLf "$download_url" -o /tmp/expressvpn.run
 
-rpm-ostree install expressvpn
+chmod +x /tmp/expressvpn.run
 
-rm -f /etc/yum.repos.d/expressvpn.repo
+/tmp/expressvpn.run --quiet --accept --nox11
