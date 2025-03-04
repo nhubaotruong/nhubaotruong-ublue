@@ -153,7 +153,6 @@ modules:
     optfix:
       - teamviewer
       - microsoft
-      - expressvpn
     replace:
       - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo
         packages:
@@ -279,7 +278,6 @@ modules:
       - byedpi.sh
       - joypixels.sh
       - microsoft-fonts.sh
-      - expressvpn.sh
       - teamviewer.sh
       # - dnsproxy.sh
       - papirus-icon-theme.sh
