@@ -11,7 +11,7 @@ curl -sSLf "$download_url" -o /tmp/expressvpn.run
 chmod +x /tmp/expressvpn.run
 
 # Run installer as temporary user
-su - "$temp_user" -c "/tmp/expressvpn.run --quiet --accept --nox11"
+runuser -l "$temp_user" -c "/tmp/expressvpn.run --quiet --accept --nox11"
 
 # Cleanup
 rm -f /tmp/expressvpn.run
