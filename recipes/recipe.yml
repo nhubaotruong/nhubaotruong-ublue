@@ -141,7 +141,6 @@ modules:
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
-      - tuned-ppd # Prevent Gnome from talking to tuned
       - yelp
       - gnome-tour
       - toolbox
@@ -285,6 +284,7 @@ modules:
       - papirus-icon-theme.sh
       - nanorc.sh
       - nix-installer.sh
+      - bazzite.sh
       - depmod.sh
       # - bootc.sh
       # - selinux.sh
