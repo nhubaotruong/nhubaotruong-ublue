@@ -43,13 +43,13 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ycollet/audinux/repo/fedora-%OS_VERSION%/ycollet-audinux-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/bazzite-org/bazzite/repo/fedora-%OS_VERSION%/bazzite-org-bazzite-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-%OS_VERSION%/ganto-lxc4-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:/lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://openrazer.github.io/hardware:razer.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://packages.microsoft.com/config/rhel/8/insiders-slow.repo
-      - https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-%OS_VERSION%/kylegospo-bazzite-multilib-fedora-%OS_VERSION%.repo?arch=x86_64
+      - https://copr.fedorainfracloud.org/coprs/bazzite-org/bazzite-multilib/repo/fedora-%OS_VERSION%/bazzite-org-bazzite-multilib-fedora-%OS_VERSION%.repo?arch=x86_64
       - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-addons-fedora-%OS_VERSION%.repo
       # - https://copr.fedorainfracloud.org/coprs/rodoma92/rmlint/repo/fedora-%OS_VERSION%/rodoma92-rmlint-fedora-%OS_VERSION%.repo
       # - https://copr.fedorainfracloud.org/coprs/eyecantcu/supergfxctl/repo/fedora-%OS_VERSION%/eyecantcu-supergfxctl-fedora-%OS_VERSION%.repo
@@ -127,6 +127,10 @@ modules:
       - fuse-btfs
       - mimalloc
       - papirus-icon-theme-dark
+      - ublue-os-media-automount-udev
+      - adwaita++-icons
+      - meslo-nerd-fonts
+      - firacode-nerd-fonts
       # Gnome extensions
       - gnome-shell-extension-gsconnect
       # - gnome-shell-extension-appindicator
@@ -157,62 +161,37 @@ modules:
           - mutter-common
           - gnome-shell
           - xorg-x11-server-Xwayland
-      # - from-repo: https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo
+      # - from-repo: https://copr.fedorainfracloud.org/coprs/terra-extras/switcheroo-control_discrete/repo/fedora-%OS_VERSION%/sentry-switcheroo-control_discrete-fedora-%OS_VERSION%.repo
       #   packages:
-      #     - mutter
-      #     - mutter-common
-      #     - gnome-shell
-      #     - fwupd
-      #     - fwupd-plugin-flashrom
-      #     - fwupd-plugin-modem-manager
-      #     - fwupd-plugin-uefi-capsule-data
-      #   - from-repo: https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-%OS_VERSION%/kylegospo-bazzite-multilib-fedora-%OS_VERSION%.repo
-      #     packages:
-      #       # - mesa-filesystem
-      #       # - mesa-libxatracker
-      #       # - mesa-libglapi
-      #       # - mesa-dri-drivers
-      #       # - mesa-libgbm
-      #       # - mesa-libEGL
-      #       # - mesa-vulkan-drivers
-      #       # - mesa-libGL
-      #       # - pipewire
-      #       # - pipewire-alsa
-      #       # - pipewire-gstreamer
-      #       # - pipewire-jack-audio-connection-kit
-      #       # - pipewire-jack-audio-connection-kit-libs
-      #       # - pipewire-libs
-      #       # - pipewire-pulseaudio
-      #       # - pipewire-utils
-      #       # - pipewire-plugin-libcamera
-      #       # - bluez
-      #       # - bluez-obexd
-      #       # - bluez-cups
-      #       # - bluez-libs
-      #       - xorg-x11-server-Xwayland
-      - from-repo: https://copr.fedorainfracloud.org/coprs/sentry/switcheroo-control_discrete/repo/fedora-%OS_VERSION%/sentry-switcheroo-control_discrete-fedora-%OS_VERSION%.repo
+      #     - switcheroo-control
+      - from-repo: https://copr.fedorainfracloud.org/coprs/bazzite-org/bazzite/repo/fedora-%OS_VERSION%/bazzite-org-bazzite-fedora-%OS_VERSION%.repo
         packages:
-          - switcheroo-control
-    #   # - from-repo: https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-%OS_VERSION%/kylegospo-bazzite-fedora-%OS_VERSION%.repo
-    #   #   packages:
-    #   #     - amd-gpu-firmware
-    #   #     - amd-ucode-firmware
-    #   #     - atheros-firmware
-    #   #     - brcmfmac-firmware
-    #   #     - cirrus-audio-firmware
-    #   #     - intel-audio-firmware
-    #   #     - intel-gpu-firmware
-    #   #     - iwlegacy-firmware
-    #   #     - iwlwifi-dvm-firmware
-    #   #     - iwlwifi-mvm-firmware
-    #   #     - libertas-firmware
-    #   #     - linux-firmware
-    #   #     - linux-firmware-whence
-    #   #     - mt7xxx-firmware
-    #   #     - nvidia-gpu-firmware
-    #   #     - nxpwireless-firmware
-    #   #     - realtek-firmware
-    #   #     - tiwilink-firmware
+          - linux-firmware
+          - netronome-firmware
+          - libertas-firmware
+          - atheros-firmware
+          - realtek-firmware
+          - tiwilink-firmware
+          - cirrus-audio-firmware
+          - linux-firmware-whence
+          - iwlwifi-dvm-firmware
+          - iwlwifi-mvm-firmware
+          - amd-ucode-firmware
+          - qcom-firmware
+          - mt7xxx-firmware
+          - liquidio-firmware
+          - nxpwireless-firmware
+          - intel-vsc-firmware
+          - nvidia-gpu-firmware
+          - intel-audio-firmware
+          - amd-gpu-firmware
+          - iwlegacy-firmware
+          - intel-gpu-firmware
+          - mlxsw_spectrum-firmware
+          - qed-firmware
+          - mrvlprestera-firmware
+          - brcmfmac-firmware
+          - dvb-firmware
 
   - from-file: flatpak.yml
 
@@ -271,19 +250,14 @@ modules:
 
   - type: script
     scripts:
-      - nerd-fonts.sh
       - byedpi.sh
       - joypixels.sh
       - microsoft-fonts.sh
       - teamviewer.sh
-      # - dnsproxy.sh
-      # - papirus-icon-theme.sh
       - nanorc.sh
       - nix-installer.sh
       - bazzite.sh
       - depmod.sh
-      # - bootc.sh
-      # - selinux.sh
 
   - type: systemd
     system:
