@@ -213,9 +213,9 @@ modules:
   # - Celluloid: io.github.celluloid_player.Celluloid
   # - Krita: org.kde.krita
 
-  - type: bling # configure what to pull in from ublue-os/bling
-    install:
-      - ublue-update # https://github.com/ublue-os/ublue-update
+  # - type: bling # configure what to pull in from ublue-os/bling
+  #   install:
+  #     - ublue-update # https://github.com/ublue-os/ublue-update
 
   - type: gnome-extensions
     install:
