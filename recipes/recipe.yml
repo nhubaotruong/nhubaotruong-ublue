@@ -64,89 +64,90 @@ modules:
         - bieszczaders/kernel-cachyos-addons
         - trixieua/mutter-patched
     install:
-      - sqlite
-      - starship
-      - gnome-tweaks
-      - neovim
-      - zstd
-      - ibus-bamboo
-      - ibus-unikey
-      - tailscale
-      - breeze-cursor-theme
-      - i2c-tools
-      - ddcutil
-      - qemu-user-binfmt
-      - qemu-user-static
-      - edk2-ovmf
-      - zram-generator
-      - zsh
-      - igt-gpu-tools
-      - libgda
-      - libgda-sqlite
-      - firewall-config
-      - dejavu-sans-fonts
-      - dejavu-serif-fonts
-      - liberation-fonts
-      - ufraw
-      - duperemove
-      - rmlint
-      - python3-icoextract
-      - gnome-directory-thumbnailer
-      - gnome-epub-thumbnailer
-      - gnome-kra-ora-thumbnailer
-      - waydroid
-      - lxc
-      - lxc-libs
-      - cage
-      - wlr-randr
-      - nautilus-open-any-terminal
-      - fuse-sshfs
-      - openssh-askpass
-      - nautilus-gsconnect
-      - ifuse
-      - libimobiledevice
-      - usbmuxd
-      - wl-clipboard
-      - xclip
-      - bindfs
-      - powertop
-      - foo2zjs
-      - mdatp
-      - bootc
-      - rsms-inter-vf-fonts
-      - cpulimit
-      - kernel-tools
-      - scx-scheds
-      - fontawesome-fonts-all
-      - profile-cleaner
-      - samba-dcerpc
-      - samba-ldb-ldap-modules
-      - samba-winbind-clients
-      - samba-winbind-modules
-      - samba
-      - yq
-      - printer-driver-brlaser
-      - epson-inkjet-printer-escpr
-      - epson-inkjet-printer-escpr2
-      - dnscrypt-proxy
-      - openresolv
-      - python-pysocks
-      - openrazer-daemon
-      - python3-openrazer
-      - fuse-btfs
-      - mimalloc
-      - papirus-icon-theme-dark
-      - ublue-os-media-automount-udev
-      - adwaita++-icons
-      - meslo-nerd-fonts
-      - firacode-nerd-fonts
-      # Gnome extensions
-      - gnome-shell-extension-gsconnect
-      # - gnome-shell-extension-appindicator
-      # - gnome-shell-extension-user-theme
-      # - gnome-shell-extension-dash-to-dock
-      # - gnome-shell-extension-just-perfection
-      # - gnome-shell-extension-caffeine
+      packages:
+        - sqlite
+        - starship
+        - gnome-tweaks
+        - neovim
+        - zstd
+        - ibus-bamboo
+        - ibus-unikey
+        - tailscale
+        - breeze-cursor-theme
+        - i2c-tools
+        - ddcutil
+        - qemu-user-binfmt
+        - qemu-user-static
+        - edk2-ovmf
+        - zram-generator
+        - zsh
+        - igt-gpu-tools
+        - libgda
+        - libgda-sqlite
+        - firewall-config
+        - dejavu-sans-fonts
+        - dejavu-serif-fonts
+        - liberation-fonts
+        - ufraw
+        - duperemove
+        - rmlint
+        - python3-icoextract
+        - gnome-directory-thumbnailer
+        - gnome-epub-thumbnailer
+        - gnome-kra-ora-thumbnailer
+        - waydroid
+        - lxc
+        - lxc-libs
+        - cage
+        - wlr-randr
+        - nautilus-open-any-terminal
+        - fuse-sshfs
+        - openssh-askpass
+        - nautilus-gsconnect
+        - ifuse
+        - libimobiledevice
+        - usbmuxd
+        - wl-clipboard
+        - xclip
+        - bindfs
+        - powertop
+        - foo2zjs
+        - mdatp
+        - bootc
+        - rsms-inter-vf-fonts
+        - cpulimit
+        - kernel-tools
+        - scx-scheds
+        - fontawesome-fonts-all
+        - profile-cleaner
+        - samba-dcerpc
+        - samba-ldb-ldap-modules
+        - samba-winbind-clients
+        - samba-winbind-modules
+        - samba
+        - yq
+        - printer-driver-brlaser
+        - epson-inkjet-printer-escpr
+        - epson-inkjet-printer-escpr2
+        - dnscrypt-proxy
+        - openresolv
+        - python-pysocks
+        - openrazer-daemon
+        - python3-openrazer
+        - fuse-btfs
+        - mimalloc
+        - papirus-icon-theme-dark
+        - ublue-os-media-automount-udev
+        - adwaita++-icons
+        - meslo-nerd-fonts
+        - firacode-nerd-fonts
+        # Gnome extensions
+        - gnome-shell-extension-gsconnect
+        # - gnome-shell-extension-appindicator
+        # - gnome-shell-extension-user-theme
+        # - gnome-shell-extension-dash-to-dock
+        # - gnome-shell-extension-just-perfection
+        # - gnome-shell-extension-caffeine
     remove:
       auto-remove: true
       packages:
