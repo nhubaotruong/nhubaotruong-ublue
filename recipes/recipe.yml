@@ -19,7 +19,7 @@ modules:
     snippets:
       - rm /usr/share/thumbnailers/avif.thumbnailer
       - skopeo copy --retry-times 3 docker://ghcr.io/ublue-os/akmods:bazzite-"$(rpm -E %fedora)" dir:/tmp/akmods
-      - AKMODS_TARGZ=$(jq -r '.layers[].digest' < /tmp/akmods/manifest.json | cut -d: -f 2)
+      - 'AKMODS_TARGZ=$(jq -r ''.layers[].digest'' < /tmp/akmods/manifest.json | cut -d: -f 2)'
       - tar -xvzf /tmp/akmods/"$AKMODS_TARGZ" -C /tmp/
       - mv /tmp/rpms/* /tmp/akmods/
       - dnf5 -y install /tmp/kernel-rpms/kernel-[0-9]*.rpm /tmp/kernel-rpms/kernel-core-*.rpm /tmp/kernel-rpms/kernel-modules-*.rpm
@@ -28,7 +28,7 @@ modules:
 
       # - type: containerfile
       #   containerfiles:
-      - replace-kernel
+      # - replace-kernel
       # - install-akmods
       # - zfs-rpms
   # - upgrade
