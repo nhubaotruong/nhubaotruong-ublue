@@ -4,5 +4,4 @@ RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:bazzite-41,source=/kernel-rpm
     /tmp/kernel-rpms/kernel-core-*.rpm \
     /tmp/kernel-rpms/kernel-modules-*.rpm \
     /tmp/kernel-rpms/kernel-devel-*.rpm && \
-    dnf5 versionlock add kernel kernel-devel kernel-devel-matched kernel-core kernel-modules kernel-modules-core kernel-modules-extra && \
-    ostree container commit
+    dnf5 versionlock add kernel kernel-devel kernel-devel-matched kernel-core kernel-modules kernel-modules-core kernel-modules-extra
