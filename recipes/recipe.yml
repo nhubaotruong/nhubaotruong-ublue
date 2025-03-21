@@ -15,6 +15,10 @@ modules:
       - source: files
         destination: /
 
+  - type: script
+    snippets:
+      - rm /usr/share/thumbnailers/avif.thumbnailer
+
   - type: containerfile
     containerfiles:
       - replace-kernel
@@ -23,10 +27,11 @@ modules:
   # - upgrade
   # - match-kernel-version
 
-  - type: rpm-ostree
-    install:
-      - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
-      - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
+  # - type: dnf
+  #   source: ghcr.io/blue-build/modules/dnf:dnf-module
+  #   install:
+  #     - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
+  #     - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
 
   - type: akmods
     base: bazzite
@@ -37,24 +42,27 @@ modules:
       - xpadneo
       # - VirtualBox
 
-  - type: rpm-ostree
+  - type: dnf
+    source: ghcr.io/blue-build/modules/dnf:dnf-module
+    nonfree: negativo17
     repos:
-      - https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo
-      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/ublue-os/packages/repo/fedora-%OS_VERSION%/ublue-os-packages-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/ycollet/audinux/repo/fedora-%OS_VERSION%/ycollet-audinux-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/bazzite-org/bazzite/repo/fedora-%OS_VERSION%/bazzite-org-bazzite-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-%OS_VERSION%/ganto-lxc4-fedora-%OS_VERSION%.repo
-      - https://download.opensuse.org/repositories/home:/lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
-      - https://openrazer.github.io/hardware:razer.repo
-      - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-      - https://packages.microsoft.com/config/rhel/8/insiders-slow.repo
-      - https://copr.fedorainfracloud.org/coprs/bazzite-org/bazzite-multilib/repo/fedora-%OS_VERSION%/bazzite-org-bazzite-multilib-fedora-%OS_VERSION%.repo?arch=x86_64
-      - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-addons-fedora-%OS_VERSION%.repo
-      # - https://copr.fedorainfracloud.org/coprs/rodoma92/rmlint/repo/fedora-%OS_VERSION%/rodoma92-rmlint-fedora-%OS_VERSION%.repo
-      # - https://copr.fedorainfracloud.org/coprs/eyecantcu/supergfxctl/repo/fedora-%OS_VERSION%/eyecantcu-supergfxctl-fedora-%OS_VERSION%.repo
-      # - https://download.docker.com/linux/fedora/docker-ce.repo
+      cleanup: true
+      files:
+        - https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo
+        - https://download.opensuse.org/repositories/home:/lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
+        - https://openrazer.github.io/hardware:razer.repo
+        - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+        - https://packages.microsoft.com/config/rhel/8/insiders-slow.repo
+      copr:
+        - atim/starship
+        - ublue-os/packages
+        - ublue-os/staging
+        - ycollet/audinux
+        - bazzite-org/bazzite
+        - bazzite-org/bazzite-multilib
+        - ganto/lxc4
+        - bieszczaders/kernel-cachyos-addons
+        - trixieua/mutter-patched
     install:
       - sqlite
       - starship
@@ -140,59 +148,36 @@ modules:
       # - gnome-shell-extension-just-perfection
       # - gnome-shell-extension-caffeine
     remove:
-      - firefox # default firefox removed in favor of flatpak
-      - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
-      - yelp
-      - gnome-tour
-      - toolbox
-      - gnome-software
-      - zram-generator-defaults
-      - gnome-classic-session
-      - thermald
-      - systemd-networkd
-      - ptyxis
+      auto-remove: true
+      packages:
+        - firefox # default firefox removed in favor of flatpak
+        - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
+        - yelp
+        - gnome-tour
+        - toolbox
+        - gnome-software
+        - zram-generator-defaults
+        - gnome-classic-session
+        - thermald
+        - systemd-networkd
+        - ptyxis
     optfix:
       - teamviewer
       - microsoft
     replace:
-      - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo
+      - from-repo: copr:copr.fedorainfracloud.org:trixieua:mutter-patched
         packages:
           - gdm
           - mutter
           - mutter-common
           - gnome-shell
           - xorg-x11-server-Xwayland
+      - from-repo: terra-extras
+        packages:
+          - switcheroo-control
       # - from-repo: https://copr.fedorainfracloud.org/coprs/terra-extras/switcheroo-control_discrete/repo/fedora-%OS_VERSION%/sentry-switcheroo-control_discrete-fedora-%OS_VERSION%.repo
       #   packages:
       #     - switcheroo-control
-      - from-repo: https://copr.fedorainfracloud.org/coprs/bazzite-org/bazzite/repo/fedora-%OS_VERSION%/bazzite-org-bazzite-fedora-%OS_VERSION%.repo
-        packages:
-          - linux-firmware
-          - netronome-firmware
-          - libertas-firmware
-          - atheros-firmware
-          - realtek-firmware
-          - tiwilink-firmware
-          - cirrus-audio-firmware
-          - linux-firmware-whence
-          - iwlwifi-dvm-firmware
-          - iwlwifi-mvm-firmware
-          - amd-ucode-firmware
-          - qcom-firmware
-          - mt7xxx-firmware
-          - liquidio-firmware
-          - nxpwireless-firmware
-          - intel-vsc-firmware
-          - nvidia-gpu-firmware
-          - intel-audio-firmware
-          - amd-gpu-firmware
-          - iwlegacy-firmware
-          - intel-gpu-firmware
-          - mlxsw_spectrum-firmware
-          - qed-firmware
-          - mrvlprestera-firmware
-          - brcmfmac-firmware
-          - dvb-firmware
 
   - from-file: flatpak.yml
 
