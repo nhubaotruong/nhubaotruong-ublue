@@ -182,7 +182,7 @@ modules:
 
   - type: copy
     from: ghcr.io/ublue-os/akmods:main-42
-    src: /rpms/
+    src: /rpms/kmods
     dest: /tmp/rpms
 
   - type: containerfile
