@@ -62,6 +62,7 @@ modules:
         - bieszczaders/kernel-cachyos-addons
         - trixieua/mutter-patched
     install:
+      skip-unavailable: true
       packages:
         - sqlite
         - starship
