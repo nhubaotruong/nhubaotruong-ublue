@@ -43,7 +43,7 @@ modules:
 
   - type: dnf
     source: ghcr.io/blue-build/modules/dnf:dnf-module
-    nonfree: negativo17
+    nonfree: rpmfusion
     repos:
       files:
         # - https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo
