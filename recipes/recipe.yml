@@ -63,6 +63,7 @@ modules:
         - trixieua/mutter-patched
     install:
       skip-unavailable: true
+      allow-erasing: true
       packages:
         - sqlite
         - starship
@@ -165,6 +166,8 @@ modules:
       - microsoft
     replace:
       - from-repo: copr:copr.fedorainfracloud.org:trixieua:mutter-patched
+        skip-unavailable: true
+        allow-erasing: true
         packages:
           - gdm
           - mutter
@@ -172,6 +175,8 @@ modules:
           - gnome-shell
           - xorg-x11-server-Xwayland
       - from-repo: terra-extras
+        skip-unavailable: true
+        allow-erasing: true
         packages:
           - switcheroo-control
 
