@@ -136,7 +136,6 @@ modules:
         - mimalloc
         - papirus-icon-theme-dark
         - ublue-os-media-automount-udev
-        - adwaita++-icons
         - meslo-nerd-fonts
         - firacode-nerd-fonts
         # Gnome extensions
