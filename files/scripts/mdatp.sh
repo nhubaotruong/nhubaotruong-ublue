@@ -15,9 +15,9 @@ curl -sSLf "https://packages.microsoft.com/config/rhel/8/prod.repo" -o /etc/yum.
 
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
-rpm-ostree install mdatp
+dnf5 -y install mdatp
 
-mv /var/opt/microsoft /usr/lib/microsoft
+mv /var/opt/microsoft /usr/lib/opt/microsoft
 
 # ln -sf /usr/lib/microsoft/mdatp/sbin/wdavdaemonclient /usr/bin/mdatp
 cat <<EOF >/usr/lib/tmpfiles.d/microsoft.conf
@@ -28,7 +28,7 @@ d /etc/opt/microsoft 0755 root root - -
 EOF
 
 cat <<EOF >/usr/lib/sysusers.d/mdatp-user.conf
-u mdatp - "Mdatp user" /usr/lib/microsoft/mdatp /usr/sbin/nologin
+u mdatp - "Mdatp user" /usr/lib/opt/microsoft/mdatp /usr/sbin/nologin
 EOF
 
 mkdir -p /usr/lib/systemd/system/mdatp.service.d

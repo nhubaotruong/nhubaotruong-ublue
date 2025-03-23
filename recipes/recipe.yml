@@ -64,7 +64,6 @@ modules:
         - https://download.opensuse.org/repositories/home:/lamlng/Fedora_Rawhide/home:lamlng.repo
         # - https://openrazer.github.io/hardware:razer.repo
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-        - https://packages.microsoft.com/config/rhel/8/insiders-slow.repo
       copr:
         - atim/starship
         - ublue-os/packages
@@ -126,7 +125,6 @@ modules:
         - bindfs
         - powertop
         - foo2zjs
-        - mdatp
         - bootc
         - rsms-inter-vf-fonts
         - cpulimit
@@ -252,6 +250,7 @@ modules:
   - type: script
     scripts:
       - nerd-fonts.sh
+      - mdatp.sh
       - byedpi.sh
       - joypixels.sh
       - microsoft-fonts.sh
@@ -272,7 +271,6 @@ modules:
         # - swtpm-workaround.service
         # - waydroid-workaround.service
         # - libvirt-workaround.service
-        # - mdatp.service
         - scx.service
         - dnscrypt-proxy.service
         # - docker.socket
