@@ -159,6 +159,7 @@ modules:
         - gnome-shell-extension-dash-to-dock
         - gnome-shell-extension-just-perfection
         - gnome-shell-extension-caffeine
+        - gnome-shell-extension-system-monitor
     remove:
       auto-remove: true
       packages:
