@@ -22,8 +22,8 @@ modules:
   # - type: containerfile
   #   containerfiles:
   #     - replace-kernel
-      # - install-akmods
-      # - zfs-rpms
+  # - install-akmods
+  # - zfs-rpms
   # - upgrade
   # - match-kernel-version
 
@@ -33,19 +33,18 @@ modules:
   #     - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
   #     - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
 
-  - type: akmods
-    install:
-      # - openrazer
-      - v4l2loopback
-      - xone
-      - xpadneo
-      # - VirtualBox
+  # - type: akmods
+  #   install:
+  #     # - openrazer
+  #     - v4l2loopback
+  #     - xone
+  #     - xpadneo
+  # - VirtualBox
 
   - type: dnf
     source: ghcr.io/blue-build/modules/dnf:dnf-module
     nonfree: negativo17
     repos:
-      cleanup: true
       files:
         # - https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo
         - https://download.opensuse.org/repositories/home:/lamlng/Fedora_Rawhide/home:lamlng.repo
@@ -175,9 +174,18 @@ modules:
       - from-repo: terra-extras
         packages:
           - switcheroo-control
-      # - from-repo: https://copr.fedorainfracloud.org/coprs/terra-extras/switcheroo-control_discrete/repo/fedora-%OS_VERSION%/sentry-switcheroo-control_discrete-fedora-%OS_VERSION%.repo
-      #   packages:
-      #     - switcheroo-control
+
+  - type: copy
+    from: ghcr.io/ublue-os/akmods:main-42
+    src: /rpms/
+    dest: /tmp/rpms
+
+  - type: containerfile
+    snippets:
+      - RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
+      - RUN find /tmp/rpms
+      - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/kmod-xpadneo-*.rpm
+      - RUN sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 
   - from-file: flatpak.yml
 
