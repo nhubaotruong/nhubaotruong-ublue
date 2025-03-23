@@ -4,3 +4,4 @@
 set -oue pipefail
 export EXTRA_THEMES="Papirus-Dark"
 wget -qO- https://git.io/papirus-icon-theme-install | sh
+fc-cache -rs

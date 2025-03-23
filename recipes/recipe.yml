@@ -148,7 +148,7 @@ modules:
         # - python3-openrazer
         - fuse-btfs
         - mimalloc
-        - papirus-icon-theme-dark
+        # - papirus-icon-theme-dark
         - ublue-os-media-automount-udev
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
@@ -199,13 +199,6 @@ modules:
     include:
       - zz1-desktop.gschema.override
 
-  # - type: fonts
-  #   fonts:
-  #     nerd-fonts:
-  #       - FiraCode
-  #       - Meslo
-  #       - CascadiaCode
-
   # - type: yafti # if included, yafti and it's dependencies (pip & libadwaita) will be installed and set up
   #   custom-flatpaks:
   # this section is optional
@@ -250,6 +243,7 @@ modules:
 
   - type: script
     scripts:
+      - papirus-icon-theme.sh
       - nerd-fonts.sh
       - mdatp.sh
       - byedpi.sh
