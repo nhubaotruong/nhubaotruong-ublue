@@ -156,11 +156,11 @@ modules:
         - firacode-nerd-fonts
         # Gnome extensions
         - gnome-shell-extension-gsconnect
-        # - gnome-shell-extension-appindicator
-        # - gnome-shell-extension-user-theme
-        # - gnome-shell-extension-dash-to-dock
-        # - gnome-shell-extension-just-perfection
-        # - gnome-shell-extension-caffeine
+        - gnome-shell-extension-appindicator
+        - gnome-shell-extension-user-theme
+        - gnome-shell-extension-dash-to-dock
+        - gnome-shell-extension-just-perfection
+        - gnome-shell-extension-caffeine
     remove:
       auto-remove: true
       packages:
@@ -217,34 +217,34 @@ modules:
   #   install:
   #     - ublue-update # https://github.com/ublue-os/ublue-update
 
-  - type: gnome-extensions
-    install:
-      - "615" # AppIndicator and KStatusNotifierItem Support
-      # - "1319" # GSConnect
-      - "19" # User Themes
-      - "307" # Dash to Dock
-      - "7" # Removable Drive Menu
-      - "3843" # Just Perfection
-      - "517" # Caffeine
-      - "4269" # Alphabetical App Grid
-      - "2594" # Always Indicator
-      # - "5425" # Battery Time
-      - "6670" # Bluetooth Battery Meter
-      - "2645" # Brightness Control Using ddcutil
-      # - "1873" # Disable Unredirect Fullscreen Windows
-      # - "4485" # Favourites In AppGrid
-      # - "4158" # Gnome 4x UI Improvements
-      - "3956" # Gnome fuzzy app search
-      - "6940" # Media Progress
-      # - "5278" # Pano Clipboard Manager
-      - "4691" # Pip on top
-      - "5964" # Quick Settings Audio Devices Hider
-      - "5660" # Weather Or Not
-      - "4798" # Thinkpad Battery Threshold
-      - "6807" # System Monitor
-      - "3193" # Blur My Shell
-      - "7652" # Pipewire Raop Discover (AirPlay)
-      - "7837" # HDR Auto Enable
+  # - type: gnome-extensions
+  #   install:
+  #     - "615" # AppIndicator and KStatusNotifierItem Support
+  #     # - "1319" # GSConnect
+  #     - "19" # User Themes
+  #     - "307" # Dash to Dock
+  #     - "7" # Removable Drive Menu
+  #     - "3843" # Just Perfection
+  #     - "517" # Caffeine
+  #     - "4269" # Alphabetical App Grid
+  #     - "2594" # Always Indicator
+  #     # - "5425" # Battery Time
+  #     - "6670" # Bluetooth Battery Meter
+  #     - "2645" # Brightness Control Using ddcutil
+  #     # - "1873" # Disable Unredirect Fullscreen Windows
+  #     # - "4485" # Favourites In AppGrid
+  #     # - "4158" # Gnome 4x UI Improvements
+  #     - "3956" # Gnome fuzzy app search
+  #     - "6940" # Media Progress
+  #     # - "5278" # Pano Clipboard Manager
+  #     - "4691" # Pip on top
+  #     - "5964" # Quick Settings Audio Devices Hider
+  #     - "5660" # Weather Or Not
+  #     - "4798" # Thinkpad Battery Threshold
+  #     - "6807" # System Monitor
+  #     - "3193" # Blur My Shell
+  #     - "7652" # Pipewire Raop Discover (AirPlay)
+  #     - "7837" # HDR Auto Enable
 
   # - type: brew
   #   brew-analytics: false
