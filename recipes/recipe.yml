@@ -152,8 +152,8 @@ modules:
         - mimalloc
         - papirus-icon-theme-dark
         - ublue-os-media-automount-udev
-        - meslo-nerd-fonts
-        - firacode-nerd-fonts
+        # - meslo-nerd-fonts
+        # - firacode-nerd-fonts
         # Gnome extensions
         - gnome-shell-extension-gsconnect
         - gnome-shell-extension-appindicator
@@ -251,6 +251,7 @@ modules:
 
   - type: script
     scripts:
+      - nerd-fonts.sh
       - byedpi.sh
       - joypixels.sh
       - microsoft-fonts.sh
