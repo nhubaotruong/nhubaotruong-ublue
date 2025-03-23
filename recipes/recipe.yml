@@ -271,7 +271,7 @@ modules:
         # - swtpm-workaround.service
         # - waydroid-workaround.service
         # - libvirt-workaround.service
-        - mdatp.service
+        # - mdatp.service
         - scx.service
         - dnscrypt-proxy.service
         # - docker.socket
