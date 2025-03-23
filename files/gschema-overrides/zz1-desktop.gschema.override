@@ -61,11 +61,11 @@ clock-show-seconds=false
 clock-show-weekday=false
 color-scheme='prefer-dark'
 cursor-theme='breeze_cursors'
-document-font-name='Inter Variable 11'
+document-font-name='Adwaita Sans 11'
 enable-hot-corners=false
 font-antialiasing='rgba'
 font-hinting='slight'
-font-name='Inter Variable 11'
+font-name='Adwaita Sans 11'
 font-rgba-order='rgb'
 gtk-key-theme='Default'
 gtk-theme='adw-gtk3-dark'
@@ -84,6 +84,7 @@ sources=[('xkb', 'us'), ('ibus', 'Bamboo')]
 
 [org.gnome.settings-daemon.plugins.color]
 night-light-enabled=false
+night-light-schedule-automatic=false
 night-light-schedule-from=22.5
 night-light-schedule-to=5.75
 night-light-temperature=uint32 4700
