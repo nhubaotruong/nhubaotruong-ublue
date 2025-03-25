@@ -73,7 +73,7 @@ modules:
         - bazzite-org/bazzite-multilib
         - ganto/lxc4
         - bieszczaders/kernel-cachyos-addons
-        # - trixieua/mutter-patched
+        - trixieua/mutter-patched
     install:
       skip-unavailable: true
       allow-erasing: true
