@@ -3,7 +3,7 @@
 # Tell build process to exit if there are any errors.
 set -oue pipefail
 
-dnf5 -y install make
+dnf5 -y install make gcc
 
 git clone https://github.com/hufrea/byedpi.git /tmp/byedpi
 
@@ -24,7 +24,5 @@ git checkout "$latest_tag"
 make
 
 make PREFIX=/usr install
-
-dnf5 -y remove make
 
 systemctl enable byedpi.service
