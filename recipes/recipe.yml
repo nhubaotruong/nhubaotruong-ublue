@@ -243,6 +243,10 @@ modules:
   #   brew-analytics: false
 
   - type: script
+    snippets:
+      - sed -i~ -E 's/=.\$\(command -v (nft|ip6?tables-legacy).*/=/g' /usr/lib/waydroid/data/scripts/waydroid-net.sh
+
+  - type: script
     scripts:
       - nerd-fonts.sh
       - mdatp.sh
