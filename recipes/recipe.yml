@@ -32,8 +32,8 @@ modules:
     source: ghcr.io/blue-build/modules/dnf:dnf-module
     install:
       packages:
-        - https://rpmfusion.ip-connect.info/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
-        - https://rpmfusion.ip-connect.info/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
+        - http://ftp.fi.muni.cz/pub/linux/rpmfusion/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
+        - http://ftp.fi.muni.cz/pub/linux/rpmfusion/free/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
 
   - type: copy
     from: ghcr.io/ublue-os/akmods:main-42
