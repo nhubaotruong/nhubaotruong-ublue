@@ -33,7 +33,7 @@ modules:
     install:
       packages:
         - http://ftp.fi.muni.cz/pub/linux/rpmfusion/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
-        - http://ftp.fi.muni.cz/pub/linux/rpmfusion/free/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
+        - http://ftp.fi.muni.cz/pub/linux/rpmfusion/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
 
   - type: copy
     from: ghcr.io/ublue-os/akmods:main-42
