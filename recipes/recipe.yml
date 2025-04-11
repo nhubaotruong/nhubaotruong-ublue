@@ -153,6 +153,7 @@ modules:
         # - papirus-icon-theme-dark
         - ublue-os-media-automount-udev
         - uld
+        - breeze-icon-theme
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions

@@ -24,10 +24,13 @@ for ini_path in INI_PATHS:
     # Update all [*symbolic*] sections
     for section in config.sections():
         if "symbolic" in section:
-            print(f"🔧 Updating [{section}]")
-            config[section]["Type"] = "Scalable"
-            config[section]["MinSize"] = "8"
-            config[section]["MaxSize"] = "512"
+            match = re.match(r"(\d+)[xX](\d+)/symbolic", section)
+            if match:
+                size = match.group(1)
+                print(f"🔧 Updating [{section}] with MinSize={size}")
+                config[section]["Type"] = "Scalable"
+                config[section]["MinSize"] = size
+                config[section]["MaxSize"] = "512"
 
     # Save changes back to the file
     with ini_path.open("w") as f:
