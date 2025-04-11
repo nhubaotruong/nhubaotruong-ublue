@@ -7,6 +7,7 @@ wget -qO- https://git.io/papirus-icon-theme-install | sh
 
 cat > "/tmp/update_symbolic_sections.py" <<'EOF'
 import configparser
+import re
 from pathlib import Path
 
 # Path to the index.theme file
