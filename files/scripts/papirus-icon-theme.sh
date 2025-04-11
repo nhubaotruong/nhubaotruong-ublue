@@ -22,10 +22,11 @@ for ini_path in INI_PATHS:
     config.optionxform = str  # Preserve key case
     config.read(ini_path)
 
+    compiled_regex = re.compile(r"(\d+)[xX](\d+).*/symbolic")
     # Update all [*symbolic*] sections
     for section in config.sections():
         if "symbolic" in section:
-            match = re.match(r"(\d+)[xX](\d+)/symbolic", section)
+            match = compiled_regex.match(section)
             if match:
                 size = match.group(1)
                 print(f"🔧 Updating [{section}] with MinSize={size}")
