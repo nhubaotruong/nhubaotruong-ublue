@@ -150,10 +150,9 @@ modules:
         # - python3-openrazer
         - fuse-btfs
         - mimalloc
-        # - papirus-icon-theme-dark
+        - papirus-icon-theme-dark
         - ublue-os-media-automount-udev
         - uld
-        - breeze-icon-theme
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
@@ -256,7 +255,7 @@ modules:
       - byedpi.sh
       - joypixels.sh
       - microsoft-fonts.sh
-      - papirus-icon-theme.sh
+      # - papirus-icon-theme.sh
       - teamviewer.sh
       - nanorc.sh
       - nix-installer.sh
