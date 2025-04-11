@@ -65,6 +65,7 @@ modules:
         - https://download.opensuse.org/repositories/home:/lamlng/Fedora_Rawhide/home:lamlng.repo
         # - https://openrazer.github.io/hardware:razer.repo
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+        - https://negativo17.org/repos/fedora-uld.repo
       copr:
         - atim/starship
         - ublue-os/packages
@@ -151,6 +152,7 @@ modules:
         - mimalloc
         - papirus-icon-theme-dark
         - ublue-os-media-automount-udev
+        - uld
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
