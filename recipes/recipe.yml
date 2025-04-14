@@ -260,7 +260,7 @@ modules:
       - nanorc.sh
       - nix-installer.sh
       - bazzite.sh
-      - depmod.sh
+      # - depmod.sh
 
   - type: systemd
     system:
