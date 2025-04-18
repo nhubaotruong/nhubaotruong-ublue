@@ -39,7 +39,7 @@ server_names = ['my-cloudflare-gateway']
 ## To listen to all IPv4 addresses, use `listen_addresses = ['0.0.0.0:53']`
 ## To listen to all IPv4+IPv6 addresses, use `listen_addresses = ['[::]:53']`
 
-listen_addresses = ['127.0.0.1:53']
+listen_addresses = ['[::]:53']
 
 
 ## Maximum number of simultaneous client connections to accept
@@ -61,7 +61,7 @@ max_clients = 250
 ipv4_servers = true
 
 # Use servers reachable over IPv6 -- Do not enable if you don't have IPv6 connectivity
-ipv6_servers = false
+ipv6_servers = true
 
 # Use servers implementing the DNSCrypt protocol
 dnscrypt_servers = true
@@ -79,10 +79,10 @@ odoh_servers = false
 require_dnssec = false
 
 # Server must not log user queries (declarative)
-require_nolog = true
+require_nolog = false
 
 # Server must not enforce its own blocklist (for parental control, ads blocking...)
-require_nofilter = true
+require_nofilter = false
 
 # Server names to avoid even if they match all criteria
 disabled_server_names = []
@@ -452,7 +452,7 @@ cache_neg_max_ttl = 600
 
 ## Addresses that the local DoH server should listen to
 
-listen_addresses = ['127.0.0.1:5353']
+listen_addresses = ['127.0.0.2:53']
 
 
 ## Path of the DoH URL. This is not a file, but the part after the hostname
