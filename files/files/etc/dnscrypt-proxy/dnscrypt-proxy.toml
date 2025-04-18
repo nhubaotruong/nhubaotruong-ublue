@@ -452,7 +452,7 @@ cache_neg_max_ttl = 600
 
 ## Addresses that the local DoH server should listen to
 
-listen_addresses = ['127.0.0.2:53']
+listen_addresses = ['127.0.0.1:5354']
 
 
 ## Path of the DoH URL. This is not a file, but the part after the hostname

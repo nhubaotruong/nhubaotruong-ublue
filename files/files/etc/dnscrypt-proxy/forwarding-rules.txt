@@ -34,4 +34,8 @@
 
 ssm.eu-west-1.amazonaws.com 100.100.100.100
 ssm.ap-southeast-1.amazonaws.com 100.100.100.100
-pkg.parcelperform.dev 100.100.100.100
+parcelperform.dev 100.100.100.100
+pp.internal 100.100.100.100
+compute.internal 100.100.100.100
+ts.net 100.100.100.100
+pp-local.prod 100.100.100.100
