@@ -66,6 +66,7 @@ modules:
         - https://openrazer.github.io/hardware:razer.repo
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         - https://negativo17.org/repos/fedora-uld.repo
+        - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
       copr:
         - atim/starship
         - ublue-os/packages
@@ -153,6 +154,7 @@ modules:
         - papirus-icon-theme-dark
         - ublue-os-media-automount-udev
         - uld
+        - cloudflare-warp
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
