@@ -154,6 +154,7 @@ modules:
         - papirus-icon-theme-dark
         - ublue-os-media-automount-udev
         - uld
+        - iwd
         - cloudflare-warp
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
@@ -284,6 +285,7 @@ modules:
         - systemd-homed.service
         - systemd-homed-activate.service
         - waydroid-container.service
+        - wpa_supplicant.service
     user:
       enabled:
         - fontconfig-cache.service
