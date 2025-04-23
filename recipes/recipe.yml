@@ -144,8 +144,8 @@ modules:
         - printer-driver-brlaser
         - epson-inkjet-printer-escpr
         - epson-inkjet-printer-escpr2
-        - dnscrypt-proxy
-        - openresolv
+        # - dnscrypt-proxy
+        # - openresolv
         - python-pysocks
         - openrazer-daemon
         - python3-openrazer
@@ -277,14 +277,13 @@ modules:
         # - libvirt-workaround.service
         - warp-svc.service
         - scx.service
-        - dnscrypt-proxy.service
+        # - dnscrypt-proxy.service
         # - docker.socket
       disabled:
         - raid-check.timer
         - systemd-homed.service
         - systemd-homed-activate.service
         - waydroid-container.service
-        - systemd-resolved.service
     user:
       enabled:
         - fontconfig-cache.service
