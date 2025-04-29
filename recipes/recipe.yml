@@ -74,7 +74,7 @@ modules:
         - ycollet/audinux
         - bazzite-org/bazzite
         - bazzite-org/bazzite-multilib
-        # - ganto/lxc4
+        - ganto/lxc4
         - bieszczaders/kernel-cachyos-addons
         - trixieua/mutter-patched
     install:
