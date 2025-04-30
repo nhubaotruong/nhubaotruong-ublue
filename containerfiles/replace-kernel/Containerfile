@@ -1,4 +1,4 @@
-RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:bazzite-41,source=/kernel-rpms,target=/tmp/kernel-rpms \
+RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:bazzite-42,source=/kernel-rpms,target=/tmp/kernel-rpms \
     rpm-ostree override replace --experimental \
     /tmp/kernel-rpms/kernel-[0-9]*.rpm \
     /tmp/kernel-rpms/kernel-core-*.rpm \
