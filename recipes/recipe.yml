@@ -20,9 +20,9 @@ modules:
       - rm /usr/share/thumbnailers/avif.thumbnailer
       - echo "org.freedesktop.impl.portal.GlobalShortcuts=none;" >>/usr/share/xdg-desktop-portal/gnome-portals.conf
 
-  # - type: containerfile
-  #   containerfiles:
-  #     - replace-kernel
+  - type: containerfile
+    containerfiles:
+      - replace-kernel
   # - install-akmods
   # - zfs-rpms
   # - upgrade
@@ -36,7 +36,7 @@ modules:
         - http://ftp.fi.muni.cz/pub/linux/rpmfusion/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
 
   - type: copy
-    from: ghcr.io/ublue-os/akmods:main-42
+    from: ghcr.io/ublue-os/akmods:bazzite-42
     src: /rpms/kmods
     dest: /tmp/rpms
 
