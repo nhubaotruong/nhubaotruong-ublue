@@ -250,6 +250,8 @@ modules:
   - type: script
     snippets:
       - sed -i~ -E 's/=.\$\(command -v (nft|ip6?tables-legacy).*/=/g' /usr/lib/waydroid/data/scripts/waydroid-net.sh
+      - sed -i 's/^LXC_USE_NFT="true"/LXC_USE_NFT="false"/' /usr/lib/waydroid/data/scripts/waydroid-net.sh
+      - sed -i 's|^lxc\.hook\.post-stop = /dev/null|#lxc.hook.post-stop = /dev/null|' /usr/lib/waydroid/data/configs/config_base
 
   - type: script
     scripts:
