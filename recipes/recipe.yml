@@ -151,6 +151,7 @@ modules:
         - python3-openrazer
         - fuse-btfs
         - mimalloc
+        - gvfs
         # - papirus-icon-theme-dark
         - ublue-os-media-automount-udev
         - uld
