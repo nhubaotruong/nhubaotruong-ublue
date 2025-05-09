@@ -156,6 +156,7 @@ modules:
         - uld
         - iwd
         - cloudflare-warp
+        - adw-gtk3-theme
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
