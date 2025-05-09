@@ -152,6 +152,16 @@ modules:
         - fuse-btfs
         - mimalloc
         - gvfs
+        - gvfs-afc
+        - gvfs-afp
+        - gvfs-archive
+        - gvfs-client
+        - gvfs-fuse
+        - gvfs-goa
+        - gvfs-gphoto2
+        - gvfs-mtp
+        - gvfs-nfs
+        - gvfs-smb
         # - papirus-icon-theme-dark
         - ublue-os-media-automount-udev
         - uld
