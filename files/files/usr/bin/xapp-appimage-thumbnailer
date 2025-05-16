@@ -1,0 +1,61 @@
+#!/usr/bin/python3
+
+import os
+import subprocess
+import sys
+import tempfile
+from elftools.elf.elffile import ELFFile
+
+import gi
+gi.require_version("XApp", "1.0")
+from gi.repository import XApp
+
+import XappThumbnailers
+t = XappThumbnailers.Thumbnailer()
+
+# Find the section header offset within the ELF file
+with open(t.args.input, 'rb') as f:
+    elf = ELFFile(f)
+    app_image_offset = elf['e_shoff'] + (elf['e_shentsize'] * elf['e_shnum'])
+
+def squashfs_lookup(filename):
+    return subprocess.check_output([
+            'unsquashfs',
+            '-o', str(app_image_offset),
+            '-ll',
+            t.args.input,
+            filename
+        ]).decode()
+
+# Find the location of the icon inside the squashfs
+icon_path = '.DirIcon'
+while True:
+    output = squashfs_lookup(icon_path)
+
+    if not output:
+        # File not found, fail
+        sys.exit(1)
+
+    if ' -> ' not in output:
+        # icon path is not a symlink, let's use it
+        break
+
+    icon_path = output.strip().split(' -> ')[1]
+    # Some appimages use local apppimage paths, e.g., ./usr/applications/...
+    if icon_path[0:2] == './':
+        icon_path = icon_path[2:]
+
+# Extract the icon
+with tempfile.TemporaryDirectory(dir=XApp.get_tmp_dir()) as tmpdir:
+    outdir = os.path.join(tmpdir, 'out')
+    cmd = [
+            'unsquashfs',
+            '-o', str(app_image_offset),
+            '-d', outdir,
+            t.args.input,
+            icon_path,
+        ]
+    subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    icon_path = os.path.join(outdir, icon_path)
+    success = t.save_path(icon_path)
+sys.exit(0 if success else 1)

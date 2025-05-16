@@ -168,6 +168,11 @@ modules:
         - iwd
         - cloudflare-warp
         - adw-gtk3-theme
+        - python3-pillow
+        - python3-pyelftools
+        - python3-xapps-overrides
+        - xapps
+        - squashfs-tools-ng
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
@@ -277,7 +282,6 @@ modules:
       - nanorc.sh
       - nix-installer.sh
       - bazzite.sh
-      - appimage-thumbnailer.sh
       - depmod.sh
 
   - type: systemd
