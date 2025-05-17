@@ -166,6 +166,7 @@ modules:
         - ublue-os-media-automount-udev
         - uld
         - iwd
+        - pcre
         - cloudflare-warp
         - adw-gtk3-theme
         - python3-pillow
