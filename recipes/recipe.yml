@@ -264,8 +264,8 @@ modules:
   #     - "7652" # Pipewire Raop Discover (AirPlay)
   #     - "7837" # HDR Auto Enable
 
-  # - type: brew
-  #   brew-analytics: false
+  - type: brew
+    brew-analytics: false
 
   - type: script
     snippets:
