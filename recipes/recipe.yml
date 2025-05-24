@@ -19,8 +19,6 @@ modules:
     snippets:
       - rm /usr/share/thumbnailers/avif.thumbnailer
       - echo "org.freedesktop.impl.portal.GlobalShortcuts=none;" >>/usr/share/xdg-desktop-portal/gnome-portals.conf
-      # Temp fix xdg-desktop-portal
-      - dnf5 -y upgrade --enablerepo=updates-testing --refresh --advisory=FEDORA-2025-c358833c5d
 
   - type: containerfile
     containerfiles:
