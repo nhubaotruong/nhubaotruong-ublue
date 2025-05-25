@@ -278,7 +278,7 @@ modules:
     scripts:
       - nerd-fonts.sh
       - mdatp.sh
-      # - byedpi.sh
+      - byedpi.sh
       - joypixels.sh
       - microsoft-fonts.sh
       - papirus-icon-theme.sh
