@@ -167,7 +167,6 @@ modules:
         # - papirus-icon-theme-dark
         - ublue-os-media-automount-udev
         - uld
-        - iwd
         - pcre
         - cloudflare-warp
         - adw-gtk3-theme
