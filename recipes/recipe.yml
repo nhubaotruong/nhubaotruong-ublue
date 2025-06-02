@@ -203,15 +203,15 @@ modules:
       - teamviewer
       - microsoft
     replace:
-      - from-repo: copr:copr.fedorainfracloud.org:trixieua:mutter-patched
-        skip-unavailable: true
-        allow-erasing: true
-        packages:
-          - gdm
-          - mutter
-          - mutter-common
-          - gnome-shell
-          - xorg-x11-server-Xwayland
+      # - from-repo: copr:copr.fedorainfracloud.org:trixieua:mutter-patched
+      #   skip-unavailable: true
+      #   allow-erasing: true
+      #   packages:
+      #     - gdm
+      #     - mutter
+      #     - mutter-common
+      #     - gnome-shell
+      #     - xorg-x11-server-Xwayland
       - from-repo: terra-extras
         skip-unavailable: true
         allow-erasing: true
