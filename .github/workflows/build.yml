@@ -6,13 +6,13 @@ on:
     paths-ignore: # don't rebuild if only documentation has changed
       - "**.md"
       - ".github/workflows/cleanup*.yml"
-      
+
   pull_request:
   workflow_dispatch: # allow manually triggering builds
 
 # Add concurrency configuration
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}
   cancel-in-progress: true
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
       fail-fast: false # stop GH from cancelling all matrix builds if one fails
       matrix:
         recipe:
-          # !! Add your recipes here 
+          # !! Add your recipes here
           - recipe.yml
     steps:
       - name: Build Custom Image
