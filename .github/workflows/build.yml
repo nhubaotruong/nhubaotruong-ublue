@@ -9,6 +9,12 @@ on:
       
   pull_request:
   workflow_dispatch: # allow manually triggering builds
+
+# Add concurrency configuration
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   bluebuild:
     name: Build Custom Image
