@@ -1,9 +1,0 @@
-{
-    "storage-driver": "overlay2",
-    "default-runtime": "crun",
-    "runtimes": {
-        "crun": {
-            "path": "/usr/bin/crun"
-        }
-    }
-}
