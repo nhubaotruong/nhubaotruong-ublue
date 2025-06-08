@@ -68,7 +68,6 @@ modules:
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         - https://negativo17.org/repos/fedora-uld.repo
         - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
-        - https://download.docker.com/linux/fedora/docker-ce.repo
       copr:
         - atim/starship
         - ublue-os/packages
@@ -175,13 +174,6 @@ modules:
         - python3-xapps-overrides
         - xapps
         - squashfs-tools-ng
-        - podman-compose
-        - docker-ce
-        - docker-ce-cli
-        - containerd.io
-        - docker-buildx-plugin
-        - docker-compose-plugin
-        - docker-ce-rootless-extras
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
@@ -310,8 +302,6 @@ modules:
         # - dnscrypt-proxy.service
         # - docker.socket
       disabled:
-        - docker.service
-        - docker.socket
         - raid-check.timer
         - systemd-homed.service
         - systemd-homed-activate.service
