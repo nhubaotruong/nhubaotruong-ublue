@@ -30,7 +30,6 @@ modules:
   # - match-kernel-version
 
   - type: dnf
-    source: ghcr.io/blue-build/modules/dnf:dnf-module
     install:
       packages:
         - http://ftp.fi.muni.cz/pub/linux/rpmfusion/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
@@ -56,7 +55,6 @@ modules:
   # - VirtualBox
 
   - type: dnf
-    source: ghcr.io/blue-build/modules/dnf:dnf-module
     nonfree: rpmfusion
     repos:
       cleanup: true
@@ -174,7 +172,6 @@ modules:
         - python3-xapps-overrides
         - xapps
         - squashfs-tools-ng
-        - podman-compose
         - docker-ce
         - docker-ce-cli
         - containerd.io
@@ -326,7 +323,6 @@ modules:
   - type: initramfs
 
   - type: kargs
-    source: ghcr.io/blue-build/modules/kargs:kargs-module
     arch: x86_64
     kargs:
       - rd.luks.options=discard,tpm2-device=auto
