@@ -19,7 +19,7 @@ modules:
     snippets:
       - rm /usr/share/thumbnailers/avif.thumbnailer
       # - echo "org.freedesktop.impl.portal.GlobalShortcuts=none;" >>/usr/share/xdg-desktop-portal/gnome-portals.conf
-      - dnf5 -y upgrade --refresh --advisory=FEDORA-2025-b19ed403d5
+      # - dnf5 -y upgrade --refresh --advisory=FEDORA-2025-b19ed403d5
 
   # - type: containerfile
   #   containerfiles:
@@ -29,11 +29,11 @@ modules:
   # - upgrade
   # - match-kernel-version
 
-  - type: dnf
-    install:
-      packages:
-        - http://ftp.fi.muni.cz/pub/linux/rpmfusion/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
-        - http://ftp.fi.muni.cz/pub/linux/rpmfusion/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
+  # - type: dnf
+  #   install:
+  #     packages:
+  #       - http://ftp.fi.muni.cz/pub/linux/rpmfusion/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
+  #       - http://ftp.fi.muni.cz/pub/linux/rpmfusion/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
 
   # - type: copy
   #   from: ghcr.io/ublue-os/akmods:bazzite-42
@@ -55,8 +55,8 @@ modules:
   # - VirtualBox
 
   - type: dnf
-    nonfree: rpmfusion
     repos:
+      nonfree: rpmfusion
       cleanup: true
       files:
         # - https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo
