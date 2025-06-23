@@ -179,6 +179,7 @@ modules:
         - docker-buildx-plugin
         - docker-compose-plugin
         - docker-ce-rootless-extras
+        - ghostty
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
@@ -202,7 +203,6 @@ modules:
         - gnome-classic-session
         - thermald
         - systemd-networkd
-        - ptyxis
     optfix:
       - teamviewer
       - microsoft
