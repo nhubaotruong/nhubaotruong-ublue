@@ -21,6 +21,32 @@ modules:
       # - echo "org.freedesktop.impl.portal.GlobalShortcuts=none;" >>/usr/share/xdg-desktop-portal/gnome-portals.conf
       # - dnf5 -y upgrade --refresh --advisory=FEDORA-2025-b19ed403d5
 
+  - type: dnf
+    repos:
+      nonfree: rpmfusion
+      files:
+        # - https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo
+        - https://download.opensuse.org/repositories/home:/lamlng/Fedora_Rawhide/home:lamlng.repo
+        # - https://openrazer.github.io/hardware:razer.repo
+        - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+        - https://negativo17.org/repos/fedora-uld.repo
+        - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
+        - https://download.docker.com/linux/fedora/docker-ce.repo
+        - charm.repo
+        - terra.repo
+        - terra-mesa.repo
+        - terra-extras.repo
+      copr:
+        - atim/starship
+        - ublue-os/packages
+        - ublue-os/staging
+        - ycollet/audinux
+        - bazzite-org/bazzite
+        - bazzite-org/bazzite-multilib
+        - ganto/lxc4
+        - bieszczaders/kernel-cachyos-addons
+        - trixieua/mutter-patched
+
   - type: containerfile
     containerfiles:
       - replace-kernel
@@ -56,31 +82,6 @@ modules:
   # - VirtualBox
 
   - type: dnf
-    repos:
-      nonfree: rpmfusion
-      cleanup: true
-      files:
-        # - https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo
-        - https://download.opensuse.org/repositories/home:/lamlng/Fedora_Rawhide/home:lamlng.repo
-        # - https://openrazer.github.io/hardware:razer.repo
-        - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-        - https://negativo17.org/repos/fedora-uld.repo
-        - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
-        - https://download.docker.com/linux/fedora/docker-ce.repo
-        - charm.repo
-        - terra.repo
-        - terra-mesa.repo
-        - terra-extras.repo
-      copr:
-        - atim/starship
-        - ublue-os/packages
-        - ublue-os/staging
-        - ycollet/audinux
-        - bazzite-org/bazzite
-        - bazzite-org/bazzite-multilib
-        - ganto/lxc4
-        - bieszczaders/kernel-cachyos-addons
-        - trixieua/mutter-patched
     install:
       skip-unavailable: true
       allow-erasing: true
