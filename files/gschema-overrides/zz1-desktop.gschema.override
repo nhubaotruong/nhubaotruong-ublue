@@ -98,15 +98,11 @@ old-files-age=uint32 3
 enabled=true
 max-accuracy-level='exact'
 
-[org.gnome.system.proxy]
-mode='manual'
-use-same-proxy=true
-
-[org.gnome.system.proxy.socks]
-host='127.0.0.1'
-port=1080
+#[org.gnome.system.proxy.socks]
+#host='127.0.0.1'
+#port=1080
 
 [com.github.stunkymonkey.nautilus-open-any-terminal]
-flatpak='system'
+flatpak='off'
 new-tab=true
 terminal='ptyxis'
