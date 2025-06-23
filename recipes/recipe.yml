@@ -67,6 +67,10 @@ modules:
         - https://negativo17.org/repos/fedora-uld.repo
         - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
         - https://download.docker.com/linux/fedora/docker-ce.repo
+        - charm.repo
+        - terra.repo
+        - terra-mesa.repo
+        - terra-extras.repo
       copr:
         - atim/starship
         - ublue-os/packages
