@@ -46,6 +46,13 @@ modules:
         - ganto/lxc4
         - bieszczaders/kernel-cachyos-addons
         - trixieua/mutter-patched
+  
+  - type: dnf
+    remove:
+      auto-remove: true
+      packages:
+        - kernel-uki-virt
+        - virtualbox-guest-additions
 
   - type: containerfile
     containerfiles:
