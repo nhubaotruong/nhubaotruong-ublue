@@ -316,6 +316,7 @@ modules:
         # - libvirt-workaround.service
         - warp-svc.service
         - scx.service
+        - setup-swap.service
         # - dnscrypt-proxy.service
         # - docker.socket
       disabled:

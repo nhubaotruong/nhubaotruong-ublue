@@ -7,7 +7,7 @@ ConditionPathExists=!/var/swap/swapfile
 Type=oneshot
 TimeoutSec=0
 RemainAfterExit=yes
-ExecStart=/bin/bash -c '/usr/libexec/setup-swap.sh $(awk "/MemTotal/ { print int(\$2 / 1024 / 1024) }" /proc/meminfo)'
+ExecStart=/bin/bash -c '/usr/libexec/setup-swap.sh $(awk "/MemTotal/ { print int(\$2 / 1024 / 1024) }" /proc/meminfo)G'
 
 [Install]
 WantedBy=multi-user.target
