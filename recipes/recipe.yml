@@ -107,7 +107,6 @@ modules:
         - qemu-user-binfmt
         - qemu-user-static
         - edk2-ovmf
-        - zram-generator
         - zsh
         - igt-gpu-tools
         - libgda
@@ -211,6 +210,7 @@ modules:
         - gnome-tour
         - toolbox
         - gnome-software
+        - zram-generator
         - zram-generator-defaults
         - gnome-classic-session
         - thermald
@@ -361,5 +361,10 @@ modules:
       - kvm.ignore_msrs=1
       - kvm.report_ignored_msrs=0
       - ostree.prepare-root.composefs=0
+      - zswap.enabled=1
+      - zswap.shrinker_enabled=1
+      - zswap.max_pool_percent=15
+      - zswap.zpool=zsmalloc
+      - zswap.compressor=lz4hc
 
   - type: signing
