@@ -39,4 +39,3 @@ system:
     - dev.vencord.Vesktop
     - org.gnome.NetworkDisplays
     - it.mijorus.gearlever
-    - org.virt_manager.virt-manager
