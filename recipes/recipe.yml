@@ -46,7 +46,7 @@ modules:
         - ganto/lxc4
         - bieszczaders/kernel-cachyos-addons
         - trixieua/mutter-patched
-  
+
   - type: dnf
     remove:
       auto-remove: true
@@ -191,6 +191,15 @@ modules:
         - docker-compose-plugin
         - docker-ce-rootless-extras
         - ghostty
+        - virt-manager
+        - qemu
+        - qemu-system-x86
+        - qemu-user-binfmt
+        - qemu-user-static
+        - libvirt
+        - libvirt-nss
+        - virtiofsd
+        - swtpm
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
@@ -310,7 +319,7 @@ modules:
         - tailscaled.service
         - fstrim.timer
         - btrfs-dedup@var-home.timer
-        # - libvirtd.socket
+        - libvirtd.socket
         # - swtpm-workaround.service
         # - waydroid-workaround.service
         # - libvirt-workaround.service
