@@ -370,7 +370,9 @@ modules:
       - preempt=full
       - kvm.ignore_msrs=1
       - kvm.report_ignored_msrs=0
-      - ostree.prepare-root.composefs=0
+      # - ostree.prepare-root.composefs=0
+      - rd.shell=0
+      - rd.emergency=halt
       - zswap.enabled=1
       - zswap.shrinker_enabled=1
       - zswap.max_pool_percent=15
