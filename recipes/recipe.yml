@@ -309,7 +309,7 @@ modules:
       # - papirus-icon-theme.sh
       - teamviewer.sh
       - nanorc.sh
-      - nix-installer.sh
+      # - nix-installer.sh
       - bazzite.sh
       # - depmod.sh
 
