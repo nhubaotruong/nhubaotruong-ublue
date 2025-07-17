@@ -26,3 +26,12 @@ make
 make PREFIX=/usr install
 
 systemctl enable byedpi.service
+
+dnf5 -y install privoxy
+
+cat <<EOF > /etc/privoxy/config
+listen-address 127.0.0.1:39000
+forward-socks5 / 127.0.0.1:1080 .
+EOF
+
+systemctl enable privoxy.service
