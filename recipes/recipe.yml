@@ -363,6 +363,7 @@ modules:
       - page_alloc.shuffle=1
       - rcupdate.rcu_expedited=1
       - rootfstype=ext4,btrfs,xfs,f2fs
+      - clocksource=tsc
       - tsc=reliable
       - init_on_alloc=1
       - init_on_free=1
