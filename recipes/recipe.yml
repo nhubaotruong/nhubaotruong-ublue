@@ -200,6 +200,7 @@ modules:
         - libvirt-nss
         - virtiofsd
         - swtpm
+        - earlyoom
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
@@ -224,6 +225,7 @@ modules:
         - gnome-classic-session
         - thermald
         - systemd-networkd
+        - systemd-oomd-defaults
     optfix:
       - teamviewer
       - microsoft
@@ -327,6 +329,7 @@ modules:
         - warp-svc.service
         - scx.service
         - setup-swap.service
+        - earlyoom.service
         # - dnscrypt-proxy.service
         # - docker.socket
       disabled:
@@ -337,6 +340,7 @@ modules:
         - systemd-homed-activate.service
         - waydroid-container.service
         - wpa_supplicant.service
+        - systemd-oomd.service
     user:
       enabled:
         - fontconfig-cache.service
