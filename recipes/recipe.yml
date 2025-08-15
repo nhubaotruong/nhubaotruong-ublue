@@ -26,7 +26,7 @@ modules:
       nonfree: rpmfusion
       files:
         # - https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo
-        - https://download.opensuse.org/repositories/home:/lamlng/Fedora_Rawhide/home:lamlng.repo
+        # - https://download.opensuse.org/repositories/home:/lamlng/Fedora_Rawhide/home:lamlng.repo
         # - https://openrazer.github.io/hardware:razer.repo
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         - https://negativo17.org/repos/fedora-uld.repo
@@ -98,8 +98,8 @@ modules:
         - gnome-tweaks
         - neovim
         - zstd
-        - ibus-bamboo
-        - ibus-unikey
+        # - ibus-bamboo
+        # - ibus-unikey
         - tailscale
         - breeze-cursor-theme
         - i2c-tools
@@ -313,6 +313,7 @@ modules:
       - nanorc.sh
       # - nix-installer.sh
       - bazzite.sh
+      - ibus-lotus.sh
       # - depmod.sh
 
   - type: systemd
