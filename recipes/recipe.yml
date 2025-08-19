@@ -201,7 +201,6 @@ modules:
         - virtiofsd
         - swtpm
         - earlyoom
-        - zcfan
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
@@ -332,7 +331,6 @@ modules:
         - scx.service
         - setup-swap.service
         - earlyoom.service
-        - zcfan.service
         # - dnscrypt-proxy.service
         # - docker.socket
       disabled:
