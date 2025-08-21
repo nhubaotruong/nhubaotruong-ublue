@@ -201,6 +201,7 @@ modules:
         - virtiofsd
         - swtpm
         - earlyoom
+        - davfs2
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
