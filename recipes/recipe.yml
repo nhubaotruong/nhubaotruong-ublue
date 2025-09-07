@@ -32,7 +32,6 @@ modules:
         - https://negativo17.org/repos/fedora-uld.repo
         - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
         - https://download.docker.com/linux/fedora/docker-ce.repo
-        - https://packages.microsoft.com/yumrepos/vscode/config.repo
         - charm.repo
         - terra.repo
         - terra-mesa.repo
@@ -202,7 +201,6 @@ modules:
         - virtiofsd
         - swtpm
         - davfs2
-        - code
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
