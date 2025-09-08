@@ -1,0 +1,3 @@
+[cursor]
+name=Cursor
+baseurl=https://api2.cursor.sh/updates/api/rpm/stable/x86_64/rpm
