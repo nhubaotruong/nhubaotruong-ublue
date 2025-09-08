@@ -302,6 +302,7 @@ modules:
 
   - type: script
     scripts:
+      - dnsproxy.sh
       - nerd-fonts.sh
       - mdatp.sh
       # - byedpi.sh

@@ -19,3 +19,4 @@ upstream:
 timeout: "10s"
 cache: true
 cache-optimistic: true
+http3: true
