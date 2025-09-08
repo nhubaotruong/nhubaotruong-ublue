@@ -204,10 +204,8 @@ modules:
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
-        - gnome-shell-extension-gsconnect
         - gnome-shell-extension-appindicator
         - gnome-shell-extension-user-theme
-        - gnome-shell-extension-dash-to-dock
         - gnome-shell-extension-just-perfection
         - gnome-shell-extension-caffeine
         - gnome-shell-extension-system-monitor
