@@ -303,7 +303,7 @@ modules:
   - type: script
     scripts:
       # - cursor.sh
-      - dnsproxy.sh
+      # - dnsproxy.sh
       - nerd-fonts.sh
       - mdatp.sh
       # - byedpi.sh
