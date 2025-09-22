@@ -203,7 +203,6 @@ modules:
         - swtpm
         - davfs2
         - code
-        - auto-cpufreq
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
@@ -225,8 +224,6 @@ modules:
         - zram-generator-defaults
         - gnome-classic-session
         - systemd-networkd
-        - tuned
-        - tuned-ppd
     optfix:
       - teamviewer
       - microsoft
@@ -333,7 +330,6 @@ modules:
         - warp-svc.service
         - scx.service
         - setup-swap.service
-        - auto-cpufreq.service
         # - dnscrypt-proxy.service
         # - docker.socket
       disabled:
