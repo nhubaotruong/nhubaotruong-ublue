@@ -203,6 +203,7 @@ modules:
         - swtpm
         - davfs2
         - code
+        - freerdp
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
