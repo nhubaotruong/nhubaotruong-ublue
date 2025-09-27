@@ -12,9 +12,9 @@ configurations:
       # - org.gtk.Gtk3theme.adw-gtk3
       # - org.gtk.Gtk3theme.adw-gtk3-dark
       # - com.usebottles.bottles
-      # - com.valvesoftware.Steam
-      # - com.valvesoftware.Steam.Utility.steamtinkerlaunch
-      # - io.github.Foldex.AdwSteamGtk
+      - com.valvesoftware.Steam
+      - com.valvesoftware.Steam.Utility.steamtinkerlaunch
+      - io.github.Foldex.AdwSteamGtk
       - io.github.vikdevelop.SaveDesktop
       - org.filezillaproject.Filezilla
       - org.gnome.Calculator
