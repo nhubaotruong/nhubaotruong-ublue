@@ -13,7 +13,7 @@ curl -sSLf "https://packages.microsoft.com/config/fedora/42/prod.repo" -o /etc/y
 
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
-rpm-ostree install mdatp
+dnf5 -y install mdatp
 
 # Move the initial installation to the correct base directory
 mv /var/opt/microsoft /usr/lib/opt/microsoft
