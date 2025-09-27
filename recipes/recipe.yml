@@ -33,6 +33,7 @@ modules:
         - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
         - https://download.docker.com/linux/fedora/docker-ce.repo
         - https://packages.microsoft.com/yumrepos/vscode/config.repo
+        - https://negativo17.org/repos/fedora-steam.repo
         - charm.repo
         - terra.repo
         - terra-mesa.repo
@@ -204,6 +205,14 @@ modules:
         - davfs2
         - code
         - freerdp
+        - gamescope-session-plus
+        - gamescope-session-steam
+        - steam
+        - steam_notif_daemon
+        - gamescope.x86_64
+        - gamescope-libs.x86_64
+        - gamescope-libs.i686
+        - gamescope-shaders
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
