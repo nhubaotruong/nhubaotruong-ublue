@@ -17,8 +17,6 @@ chmod +x /usr/bin/installcab
 curl "https://raw.githubusercontent.com/bazzite-org/steam-proton-mf-wmv/refs/heads/master/install-mf-wmv.sh" --retry 3 -Lo /usr/bin/install-mf-wmv 
 chmod +x /usr/bin/install-mf-wmv
 
-curl "$(curl https://api.github.com/repos/HikariKnight/ls-iommu/releases/latest | jq -r '.assets[] | select(.name| test(".*x86_64.tar.gz$")).browser_download_url')" --retry 3 -Lo /tmp/ls-iommu.tar.gz && \
-mkdir -p /tmp/ls-iommu
 tar --no-same-owner --no-same-permissions --no-overwrite-dir -xvzf /tmp/ls-iommu.tar.gz -C /tmp/ls-iommu 
 rm -f /tmp/ls-iommu.tar.gz 
 cp -r /tmp/ls-iommu/ls-iommu /usr/bin/
