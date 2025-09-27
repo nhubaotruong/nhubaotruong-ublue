@@ -28,7 +28,7 @@ curl "$(curl https://api.github.com/repos/bazzite-org/extest/releases/latest | j
 
 cp --no-dereference --preserve=links /usr/lib/libdrm.so.2 /usr/lib/libdrm.so 
 cp --no-dereference --preserve=links /usr/lib64/libdrm.so.2 /usr/lib64/libdrm.so 
-sed -i 's@/usr/bin/steam@/usr/bin/bazzite-steam@g' /usr/share/applications/steam.desktop
+sed -i 's@/usr/bin/steam@/usr/bin/bazzite-steam@g' /usr/share/applications/steam.
 
 curl "https://github.com/HikariKnight/ScopeBuddy/archive/refs/tags/$(curl https://api.github.com/repos/HikariKnight/scopebuddy/releases/latest | jq -r '.tag_name').tar.gz" --retry 3 -Lo /tmp/scopebuddy.tar.gz 
 mkdir -p /tmp/scopebuddy 
