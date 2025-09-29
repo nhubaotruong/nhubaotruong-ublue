@@ -384,5 +384,8 @@ modules:
       - zswap.max_pool_percent=15
       - zswap.zpool=zsmalloc
       - zswap.compressor=lz4hc
+      - rcutree.enable_rcu_lazy=1
+      - nr_running=1
+      - pcie_aspm=force
 
   - type: signing
