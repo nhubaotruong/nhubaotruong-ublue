@@ -27,7 +27,7 @@ modules:
       files:
         # - https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo
         # - https://download.opensuse.org/repositories/home:/lamlng/Fedora_Rawhide/home:lamlng.repo
-        # - https://openrazer.github.io/hardware:razer.repo
+        - https://openrazer.github.io/hardware:razer.repo
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         - https://negativo17.org/repos/fedora-uld.repo
         - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
@@ -79,7 +79,7 @@ modules:
     snippets:
       - RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
       - RUN find /tmp/rpms
-      - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xone-*.rpm
+      - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/kmod-openrazer-*.rpm
       - RUN sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 
   # - type: akmods
@@ -160,8 +160,8 @@ modules:
         # - dnscrypt-proxy
         # - openresolv
         - python-pysocks
-        # - openrazer-daemon
-        # - python3-openrazer
+        - openrazer-daemon
+        - python3-openrazer
         - fuse-btfs
         - mimalloc
         - gvfs
@@ -346,7 +346,7 @@ modules:
         - fontconfig-cache.service
         - podman.socket
         # - appman-update.timer
-        # - openrazer-daemon.service
+        - openrazer-daemon.service
 
   - type: initramfs
 
