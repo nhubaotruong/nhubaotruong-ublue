@@ -344,7 +344,7 @@ modules:
     user:
       enabled:
         - fontconfig-cache.service
-        - podman.socket
+        # - podman.socket
         # - appman-update.timer
         - openrazer-daemon.service
 
