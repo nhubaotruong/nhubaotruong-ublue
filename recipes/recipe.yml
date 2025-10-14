@@ -204,7 +204,7 @@ modules:
         - davfs2
         - code
         - freerdp
-        - evolution-ews
+        - evolution-ews-core
         - fuse-encfs
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
