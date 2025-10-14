@@ -1,0 +1,20 @@
+{
+    "features": {
+        "cdi": true,
+        "containerd-snapshotter": true
+    },
+    "default-runtime": "crun",
+    "runtimes": {
+        "crun": {
+            "path": "/usr/bin/crun"
+        }
+    },
+    "builder": {
+        "gc": {
+            "enabled": true,
+            "defaultKeepStorage": "10GB"
+        }
+    },
+    "ip-masq": false,
+    "no-new-privileges": true
+}

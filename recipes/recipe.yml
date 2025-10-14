@@ -190,7 +190,7 @@ modules:
         - containerd.io
         - docker-buildx-plugin
         - docker-compose-plugin
-        - docker-ce-rootless-extras
+        - docker-model-plugin
         - ghostty
         - virt-manager
         - qemu
@@ -204,6 +204,8 @@ modules:
         - davfs2
         - code
         - freerdp
+        - evolution-ews
+        - fuse-encfs
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
@@ -332,10 +334,8 @@ modules:
         - scx_loader.service
         - setup-swap.service
         # - dnscrypt-proxy.service
-        # - docker.socket
-      disabled:
-        - docker.service
         - docker.socket
+      disabled:
         - raid-check.timer
         - systemd-homed.service
         - systemd-homed-activate.service
