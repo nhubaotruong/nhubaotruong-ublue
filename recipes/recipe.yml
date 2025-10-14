@@ -187,6 +187,7 @@ modules:
         - squashfs-tools-ng
         - docker-ce
         - docker-ce-cli
+        - docker-ce-rootless-extras
         - containerd.io
         - docker-buildx-plugin
         - docker-compose-plugin
@@ -334,8 +335,8 @@ modules:
         - scx_loader.service
         - setup-swap.service
         # - dnscrypt-proxy.service
-        - docker.socket
       disabled:
+        - docker.socket
         - raid-check.timer
         - systemd-homed.service
         - systemd-homed-activate.service
