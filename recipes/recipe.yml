@@ -344,6 +344,7 @@ modules:
         - wpa_supplicant.service
     user:
       enabled:
+        - docker-rootless-setup.service
         - fontconfig-cache.service
         # - podman.socket
         # - appman-update.timer

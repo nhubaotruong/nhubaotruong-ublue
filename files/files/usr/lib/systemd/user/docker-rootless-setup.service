@@ -1,0 +1,12 @@
+[Unit]
+Description=Docker Rootless Setup Check
+Before=docker.service
+ConditionPathExists=/usr/bin/dockerd-rootless-setuptool.sh
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c 'if ! dockerd-rootless-setuptool.sh check 2>&1 | grep --color=never -q "Requirements are satisfied"; then dockerd-rootless-setuptool.sh install; fi'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target
