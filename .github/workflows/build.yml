@@ -39,4 +39,4 @@ jobs:
           pr_event_number: ${{ github.event.number }}
           rechunk: "true"
           use_cache: "true"
-          maximize_build_space: "false"
+          maximize_build_space: "true"
