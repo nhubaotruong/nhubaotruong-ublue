@@ -29,7 +29,7 @@ modules:
         # - https://download.opensuse.org/repositories/home:/lamlng/Fedora_Rawhide/home:lamlng.repo
         - https://openrazer.github.io/hardware:razer.repo
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-        - https://negativo17.org/repos/fedora-uld.repo
+        # - https://negativo17.org/repos/fedora-uld.repo
         - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
         - https://download.docker.com/linux/fedora/docker-ce.repo
         - https://packages.microsoft.com/yumrepos/vscode/config.repo
@@ -176,7 +176,7 @@ modules:
         - gvfs-nfs
         - gvfs-smb
         - ublue-os-media-automount-udev
-        - uld
+        # - uld
         - pcre
         - cloudflare-warp
         - adw-gtk3-theme
