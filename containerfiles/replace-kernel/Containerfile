@@ -1,4 +1,4 @@
-RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:bazzite-42,source=/kernel-rpms,target=/tmp/kernel-rpms \
+RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:bazzite-43,source=/kernel-rpms,target=/tmp/kernel-rpms \
     dnf5 -y remove --no-autoremove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra && \
     dnf5 -y install \
     /tmp/kernel-rpms/kernel-*.rpm \
