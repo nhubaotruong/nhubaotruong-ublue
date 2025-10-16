@@ -13,7 +13,7 @@ curl -sSLf "https://packages.microsoft.com/config/rhel/10/prod.repo" -o /etc/yum
 
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
-dnf5 -y install mdatp
+dnf5 -y --setopt=tsflags=noscripts install mdatp
 
 # Move the initial installation to the correct base directory
 mv /var/opt/microsoft /usr/lib/opt/microsoft
