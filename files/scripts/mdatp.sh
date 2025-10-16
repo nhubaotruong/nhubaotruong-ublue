@@ -13,7 +13,7 @@ curl -sSLf "https://packages.microsoft.com/config/rhel/10/prod.repo" -o /etc/yum
 
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
-rpm-ostree install mdatp
+dnf5 -y --setopt=tsflags=noscripts install mdatp
 
 # Move the initial installation to the correct base directory
 mv /var/opt/microsoft /usr/lib/opt/microsoft
@@ -41,5 +41,7 @@ ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/semanage fcontex
 ExecStartPre=/usr/bin/bash -c "env LD_LIBRARY_PATH='' /usr/sbin/restorecon -vR /var/opt/microsoft/mdatp"
 ExecStop=/usr/bin/umount /var/opt/microsoft
 EOF
+
+cp -v /usr/lib/opt/microsoft/mdatp/conf/mdatp.service /usr/lib/systemd/system/
 
 systemctl enable mdatp
