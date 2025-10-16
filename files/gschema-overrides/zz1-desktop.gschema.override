@@ -89,6 +89,9 @@ night-light-schedule-from=22.5
 night-light-schedule-to=5.75
 night-light-temperature=uint32 4700
 
+[org.gnome.settings-daemon.plugins.housekeeping]
+donation-reminder-enabled=false
+
 [org.gnome.desktop.privacy]
 remove-old-temp-files=true
 remember-recent-files=true
