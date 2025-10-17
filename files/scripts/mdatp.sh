@@ -43,5 +43,6 @@ ExecStop=/usr/bin/umount /var/opt/microsoft
 EOF
 
 cp -v /usr/lib/opt/microsoft/mdatp/conf/mdatp.service /usr/lib/systemd/system/
+ln -sf /usr/lib/opt/microsoft/mdatp/sbin/wdavdaemonclient /usr/bin/mdatp
 
 systemctl enable mdatp
