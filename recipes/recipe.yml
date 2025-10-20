@@ -33,6 +33,7 @@ modules:
         - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
         - https://download.docker.com/linux/fedora/docker-ce.repo
         - https://packages.microsoft.com/yumrepos/vscode/config.repo
+        - https://packages.microsoft.com/config/rhel/10/prod.repo
         - charm.repo
         - terra.repo
         - terra-mesa.repo
@@ -208,6 +209,7 @@ modules:
         - freerdp
         - evolution-ews-core
         - fuse-encfs
+        - mdatp
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
@@ -335,6 +337,7 @@ modules:
         - warp-svc.service
         - scx_loader.service
         - setup-swap.service
+        - mdatp.service
         # - dnscrypt-proxy.service
       disabled:
         - docker.socket
