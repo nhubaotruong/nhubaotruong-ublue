@@ -23,7 +23,7 @@ modules:
 
   - type: rpm-ostree
     repos:
-      - https://packages.microsoft.com/config/rhel/10/prod.repo
+      - https://packages.microsoft.com/config/fedora/42/prod.repo
     install:
       - mdatp
     optfix:
