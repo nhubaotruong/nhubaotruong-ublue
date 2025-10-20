@@ -316,7 +316,7 @@ modules:
       # - cursor.sh
       # - dnsproxy.sh
       - nerd-fonts.sh
-      - mdatp.sh
+      # - mdatp.sh
       # - byedpi.sh
       - joypixels.sh
       - microsoft-fonts.sh
