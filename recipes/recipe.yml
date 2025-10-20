@@ -23,7 +23,7 @@ modules:
 
   - type: rpm-ostree
     repos:
-      - https://packages.microsoft.com/config/rhel/10/insiders-slow.repo
+      - https://packages.microsoft.com/config/rhel/10/insiders-fast.repo
     install:
       - mdatp
     optfix:
