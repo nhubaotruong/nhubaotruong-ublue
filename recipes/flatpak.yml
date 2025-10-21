@@ -1,7 +1,7 @@
 type: default-flatpaks
 configurations:
   - scope: system
-    notify: true
+    notify: false
     install:
       - com.brave.Browser
       # - com.getpostman.Postman
