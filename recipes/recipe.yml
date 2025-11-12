@@ -344,7 +344,7 @@ modules:
         # - waydroid-workaround.service
         # - libvirt-workaround.service
         - warp-svc.service
-        - scx_loader.service
+        # - scx_loader.service
         - setup-swap.service
         - mdatp.service
         # - dnscrypt-proxy.service
