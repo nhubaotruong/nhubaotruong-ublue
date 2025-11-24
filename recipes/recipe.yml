@@ -37,7 +37,7 @@ modules:
         # - https://download.opensuse.org/repositories/home:/lamlng/Fedora_Rawhide/home:lamlng.repo
         - https://download.opensuse.org/repositories/hardware:razer/Fedora_Rawhide/hardware:razer.repo
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-        # - https://negativo17.org/repos/fedora-uld.repo
+        - https://negativo17.org/repos/fedora-uld.repo
         - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
         - https://download.docker.com/linux/fedora/docker-ce.repo
         - https://packages.microsoft.com/yumrepos/vscode/config.repo
@@ -64,9 +64,9 @@ modules:
         - kernel-uki-virt
         - virtualbox-guest-additions
 
-  - type: containerfile
-    containerfiles:
-      - replace-kernel
+  # - type: containerfile
+  #   containerfiles:
+  #     - replace-kernel
   # - install-akmods
   # - zfs-rpms
   # - upgrade
@@ -78,15 +78,15 @@ modules:
   #       - http://ftp.fi.muni.cz/pub/linux/rpmfusion/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
   #       - http://ftp.fi.muni.cz/pub/linux/rpmfusion/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
 
-  - type: copy
-    from: ghcr.io/ublue-os/akmods:longterm-6.12-43
-    src: /rpms/kmods
-    dest: /tmp/rpms
+  # - type: copy
+  #   from: ghcr.io/ublue-os/akmods:longterm-6.12-43
+  #   src: /rpms/kmods
+  #   dest: /tmp/rpms
 
-  - type: copy
-    from: ghcr.io/ublue-os/akmods-zfs:longterm-6.12-43
-    src: /rpms/kmods
-    dest: /tmp/rpms
+  # - type: copy
+  #   from: ghcr.io/ublue-os/akmods-zfs:longterm-6.12-43
+  #   src: /rpms/kmods
+  #   dest: /tmp/rpms
 
   - type: containerfile
     snippets:
@@ -95,12 +95,12 @@ modules:
       - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/kmod-openrazer-*.rpm /tmp/rpms/zfs/kmod-zfs-*.rpm /tmp/rpms/zfs/libnvpair3-*.rpm /tmp/rpms/zfs/libuutil3-*.rpm /tmp/rpms/zfs/libzfs6-*.rpm /tmp/rpms/zfs/libzpool6-*.rpm /tmp/rpms/zfs/python3-pyzfs-*.rpm /tmp/rpms/zfs/zfs-*.rpm pv
       - RUN sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 
-  # - type: akmods
-  #   base: main
-  #   install:
-  #     - openrazer
-  #     - v4l2loopback
-  #     - xone
+  - type: akmods
+    base: main
+    install:
+      - openrazer
+      - v4l2loopback
+      - xone
   # - VirtualBox
 
   - type: dnf
@@ -189,7 +189,7 @@ modules:
         - gvfs-nfs
         - gvfs-smb
         - ublue-os-media-automount-udev
-        # - uld
+        - uld
         - pcre
         - cloudflare-warp
         - adw-gtk3-theme
