@@ -78,23 +78,23 @@ modules:
   #       - http://ftp.fi.muni.cz/pub/linux/rpmfusion/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
   #       - http://ftp.fi.muni.cz/pub/linux/rpmfusion/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
 
-  - type: copy
-    from: ghcr.io/ublue-os/akmods:main-43
-    src: /rpms/kmods
-    dest: /tmp/rpms
+  # - type: copy
+  #   from: ghcr.io/ublue-os/akmods:main-43
+  #   src: /rpms/kmods
+  #   dest: /tmp/rpms
 
   # - type: copy
   #   from: ghcr.io/ublue-os/akmods-zfs:longterm-6.12-43
   #   src: /rpms/kmods
   #   dest: /tmp/rpms
 
-  - type: containerfile
-    snippets:
-      - RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
-      - RUN find /tmp/rpms
-      - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/kmod-openrazer-*.rpm
-      # - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/kmod-openrazer-*.rpm /tmp/rpms/zfs/kmod-zfs-*.rpm /tmp/rpms/zfs/libnvpair3-*.rpm /tmp/rpms/zfs/libuutil3-*.rpm /tmp/rpms/zfs/libzfs6-*.rpm /tmp/rpms/zfs/libzpool6-*.rpm /tmp/rpms/zfs/python3-pyzfs-*.rpm /tmp/rpms/zfs/zfs-*.rpm pv
-      - RUN sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
+  # - type: containerfile
+  #   snippets:
+  #     - RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
+  #     - RUN find /tmp/rpms
+  #     - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/kmod-openrazer-*.rpm
+  #     # - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/kmod-openrazer-*.rpm /tmp/rpms/zfs/kmod-zfs-*.rpm /tmp/rpms/zfs/libnvpair3-*.rpm /tmp/rpms/zfs/libuutil3-*.rpm /tmp/rpms/zfs/libzfs6-*.rpm /tmp/rpms/zfs/libzpool6-*.rpm /tmp/rpms/zfs/python3-pyzfs-*.rpm /tmp/rpms/zfs/zfs-*.rpm pv
+  #     - RUN sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 
   # - type: akmods
   #   base: main
@@ -103,6 +103,17 @@ modules:
   #     - v4l2loopback
   #     - xone
   # - VirtualBox
+
+  - type: copy
+    from: ghcr.io/bazzite-org/kernel-bazzite:latest-f43-x86_64
+    src: /
+    dest: /tmp/rpms
+
+  - type: containerfile
+    snippets:
+      - RUN dnf5 -y remove --no-autoremove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-tools kernel-tools-libs
+      - RUN dnf5 -y install /tmp/rpms/kernel-6* /tmp/rpms/kernel-core-6* /tmp/rpms/kernel-modules-6* /tmp/rpms/kernel-modules-core-6* /tmp/rpms/kernel-modules-extra-6* /tmp/rpms/kernel-modules-akmods-6* /tmp/rpms/kernel-devel-6* /tmp/rpms/kernel-devel-matched-6* /tmp/rpms/kernel-tools-6* /tmp/rpms/kernel-tools-libs-6* /tmp/rpms/kernel-common-6*
+      - RUN dnf5 versionlock add kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-modules-akmods kernel-devel kernel-devel-matched kernel-tools kernel-tools-libs kernel-common
 
   - type: dnf
     install:
@@ -307,6 +318,11 @@ modules:
 
   - type: brew
     brew-analytics: false
+
+  - type: soar
+    additional-repos: true
+    auto-upgrade: true
+    upgrade-interval: "3h"
 
   - type: script
     snippets:
