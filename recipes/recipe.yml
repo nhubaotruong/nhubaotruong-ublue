@@ -232,6 +232,7 @@ modules:
         - freerdp
         - evolution-ews-core
         - fuse-encfs
+        - sushi
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions

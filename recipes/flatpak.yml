@@ -27,7 +27,7 @@ configurations:
       - org.gnome.font-viewer
       - org.gnome.gThumb
       - org.gnome.Loupe
-      - org.gnome.NautilusPreviewer
+      # - org.gnome.NautilusPreviewer
       - org.gnome.TextEditor
       - org.gnome.Weather
       - org.gnome.FileRoller
