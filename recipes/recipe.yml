@@ -182,7 +182,7 @@ modules:
         - printer-driver-brlaser
         - epson-inkjet-printer-escpr
         - epson-inkjet-printer-escpr2
-        # - dnscrypt-proxy
+        - dnscrypt-proxy
         # - openresolv
         - python-pysocks
         - openrazer-daemon
@@ -364,7 +364,7 @@ modules:
         # - scx_loader.service
         - setup-swap.service
         - mdatp.service
-        # - dnscrypt-proxy.service
+        - dnscrypt-proxy.service
       disabled:
         - docker.socket
         - raid-check.timer

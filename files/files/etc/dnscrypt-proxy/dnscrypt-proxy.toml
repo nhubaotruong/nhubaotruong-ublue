@@ -29,7 +29,7 @@
 ##
 ## Remove the leading # first to enable this; lines starting with # are ignored.
 
-server_names = ['my-cloudflare-gateway']
+server_names = ['cf-vercel-proxy', 'my-cloudflare-gateway']
 
 
 ## List of local addresses and ports to listen to. Can be IPv4 and/or IPv6.
@@ -261,7 +261,7 @@ cert_refresh_delay = 240
 ## not be sent there. If you're using DNSCrypt or Anonymized DNS and your
 ## lists are up to date, these resolvers will not even be used.
 
-bootstrap_resolvers = ['9.9.9.11:53', '8.8.8.8:53']
+bootstrap_resolvers = ['9.9.9.11:53', '1.1.1.1:53']
 
 
 ## When internal DNS resolution is required, for example to retrieve
@@ -297,7 +297,7 @@ netprobe_timeout = 60
 ## On other operating systems, the connection will be initialized
 ## but nothing will be sent at all.
 
-netprobe_address = '9.9.9.9:53'
+netprobe_address = '9.9.9.11:53'
 
 
 ## Offline mode - Do not use any remote encrypted servers.
@@ -437,7 +437,7 @@ cache_neg_max_ttl = 600
 ## check for connectivity and captive portals, along with hard-coded
 ## IP addresses to return.
 
-# map_file = '/etc/dnscrypt-proxy/example-captive-portals.txt'
+map_file = '/etc/dnscrypt-proxy/example-captive-portals.txt'
 
 
 ##################################
@@ -890,3 +890,6 @@ skip_incompatible = false
 
 [static.my-cloudflare-gateway]
 stamp = 'sdns://AgcAAAAAAAAAAAAhcXM4dTd4cnhjci5jbG91ZGZsYXJlLWdhdGV3YXkuY29tCi9kbnMtcXVlcnk'
+
+[static.cf-vercel-proxy]
+stamp = 'sdns://AgcAAAAAAAAAAAAjaHR0cHM6Ly9uaHViYW90cnVvbmctZG5zLnZlcmNlbC5hcHAA'
