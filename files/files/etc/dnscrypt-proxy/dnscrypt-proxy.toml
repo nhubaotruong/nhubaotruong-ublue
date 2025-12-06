@@ -29,7 +29,7 @@
 ##
 ## Remove the leading # first to enable this; lines starting with # are ignored.
 
-server_names = ['cf-vercel-proxy', 'my-cloudflare-gateway']
+server_names = ['my-cloudflare-gateway']
 
 
 ## List of local addresses and ports to listen to. Can be IPv4 and/or IPv6.
@@ -39,7 +39,7 @@ server_names = ['cf-vercel-proxy', 'my-cloudflare-gateway']
 ## To listen to all IPv4 addresses, use `listen_addresses = ['0.0.0.0:53']`
 ## To listen to all IPv4+IPv6 addresses, use `listen_addresses = ['[::]:53']`
 
-listen_addresses = ['[::]:53']
+listen_addresses = ['127.0.0.52:53']
 
 
 ## Maximum number of simultaneous client connections to accept
@@ -890,6 +890,3 @@ skip_incompatible = false
 
 [static.my-cloudflare-gateway]
 stamp = 'sdns://AgcAAAAAAAAAAAAhcXM4dTd4cnhjci5jbG91ZGZsYXJlLWdhdGV3YXkuY29tCi9kbnMtcXVlcnk'
-
-[static.cf-vercel-proxy]
-stamp = 'sdns://AgcAAAAAAAAAAAAjaHR0cHM6Ly9uaHViYW90cnVvbmctZG5zLnZlcmNlbC5hcHAA'
