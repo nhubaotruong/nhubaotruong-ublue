@@ -216,7 +216,6 @@ modules:
         - containerd.io
         - docker-buildx-plugin
         - docker-compose-plugin
-        - docker-model-plugin
         - ghostty
         - virt-manager
         - qemu
@@ -231,6 +230,7 @@ modules:
         - code
         - freerdp
         - evolution-ews-core
+        - gnupg2-scdaemon
         - fuse-encfs
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
@@ -361,7 +361,7 @@ modules:
         # - waydroid-workaround.service
         # - libvirt-workaround.service
         - warp-svc.service
-        # - scx_loader.service
+        - scx_loader.service
         - setup-swap.service
         - mdatp.service
         - dnscrypt-proxy.service
