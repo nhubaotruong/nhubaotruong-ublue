@@ -44,6 +44,6 @@ pp-local.prod 100.100.100.100
 # Captive portal
 example.com 9.9.9.9
 neverssl.com 9.9.9.9
-authen.awingconnect.vn 9.9.9.9
-v1.awingconnect.vn 9.9.9.9
+awingconnect.vn 9.9.9.9
+network-auth.com 9.9.9.9
 fedoraproject.org 9.9.9.9
