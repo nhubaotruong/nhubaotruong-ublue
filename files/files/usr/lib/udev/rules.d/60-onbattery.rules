@@ -1,5 +1,5 @@
 # Rule for when switching to battery
-SUBSYSTEM=="power_supply",ENV{POWER_SUPPLY_ONLINE}=="0",RUN+="/bin/sh -c '/usr/sbin/powertop --auto-tune'"
+ACTION=="change",SUBSYSTEM=="power_supply",ATTRS{type}=="Mains",ATTRS{online}=="0",RUN+="/usr/bin/powertop --auto-tune"
 
 # Rule for when switching to powersupply
-SUBSYSTEM=="power_supply",ENV{POWER_SUPPLY_ONLINE}=="1",RUN+="/bin/sh -c '/usr/sbin/powertop --auto-tune'"
+ACTION=="change",SUBSYSTEM=="power_supply",ATTRS{type}=="Mains",ATTRS{online}=="1",RUN+="/usr/bin/powertop --auto-tune"
