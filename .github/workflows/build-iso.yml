@@ -8,17 +8,20 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  ARCH: "x86_64"
-  IMAGE_NAME: "nhubaotruong-ublue"
-  IMAGE_REPO: "nhubaotruong/nhubaotruong-ublue"
-  IMAGE_TAG: "latest"
-  VERSION: "rolling"
-  VARIANT: "ostree"
+  ARCH: x86_64
+  IMAGE_NAME: nhubaotruong-ublue
+  IMAGE_REPO: ghcr.io/nhubaotruong
+  IMAGE_TAG: latest
+  VERSION: rolling
+  VARIANT: ostree
 
 jobs:
   build-iso:
     runs-on: ubuntu-latest
     steps:
+      - name: Maximize build space
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
+
       - name: Build ISO
         uses: jasonn3/build-container-installer@main
         id: build
