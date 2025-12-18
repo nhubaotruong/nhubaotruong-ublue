@@ -12,8 +12,8 @@ env:
   IMAGE_NAME: nhubaotruong-ublue
   IMAGE_REPO: ghcr.io/nhubaotruong
   IMAGE_TAG: latest
-  VERSION: rolling
-  VARIANT: ostree
+  VERSION: 43
+  VARIANT: Silverblue
 
 jobs:
   build-iso:
