@@ -365,6 +365,7 @@ modules:
         - setup-swap.service
         - mdatp.service
         - dnscrypt-proxy.service
+        - powertop.service
       disabled:
         - docker.socket
         - raid-check.timer
