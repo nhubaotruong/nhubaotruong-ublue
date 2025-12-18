@@ -125,6 +125,7 @@ modules:
         - gnome-tweaks
         - neovim
         - zstd
+        - tlp
         # - ibus-bamboo
         # - ibus-unikey
         - tailscale
@@ -253,6 +254,8 @@ modules:
         - zram-generator-defaults
         - gnome-classic-session
         - systemd-networkd
+        - tuned
+        - tuned-ppd
     optfix:
       - teamviewer
     replace:
@@ -352,7 +355,7 @@ modules:
   - type: systemd
     system:
       enabled:
-        # - tlp.service
+        - tlp.service
         - tailscaled.service
         - fstrim.timer
         - btrfs-dedup@var-home.timer
