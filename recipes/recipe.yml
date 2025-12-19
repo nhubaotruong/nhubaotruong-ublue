@@ -50,8 +50,8 @@ modules:
         - ublue-os/packages
         - ublue-os/staging
         - ycollet/audinux
-        - bazzite-org/bazzite
-        - bazzite-org/bazzite-multilib
+        - ublue-os/bazzite
+        - ublue-os/bazzite-multilib
         - ganto/lxc4
         - bieszczaders/kernel-cachyos-addons
         - trixieua/mutter-patched
@@ -271,7 +271,7 @@ modules:
         allow-erasing: true
         packages:
           - switcheroo-control
-      - from-repo: copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib
+      - from-repo: copr:copr.fedorainfracloud.org:ublue-os:bazzite-multilib
         skip-unavailable: true
         allow-erasing: true
         packages:
@@ -279,6 +279,9 @@ modules:
           - bluez
           - xorg-x11-server-Xwayland
           - NetworkManager
+          - gsettings-desktop-schemas
+          - mutter
+          - gnome-shell
 
   - from-file: flatpak.yml
 
