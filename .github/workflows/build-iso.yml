@@ -46,7 +46,7 @@ jobs:
             ${{ steps.build.outputs.iso_path }}/${{ steps.build.outputs.iso_name }}-CHECKSUM
           if-no-files-found: error
           retention-days: 0
-          compression-level: 0
+          compression-level: 9
 
       - name: Create Release
         uses: ading2210/gh-large-releases@v1
