@@ -271,7 +271,7 @@ modules:
         allow-erasing: true
         packages:
           - switcheroo-control
-      - from-repo: copr:copr.fedorainfracloud.org:ublue-os:bazzite-multilib
+      - from-repo: copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib
         skip-unavailable: true
         allow-erasing: true
         packages:
