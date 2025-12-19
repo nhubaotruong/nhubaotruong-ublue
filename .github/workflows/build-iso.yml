@@ -48,11 +48,11 @@ jobs:
           retention-days: 0
           compression-level: 9
 
-      - name: Create Release
-        uses: ading2210/gh-large-releases@v1
-        with:
-          make_latest: true
-          files: ${{ steps.build.outputs.iso_path }}/${{ steps.build.outputs.iso_name }}
+      # - name: Create Release
+      #   uses: ading2210/gh-large-releases@v1
+      #   with:
+      #     make_latest: true
+      #     files: ${{ steps.build.outputs.iso_path }}/${{ steps.build.outputs.iso_name }}
 
       # - name: Create Release and Upload ISO
       #   uses: ncipollo/release-action@v1
