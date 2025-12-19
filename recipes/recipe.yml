@@ -232,6 +232,7 @@ modules:
         - evolution-ews-core
         - gnupg2-scdaemon
         - fuse-encfs
+        - iwd
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
@@ -270,6 +271,14 @@ modules:
         allow-erasing: true
         packages:
           - switcheroo-control
+      - from-repo: copr:copr.fedorainfracloud.org:ublue-os:bazzite-multilib
+        skip-unavailable: true
+        allow-erasing: true
+        packages:
+          - pipewire 
+          - bluez
+          - xorg-x11-server-Xwayland
+          - NetworkManager
 
   - from-file: flatpak.yml
 
@@ -372,6 +381,7 @@ modules:
         - systemd-homed.service
         - systemd-homed-activate.service
         - waydroid-container.service
+      masked:
         - wpa_supplicant.service
     user:
       enabled:
