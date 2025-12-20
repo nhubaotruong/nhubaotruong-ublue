@@ -131,8 +131,6 @@ modules:
         - breeze-cursor-theme
         - i2c-tools
         - ddcutil
-        - qemu-user-binfmt
-        - qemu-user-static
         - edk2-ovmf
         - zsh
         - igt-gpu-tools
@@ -225,6 +223,7 @@ modules:
         - libvirt
         - libvirt-nss
         - virtiofsd
+        - guestfs-tools
         - swtpm
         - davfs2
         - code
@@ -384,6 +383,7 @@ modules:
         - systemd-homed.service
         - systemd-homed-activate.service
         - waydroid-container.service
+        - iwd.service
       masked:
         - wpa_supplicant.service
     user:
