@@ -231,7 +231,6 @@ modules:
         - evolution-ews-core
         - gnupg2-scdaemon
         - fuse-encfs
-        - iwd
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
         # Gnome extensions
@@ -383,9 +382,6 @@ modules:
         - systemd-homed.service
         - systemd-homed-activate.service
         - waydroid-container.service
-        - iwd.service
-      masked:
-        - wpa_supplicant.service
     user:
       enabled:
         - docker-rootless-setup.service
