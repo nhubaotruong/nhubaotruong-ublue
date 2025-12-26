@@ -117,7 +117,7 @@ modules:
 
   - type: dnf
     install:
-      skip-unavailable: true
+      # skip-unavailable: true
       allow-erasing: true
       packages:
         - sqlite
@@ -266,12 +266,12 @@ modules:
       #     - gnome-shell
       #     - xorg-x11-server-Xwayland
       - from-repo: terra-extras
-        skip-unavailable: true
+        # skip-unavailable: true
         allow-erasing: true
         packages:
           - switcheroo-control
       - from-repo: copr:copr.fedorainfracloud.org:ublue-os:bazzite-multilib
-        skip-unavailable: true
+        # skip-unavailable: true
         allow-erasing: true
         packages:
           - pipewire
