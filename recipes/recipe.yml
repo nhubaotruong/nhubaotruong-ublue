@@ -140,7 +140,7 @@ modules:
         - dejavu-sans-fonts
         - dejavu-serif-fonts
         - liberation-fonts
-        - ufraw
+        # - ufraw
         - duperemove
         - rmlint
         - python3-icoextract
@@ -170,7 +170,6 @@ modules:
         - kernel-tools
         - scx-scheds
         - fontawesome-fonts-all
-        - profile-cleaner
         - samba-dcerpc
         - samba-ldb-ldap-modules
         - samba-winbind-clients
@@ -178,8 +177,6 @@ modules:
         - samba
         - yq
         - printer-driver-brlaser
-        - epson-inkjet-printer-escpr
-        - epson-inkjet-printer-escpr2
         - dnscrypt-proxy
         # - openresolv
         - python-pysocks
