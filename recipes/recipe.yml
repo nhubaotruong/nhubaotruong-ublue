@@ -362,7 +362,6 @@ modules:
         # - tlp.service
         - tailscaled.service
         - fstrim.timer
-        - btrfs-dedup@var-home.timer
         - libvirtd.socket
         # - swtpm-workaround.service
         # - waydroid-workaround.service
