@@ -141,7 +141,7 @@ modules:
         - dejavu-serif-fonts
         - liberation-fonts
         # - ufraw
-        - duperemove
+        - bees
         - rmlint
         - python3-icoextract
         - gnome-directory-thumbnailer
@@ -166,7 +166,6 @@ modules:
         - foo2zjs
         - bootc
         - rsms-inter-vf-fonts
-        - cpulimit
         - kernel-tools
         - scx-scheds
         - fontawesome-fonts-all
