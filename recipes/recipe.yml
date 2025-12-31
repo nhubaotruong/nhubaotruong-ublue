@@ -337,7 +337,7 @@ modules:
       - sed -i 's/^LXC_USE_NFT="true"/LXC_USE_NFT="false"/' /usr/lib/waydroid/data/scripts/waydroid-net.sh
       - sed -i 's|^lxc\.hook\.post-stop = /dev/null|#lxc.hook.post-stop = /dev/null|' /usr/lib/waydroid/data/configs/config_base
       - ln -sf /usr/lib/python3/dist-packages/XappThumbnailers $(python3 -c "import site; print(site.getsitepackages()[-1])")/XappThumbnailers
-      - sed -i -e '38,45 s/^[[:space:]]*/&# /' -e '67,74 s/^[[:space:]]*/&# /' "/usr/lib/waydroid/tools/helpers/images.py"
+      # - sed -i -e '38,45 s/^[[:space:]]*/&# /' -e '67,74 s/^[[:space:]]*/&# /' "/usr/lib/waydroid/tools/helpers/images.py"
 
   - type: script
     scripts:
