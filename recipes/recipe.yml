@@ -93,8 +93,8 @@ modules:
     snippets:
       - RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
       - RUN find /tmp/rpms
-      # - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/kmod-openrazer-*.rpm
-      - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/kmod-openrazer-*.rpm /tmp/rpms/zfs/kmod-zfs-*.rpm /tmp/rpms/zfs/libnvpair3-*.rpm /tmp/rpms/zfs/libuutil3-*.rpm /tmp/rpms/zfs/libzfs6-*.rpm /tmp/rpms/zfs/libzpool6-*.rpm /tmp/rpms/zfs/python3-pyzfs-*.rpm /tmp/rpms/zfs/zfs-*.rpm pv
+      - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/kmod-openrazer-*.rpm
+      # - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/kmod-openrazer-*.rpm /tmp/rpms/zfs/kmod-zfs-*.rpm /tmp/rpms/zfs/libnvpair3-*.rpm /tmp/rpms/zfs/libuutil3-*.rpm /tmp/rpms/zfs/libzfs6-*.rpm /tmp/rpms/zfs/libzpool6-*.rpm /tmp/rpms/zfs/python3-pyzfs-*.rpm /tmp/rpms/zfs/zfs-*.rpm pv
       - RUN sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 
   # - type: akmods
