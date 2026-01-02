@@ -1,5 +1,5 @@
 RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:coreos-stable-43,source=/kernel-rpms,target=/tmp/kernel-rpms \
-    dnf5 -y remove --no-autoremove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra && \
+    for pkg in kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra; do rpm --erase $pkg --nodeps done && \
     dnf5 -y install \
     /tmp/kernel-rpms/kernel-[0-9]*.rpm \
     /tmp/kernel-rpms/kernel-core-*.rpm \
