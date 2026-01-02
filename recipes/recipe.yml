@@ -206,7 +206,7 @@ modules:
         - docker-ce
         - docker-ce-cli
         - docker-ce-rootless-extras
-        - containerd.io-2.2.0-2.fc43
+        - containerd.io
         - docker-buildx-plugin
         - docker-compose-plugin
         - ghostty
