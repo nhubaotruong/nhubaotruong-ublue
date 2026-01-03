@@ -227,6 +227,7 @@ modules:
         - fuse-encfs
         - iwd
         - uld
+        - libcec
         # - mdatp
         # - meslo-nerd-fonts
         # - firacode-nerd-fonts
@@ -372,6 +373,10 @@ modules:
         - mdatp.service
         - dnscrypt-proxy.service
         - powertop.service
+        - dev-hugepages1G.mount
+        - cec-onboot.service
+        - cec-onpoweroff.service
+        - cec-onsleep.service
       disabled:
         - docker.socket
         - raid-check.timer

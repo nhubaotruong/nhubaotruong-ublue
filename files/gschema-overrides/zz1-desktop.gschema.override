@@ -35,7 +35,7 @@ window-size=(1200, 800)
 
 [org.gnome.mutter]
 check-alive-timeout=uint32 30000
-experimental-features=['scale-monitor-framebuffer', 'kms-modifiers']
+experimental-features=['variable-refresh-rate', 'scale-monitor-framebuffer', 'xwayland-native-scaling']
 attach-modal-dialogs=true
 auto-maximize=true
 center-new-windows=false
@@ -109,3 +109,11 @@ max-accuracy-level='exact'
 flatpak='off'
 new-tab=true
 terminal='ptyxis'
+
+[org.gnome.software]
+allow-updates=false
+download-updates=false
+download-updates-notify=false
+
+[org.gnome.desktop.wm.preferences]
+button-layout='appmenu:minimize,maximize,close'
