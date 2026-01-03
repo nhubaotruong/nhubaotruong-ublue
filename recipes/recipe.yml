@@ -39,7 +39,6 @@ modules:
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
         - https://download.docker.com/linux/fedora/docker-ce.repo
-        - https://packages.microsoft.com/yumrepos/vscode/config.repo
         - charm.repo
         - terra.repo
         - terra-mesa.repo
@@ -220,7 +219,6 @@ modules:
         - guestfs-tools
         - swtpm
         - davfs2
-        - code
         - freerdp
         - evolution-ews-core
         - gnupg2-scdaemon
@@ -228,9 +226,6 @@ modules:
         - iwd
         - uld
         - libcec
-        # - mdatp
-        # - meslo-nerd-fonts
-        # - firacode-nerd-fonts
         # Gnome extensions
         - gnome-shell-extension-appindicator
         - gnome-shell-extension-user-theme
