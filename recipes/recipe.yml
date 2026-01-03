@@ -178,8 +178,8 @@ modules:
         - dnscrypt-proxy
         # - openresolv
         - python-pysocks
-        - openrazer-daemon
-        - python3-openrazer
+        - openrazer-daemon-3.10.2
+        - python3-openrazer-3.10.2
         - fuse-btfs
         - mimalloc
         - gvfs
