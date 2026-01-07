@@ -102,16 +102,16 @@ modules:
   #     - xone
   # - VirtualBox
 
-  - type: copy
-    from: ghcr.io/bazzite-org/kernel-bazzite:latest-f43-x86_64
-    src: /
-    dest: /tmp/rpms
+  # - type: copy
+  #   from: ghcr.io/bazzite-org/kernel-bazzite:latest-f43-x86_64
+  #   src: /
+  #   dest: /tmp/rpms
 
-  - type: containerfile
-    snippets:
-      - RUN dnf5 -y remove --no-autoremove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-tools kernel-tools-libs
-      - RUN dnf5 -y install /tmp/rpms/kernel-6* /tmp/rpms/kernel-core-6* /tmp/rpms/kernel-modules-6* /tmp/rpms/kernel-modules-core-6* /tmp/rpms/kernel-modules-extra-6* /tmp/rpms/kernel-modules-akmods-6* /tmp/rpms/kernel-devel-6* /tmp/rpms/kernel-devel-matched-6* /tmp/rpms/kernel-tools-6* /tmp/rpms/kernel-tools-libs-6* /tmp/rpms/kernel-common-6*
-      - RUN dnf5 versionlock add kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-modules-akmods kernel-devel kernel-devel-matched kernel-tools kernel-tools-libs kernel-common
+  # - type: containerfile
+  #   snippets:
+  #     - RUN dnf5 -y remove --no-autoremove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-tools kernel-tools-libs
+  #     - RUN dnf5 -y install /tmp/rpms/kernel-6* /tmp/rpms/kernel-core-6* /tmp/rpms/kernel-modules-6* /tmp/rpms/kernel-modules-core-6* /tmp/rpms/kernel-modules-extra-6* /tmp/rpms/kernel-modules-akmods-6* /tmp/rpms/kernel-devel-6* /tmp/rpms/kernel-devel-matched-6* /tmp/rpms/kernel-tools-6* /tmp/rpms/kernel-tools-libs-6* /tmp/rpms/kernel-common-6*
+  #     - RUN dnf5 versionlock add kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-modules-akmods kernel-devel kernel-devel-matched kernel-tools kernel-tools-libs kernel-common
 
   - type: dnf
     install:
