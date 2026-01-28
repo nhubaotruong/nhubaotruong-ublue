@@ -3,20 +3,20 @@ configurations:
   - scope: system
     notify: false
     install:
-      - com.brave.Browser
+      # - com.brave.Browser
       # - com.getpostman.Postman
       - com.github.johnfactotum.Foliate
       - com.github.tchx84.Flatseal
-      - com.heroicgameslauncher.hgl
+      # - com.heroicgameslauncher.hgl
       - com.mattjakeman.ExtensionManager
       # - org.gtk.Gtk3theme.adw-gtk3
       # - org.gtk.Gtk3theme.adw-gtk3-dark
       # - com.usebottles.bottles
-      - com.valvesoftware.Steam
-      - com.valvesoftware.Steam.Utility.steamtinkerlaunch
-      - io.github.Foldex.AdwSteamGtk
-      - io.github.vikdevelop.SaveDesktop
-      - org.filezillaproject.Filezilla
+      # - com.valvesoftware.Steam
+      # - com.valvesoftware.Steam.Utility.steamtinkerlaunch
+      # - io.github.Foldex.AdwSteamGtk
+      # - io.github.vikdevelop.SaveDesktop
+      # - org.filezillaproject.Filezilla
       - org.gnome.Calculator
       - org.gnome.Calendar
       - org.gnome.Characters
@@ -32,11 +32,11 @@ configurations:
       - org.gnome.Weather
       - org.gnome.FileRoller
       - ca.desrt.dconf-editor
-      - org.jdownloader.JDownloader
+      # - org.jdownloader.JDownloader
       - org.libreoffice.LibreOffice
-      - org.qbittorrent.qBittorrent
+      # - org.qbittorrent.qBittorrent
       - org.videolan.VLC
-      - com.stremio.Stremio
-      - dev.vencord.Vesktop
+      # - com.stremio.Stremio
+      # - dev.vencord.Vesktop
       - org.gnome.NetworkDisplays
       - it.mijorus.gearlever
