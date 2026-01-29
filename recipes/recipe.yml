@@ -227,6 +227,7 @@ modules:
         - uld
         - libcec
         - v4l-utils
+        - gcc
         # Gnome extensions
         - gnome-shell-extension-appindicator
         - gnome-shell-extension-user-theme
