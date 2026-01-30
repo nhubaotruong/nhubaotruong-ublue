@@ -13,5 +13,3 @@ latest_tag=$(git describe --tags "$(git rev-list --tags --max-count=1)")
 # Checkout the latest tag
 git checkout "$latest_tag"
 make install PREFIX=/usr
-
-dnf5 -y remove make go libX11-devel libXtst-devel gtk3-devel
