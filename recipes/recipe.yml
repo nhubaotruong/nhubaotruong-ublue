@@ -323,6 +323,8 @@ modules:
 
   - type: brew
     brew-analytics: false
+    nofile-limits: true
+    direct-pull: true
 
   - type: soar
     additional-repos: true
