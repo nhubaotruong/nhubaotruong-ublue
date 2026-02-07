@@ -25,7 +25,7 @@ configurations:
       - org.gnome.DejaDup
       - org.gnome.Papers
       - org.gnome.font-viewer
-      - org.gnome.gThumb
+      # - org.gnome.gThumb
       - org.gnome.Loupe
       - org.gnome.NautilusPreviewer
       - org.gnome.TextEditor
@@ -39,4 +39,4 @@ configurations:
       # - com.stremio.Stremio
       # - dev.vencord.Vesktop
       - org.gnome.NetworkDisplays
-      - it.mijorus.gearlever
+      # - it.mijorus.gearlever
