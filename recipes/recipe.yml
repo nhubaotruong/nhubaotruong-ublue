@@ -326,10 +326,10 @@ modules:
     nofile-limits: true
     direct-pull: true
 
-  - type: soar
-    additional-repos: true
-    auto-upgrade: true
-    upgrade-interval: "3h"
+  # - type: soar
+  #   additional-repos: true
+  #   auto-upgrade: true
+  #   upgrade-interval: "3h"
 
   - type: script
     snippets:
