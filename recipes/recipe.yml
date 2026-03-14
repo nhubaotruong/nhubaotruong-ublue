@@ -55,7 +55,7 @@ modules:
         - clarlok/tools
       install:
         packages:
-          - https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc$(rpm -E %fedora).noarch.rpm
+          - https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc43.noarch.rpm
 
   - type: dnf
     remove:
