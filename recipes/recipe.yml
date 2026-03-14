@@ -53,6 +53,9 @@ modules:
         - bieszczaders/kernel-cachyos-addons
         - trixieua/mutter-patched
         - clarlok/tools
+      install:
+        packages:
+          - https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc$(rpm -E %fedora).noarch.rpm
 
   - type: dnf
     remove:
