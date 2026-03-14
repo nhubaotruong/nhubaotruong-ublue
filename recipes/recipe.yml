@@ -227,6 +227,9 @@ modules:
         - libcec
         - v4l-utils
         - gcc
+        - tlp
+        - tlp-pd
+        - tlp-rdw
         # Gnome extensions
         - gnome-shell-extension-appindicator
         - gnome-shell-extension-user-theme
@@ -246,6 +249,8 @@ modules:
         - zram-generator-defaults
         - gnome-classic-session
         - systemd-networkd
+        - tuned
+        - tuned-ppd
     optfix:
       - teamviewer
     replace:
@@ -358,7 +363,8 @@ modules:
   - type: systemd
     system:
       enabled:
-        # - tlp.service
+        - tlp.service
+        - tlp-pd.service
         - tailscaled.service
         - fstrim.timer
         - libvirtd.socket
