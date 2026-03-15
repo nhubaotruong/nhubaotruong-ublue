@@ -5,7 +5,7 @@ ConditionPathExists=/usr/bin/dockerd-rootless-setuptool.sh
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/bash -c 'if ! dockerd-rootless-setuptool.sh check 2>&1 | grep --color=never -q "Requirements are satisfied"; then dockerd-rootless-setuptool.sh install; fi'
+ExecStart=/usr/bin/bash -c 'if ! systemctl --user is-active docker.service &>/dev/null && ! [ -S "$XDG_RUNTIME_DIR/docker.sock" ]; then dockerd-rootless-setuptool.sh install --force; fi'
 RemainAfterExit=yes
 
 [Install]

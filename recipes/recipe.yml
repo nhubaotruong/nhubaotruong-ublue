@@ -441,5 +441,11 @@ modules:
       #- nr_running=1
       - pcie_aspm=force
       - workqueue.power_efficient=1
+      - snd_hda_intel.power_save=1
+      - snd_hda_intel.power_save_controller=Y
+      - split_lock_detect=off
+      - nosoftlockup
+      - transparent_hugepage=madvise
+      - rcu_nocbs=all
 
   - type: signing
