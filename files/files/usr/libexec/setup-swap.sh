@@ -23,12 +23,6 @@ fi
 
 free_bytes="$(($(stat -f --format="%a*%S" .)))"
 size_bytes="$(numfmt --from=auto "$size")"
-need=$((2 * $size_bytes))
-
-if [ "$free_bytes" -lt "$need" ]; then
-    echo "Not enough free disk space to allocate swap"
-    exit 1
-fi
 
 [ ! -e /var/swap ] && btrfs subvolume create /var/swap
 chattr +C /var/swap
