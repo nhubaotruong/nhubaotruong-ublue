@@ -359,7 +359,7 @@ modules:
       - teamviewer.sh
       - nanorc.sh
       # - nix-installer.sh
-      - bazzite.sh
+      # - bazzite.sh
       - ibus-lotus.sh
       - depmod.sh
 
