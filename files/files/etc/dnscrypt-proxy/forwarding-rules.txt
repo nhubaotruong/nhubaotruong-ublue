@@ -51,3 +51,4 @@ static.redhat.com 9.9.9.9
 iwifipro.vn 9.9.9.9
 connectivitycheck.gstatic.com 9.9.9.9
 ruijienetworks.com 9.9.9.9
+draytek.com 9.9.9.9
