@@ -384,6 +384,7 @@ modules:
         - cec-onboot.service
         - cec-onpoweroff.service
         - cec-onsleep.service
+        - chronyd.service
       disabled:
         - docker.socket
         - raid-check.timer
