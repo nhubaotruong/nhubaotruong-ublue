@@ -167,7 +167,7 @@ modules:
         - bootc
         - rsms-inter-vf-fonts
         - kernel-tools
-        - scx-scheds
+        # - scx-scheds
         - fontawesome-fonts-all
         - samba-dcerpc
         - samba-ldb-ldap-modules
@@ -176,7 +176,6 @@ modules:
         - samba
         - yq
         - printer-driver-brlaser
-        - dnscrypt-proxy
         # - openresolv
         - python-pysocks
         # - openrazer-daemon
@@ -375,10 +374,9 @@ modules:
         # - waydroid-workaround.service
         # - libvirt-workaround.service
         - warp-svc.service
-        - scx_loader.service
+        # - scx_loader.service
         - setup-swap.service
         - mdatp.service
-        - dnscrypt-proxy.service
         - powertop.service
         - dev-hugepages1G.mount
         - cec-onboot.service
