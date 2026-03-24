@@ -377,8 +377,8 @@ modules:
         # - scx_loader.service
         - setup-swap.service
         - mdatp.service
-        - powertop.service
-        - dev-hugepages1G.mount
+        # - powertop.service # disabled: conflicts with TLP (both write to same sysfs power nodes)
+        # - dev-hugepages1G.mount # no hugepagesz=1G karg, condition never met
         - cec-onboot.service
         - cec-onpoweroff.service
         - cec-onsleep.service
@@ -408,12 +408,12 @@ modules:
       - rd.luks.options=discard,tpm2-device=auto
       - nowatchdog
       - quiet
-      - cgroup_no_v1=all
-      - systemd.unified_cgroup_hierarchy=1
+      # cgroup_no_v1=all - default on Fedora 43
+      # systemd.unified_cgroup_hierarchy=1 - default on Fedora 43
       - cryptomgr.notests
       #- initcall_debug
       - intel_iommu=igfx_off
-      - kvm-intel.nested=1
+      # kvm-intel.nested=1 - moved to modprobe.d/override.conf
       - no_timer_check
       #- noreplace-smp
       - page_alloc.shuffle=1
@@ -423,11 +423,11 @@ modules:
       - tsc=reliable
       - init_on_alloc=1
       #- init_on_free=1
-      - random.trust_cpu=on
+      # random.trust_cpu=on - default since kernel 5.4+
       - randomize_kstack_offset=1
       - preempt=full
-      - kvm.ignore_msrs=1
-      - kvm.report_ignored_msrs=0
+      # kvm.ignore_msrs=1 - moved to modprobe.d/override.conf
+      # kvm.report_ignored_msrs=0 - moved to modprobe.d/override.conf
       # - ostree.prepare-root.composefs=0
       - rd.shell=0
       - rd.emergency=halt
@@ -435,14 +435,14 @@ modules:
       - zswap.shrinker_enabled=1
       - zswap.max_pool_percent=15
       - zswap.zpool=zsmalloc
-      - zswap.compressor=lz4hc
+      - zswap.compressor=lz4
       - rcutree.enable_rcu_lazy=1
       #- nr_running=1
       - pcie_aspm=force
       - workqueue.power_efficient=1
-      - snd_hda_intel.power_save=1
-      - snd_hda_intel.power_save_controller=Y
-      - split_lock_detect=off
+      # snd_hda_intel.power_save=1 - moved to modprobe.d/override.conf
+      # snd_hda_intel.power_save_controller=Y - moved to modprobe.d/override.conf
+      # split_lock_detect=off - handled by kernel.split_lock_mitigate=0 in sysctl
       - nosoftlockup
       - transparent_hugepage=madvise
       - rcu_nocbs=all
