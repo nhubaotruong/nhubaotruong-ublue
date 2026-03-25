@@ -128,7 +128,7 @@ modules:
         - ddcutil
         - edk2-ovmf
         - zsh
-        - igt-gpu-tools
+        # - igt-gpu-tools
         - libgda
         - libgda-sqlite
         - firewall-config
