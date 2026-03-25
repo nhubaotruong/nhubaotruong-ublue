@@ -51,9 +51,6 @@ modules:
         - bieszczaders/kernel-cachyos-addons
         - trixieua/mutter-patched
         - clarlok/tools
-    install:
-      packages:
-        - https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc43.noarch.rpm
 
   - type: dnf
     remove:
@@ -229,7 +226,6 @@ modules:
         - v4l-utils
         - gcc
         - tlp
-        - tlp-pd
         - tlp-rdw
         # Gnome extensions
         - gnome-shell-extension-appindicator
