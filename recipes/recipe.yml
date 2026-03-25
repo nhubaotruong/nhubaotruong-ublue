@@ -5,7 +5,7 @@ description: nhubaotruong uBlue image
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 43 # latest is also supported if you want new updates ASAP
+image-version: 44 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -323,11 +323,10 @@ modules:
   #     - "3193" # Blur My Shell
   #     - "7652" # Pipewire Raop Discover (AirPlay)
   #     - "7837" # HDR Auto Enable
-
   - type: brew
     brew-analytics: false
     nofile-limits: true
-    direct-pull: true
+    # direct-pull: true
 
   # - type: soar
   #   additional-repos: true
@@ -400,7 +399,6 @@ modules:
   - type: initramfs
 
   - type: kargs
-    arch: x86_64
     kargs:
       - rd.luks.options=discard,tpm2-device=auto
       - nowatchdog
