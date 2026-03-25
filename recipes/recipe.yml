@@ -21,13 +21,13 @@ modules:
   # - echo "org.freedesktop.impl.portal.GlobalShortcuts=none;" >>/usr/share/xdg-desktop-portal/gnome-portals.conf
   # - dnf5 -y upgrade --refresh --advisory=FEDORA-2025-b19ed403d5
 
-  - type: rpm-ostree
-    repos:
-      - https://packages.microsoft.com/config/rhel/10/prod.repo
-    install:
-      - mdatp
-    optfix:
-      - microsoft
+  # - type: rpm-ostree
+  #   repos:
+  #     - https://packages.microsoft.com/config/rhel/10/prod.repo
+  #   install:
+  #     - mdatp
+  #   optfix:
+  #     - microsoft
 
   - type: dnf
     repos:
@@ -35,6 +35,7 @@ modules:
         # - https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo
         # - https://download.opensuse.org/repositories/home:/lamlng/Fedora_Rawhide/home:lamlng.repo
         # - https://openrazer.github.io/hardware:razer.repo
+        - https://packages.microsoft.com/config/rhel/10/prod.repo
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
         - https://download.docker.com/linux/fedora/docker-ce.repo
@@ -102,6 +103,7 @@ modules:
       # - openrazer
       - v4l2loopback
       - xone
+      - xpadneo
   # - VirtualBox
 
   # - type: copy
@@ -232,6 +234,7 @@ modules:
         - tlp
         - tlp-pd
         - tlp-rdw
+        - mdatp
         # Gnome extensions
         - gnome-shell-extension-appindicator
         - gnome-shell-extension-user-theme
@@ -253,8 +256,6 @@ modules:
         - systemd-networkd
         - tuned
         - tuned-ppd
-    optfix:
-      - teamviewer
     replace:
       # - from-repo: copr:copr.fedorainfracloud.org:trixieua:mutter-patched
       #   skip-unavailable: true
@@ -355,8 +356,8 @@ modules:
       - joypixels.sh
       - microsoft-fonts.sh
       - papirus-icon-theme.sh
-      - teamviewer.sh
-      - nanorc.sh
+      # - teamviewer.sh
+      # - nanorc.sh
       # - nix-installer.sh
       # - bazzite.sh
       - ibus-lotus.sh
