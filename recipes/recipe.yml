@@ -35,7 +35,6 @@ modules:
         # - https://openrazer.github.io/hardware:razer.repo
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
-        - https://download.docker.com/linux/fedora/docker-ce.repo
         - charm.repo
         - terra.repo
         - terra-mesa.repo
@@ -198,12 +197,13 @@ modules:
         - python3-xapps-overrides
         - xapps
         - squashfs-tools-ng
-        - docker-ce
-        - docker-ce-cli
-        - docker-ce-rootless-extras
-        - containerd.io
-        - docker-buildx-plugin
-        - docker-compose-plugin
+        - moby-engine
+        - docker-cli
+        - moby-engine-rootless-extras
+        - containerd
+        - docker-buildkit
+        - docker-buildx
+        - docker-compose
         - ghostty
         - virt-manager
         - qemu
@@ -227,6 +227,7 @@ modules:
         - gcc
         - tlp
         - tlp-rdw
+        - util-linux
         # Gnome extensions
         - gnome-shell-extension-appindicator
         - gnome-shell-extension-user-theme
