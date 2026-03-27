@@ -176,7 +176,6 @@ modules:
         # - openrazer-daemon
         # - python3-openrazer
         - fuse-btfs
-        - mimalloc
         - gvfs
         - gvfs-afc
         - gvfs-afp
