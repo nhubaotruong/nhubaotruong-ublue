@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="platform", DRIVER=="i2c_designware", ATTR{power/control}="auto"

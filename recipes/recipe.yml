@@ -396,7 +396,7 @@ modules:
 
   - type: kargs
     kargs:
-      - rd.luks.options=discard,tpm2-device=auto
+      - rd.luks.options=discard,tpm2-device=auto,no-read-workqueue,no-write-workqueue
       - nowatchdog
       - quiet
       # cgroup_no_v1=all - default on Fedora 43
