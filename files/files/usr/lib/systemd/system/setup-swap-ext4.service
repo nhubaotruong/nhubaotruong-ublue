@@ -1,0 +1,14 @@
+[Unit]
+Description=Set up swap on first boot (ext4)
+ConditionVirtualization=no
+ConditionPathExists=!/var/swap/swapfile
+ConditionFileSystem=/var:ext4
+
+[Service]
+Type=oneshot
+TimeoutSec=0
+RemainAfterExit=yes
+ExecStart=/bin/bash -c '/usr/libexec/setup-swap-ext4.sh $(awk "/MemTotal/ { print int(\$2 / 1024 / 1024) }" /proc/meminfo)G'
+
+[Install]
+WantedBy=multi-user.target

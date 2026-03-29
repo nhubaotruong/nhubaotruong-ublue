@@ -368,6 +368,7 @@ modules:
         - warp-svc.service
         # - scx_loader.service
         - setup-swap.service
+        - setup-swap-ext4.service
         - mdatp.service
         # - powertop.service # disabled: conflicts with TLP (both write to same sysfs power nodes)
         # - dev-hugepages1G.mount # no hugepagesz=1G karg, condition never met

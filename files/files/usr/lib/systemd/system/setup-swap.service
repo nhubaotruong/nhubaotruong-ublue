@@ -1,7 +1,8 @@
 [Unit]
-Description=Set up swap on first boot
+Description=Set up swap on first boot (btrfs)
 ConditionVirtualization=no
 ConditionPathExists=!/var/swap/swapfile
+ConditionFileSystem=/var:btrfs
 
 [Service]
 Type=oneshot
