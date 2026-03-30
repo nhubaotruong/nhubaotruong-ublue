@@ -162,7 +162,7 @@ modules:
         - bootc
         - rsms-inter-vf-fonts
         - kernel-tools
-        # - scx-scheds
+        - scx-scheds
         - fontawesome-fonts-all
         - samba-dcerpc
         - samba-ldb-ldap-modules
@@ -366,7 +366,7 @@ modules:
         # - waydroid-workaround.service
         # - libvirt-workaround.service
         - warp-svc.service
-        # - scx_loader.service
+        - scx_loader.service
         - setup-swap.service
         - setup-swap-ext4.service
         - mdatp.service
