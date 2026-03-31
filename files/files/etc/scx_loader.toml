@@ -1,2 +1,2 @@
-default_sched = "scx_bpfland"
+default_sched = "scx_lavd"
 default_mode = "Auto"
