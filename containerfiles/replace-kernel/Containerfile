@@ -1,4 +1,4 @@
-RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:coreos-stable-43,source=/kernel-rpms,target=/tmp/kernel-rpms \
+RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:ogc-44,source=/kernel-rpms,target=/tmp/kernel-rpms \
     rpm --erase kernel --nodeps && \
     rpm --erase kernel-core --nodeps && \
     rpm --erase kernel-modules --nodeps && \
