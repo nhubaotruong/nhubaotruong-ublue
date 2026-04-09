@@ -361,7 +361,7 @@ modules:
         - tlp-pd.service
         - tailscaled.service
         - fstrim.timer
-        - libvirtd.socket
+        # - libvirtd.socket
         # - swtpm-workaround.service
         # - waydroid-workaround.service
         # - libvirt-workaround.service
