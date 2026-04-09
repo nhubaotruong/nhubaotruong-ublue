@@ -204,16 +204,16 @@ modules:
         - docker-buildx
         - docker-compose
         - ghostty
-        - virt-manager
-        - qemu
-        - qemu-system-x86
+        # - virt-manager
+        # - qemu
+        # - qemu-system-x86
         - qemu-user-binfmt
         - qemu-user-static
-        - libvirt
-        - libvirt-nss
-        - virtiofsd
-        - guestfs-tools
-        - swtpm
+        # - libvirt
+        # - libvirt-nss
+        # - virtiofsd
+        # - guestfs-tools
+        # - swtpm
         - davfs2
         - freerdp
         - evolution-ews-core
