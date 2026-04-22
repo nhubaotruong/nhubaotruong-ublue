@@ -249,15 +249,13 @@ modules:
         - tuned
         - tuned-ppd
     replace:
-      # - from-repo: copr:copr.fedorainfracloud.org:trixieua:mutter-patched
-      #   skip-unavailable: true
-      #   allow-erasing: true
-      #   packages:
-      #     - gdm
-      #     - mutter
-      #     - mutter-common
-      #     - gnome-shell
-      #     - xorg-x11-server-Xwayland
+      - from-repo: copr:copr.fedorainfracloud.org:trixieua:mutter-patched
+        allow-erasing: true
+        packages:
+          - mutter
+          - mutter-common
+          - gnome-shell
+          - gnome-shell-common
       - from-repo: terra-extras
         # skip-unavailable: true
         allow-erasing: true
