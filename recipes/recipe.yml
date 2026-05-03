@@ -161,9 +161,9 @@ modules:
         - powertop
         - foo2zjs
         - bootc
-        - rsms-inter-vf-fonts
+        # - rsms-inter-vf-fonts
         - kernel-tools
-        - scx-scheds
+        # - scx-scheds
         - fontawesome-fonts-all
         - samba-dcerpc
         - samba-ldb-ldap-modules
