@@ -356,7 +356,7 @@ modules:
     system:
       enabled:
         - tlp.service
-        - tlp-pd.service
+        # - tlp-pd.service
         - tailscaled.service
         - fstrim.timer
         # - libvirtd.socket
