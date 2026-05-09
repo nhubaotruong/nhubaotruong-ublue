@@ -225,6 +225,7 @@ modules:
         - v4l-utils
         - gcc
         - tlp
+        - tlp-pd
         - tlp-rdw
         - util-linux
         # Gnome extensions
@@ -356,7 +357,7 @@ modules:
     system:
       enabled:
         - tlp.service
-        # - tlp-pd.service
+        - tlp-pd.service
         - tailscaled.service
         - fstrim.timer
         # - libvirtd.socket
