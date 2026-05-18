@@ -35,7 +35,7 @@ modules:
         # - https://openrazer.github.io/hardware:razer.repo
         - https://download.docker.com/linux/fedora/docker-ce.repo
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-        # - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
+        - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
         - charm.repo
         - terra.repo
         - terra-mesa.repo
@@ -59,6 +59,9 @@ modules:
         - kernel-uki-virt
         - virtualbox-guest-additions
 
+  - type: script
+    scripts:
+      - webkit2gtk3-dummy.sh
   # - type: containerfile
   #   containerfiles:
   #     - replace-kernel
@@ -190,7 +193,7 @@ modules:
         - gvfs-smb
         - ublue-os-media-automount-udev
         - pcre
-        # - cloudflare-warp
+        - cloudflare-warp
         - adw-gtk3-theme
         - python3-pillow
         - python3-pyelftools
