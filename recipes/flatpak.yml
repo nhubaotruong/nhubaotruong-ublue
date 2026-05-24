@@ -38,5 +38,5 @@ configurations:
       - org.videolan.VLC
       # - com.stremio.Stremio
       # - dev.vencord.Vesktop
-      - org.gnome.NetworkDisplays
+      # - org.gnome.NetworkDisplays
       # - it.mijorus.gearlever
