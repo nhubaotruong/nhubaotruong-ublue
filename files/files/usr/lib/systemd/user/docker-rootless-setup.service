@@ -1,17 +1,17 @@
 [Unit]
-Description=Docker Rootless Setup Check
+Description=Docker Rootless Setup
+Documentation=https://docs.docker.com/engine/security/rootless/
 Before=docker.service
 ConditionPathExists=/usr/bin/dockerd-rootless-setuptool.sh
+ConditionPathExists=!%S/docker-rootless-setup-done
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/bash -c '\
-  if [ ! -f "%C/docker-rootless-setup-done" ]; then \
-    dockerd-rootless-setuptool.sh install --force && \
-    touch "%C/docker-rootless-setup-done" && \
-    systemctl --user disable docker-rootless-setup.service; \
-  fi'
 RemainAfterExit=yes
+ExecStartPre=/usr/bin/mkdir -p %S
+ExecStart=/usr/bin/dockerd-rootless-setuptool.sh install --force
+ExecStartPost=/usr/bin/touch %S/docker-rootless-setup-done
+ExecStartPost=-/usr/bin/systemctl --user mask docker-rootless-setup.service
 
 [Install]
 WantedBy=default.target
