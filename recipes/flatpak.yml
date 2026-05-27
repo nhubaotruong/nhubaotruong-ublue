@@ -40,3 +40,5 @@ configurations:
       # - dev.vencord.Vesktop
       - org.gnome.NetworkDisplays
       - it.mijorus.gearlever
+      - be.alexandervanhee.gradia
+      - io.github.kolunmi.Bazaar

@@ -154,7 +154,6 @@ modules:
         - nautilus-open-any-terminal
         - fuse-sshfs
         - openssh-askpass
-        - nautilus-gsconnect
         - ifuse
         - libimobiledevice
         - usbmuxd
@@ -227,16 +226,16 @@ modules:
         - libcec
         - v4l-utils
         - gcc
+        - gcc-c++
         - tlp
         - tlp-pd
         - tlp-rdw
         - util-linux
+        - libappindicator-gtk3
+        - libayatana-appindicator-gtk3
         # Gnome extensions
         - gnome-shell-extension-appindicator
-        - gnome-shell-extension-user-theme
         - gnome-shell-extension-just-perfection
-        - gnome-shell-extension-caffeine
-        - gnome-shell-extension-system-monitor
     remove:
       auto-remove: true
       packages:
@@ -279,10 +278,6 @@ modules:
 
   - from-file: flatpak.yml
 
-  - type: gschema-overrides
-    include:
-      - zz1-desktop.gschema.override
-
   # - type: yafti # if included, yafti and it's dependencies (pip & libadwaita) will be installed and set up
   #   custom-flatpaks:
   # this section is optional
@@ -293,34 +288,14 @@ modules:
     install:
       - dconf-update-service
 
-  # - type: gnome-extensions
-  #   install:
-  #     - "615" # AppIndicator and KStatusNotifierItem Support
-  #     # - "1319" # GSConnect
-  #     - "19" # User Themes
-  #     - "307" # Dash to Dock
-  #     - "7" # Removable Drive Menu
-  #     - "3843" # Just Perfection
-  #     - "517" # Caffeine
-  #     - "4269" # Alphabetical App Grid
-  #     - "2594" # Always Indicator
-  #     # - "5425" # Battery Time
-  #     - "6670" # Bluetooth Battery Meter
-  #     - "2645" # Brightness Control Using ddcutil
-  #     # - "1873" # Disable Unredirect Fullscreen Windows
-  #     # - "4485" # Favourites In AppGrid
-  #     # - "4158" # Gnome 4x UI Improvements
-  #     - "3956" # Gnome fuzzy app search
-  #     - "6940" # Media Progress
-  #     # - "5278" # Pano Clipboard Manager
-  #     - "4691" # Pip on top
-  #     - "5964" # Quick Settings Audio Devices Hider
-  #     - "5660" # Weather Or Not
-  #     - "4798" # Thinkpad Battery Threshold
-  #     - "6807" # System Monitor
-  #     - "3193" # Blur My Shell
-  #     - "7652" # Pipewire Raop Discover (AirPlay)
-  #     - "7837" # HDR Auto Enable
+  - type: gnome-extensions
+    install:
+      - "4269" # https://extensions.gnome.org/extension/4269/alphabetical-app-grid/
+      - "4724" # https://extensions.gnome.org/extension/4724/window-calls/
+      - "8834" # https://extensions.gnome.org/extension/8834/copyous/
+      - "4691" # https://extensions.gnome.org/extension/4691/pip-on-top/
+      - "5982" # https://extensions.gnome.org/extension/5982/cloudflare-warp-toggle/
+
   - type: brew
     brew-analytics: false
     nofile-limits: true
@@ -354,7 +329,12 @@ modules:
       # - nix-installer.sh
       # - bazzite.sh
       # - ibus-lotus.sh
+      - gnome-extensions.sh
       - depmod.sh
+
+  - type: gschema-overrides
+    include:
+      - zz1-desktop.gschema.override
 
   - type: systemd
     system:
