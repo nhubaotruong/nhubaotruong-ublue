@@ -9,7 +9,6 @@
     <service name="samba-client" />
     <service name="kdeconnect" />
     <service name="rdp" />
-    <service name="gsconnect" />
     <service name="rtsp" />
     <service name="mdns" />
     <service name="dns" />
