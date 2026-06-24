@@ -155,5 +155,14 @@ file-preview-visibility='file-info'
 [org.gnome.shell.extensions.copyous.link-item]
 link-preview-orientation='horizontal'
 
+[org.gnome.shell.extensions.Bluetooth-Battery-Meter]
+enable-airpods-device=true
+enable-battery-level-text=true
+enable-galaxy-buds-device=true
+enable-gattbas-device=true
+enable-nothing-buds-device=true
+enable-sony-device=true
+enable-upower-level-icon=true
+
 [org.gnome.shell]
-enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'AlphabeticalAppGrid@stuarthayhurst', 'copyous@boerdereinar.dev', 'pip-on-top@rafostar.github.com', 'just-perfection-desktop@just-perfection', 'gradia-integration@alexandervanhee.github.io', 'bazaar-integration@kolunmi.github.io', 'window-calls@domandoman.xyz']
+enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'AlphabeticalAppGrid@stuarthayhurst', 'copyous@boerdereinar.dev', 'pip-on-top@rafostar.github.com', 'just-perfection-desktop@just-perfection', 'gradia-integration@alexandervanhee.github.io', 'bazaar-integration@kolunmi.github.io', 'window-calls@domandoman.xyz', 'Bluetooth-Battery-Meter@maniacx.github.com']

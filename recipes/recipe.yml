@@ -295,6 +295,7 @@ modules:
       - "8834" # https://extensions.gnome.org/extension/8834/copyous/
       - "4691" # https://extensions.gnome.org/extension/4691/pip-on-top/
       - "5982" # https://extensions.gnome.org/extension/5982/cloudflare-warp-toggle/
+      - "6670" # https://extensions.gnome.org/extension/6670/bluetooth-battery-meter/
 
   - type: brew
     brew-analytics: false
