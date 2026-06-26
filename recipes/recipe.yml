@@ -15,15 +15,10 @@ modules:
       - source: files
         destination: /
 
-  # - type: script
-  #   snippets:
-  #     - rm /usr/share/thumbnailers/avif.thumbnailer
-  # - echo "org.freedesktop.impl.portal.GlobalShortcuts=none;" >>/usr/share/xdg-desktop-portal/gnome-portals.conf
-  # - dnf5 -y upgrade --refresh --advisory=FEDORA-2025-b19ed403d5
-
-  - type: rpm-ostree
+  - type: dnf
     repos:
-      - https://packages.microsoft.com/config/rhel/10/insiders-slow.repo
+      files:
+        - https://packages.microsoft.com/config/rhel/10/insiders-slow.repo
     install:
       - mdatp
 
@@ -62,57 +57,37 @@ modules:
   - type: script
     scripts:
       - webkit2gtk3-dummy.sh
-  # - type: containerfile
-  #   containerfiles:
-  #     - replace-kernel
-  # - install-akmods
-  # - zfs-rpms
-  # - upgrade
-  # - match-kernel-version
+  - type: containerfile
+    snippets:
+      - |
+        RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:coreos-stable-44,source=/kernel-rpms,target=/tmp/kernel-rpms \
+        rpm --erase kernel --nodeps && \
+        rpm --erase kernel-core --nodeps && \
+        rpm --erase kernel-modules --nodeps && \
+        rpm --erase kernel-modules-core --nodeps && \
+        rpm --erase kernel-modules-extra --nodeps && \
+        dnf5 -y install \
+        /tmp/kernel-rpms/kernel-[0-9]*.rpm \
+        /tmp/kernel-rpms/kernel-core-*.rpm \
+        /tmp/kernel-rpms/kernel-modules-*.rpm \
+        /tmp/kernel-rpms/kernel-devel-*.rpm && \
+        dnf5 versionlock add kernel kernel-devel kernel-devel-matched kernel-core kernel-modules kernel-modules-core kernel-modules-extra
 
-  # - type: dnf
-  #   install:
-  #     packages:
-  #       - http://ftp.fi.muni.cz/pub/linux/rpmfusion/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
-  #       - http://ftp.fi.muni.cz/pub/linux/rpmfusion/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
+  - type: copy
+    from: ghcr.io/ublue-os/akmods:coreos-stable-44
+    src: /rpms/kmods
+    dest: /tmp/rpms
 
-  # - type: copy
-  #   from: ghcr.io/ublue-os/akmods:ogc-44
-  #   src: /rpms/kmods
-  #   dest: /tmp/rpms
+  - type: copy
+    from: ghcr.io/ublue-os/akmods-zfs:coreos-stable-44
+    src: /rpms/kmods
+    dest: /tmp/rpms
 
-  # - type: copy
-  #   from: ghcr.io/ublue-os/akmods-zfs:coreos-stable-43
-  #   src: /rpms/kmods
-  #   dest: /tmp/rpms
-
-  # - type: containerfile
-  #   snippets:
-  #     - RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
-  #     - RUN find /tmp/rpms
-  #     - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/kmod-xpadneo-*.rpm
-  #     # - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/kmod-openrazer-*.rpm /tmp/rpms/zfs/kmod-zfs-*.rpm /tmp/rpms/zfs/libnvpair3-*.rpm /tmp/rpms/zfs/libuutil3-*.rpm /tmp/rpms/zfs/libzfs6-*.rpm /tmp/rpms/zfs/libzpool6-*.rpm /tmp/rpms/zfs/python3-pyzfs-*.rpm /tmp/rpms/zfs/zfs-*.rpm pv
-  #     - RUN sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
-
-  - type: akmods
-    base: main
-    install:
-      # - openrazer
-      - v4l2loopback
-      - xone
-      - xpadneo
-  # - VirtualBox
-
-  # - type: copy
-  #   from: ghcr.io/bazzite-org/kernel-bazzite:latest-f43-x86_64
-  #   src: /
-  #   dest: /tmp/rpms
-
-  # - type: containerfile
-  #   snippets:
-  #     - RUN dnf5 -y remove --no-autoremove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-tools kernel-tools-libs
-  #     - RUN dnf5 -y install /tmp/rpms/kernel-6* /tmp/rpms/kernel-core-6* /tmp/rpms/kernel-modules-6* /tmp/rpms/kernel-modules-core-6* /tmp/rpms/kernel-modules-extra-6* /tmp/rpms/kernel-modules-akmods-6* /tmp/rpms/kernel-devel-6* /tmp/rpms/kernel-devel-matched-6* /tmp/rpms/kernel-tools-6* /tmp/rpms/kernel-tools-libs-6* /tmp/rpms/kernel-common-6*
-  #     - RUN dnf5 versionlock add kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-modules-akmods kernel-devel kernel-devel-matched kernel-tools kernel-tools-libs kernel-common
+  - type: containerfile
+    snippets:
+      - RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
+      - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xpadneo-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/zfs/kmod-zfs-*.rpm /tmp/rpms/zfs/libnvpair3-*.rpm /tmp/rpms/zfs/libuutil3-*.rpm /tmp/rpms/zfs/libzfs6-*.rpm /tmp/rpms/zfs/libzpool6-*.rpm /tmp/rpms/zfs/python3-pyzfs-*.rpm /tmp/rpms/zfs/zfs-*.rpm pv
+      - RUN sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 
   - type: dnf
     install:
