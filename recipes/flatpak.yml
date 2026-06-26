@@ -1,7 +1,8 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/modules/default-flatpaks-v2.json
 type: default-flatpaks
 configurations:
   - scope: system
-    notify: false
+    notify: true
     install:
       # - com.brave.Browser
       # - com.getpostman.Postman
