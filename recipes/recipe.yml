@@ -16,13 +16,11 @@ modules:
       - source: files
         destination: /
 
-  - type: dnf
-    repos:
-      files:
-        - https://packages.microsoft.com/config/rhel/10/insiders-slow.repo
-    install:
-      packages:
-        - mdatp
+  - type: containerfile
+    snippets:
+      - |
+        RUN dnf5 config-manager --add-repo https://packages.microsoft.com/config/rhel/10/insiders-slow.repo && \
+        dnf5 install -y --setopt=tsflags=noscripts mdatp
 
   - type: dnf
     repos:
