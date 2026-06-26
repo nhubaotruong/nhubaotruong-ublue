@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
 name: nhubaotruong-ublue
 # description will be included in the image's metadata
@@ -20,7 +21,8 @@ modules:
       files:
         - https://packages.microsoft.com/config/rhel/10/insiders-slow.repo
     install:
-      - mdatp
+      packages:
+        - mdatp
 
   - type: dnf
     repos:
