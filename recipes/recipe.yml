@@ -255,7 +255,6 @@ modules:
         /tmp/rpms/zfs/libzfs[0-9]-*.rpm \
         /tmp/rpms/zfs/libzpool[0-9]-*.rpm \
         /tmp/rpms/zfs/python3-pyzfs-*.rpm \
-        /tmp/rpms/zfs/other/zfs-dracut-*.rpm \
         /tmp/rpms/zfs/zfs-*.rpm \
         pv
       - RUN sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
