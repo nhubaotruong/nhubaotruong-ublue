@@ -16,11 +16,11 @@ modules:
       - source: files
         destination: /
 
-  - type: containerfile
-    snippets:
-      - |
-        RUN curl -sSL https://packages.microsoft.com/config/rhel/10/insiders-slow.repo -o /etc/yum.repos.d/microsoft-insiders-slow.repo && \
-        dnf5 install -y --setopt=tsflags=noscripts mdatp
+  - type: rpm-ostree
+    repos:
+      - https://packages.microsoft.com/config/rhel/10/insiders-slow.repo
+    install:
+      - mdatp
   - type: script
     scripts:
       - webkit2gtk3-dummy.sh
