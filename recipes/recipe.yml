@@ -21,7 +21,9 @@ modules:
       - |
         RUN curl -sSL https://packages.microsoft.com/config/rhel/10/insiders-slow.repo -o /etc/yum.repos.d/microsoft-insiders-slow.repo && \
         dnf5 install -y --setopt=tsflags=noscripts mdatp
-
+  - type: script
+    scripts:
+      - webkit2gtk3-dummy.sh
   - type: dnf
     repos:
       nonfree: rpmfusion
@@ -47,50 +49,6 @@ modules:
         - bieszczaders/kernel-cachyos-addons
         - trixieua/mutter-patched
         - clarlok/tools
-
-  - type: dnf
-    remove:
-      auto-remove: true
-      packages:
-        - kernel-uki-virt
-        - virtualbox-guest-additions
-
-  - type: script
-    scripts:
-      - webkit2gtk3-dummy.sh
-  - type: containerfile
-    snippets:
-      - |
-        RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:coreos-stable-44,source=/kernel-rpms,target=/tmp/kernel-rpms \
-        rpm --erase kernel --nodeps && \
-        rpm --erase kernel-core --nodeps && \
-        rpm --erase kernel-modules --nodeps && \
-        rpm --erase kernel-modules-core --nodeps && \
-        rpm --erase kernel-modules-extra --nodeps && \
-        dnf5 -y install \
-        /tmp/kernel-rpms/kernel-[0-9]*.rpm \
-        /tmp/kernel-rpms/kernel-core-*.rpm \
-        /tmp/kernel-rpms/kernel-modules-*.rpm \
-        /tmp/kernel-rpms/kernel-devel-*.rpm && \
-        dnf5 versionlock add kernel kernel-devel kernel-devel-matched kernel-core kernel-modules kernel-modules-core kernel-modules-extra
-
-  - type: copy
-    from: ghcr.io/ublue-os/akmods:coreos-stable-44
-    src: /rpms/kmods
-    dest: /tmp/rpms
-
-  - type: copy
-    from: ghcr.io/ublue-os/akmods-zfs:coreos-stable-44
-    src: /rpms/kmods
-    dest: /tmp/rpms
-
-  - type: containerfile
-    snippets:
-      - RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
-      - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xpadneo-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/zfs/kmod-zfs-*.rpm /tmp/rpms/zfs/libnvpair[0-9]-*.rpm /tmp/rpms/zfs/libuutil[0-9]-*.rpm /tmp/rpms/zfs/libzfs[0-9]-*.rpm /tmp/rpms/zfs/libzpool[0-9]-*.rpm /tmp/rpms/zfs/python3-pyzfs-*.rpm /tmp/rpms/zfs/other/zfs-dracut-*.rpm /tmp/rpms/zfs/zfs-*.rpm pv
-      - RUN sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
-
-  - type: dnf
     install:
       # skip-unavailable: true
       allow-erasing: true
@@ -215,6 +173,8 @@ modules:
     remove:
       auto-remove: true
       packages:
+        - kernel-uki-virt
+        - virtualbox-guest-additions
         - firefox # default firefox removed in favor of flatpak
         - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
         - yelp
@@ -251,6 +211,38 @@ modules:
           # - gsettings-desktop-schemas
           # - mutter
           # - gnome-shell
+
+  - type: containerfile
+    snippets:
+      - |
+        RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:coreos-stable-44,source=/kernel-rpms,target=/tmp/kernel-rpms \
+        rpm --erase kernel --nodeps && \
+        rpm --erase kernel-core --nodeps && \
+        rpm --erase kernel-modules --nodeps && \
+        rpm --erase kernel-modules-core --nodeps && \
+        rpm --erase kernel-modules-extra --nodeps && \
+        dnf5 -y install \
+        /tmp/kernel-rpms/kernel-[0-9]*.rpm \
+        /tmp/kernel-rpms/kernel-core-*.rpm \
+        /tmp/kernel-rpms/kernel-modules-*.rpm \
+        /tmp/kernel-rpms/kernel-devel-*.rpm && \
+        dnf5 versionlock add kernel kernel-devel kernel-devel-matched kernel-core kernel-modules kernel-modules-core kernel-modules-extra
+
+  - type: copy
+    from: ghcr.io/ublue-os/akmods:coreos-stable-44
+    src: /rpms/kmods
+    dest: /tmp/rpms
+
+  - type: copy
+    from: ghcr.io/ublue-os/akmods-zfs:coreos-stable-44
+    src: /rpms/kmods
+    dest: /tmp/rpms
+
+  - type: containerfile
+    snippets:
+      - RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
+      - RUN dnf5 -y install /tmp/rpms/kmod-v4l2loopback-*.rpm /tmp/rpms/kmod-xpadneo-*.rpm /tmp/rpms/kmod-xone-*.rpm /tmp/rpms/zfs/kmod-zfs-*.rpm /tmp/rpms/zfs/libnvpair[0-9]-*.rpm /tmp/rpms/zfs/libuutil[0-9]-*.rpm /tmp/rpms/zfs/libzfs[0-9]-*.rpm /tmp/rpms/zfs/libzpool[0-9]-*.rpm /tmp/rpms/zfs/python3-pyzfs-*.rpm /tmp/rpms/zfs/other/zfs-dracut-*.rpm /tmp/rpms/zfs/zfs-*.rpm pv
+      - RUN sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 
   - from-file: flatpak.yml
 
