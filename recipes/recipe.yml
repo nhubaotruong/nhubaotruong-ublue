@@ -26,7 +26,7 @@ modules:
       - webkit2gtk3-dummy.sh
   - type: dnf
     repos:
-      nonfree: rpmfusion
+      # nonfree: rpmfusion
       files:
         # - https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo
         - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
@@ -34,7 +34,6 @@ modules:
         - https://download.docker.com/linux/fedora/docker-ce.repo
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
-        - https://negativo17.org/repos/fedora-uld.repo
         - charm.repo
         - terra.repo
         - terra-mesa.repo
