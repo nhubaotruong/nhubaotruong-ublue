@@ -21,9 +21,6 @@ modules:
       - https://packages.microsoft.com/config/rhel/10/insiders-slow.repo
     install:
       - mdatp
-  - type: script
-    scripts:
-      - webkit2gtk3-dummy.sh
   - type: dnf
     repos:
       # nonfree: rpmfusion
