@@ -182,6 +182,7 @@ modules:
         - zram-generator-defaults
         - gnome-classic-session
         - systemd-networkd
+        - systemd-oomd-defaults
         - tuned
         - tuned-ppd
     replace:
@@ -348,6 +349,8 @@ modules:
         - iwd.service
       masked:
         - wpa_supplicant.service
+        - systemd-oomd.service
+        - systemd-oomd.socket
     user:
       enabled:
         - docker-rootless-setup.service
