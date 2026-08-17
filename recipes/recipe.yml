@@ -298,6 +298,7 @@ modules:
 
   - type: script
     scripts:
+      - tailmix.sh
       # - cursor.sh
       # - dnsproxy.sh
       - nerd-fonts.sh
