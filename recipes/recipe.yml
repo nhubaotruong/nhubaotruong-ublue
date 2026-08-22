@@ -246,7 +246,7 @@ modules:
         /tmp/rpms/kmods/kmod-xone-*.rpm \
         /tmp/rpms/common/v4l2loopback-*.rpm \
         /tmp/rpms/common/xone-kmod-common-*.rpm \
-        /tmp/rpms/common/xpadneo-kmod-common-*.rpm \
+        /tmp/rpms/common/xpadneo-kmod-common-*.rpm
         # /tmp/rpms/zfs/kmod-zfs-*.rpm \
         # /tmp/rpms/zfs/libnvpair[0-9]-*.rpm \
         # /tmp/rpms/zfs/libuutil[0-9]-*.rpm \
