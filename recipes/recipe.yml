@@ -213,7 +213,7 @@ modules:
   - type: containerfile
     snippets:
       - |
-        RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:coreos-stable-44,source=/kernel-rpms,target=/tmp/kernel-rpms \
+        RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:ogc-44,source=/kernel-rpms,target=/tmp/kernel-rpms \
         rpm --erase kernel --nodeps && \
         rpm --erase kernel-core --nodeps && \
         rpm --erase kernel-modules --nodeps && \
@@ -227,14 +227,14 @@ modules:
         dnf5 versionlock add kernel kernel-devel kernel-devel-matched kernel-core kernel-modules kernel-modules-core kernel-modules-extra
 
   - type: copy
-    from: ghcr.io/ublue-os/akmods:coreos-stable-44
+    from: ghcr.io/ublue-os/akmods:ogc-44
     src: /rpms
     dest: /tmp/rpms
 
-  - type: copy
-    from: ghcr.io/ublue-os/akmods-zfs:coreos-stable-44
-    src: /rpms/kmods
-    dest: /tmp/rpms
+  # - type: copy
+  #   from: ghcr.io/ublue-os/akmods-zfs:coreos-stable-44
+  #   src: /rpms/kmods
+  #   dest: /tmp/rpms
 
   - type: containerfile
     snippets:
@@ -247,14 +247,14 @@ modules:
         /tmp/rpms/common/v4l2loopback-*.rpm \
         /tmp/rpms/common/xone-kmod-common-*.rpm \
         /tmp/rpms/common/xpadneo-kmod-common-*.rpm \
-        /tmp/rpms/zfs/kmod-zfs-*.rpm \
-        /tmp/rpms/zfs/libnvpair[0-9]-*.rpm \
-        /tmp/rpms/zfs/libuutil[0-9]-*.rpm \
-        /tmp/rpms/zfs/libzfs[0-9]-*.rpm \
-        /tmp/rpms/zfs/libzpool[0-9]-*.rpm \
-        /tmp/rpms/zfs/python3-pyzfs-*.rpm \
-        /tmp/rpms/zfs/zfs-*.rpm \
-        pv
+        # /tmp/rpms/zfs/kmod-zfs-*.rpm \
+        # /tmp/rpms/zfs/libnvpair[0-9]-*.rpm \
+        # /tmp/rpms/zfs/libuutil[0-9]-*.rpm \
+        # /tmp/rpms/zfs/libzfs[0-9]-*.rpm \
+        # /tmp/rpms/zfs/libzpool[0-9]-*.rpm \
+        # /tmp/rpms/zfs/python3-pyzfs-*.rpm \
+        # /tmp/rpms/zfs/zfs-*.rpm \
+        # pv
       - RUN sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 
   - from-file: flatpak.yml
