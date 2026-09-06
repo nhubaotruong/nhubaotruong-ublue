@@ -164,6 +164,7 @@ modules:
         - util-linux
         - libappindicator-gtk3
         - libayatana-appindicator-gtk3
+        - libxcrypt-compat
         # Gnome extensions
         - gnome-shell-extension-appindicator
         - gnome-shell-extension-just-perfection
