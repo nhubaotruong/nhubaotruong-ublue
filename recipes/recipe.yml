@@ -165,6 +165,7 @@ modules:
         - libappindicator-gtk3
         - libayatana-appindicator-gtk3
         - libxcrypt-compat
+        - mimalloc
         # Gnome extensions
         - gnome-shell-extension-appindicator
         - gnome-shell-extension-just-perfection
