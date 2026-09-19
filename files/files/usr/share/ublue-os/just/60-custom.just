@@ -22,7 +22,10 @@ configure-waydroid:
 
 set-kernel-arguments:
     #!/usr/bin/env bash
-    args=(rd.luks.options=discard,tpm2-device=auto nowatchdog quiet cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1 cryptomgr.notests initcall_debug intel_iommu=igfx_off kvm-intel.nested=1 no_timer_check noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1 rootfstype=ext4,btrfs,xfs,f2fs tsc=reliable init_on_alloc=1 init_on_free=1 random.trust_cpu=on randomize_kstack_offset=1 preempt=full kvm.ignore_msrs=1 kvm.report_ignored_msrs=0)
+    # mirrors the active kargs in recipes/recipe.yml - updated 2026-09: dropped init_on_free,
+    # rcupdate.rcu_expedited, noreplace_smp, cgroup_no_v1, kvm-intel.nested, kvm.ignore_msrs,
+    # pcie_aspm=force and zswap.zpool (see the recipe comments for why)
+    args=(rd.luks.options=discard,tpm2-device=auto,no-read-workqueue,no-write-workqueue nowatchdog quiet cryptomgr.notests intel_iommu=igfx_off no_timer_check page_alloc.shuffle=1 rootfstype=ext4,btrfs,xfs,f2fs clocksource=tsc tsc=reliable init_on_alloc=1 randomize_kstack_offset=1 preempt=full rd.shell=0 rd.emergency=halt zswap.enabled=1 zswap.shrinker_enabled=1 zswap.max_pool_percent=15 zswap.compressor=lz4 rcutree.enable_rcu_lazy=1 workqueue.power_efficient=1 nosoftlockup transparent_hugepage=madvise rcu_nocbs=all)
     sudo rpm-ostree kargs $(printf -- "--append-if-missing=%s " ${args[*]})
 
 # harden-flatpak:

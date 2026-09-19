@@ -71,8 +71,8 @@ modules:
         - dejavu-serif-fonts
         - liberation-fonts
         # - ufraw
-        - bees
-        - rmlint
+        # - bees
+        # - rmlint
         - python3-icoextract
         - gnome-directory-thumbnailer
         - gnome-epub-thumbnailer
@@ -169,6 +169,15 @@ modules:
         # Gnome extensions
         - gnome-shell-extension-appindicator
         - gnome-shell-extension-just-perfection
+        # --- Terra-only extras (verified absent from Fedora 44) ---
+        - nohang # low-memory handler; systemd-oomd is masked in this image
+        - nohang-desktop # desktop-tuned nohang config (unit Conflicts=nohang.service)
+        - waydroid-helper # GUI for Waydroid props/GApps/Magisk/ARM translation + waydroid-cli
+        - topgrade # 17.11.0 from terra vs 16.0.4 in the ublue-os/staging copr
+        - meslo-nerd-fonts # replaces scripts/nerd-fonts.sh (Meslo + FiraCode were its two families)
+        - firacode-nerd-fonts
+        - rar # from negativo17 fedora-multimedia (enabled via base image): rar 7.23, includes unrar 7.23
+        - libunrar # terra-extras: shared lib only, does not ship /usr/bin/unrar
     remove:
       auto-remove: true
       packages:
@@ -211,6 +220,18 @@ modules:
           # - gsettings-desktop-schemas
           # - mutter
           # - gnome-shell
+      # Terra's Mesa build (OGC patches). Only the mesa packages that are
+      # present in the base image and provided by terra-mesa are synced.
+      # mesa-libGLU is NOT in terra-mesa, so it stays on Fedora's build.
+      - from-repo: terra-mesa
+        allow-erasing: true
+        packages:
+          - mesa-dri-drivers
+          - mesa-filesystem
+          - mesa-libEGL
+          - mesa-libgbm
+          - mesa-libGL
+          - mesa-vulkan-drivers
 
   - type: containerfile
     snippets:
@@ -304,7 +325,7 @@ modules:
       - tailmix.sh
       # - cursor.sh
       # - dnsproxy.sh
-      - nerd-fonts.sh
+      # - nerd-fonts.sh # replaced by meslo-nerd-fonts/firacode-nerd-fonts RPMs (script kept in files/ for reference)
       # - mdatp.sh
       # - byedpi.sh
       - joypixels.sh
@@ -344,6 +365,8 @@ modules:
         - cec-onpoweroff.service
         - cec-onsleep.service
         - chronyd.service
+        - nohang-desktop.service # low-memory handler (do NOT also enable nohang.service - they conflict)
+        - waydroid-mount.service # mount helper shipped by waydroid-helper
       disabled:
         - docker.socket
         - raid-check.timer
@@ -359,6 +382,7 @@ modules:
       enabled:
         - docker-rootless-setup.service
         - fontconfig-cache.service
+        - waydroid-monitor.service # waydroid-helper session dbus monitor
         # - podman.socket
         # - appman-update.timer
         # - openrazer-daemon.service
@@ -396,11 +420,13 @@ modules:
       - zswap.enabled=1
       - zswap.shrinker_enabled=1
       - zswap.max_pool_percent=15
-      - zswap.zpool=zsmalloc
+      # zswap.zpool=zsmalloc - no such parameter on the ogc kernel (no /sys/module/zswap/parameters/zpool;
+      # dmesg: "zswap: loaded using pool lz4"), so the karg was silently ignored
       - zswap.compressor=lz4
       - rcutree.enable_rcu_lazy=1
       #- nr_running=1
-      - pcie_aspm=force
+      # pcie_aspm=force - removed: kernel docs warn it can cause system lockups; ASPM is now driven
+      # per power source by TLP (PCIE_ASPM_ON_BAT=powersave in files/etc/tlp.d/tlp.conf)
       - workqueue.power_efficient=1
       # snd_hda_intel.power_save=1 - moved to modprobe.d/override.conf
       # snd_hda_intel.power_save_controller=Y - moved to modprobe.d/override.conf
