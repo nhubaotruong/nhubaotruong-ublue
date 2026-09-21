@@ -156,7 +156,6 @@ file-preview-visibility='file-info'
 link-preview-orientation='horizontal'
 
 [org.gnome.shell.extensions.Bluetooth-Battery-Meter]
-enable-airpods-device=true
 enable-battery-level-text=true
 enable-galaxy-buds-device=true
 enable-gattbas-device=true
