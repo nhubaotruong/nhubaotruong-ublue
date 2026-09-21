@@ -22,7 +22,7 @@ jobs:
       contents: write
     steps:
       - name: Maximize build space
-        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
+        uses: jlumbroso/free-disk-space@ceedf095f4ec1a097402bc6bd80831f2e1a6fde6 # v2.0.0
 
       - name: Build ISO
         uses: jasonn3/build-container-installer@main
