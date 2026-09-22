@@ -176,6 +176,8 @@ modules:
         - topgrade # 17.11.0 from terra vs 16.0.4 in the ublue-os/staging copr
         - meslo-nerd-fonts # replaces scripts/nerd-fonts.sh (Meslo + FiraCode were its two families)
         - firacode-nerd-fonts
+        - 8bitdo-udev-rules # terra main repo (not terra-extras); absent from Fedora 44. Ships 71-8bitdo.rules: hidraw 0660 + uaccess for 8BitDo (2dc8) dongle and BT
+        - bpftune-gaming # terra (main repo); no bpftune in Fedora 44. KyleGospo fork of 0.4: adds gaming tuner + false-positive fixes in the 9 stock tuners. Obsoletes bpftune and bpftune-nightly
         - rar # from negativo17 fedora-multimedia (enabled via base image): rar 7.23, includes unrar 7.23
         - libunrar # terra-extras: shared lib only, does not ship /usr/bin/unrar
     remove:
@@ -232,6 +234,16 @@ modules:
           - mesa-libgbm
           - mesa-libGL
           - mesa-vulkan-drivers
+      # wireplumber from Terra (mirrors bazzite commit a4ef0e4). terra-wireplumber
+      # Provides+Conflicts wireplumber, and terra-wireplumber-libs Conflicts
+      # wireplumber-libs while providing the same SONAME, so the swap needs
+      # allow-erasing (--allowerasing). Nothing else in the recipe pulls
+      # wireplumber, so the bazzite cobr swap/versionlock has no counterpart here.
+      - from-repo: terra-extras
+        allow-erasing: true
+        packages:
+          - old: wireplumber
+            new: terra-wireplumber
 
   - type: containerfile
     snippets:
@@ -367,6 +379,7 @@ modules:
         - chronyd.service
         - nohang-desktop.service # low-memory handler (do NOT also enable nohang.service - they conflict)
         - waydroid-mount.service # mount helper shipped by waydroid-helper
+        - bpftune.service # BPF auto-tuner daemon (bpftune-gaming); the RPM scriptlet also enables it, declared here to be explicit
       disabled:
         - docker.socket
         - raid-check.timer
