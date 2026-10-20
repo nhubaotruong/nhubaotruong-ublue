@@ -26,7 +26,8 @@ modules:
       # nonfree: rpmfusion
       files:
         # - https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/fedora-coreos-pool.repo
-        - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
+        # Fedora_%OS_VERSION% has no Fedora_45 build yet; rawhide is the only fc45+ path
+        - https://download.opensuse.org/repositories/home:lamlng/Fedora_Rawhide/home:lamlng.repo
         # - https://openrazer.github.io/hardware:razer.repo
         - https://download.docker.com/linux/fedora/docker-ce.repo
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
