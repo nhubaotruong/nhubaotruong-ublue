@@ -114,16 +114,17 @@ modules:
         # - python3-openrazer
         - fuse-btfs
         - gvfs
-        - gvfs-afc
-        - gvfs-afp
-        - gvfs-archive
         - gvfs-client
         - gvfs-fuse
-        - gvfs-goa
+        - gvfs-smb
         - gvfs-gphoto2
+        - gvfs-afc
         - gvfs-mtp
         - gvfs-nfs
-        - gvfs-smb
+        - gvfs-goa
+        # absent in Fedora 45 (present in 44)
+        # - gvfs-afp
+        # - gvfs-archive
         - ublue-os-media-automount-udev
         - pcre2
         - cloudflare-warp
