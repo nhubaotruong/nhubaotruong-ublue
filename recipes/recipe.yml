@@ -31,7 +31,8 @@ modules:
         # - https://openrazer.github.io/hardware:razer.repo
         - https://download.docker.com/linux/fedora/docker-ce.repo
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-        - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
+        # temporarily off: pkg.cloudflareclient.com has no Fedora 45 build ($releasever 404)
+        # - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
         - charm.repo
         - terra.repo
         - terra-mesa.repo
@@ -124,7 +125,8 @@ modules:
         - gvfs-smb
         - ublue-os-media-automount-udev
         - pcre
-        - cloudflare-warp
+        # temporarily off: cloudflare-warp (no Fedora 45 package yet)
+        # - cloudflare-warp
         - adw-gtk3-theme
         - python3-pillow
         - python3-pyelftools
