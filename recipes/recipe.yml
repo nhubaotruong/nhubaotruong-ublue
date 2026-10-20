@@ -33,6 +33,7 @@ modules:
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         # temporarily off: pkg.cloudflareclient.com has no Fedora 45 build ($releasever 404)
         # - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
+        - cloudflare-warp-ascii.repo
         - charm.repo
         - terra.repo
         - terra-mesa.repo
