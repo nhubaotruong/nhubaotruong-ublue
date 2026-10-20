@@ -124,9 +124,8 @@ modules:
         - gvfs-nfs
         - gvfs-smb
         - ublue-os-media-automount-udev
-        # - pcre
-        # temporarily off: cloudflare-warp (no Fedora 45 package yet)
-        # - cloudflare-warp
+        - pcre2
+        - cloudflare-warp
         - adw-gtk3-theme
         - python3-pillow
         - python3-pyelftools
