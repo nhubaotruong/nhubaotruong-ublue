@@ -6,7 +6,7 @@ description: nhubaotruong uBlue image
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 44 # latest is also supported if you want new updates ASAP
+image-version: 45 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -248,7 +248,7 @@ modules:
   - type: containerfile
     snippets:
       - |
-        RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:ogc-44,source=/kernel-rpms,target=/tmp/kernel-rpms \
+        RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:ogc-45,source=/kernel-rpms,target=/tmp/kernel-rpms \
         rpm --erase kernel --nodeps && \
         rpm --erase kernel-core --nodeps && \
         rpm --erase kernel-modules --nodeps && \
@@ -262,12 +262,12 @@ modules:
         dnf5 versionlock add kernel kernel-devel kernel-devel-matched kernel-core kernel-modules kernel-modules-core kernel-modules-extra
 
   - type: copy
-    from: ghcr.io/ublue-os/akmods:ogc-44
+    from: ghcr.io/ublue-os/akmods:ogc-45
     src: /rpms
     dest: /tmp/rpms
 
   # - type: copy
-  #   from: ghcr.io/ublue-os/akmods-zfs:coreos-stable-44
+  #   from: ghcr.io/ublue-os/akmods-zfs:coreos-stable-45
   #   src: /rpms/kmods
   #   dest: /tmp/rpms
 
