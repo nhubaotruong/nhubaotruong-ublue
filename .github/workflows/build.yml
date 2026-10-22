@@ -18,7 +18,7 @@ concurrency:
 jobs:
   bluebuild:
     name: Build Custom Image
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # pinned: ubuntu-26.04 sudo ignores -E, so push env vars are lost
     permissions:
       contents: read
       packages: write
