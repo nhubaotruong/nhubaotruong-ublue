@@ -78,8 +78,8 @@ enable-hot-corners=false
 
 [org.gnome.desktop.input-sources]
 current=uint32 0
-mru-sources=[('ibus', 'Bamboo'), ('xkb', 'us')]
-sources=[('xkb', 'us'), ('ibus', 'Bamboo')]
+mru-sources=[('xkb', 'us')]
+sources=[('xkb', 'us')]
 
 [org.gnome.settings-daemon.plugins.color]
 night-light-enabled=false

@@ -38,6 +38,7 @@ modules:
         - terra.repo
         - terra-mesa.repo
         - terra-extras.repo
+        - fcitx5-lotus.repo
       copr:
         - atim/starship
         - ublue-os/packages
@@ -58,8 +59,7 @@ modules:
         - gnome-tweaks
         - neovim
         - zstd
-        - ibus-bamboo
-        # - ibus-unikey
+        - fcitx5-lotus
         - tailscale
         - breeze-cursor-theme
         - i2c-tools
@@ -351,7 +351,6 @@ modules:
       # - nanorc.sh
       # - nix-installer.sh
       # - bazzite.sh
-      # - ibus-lotus.sh
       - gnome-extensions.sh
       - depmod.sh
 
@@ -384,6 +383,7 @@ modules:
         - nohang-desktop.service # low-memory handler (do NOT also enable nohang.service - they conflict)
         - waydroid-mount.service # mount helper shipped by waydroid-helper
         - bpftune.service # BPF auto-tuner daemon (bpftune-gaming); the RPM scriptlet also enables it, declared here to be explicit
+        - fcitx5-lotus-server-enable.service # enable/start fcitx5-lotus-server@<user> for local users
       disabled:
         - docker.socket
         - raid-check.timer

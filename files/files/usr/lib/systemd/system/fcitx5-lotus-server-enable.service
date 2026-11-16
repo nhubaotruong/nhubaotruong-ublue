@@ -1,0 +1,13 @@
+[Unit]
+Description=Enable fcitx5-lotus-server for local users
+After=local-fs.target systemd-sysusers.service
+Wants=systemd-sysusers.service
+ConditionPathExists=/usr/lib/systemd/system/fcitx5-lotus-server@.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/fcitx5-lotus-enable-server
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,26 @@
+#!/usr/bin/bash
+set -euo pipefail
+
+# Ensure sysusers entries (uinput_proxy, input group membership) exist.
+if command -v systemd-sysusers >/dev/null 2>&1; then
+  systemd-sysusers /usr/lib/sysusers.d/lotus.conf 2>/dev/null || systemd-sysusers 2>/dev/null || true
+fi
+
+enabled_any=0
+
+# Enable/start for existing local human users (UID >= 1000 with a home).
+while IFS=: read -r user _ uid _ _ home _; do
+  if [ "$uid" -ge 1000 ] 2>/dev/null && [ "$uid" -lt 65534 ] 2>/dev/null && [ -d "$home" ]; then
+    if systemctl enable --now "fcitx5-lotus-server@${user}.service" >/dev/null 2>&1; then
+      enabled_any=1
+    fi
+  fi
+done < /etc/passwd
+
+# Fallback: current logname/who may not be in passwd scan yet on some setups.
+current_user="$(logname 2>/dev/null || true)"
+if [ -n "$current_user" ] && [ "$current_user" != "root" ]; then
+  systemctl enable --now "fcitx5-lotus-server@${current_user}.service" >/dev/null 2>&1 || true
+fi
+
+exit 0

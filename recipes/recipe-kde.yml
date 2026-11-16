@@ -29,6 +29,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:lamlng/Fedora_%OS_VERSION%/home:lamlng.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+      - https://fcitx5-lotus.pages.dev/rpm/fedora/fcitx5-lotus-%OS_VERSION%.repo
     install:
       - starship
       # - tilix
@@ -40,7 +41,7 @@ modules:
       - xz
       - zstd
       - papirus-icon-theme
-      - ibus-bamboo
+      - fcitx5-lotus
       - tailscale
       # - dconf-editor
       # - gnome-screenshot
