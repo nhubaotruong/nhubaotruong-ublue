@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zone>
+    <short>Kiri containers and tailmix tunnel</short>
+    <description>Container bridge and tailnet TUN in one zone. Forwarding inside the zone is
+        allowed and traffic leaving the tunnel is masqueraded, so containers reach the tailnet.
+        Kiri only masquerades traffic that leaves through the default route interface.</description>
+    <interface name="kiri0" />
+    <interface name="tailmix0" />
+    <masquerade />
+    <forward />
+</zone>

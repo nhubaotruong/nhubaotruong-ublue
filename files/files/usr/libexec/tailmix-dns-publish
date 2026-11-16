@@ -1,0 +1,37 @@
+#!/usr/bin/bash
+# shellcheck disable=SC2086 # resolver and domain lists must split into arguments
+# Kiri writes the resolvers of the default-route links into containers, plus the
+# global ones. tailmix0 has no default route, so its resolver never reaches a
+# container and internal names do not resolve in a build. Publish it as a
+# global resolver, ahead of the others: resolved stops at NXDOMAIN, so a public
+# resolver in front of it would hide internal names.
+set -euo pipefail
+
+iface=tailmix0
+# Sorts before the shipped override.conf: DNS= lines accumulate in file order,
+# and the tailnet resolver has to come first.
+conf=/run/systemd/resolved.conf.d/00-tailnet-dns.conf
+
+# tailmixd creates the TUN after this hook starts, and installs the resolver later still.
+for _ in {1..120}; do
+  tail_dns=$(resolvectl dns "$iface" 2>/dev/null | sed 's/^[^:]*: //' || true)
+  [ -n "${tail_dns:-}" ] && break
+  sleep 0.5
+done
+[ -n "${tail_dns:-}" ] || exit 0
+
+domains=$(resolvectl domain "$iface" 2>/dev/null | sed 's/^[^:]*: //' || true)
+
+# The configured resolvers stay behind the tailnet one as fallback.
+mapfile -t global < <(awk '/^nameserver/ {print $2}' /run/systemd/resolve/resolv.conf)
+
+mkdir -p "${conf%/*}"
+printf '[Resolve]\nDNS=%s %s\n' "$tail_dns" "${global[*]}" >"$conf"
+
+systemctl reload systemd-resolved
+
+# The reload must not cost tailmix its per-link settings.
+resolvectl dns "$iface" $tail_dns
+if [ -n "$domains" ]; then
+  resolvectl domain "$iface" $domains
+fi
