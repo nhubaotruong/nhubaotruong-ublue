@@ -1,0 +1,13 @@
+[Unit]
+Description=Add local users to the kiri group
+After=local-fs.target systemd-sysusers.service
+Before=systemd-user-sessions.service
+ConditionPathExists=/usr/bin/kiri
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/kiri-add-users-to-group
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

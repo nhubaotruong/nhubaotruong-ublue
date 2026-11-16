@@ -29,7 +29,6 @@ modules:
         # Fedora_%OS_VERSION% has no Fedora_45 build yet; rawhide is the only fc45+ path
         - https://download.opensuse.org/repositories/home:lamlng/Fedora_Rawhide/home:lamlng.repo
         # - https://openrazer.github.io/hardware:razer.repo
-        - https://download.docker.com/linux/fedora/docker-ce.repo
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         # temporarily off: pkg.cloudflareclient.com has no Fedora 45 build ($releasever 404)
         # - https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
@@ -134,12 +133,6 @@ modules:
         - python3-xapps-overrides
         - xapps
         - squashfs-tools-ng
-        - docker-ce
-        - docker-ce-cli
-        - containerd.io
-        - docker-buildx-plugin
-        - docker-compose-plugin
-        - docker-ce-rootless-extras
         - ghostty
         # - virt-manager
         # - qemu
@@ -352,6 +345,7 @@ modules:
       # - nix-installer.sh
       # - bazzite.sh
       - gnome-extensions.sh
+      - kiri.sh
       - depmod.sh
 
   - type: gschema-overrides
@@ -384,8 +378,9 @@ modules:
         - waydroid-mount.service # mount helper shipped by waydroid-helper
         - bpftune.service # BPF auto-tuner daemon (bpftune-gaming); the RPM scriptlet also enables it, declared here to be explicit
         - fcitx5-lotus-server-enable.service # enable/start fcitx5-lotus-server@<user> for local users
+        - kiri.service # Kiri container engine (replaces Docker rootless)
+        - kiri-add-users.service # add local users to kiri group for seamless migration
       disabled:
-        - docker.socket
         - raid-check.timer
         - systemd-homed.service
         - systemd-homed-activate.service
@@ -397,7 +392,6 @@ modules:
         - systemd-oomd.socket
     user:
       enabled:
-        - docker-rootless-setup.service
         - fontconfig-cache.service
         - waydroid-monitor.service # waydroid-helper session dbus monitor
         # - podman.socket

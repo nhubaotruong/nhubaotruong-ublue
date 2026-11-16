@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+set -euo pipefail
+
+getent group kiri >/dev/null 2>&1 || exit 0
+
+while IFS=: read -r user _ uid _ _ home _; do
+  if [ "$uid" -ge 1000 ] 2>/dev/null && [ "$uid" -lt 65534 ] 2>/dev/null && [ -d "$home" ]; then
+    if ! id -nG "$user" 2>/dev/null | grep -qw kiri; then
+      usermod -aG kiri "$user" 2>/dev/null || gpasswd -a "$user" kiri 2>/dev/null || true
+    fi
+  fi
+done < /etc/passwd

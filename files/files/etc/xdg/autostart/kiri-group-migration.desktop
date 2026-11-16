@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Kiri Group Migration
+Comment=Add user to kiri group for Docker/Kiri access
+Exec=/usr/libexec/kiri-group-migration-login
+NoDisplay=true
+X-GNOME-Autostart-enabled=true

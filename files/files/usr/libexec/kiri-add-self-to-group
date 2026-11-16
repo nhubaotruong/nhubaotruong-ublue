@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+set -euo pipefail
+
+uid="${PKEXEC_UID:-${SUDO_UID:-}}"
+[ -n "$uid" ] || exit 1
+user="$(id -nu "$uid" 2>/dev/null || true)"
+[ -n "$user" ] || exit 1
+
+getent group kiri >/dev/null 2>&1 || exit 0
+
+if ! id -nG "$user" 2>/dev/null | grep -qw kiri; then
+  usermod -aG kiri "$user" 2>/dev/null || gpasswd -a "$user" kiri 2>/dev/null
+fi

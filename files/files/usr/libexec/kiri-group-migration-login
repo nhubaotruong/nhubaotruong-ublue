@@ -1,0 +1,31 @@
+#!/usr/bin/bash
+set -euo pipefail
+
+user="${USER:-$(id -un 2>/dev/null || true)}"
+[ -n "$user" ] || exit 0
+
+marker="${XDG_CONFIG_HOME:-$HOME/.config}/.kiri-group-migrated"
+
+in_session() { id -nG 2>/dev/null | grep -qw kiri; }
+in_db() { getent group kiri 2>/dev/null | tr ',' '\n' | grep -qx "$user"; }
+
+if in_session; then
+  mkdir -p "$(dirname "$marker")"
+  : > "$marker"
+  exit 0
+fi
+
+if in_db; then
+  exit 0
+fi
+
+[ -f "$marker" ] && exit 0
+command -v pkexec >/dev/null 2>&1 || exit 0
+[ -x /usr/libexec/kiri-add-self-to-group ] || exit 0
+
+if pkexec /usr/libexec/kiri-add-self-to-group >/dev/null 2>&1; then
+  if in_db; then
+    mkdir -p "$(dirname "$marker")"
+    : > "$marker"
+  fi
+fi

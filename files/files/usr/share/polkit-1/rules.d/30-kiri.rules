@@ -1,0 +1,8 @@
+polkit.addRule(function(action, subject) {
+    if (action.id == "dev.kiri.add-self-to-group" &&
+        subject.active == true &&
+        subject.local == true &&
+        subject.isInGroup("wheel")) {
+        return polkit.Result.YES;
+    }
+});
