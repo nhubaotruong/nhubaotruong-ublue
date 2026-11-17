@@ -21,4 +21,5 @@
     <port port="1025-65535" protocol="udp" />
     <port port="1025-65535" protocol="tcp" />
     <forward />
+    <masquerade />
 </zone>
