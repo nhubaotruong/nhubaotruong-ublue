@@ -4,7 +4,7 @@
     <description>Unsolicited incoming network packets are rejected from port 1 to 1024, except for
         select network services. Incoming packets that are related to outgoing network connections
         are accepted. Outgoing network connections are allowed.</description>
-    <interface name="kiri0" />
+    <interface name="kiri+" />
     <interface name="tailmix0" />
     <service name="dhcpv6-client" />
     <service name="ssh" />
