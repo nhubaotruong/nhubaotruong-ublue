@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Kiri masquerades only the interface of the default route, and tailmix
+     moves the default route to tailmix0. Container traffic leaving any
+     other interface is then sent with its bridge address, which the tailnet
+     drops. Match Kiri's bridge pool (172.17.0.0/16-172.31.0.0/16, then
+     10.89.N.0/24) by source, so every uplink works. -->
+<direct>
+  <rule ipv="ipv4" table="nat" chain="POSTROUTING" priority="0">-s 172.16.0.0/12 -j MASQUERADE</rule>
+  <rule ipv="ipv4" table="nat" chain="POSTROUTING" priority="0">-s 10.89.0.0/16 -j MASQUERADE</rule>
+</direct>
