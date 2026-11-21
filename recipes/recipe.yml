@@ -52,6 +52,11 @@ modules:
     install:
       # skip-unavailable: true
       allow-erasing: true
+      exclude:
+        # terra's monolithic ghostty-shell-integration 1.3.1 (Supplements: ghostty)
+        # is auto-installed alongside clarlok's 1.4.0 split shell-integration
+        # packages and they own the same files
+        - ghostty-shell-integration
       packages:
         - sqlite
         - starship
@@ -180,6 +185,7 @@ modules:
     remove:
       auto-remove: true
       packages:
+        - ghostty-shell-integration # stale terra monolith left by an older image; see install.exclude
         - kernel-uki-virt
         - virtualbox-guest-additions
         - firefox # default firefox removed in favor of flatpak
